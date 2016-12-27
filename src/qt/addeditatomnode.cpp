@@ -1,5 +1,5 @@
-#include "addeditadrenalinenode.h"
-#include "ui_addeditadrenalinenode.h"
+#include "addeditatomnode.h"
+#include "ui_addeditatomnode.h"
 #include "masternodeconfig.h"
 #include "masternodemanager.h"
 #include "ui_masternodemanager.h"
@@ -15,21 +15,21 @@
 #include <QMessageBox>
 #include <QClipboard>
 
-AddEditAdrenalineNode::AddEditAdrenalineNode(QWidget *parent) :
+AddEditAtomNode::AddEditAtomNode(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::AddEditAdrenalineNode)
+    ui(new Ui::AddEditAtomNode)
 {
     ui->setupUi(this);
 
 }
 
-AddEditAdrenalineNode::~AddEditAdrenalineNode()
+AddEditAtomNode::~AddEditAtomNode()
 {
     delete ui;
 }
 
 
-void AddEditAdrenalineNode::on_okButton_clicked()
+void AddEditAtomNode::on_okButton_clicked()
 {
     if(ui->aliasLineEdit->text() == "")
     {
@@ -86,24 +86,24 @@ void AddEditAdrenalineNode::on_okButton_clicked()
     }
 }
 
-void AddEditAdrenalineNode::on_cancelButton_clicked()
+void AddEditAtomNode::on_cancelButton_clicked()
 {
     reject();
 }
 
-void AddEditAdrenalineNode::on_AddEditAddressPasteButton_clicked()
+void AddEditAtomNode::on_AddEditAddressPasteButton_clicked()
 {
     // Paste text from clipboard into recipient field
     ui->addressLineEdit->setText(QApplication::clipboard()->text());
 }
 
-void AddEditAdrenalineNode::on_AddEditPrivkeyPasteButton_clicked()
+void AddEditAtomNode::on_AddEditPrivkeyPasteButton_clicked()
 {
     // Paste text from clipboard into recipient field
     ui->privkeyLineEdit->setText(QApplication::clipboard()->text());
 }
 
-void AddEditAdrenalineNode::on_AddEditTxhashPasteButton_clicked()
+void AddEditAtomNode::on_AddEditTxhashPasteButton_clicked()
 {
     // Paste text from clipboard into recipient field
     ui->txhashLineEdit->setText(QApplication::clipboard()->text());

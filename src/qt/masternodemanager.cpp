@@ -1,7 +1,7 @@
 #include "masternodemanager.h"
 #include "ui_masternodemanager.h"
-#include "addeditadrenalinenode.h"
-#include "adrenalinenodeconfigdialog.h"
+#include "addeditatomnode.h"
+#include "atomnodeconfigdialog.h"
 
 #include "sync.h"
 #include "clientmodel.h"
@@ -66,9 +66,9 @@ void MasternodeManager::on_tableWidget_2_itemSelectionChanged()
     }
 }
 
-void MasternodeManager::updateAdrenalineNode(QString alias, QString addr, QString privkey, QString txHash, QString txIndex, QString status)
+void MasternodeManager::updateAtomNode(QString alias, QString addr, QString privkey, QString txHash, QString txIndex, QString status)
 {
-    LOCK(cs_adrenaline);
+    LOCK(cs_atom);
     bool bFound = false;
     int nodeRow = 0;
     for(int i=0; i < ui->tableWidget_2->rowCount(); i++)
@@ -172,7 +172,7 @@ void MasternodeManager::setWalletModel(WalletModel *model)
 
 void MasternodeManager::on_createButton_clicked()
 {
-    AddEditAdrenalineNode* aenode = new AddEditAdrenalineNode();
+    AddEditAtomNode* aenode = new AddEditAtomNode();
     aenode->exec();
 }
 
@@ -271,17 +271,17 @@ void MasternodeManager::on_UpdateButton_clicked()
 
         std::vector<CMasternode> vMasternodes = mnodeman.GetFullMasternodeVector();
         if (errorMessage == ""){
-            updateAdrenalineNode(QString::fromStdString(mne.getAlias()), QString::fromStdString(mne.getIp()), QString::fromStdString(mne.getPrivKey()), QString::fromStdString(mne.getTxHash()),
+            updateAtomNode(QString::fromStdString(mne.getAlias()), QString::fromStdString(mne.getIp()), QString::fromStdString(mne.getPrivKey()), QString::fromStdString(mne.getTxHash()),
                 QString::fromStdString(mne.getOutputIndex()), QString::fromStdString("Not in the masternode list."));
         }
         else {
-            updateAdrenalineNode(QString::fromStdString(mne.getAlias()), QString::fromStdString(mne.getIp()), QString::fromStdString(mne.getPrivKey()), QString::fromStdString(mne.getTxHash()),
+            updateAtomNode(QString::fromStdString(mne.getAlias()), QString::fromStdString(mne.getIp()), QString::fromStdString(mne.getPrivKey()), QString::fromStdString(mne.getTxHash()),
                 QString::fromStdString(mne.getOutputIndex()), QString::fromStdString(errorMessage));
         }
 
         BOOST_FOREACH(CMasternode& mn, vMasternodes) {
             if (mn.addr.ToString().c_str() == mne.getIp()){
-                updateAdrenalineNode(QString::fromStdString(mne.getAlias()), QString::fromStdString(mne.getIp()), QString::fromStdString(mne.getPrivKey()), QString::fromStdString(mne.getTxHash()),
+                updateAtomNode(QString::fromStdString(mne.getAlias()), QString::fromStdString(mne.getIp()), QString::fromStdString(mne.getPrivKey()), QString::fromStdString(mne.getTxHash()),
                 QString::fromStdString(mne.getOutputIndex()), QString::fromStdString("Masternode is Running."));
             }
         }

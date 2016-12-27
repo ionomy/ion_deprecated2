@@ -33,7 +33,7 @@ public:
 
 public slots:
     void updateNodeList();
-    void updateAdrenalineNode(QString alias, QString addr, QString privkey, QString txHash, QString txIndex, QString status);
+    void updateAtomNode(QString alias, QString addr, QString privkey, QString txHash, QString txIndex, QString status);
     void on_UpdateButton_clicked();
 
 signals:
@@ -43,7 +43,7 @@ private:
     Ui::MasternodeManager *ui;
     ClientModel *clientModel;
     WalletModel *walletModel;
-    CCriticalSection cs_adrenaline;
+    CCriticalSection cs_atom;
 
 private slots:
     void on_createButton_clicked();

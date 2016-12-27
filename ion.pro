@@ -287,8 +287,8 @@ HEADERS += src/qt/bitcoingui.h \
     src/crypto/sha256.h \
     src/crypto/sha512.h \
     src/qt/masternodemanager.h \
-    src/qt/addeditadrenalinenode.h \
-    src/qt/adrenalinenodeconfigdialog.h \
+    src/qt/addeditatomnode.h \
+    src/qt/atomnodeconfigdialog.h \
     src/qt/qcustomplot.h \
     src/smessage.h \
     src/qt/messagepage.h \
@@ -411,8 +411,8 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/crypto/sha256.cpp \
     src/crypto/sha512.cpp \
     src/qt/masternodemanager.cpp \
-    src/qt/addeditadrenalinenode.cpp \
-    src/qt/adrenalinenodeconfigdialog.cpp \
+    src/qt/addeditatomnode.cpp \
+    src/qt/atomnodeconfigdialog.cpp \
     src/qt/qcustomplot.cpp \
     src/smessage.cpp \
     src/qt/messagepage.cpp \
@@ -454,8 +454,8 @@ FORMS += \
     src/qt/forms/optionsdialog.ui \
     src/qt/forms/darksendconfig.ui \
     src/qt/forms/masternodemanager.ui \
-    src/qt/forms/addeditadrenalinenode.ui \
-    src/qt/forms/adrenalinenodeconfigdialog.ui \
+    src/qt/forms/addeditatomnode.ui \
+    src/qt/forms/atomnodeconfigdialog.ui \
     src/qt/forms/messagepage.ui \
     src/qt/forms/sendmessagesentry.ui \
     src/qt/forms/sendmessagesdialog.ui \
