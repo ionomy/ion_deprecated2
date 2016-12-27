@@ -165,7 +165,7 @@ public:
 
 
 // -- get at the data
-class CTransfercoinAddress_B : public CTransfercoinAddress
+class CIoncoinAddress_B : public CIoncoinAddress
 {
 public:
     uint8_t getVersion()

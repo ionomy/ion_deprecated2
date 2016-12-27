@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Add/Edit Transfer Node</string>
+   <string>Add/Edit Ion Node</string>
   </property>
   <property name="modal">
    <bool>true</bool>

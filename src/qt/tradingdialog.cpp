@@ -562,7 +562,7 @@ void tradingDialog::ActionsOnSwitch(int index = -1){
                 case 0:    //buy tab is active
 
                     Response = GetBalance("BTC");
-                    Response2 = GetBalance("TX");
+                    Response2 = GetBalance("ION");
                     Response3 = GetOrderBook();
 
                     if((Response.size() > 0 && Response != "Error") && (Response2.size() > 0 && Response2 != "Error")){
@@ -575,7 +575,7 @@ void tradingDialog::ActionsOnSwitch(int index = -1){
                 break;
 
                 case 1: //Cross send tab active
-                    Response = GetBalance("TX");
+                    Response = GetBalance("ION");
                     Response2 = GetBalance("BTC");
                     if((Response.size() > 0 && Response != "Error") && (Response2.size() > 0 && Response2 != "Error")){
                         DisplayBalance(*ui->BittrexTXLabel, *ui->BittrexBTCLabel, Response, Response2);
@@ -611,9 +611,9 @@ void tradingDialog::ActionsOnSwitch(int index = -1){
                         DisplayBalance(*ui->BitcoinBalanceLabel,*ui->BitcoinAvailableLabel,*ui->BitcoinPendingLabel, QString::fromUtf8("BTC"),Response);
                     }
 
-                    Response = GetBalance("TX");
+                    Response = GetBalance("ION");
                     if(Response.size() > 0 && Response != "Error"){
-                        DisplayBalance(*ui->TXBalanceLabel,*ui->TXAvailableLabel_2,*ui->TXPendingLabel, QString::fromUtf8("TX"),Response);
+                        DisplayBalance(*ui->TXBalanceLabel,*ui->TXAvailableLabel_2,*ui->TXPendingLabel, QString::fromUtf8("ION"),Response);
                     }
                 break;
 
@@ -714,7 +714,7 @@ void tradingDialog::CalculateSellCostLabel(){
 void tradingDialog::CalculateCSReceiveLabel(){
 
     //calculate amount of currency than can be transferred to bitcoin
-    QString balance = GetBalance("TX");
+    QString balance = GetBalance("ION");
     QString buyorders = GetOrderBook();
 
     QJsonObject BuyObject = GetResultObjectFromJSONObject(buyorders);
@@ -915,7 +915,7 @@ void tradingDialog::on_GenDepositBTN_clicked()
 void tradingDialog::on_Sell_Max_Amount_clicked()
 {
     //calculate amount of BTC that can be gained from selling TX available balance
-    QString responseA = GetBalance("TX");
+    QString responseA = GetBalance("ION");
     QString str;
     QJsonObject ResultObject =  GetResultObjectFromJSONObject(responseA);
 
@@ -993,7 +993,7 @@ void tradingDialog::on_CS_Max_Amount_clicked()
 void tradingDialog::on_Withdraw_Max_Amount_clicked()
 {
     //calculate amount of currency than can be brought with the BTC balance available
-    QString responseA = GetBalance("TX");
+    QString responseA = GetBalance("ION");
     QString str;
 
     QJsonObject ResultObject =  GetResultObjectFromJSONObject(responseA);
