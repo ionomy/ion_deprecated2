@@ -2107,11 +2107,11 @@ bool CWallet::SelectCoinsByDenominations(int nDenom, int64_t nValueMin, int64_t 
 
             // Function returns as follows:
             //
-            // bit 0 - 1000TX+1 ( bit on if present )
-            // bit 1 - 100TX+1
-            // bit 2 - 10TX+1
-            // bit 3 - 1TX+1
-            // bit 4 - .1TX+1
+            // bit 0 - 1000ION+1 ( bit on if present )
+            // bit 1 - 100ION+1
+            // bit 2 - 10ION+1
+            // bit 3 - 1ION+1
+            // bit 4 - .1ION+1
 
             CTxIn vin = CTxIn(out.tx->GetHash(),out.i);
 

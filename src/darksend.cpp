@@ -1930,10 +1930,10 @@ bool CDarksendPool::IsCompatibleWithSession(int64_t nDenom, CTransaction txColla
 void CDarksendPool::GetDenominationsToString(int nDenom, std::string& strDenom){
     // Function returns as follows:
     //
-    // bit 0 - 100TX+1 ( bit on if present )
-    // bit 1 - 10TX+1
-    // bit 2 - 1TX+1
-    // bit 3 - .1TX+1
+    // bit 0 - 100ION+1 ( bit on if present )
+    // bit 1 - 10ION+1
+    // bit 2 - 1ION+1
+    // bit 3 - .1ION+1
     // bit 3 - non-denom
 
 
@@ -2006,10 +2006,10 @@ int CDarksendPool::GetDenominations(const std::vector<CTxOut>& vout, bool fSingl
 
     // Function returns as follows:
     //
-    // bit 0 - 100TX+1 ( bit on if present )
-    // bit 1 - 10TX+1
-    // bit 2 - 1TX+1
-    // bit 3 - .1TX+1
+    // bit 0 - 100ION+1 ( bit on if present )
+    // bit 1 - 10ION+1
+    // bit 2 - 1ION+1
+    // bit 3 - .1ION+1
 
     return denom;
 }
