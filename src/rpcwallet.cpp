@@ -328,8 +328,8 @@ Value setaccount(const Array& params, bool fHelp)
             "1. \"ionaddress\"  (string, required) The Ion address to be associated with an account.\n"
             "2. \"account\"         (string, required) The account to assign the address to.\n"
             "\nExamples:\n"
-            + HelpExampleCli("setaccount", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\" \"tabby\"")
-            + HelpExampleRpc("setaccount", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\", \"tabby\"")
+            + HelpExampleCli("setaccount", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\" \"tabby\"")
+            + HelpExampleRpc("setaccount", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\", \"tabby\"")
         );
 
     CIoncoinAddress address(params[0].get_str());
@@ -371,8 +371,8 @@ Value getaccount(const Array& params, bool fHelp)
             "\nResult:\n"
             "\"accountname\"        (string) the account address\n"
             "\nExamples:\n"
-            + HelpExampleCli("getaccount", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\"")
-            + HelpExampleRpc("getaccount", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\"")
+            + HelpExampleCli("getaccount", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\"")
+            + HelpExampleRpc("getaccount", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\"")
         );
 
     CIoncoinAddress address(params[0].get_str());
@@ -428,7 +428,7 @@ Value sendtoaddress(const Array& params, bool fHelp)
             + HelpRequiringPassphrase() +
             "\nArguments:\n"
            "1. \"ionaddress\"  (string, required) The Ion address to send to.\n"
-            "2. \"amount\"      (numeric, required) The amount in TX to send. eg 0.1\n"
+            "2. \"amount\"      (numeric, required) The amount in ION to send. eg 0.1\n"
             "3. \"comment\"     (string, optional) A comment used to store what the transaction is for. \n"
             "                             This is not part of the transaction, just kept in your wallet.\n"
             "4. \"comment-to\"  (string, optional) A comment to store the name of the person or organization \n"
@@ -437,9 +437,9 @@ Value sendtoaddress(const Array& params, bool fHelp)
             "\nResult:\n"
             "\"transactionid\"  (string) The transaction id.\n"
             "\nExamples:\n"
-            + HelpExampleCli("sendtoaddress", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\" 0.1")
-            + HelpExampleCli("sendtoaddress", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\" 0.1 \"donation\" \"seans outpost\"")
-            + HelpExampleRpc("sendtoaddress", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\", 0.1, \"donation\", \"seans outpost\"")
+            + HelpExampleCli("sendtoaddress", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\" 0.1")
+            + HelpExampleCli("sendtoaddress", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\" 0.1 \"donation\" \"seans outpost\"")
+            + HelpExampleRpc("sendtoaddress", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\", 0.1, \"donation\", \"seans outpost\"")
         );
 
     EnsureWalletIsUnlocked();
@@ -539,11 +539,11 @@ Value signmessage(const Array& params, bool fHelp)
             "\nUnlock the wallet for 30 seconds\n"
             + HelpExampleCli("walletpassphrase", "\"mypassphrase\" 30") +
             "\nCreate the signature\n"
-            + HelpExampleCli("signmessage", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\" \"my message\"") +
+            + HelpExampleCli("signmessage", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\" \"my message\"") +
             "\nVerify the signature\n"
-            + HelpExampleCli("verifymessage", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\" \"signature\" \"my message\"") +
+            + HelpExampleCli("verifymessage", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\" \"signature\" \"my message\"") +
             "\nAs json rpc\n"
-            + HelpExampleRpc("signmessage", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\", \"my message\"")
+            + HelpExampleRpc("signmessage", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\", \"my message\"")
         );
 
     EnsureWalletIsUnlocked();
@@ -584,16 +584,16 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
             "1. \"ionaddress\"  (string, required) The Ion address for transactions.\n"
             "2. minconf             (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n"
             "\nResult:\n"
-            "amount   (numeric) The total amount in TX received at this address.\n"
+            "amount   (numeric) The total amount in ION received at this address.\n"
             "\nExamples:\n"
             "\nThe amount from transactions with at least 1 confirmation\n"
-            + HelpExampleCli("getreceivedbyaddress", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\"") +
+            + HelpExampleCli("getreceivedbyaddress", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\"") +
             "\nThe amount including unconfirmed transactions, zero confirmations\n"
-            + HelpExampleCli("getreceivedbyaddress", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\" 0") +
+            + HelpExampleCli("getreceivedbyaddress", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\" 0") +
             "\nThe amount with at least 10 confirmation, very safe\n"
-            + HelpExampleCli("getreceivedbyaddress", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\" 10") +
+            + HelpExampleCli("getreceivedbyaddress", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\" 10") +
             "\nAs a json rpc call\n"
-            + HelpExampleRpc("getreceivedbyaddress", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\", 10")
+            + HelpExampleRpc("getreceivedbyaddress", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\", 10")
        );
 
     // Bitcoin address
@@ -649,7 +649,7 @@ Value getreceivedbyaccount(const Array& params, bool fHelp)
             "1. \"account\"      (string, required) The selected account, may be the default account using \"\".\n"
             "2. minconf          (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n"
             "\nResult:\n"
-            "amount              (numeric) The total amount in TX received for this account.\n"
+            "amount              (numeric) The total amount in ION received for this account.\n"
             "\nExamples:\n"
             "\nAmount received by the default account with at least 1 confirmation\n"
             + HelpExampleCli("getreceivedbyaccount", "\"\"") +
@@ -740,7 +740,7 @@ Value getbalance(const Array& params, bool fHelp)
             "2. minconf          (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n"
             "3. includeWatchonly (bool, optional, default=false) Also include balance in watchonly addresses (see 'importaddress')\n"
             "\nResult:\n"
-            "amount              (numeric) The total amount in TX received for this account.\n"
+            "amount              (numeric) The total amount in ION received for this account.\n"
             "\nExamples:\n"
             "\nThe total amount in the server across all accounts\n"
             + HelpExampleCli("getbalance", "") +
@@ -817,11 +817,11 @@ Value movecmd(const Array& params, bool fHelp)
             "\nResult:\n"
             "true|false           (boolean) true if successfull.\n"
             "\nExamples:\n"
-            "\nMove 0.01 TX from the default account to the account named tabby\n"
+            "\nMove 0.01 ION from the default account to the account named tabby\n"
             + HelpExampleCli("move", "\"\" \"tabby\" 0.01") +
-            "\nMove 0.01 TX timotei to akiko with a comment and funds have 10 confirmations\n"
+            "\nMove 0.01 ION timotei to akiko with a comment and funds have 10 confirmations\n"
             + HelpExampleCli("move", "\"timotei\" \"akiko\" 0.01 10 \"happy birthday!\"") +
-            "\nAs a json TX call\n"
+            "\nAs a json ION call\n"
             + HelpExampleRpc("move", "\"timotei\", \"akiko\", 0.01, 10, \"happy birthday!\"")
         );
 
@@ -892,12 +892,12 @@ Value sendfrom(const Array& params, bool fHelp)
             "\nResult:\n"
             "\"transactionid\"        (string) The transaction id.\n"
             "\nExamples:\n"
-            "\nSend 0.01 TX from the default account to the address, must have at least 1 confirmation\n"
-            + HelpExampleCli("sendfrom", "\"\" \"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\" 0.01") +
+            "\nSend 0.01 ION from the default account to the address, must have at least 1 confirmation\n"
+            + HelpExampleCli("sendfrom", "\"\" \"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\" 0.01") +
             "\nSend 0.01 from the tabby account to the given address, funds must have at least 10 confirmations\n"
-            + HelpExampleCli("sendfrom", "\"tabby\" \"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\" 0.01 10 \"donation\" \"seans outpost\"") +
+            + HelpExampleCli("sendfrom", "\"tabby\" \"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\" 0.01 10 \"donation\" \"seans outpost\"") +
             "\nAs a json rpc call\n"
-            + HelpExampleRpc("sendfrom", "\"tabby\", \"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\", 0.01, 10, \"donation\", \"seans outpost\"")
+            + HelpExampleRpc("sendfrom", "\"tabby\", \"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\", 0.01, 10, \"donation\", \"seans outpost\"")
         );
 
     EnsureWalletIsUnlocked();
@@ -952,7 +952,7 @@ Value sendmany(const Array& params, bool fHelp)
             "1. \"fromaccount\"         (string, required) The account to send the funds from, can be \"\" for the default account\n"
             "2. \"amounts\"             (string, required) A json object with addresses and amounts\n"
             "    {\n"
-            "      \"address\":amount   (numeric) The Ion address is the key, the numeric amount in TX is the value\n"
+            "      \"address\":amount   (numeric) The Ion address is the key, the numeric amount in ION is the value\n"
             "      ,...\n"
             "    }\n"
             "3. minconf                 (numeric, optional, default=1) Only use the balance confirmed at least this many times.\n"
@@ -962,11 +962,11 @@ Value sendmany(const Array& params, bool fHelp)
             "                                    the number of addresses.\n"
             "\nExamples:\n"
             "\nSend two amounts to two different addresses:\n"
-            + HelpExampleCli("sendmany", "\"tabby\" \"{\\\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\\\":0.01,\\\"ThiLpx7oYd5YuuhsJAUD5ZsEX2YHgU98Us\\\":0.02}\"") +
+            + HelpExampleCli("sendmany", "\"tabby\" \"{\\\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\\\":0.01,\\\"ThiLpx7oYd5YuuhsJAUD5ZsEX2YHgU98Us\\\":0.02}\"") +
             "\nSend two amounts to two different addresses setting the confirmation and comment:\n"
-            + HelpExampleCli("sendmany", "\"tabby\" \"{\\\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\\\":0.01,\\\"ThiLpx7oYd5YuuhsJAUD5ZsEX2YHgU98Us\\\":0.02}\" 10 \"testing\"") +
+            + HelpExampleCli("sendmany", "\"tabby\" \"{\\\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\\\":0.01,\\\"ThiLpx7oYd5YuuhsJAUD5ZsEX2YHgU98Us\\\":0.02}\" 10 \"testing\"") +
             "\nAs a json rpc call\n"
-            + HelpExampleRpc("sendmany", "\"tabby\", \"{\\\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\\\":0.01,\\\"ThiLpx7oYd5YuuhsJAUD5ZsEX2YHgU98Us\\\":0.02}\", 10, \"testing\"")
+            + HelpExampleRpc("sendmany", "\"tabby\", \"{\\\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\\\":0.01,\\\"ThiLpx7oYd5YuuhsJAUD5ZsEX2YHgU98Us\\\":0.02}\", 10, \"testing\"")
         );
 
     string strAccount = AccountFromValue(params[0]);
@@ -1054,9 +1054,9 @@ Value addmultisigaddress(const Array& params, bool fHelp)
 
             "\nExamples:\n"
             "\nAdd a multisig address from 2 addresses\n"
-            + HelpExampleCli("addmultisigaddress", "2 \"[\\\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\\\",\\\"ThiLpx7oYd5YuuhsJAUD5ZsEX2YHgU98Us\\\"]\"") +
+            + HelpExampleCli("addmultisigaddress", "2 \"[\\\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\\\",\\\"ThiLpx7oYd5YuuhsJAUD5ZsEX2YHgU98Us\\\"]\"") +
             "\nAs json rpc call\n"
-            + HelpExampleRpc("addmultisigaddress", "2, \"[\\\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\\\",\\\"ThiLpx7oYd5YuuhsJAUD5ZsEX2YHgU98Us\\\"]\"")
+            + HelpExampleRpc("addmultisigaddress", "2, \"[\\\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\\\",\\\"ThiLpx7oYd5YuuhsJAUD5ZsEX2YHgU98Us\\\"]\"")
         ;
         throw runtime_error(msg);
     }
@@ -1306,7 +1306,7 @@ Value listreceivedbyaddress(const Array& params, bool fHelp)
             "    \"involvesWatchonly\" : \"true\",    (bool) Only returned if imported addresses were involved in transaction\n"
             "    \"address\" : \"receivingaddress\",  (string) The receiving address\n"
             "    \"account\" : \"accountname\",       (string) The account of the receiving address. The default account is \"\".\n"
-            "    \"amount\" : x.xxx,                  (numeric) The total amount in TX received by the address\n"
+            "    \"amount\" : x.xxx,                  (numeric) The total amount in ION received by the address\n"
             "    \"confirmations\" : n                (numeric) The number of confirmations of the most recent transaction included\n"
             "    \"bcconfirmations\" : n              (numeric) The number of Blockchain confirmations of the most recent transaction included\n"
             "  }\n"
@@ -2031,7 +2031,7 @@ Value walletlock(const Array& params, bool fHelp)
             "\nSet the passphrase for 2 minutes to perform a transaction\n"
             + HelpExampleCli("walletpassphrase", "\"my pass phrase\" 120") +
             "\nPerform a send (requires passphrase set)\n"
-            + HelpExampleCli("sendtoaddress", "\"TfFxcTN7BJQp88cPJYRvFpUAAKefTib9uh\" 1.0") +
+            + HelpExampleCli("sendtoaddress", "\"iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe\" 1.0") +
             "\nClear the passphrase since we are done before 2 minutes is up\n"
             + HelpExampleCli("walletlock", "") +
             "\nAs json rpc call\n"

@@ -9,7 +9,7 @@
 #include "clientversion.h"
 
 //
-// Bootup the masternode, look for a 500 TX input and register on the network
+// Bootup the masternode, look for a 20000 ION input and register on the network
 //
 void CActiveMasternode::ManageStatus()
 {
