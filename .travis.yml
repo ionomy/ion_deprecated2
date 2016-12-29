@@ -3,6 +3,10 @@ compiler: gcc
 os: linux
 sudo: required
 dist: trusty
+cache: 
+  directories:
+  - $HOME/empinel/Ion-Core/src/leveldb
+  - $HOME/empinel/Ion-Core/src/secp256k1
 before_install:
   - chmod 755 src/leveldb/build_detect_platform
 install:
