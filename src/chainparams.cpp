@@ -105,7 +105,7 @@ public:
         //strMasternodePaymentsPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
         strDarksendPoolDummyAddress = "TcYM6qFTC9i1CHb4GoHTQchF7Z2Qru73gv";
         nLastPOWBlock 	= 2000;
-        nPOSStartBlock 	= 2000;
+        nPOSStartBlock 	= 1;
     }
 
     virtual const CBlock& GenesisBlock() const { return genesis; }
@@ -145,7 +145,7 @@ public:
         genesis.nBits  = 520159231; 
         genesis.nNonce = 35117;
 
-        assert(hashGenesisBlock == uint256("0x9672529bc958a440a8acd061d914120d44c914a06454b82d3e1cd68fe4f1f916"));
+//        assert(hashGenesisBlock == uint256("0x9672529bc958a440a8acd061d914120d44c914a06454b82d3e1cd68fe4f1f916"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
