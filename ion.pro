@@ -582,6 +582,7 @@ LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
 # -lgdi32 has to happen after -lcrypto (see  #681)
 windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32
 !windows: {
+    LIBS += -lgmp
 } else {
     INCLUDEPATH += $$SECP256K1_INCLUDE_PATH
     LIBS += $$join(SECP256K1_LIB_PATH,,-L,) -lsecp256k1
