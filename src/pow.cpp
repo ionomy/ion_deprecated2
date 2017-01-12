@@ -185,14 +185,14 @@ unsigned int DeltaRetargetingAlgorithm(const INDEX_TYPE pindexLast, bool fProofO
                 }
             }
 
-            if ((BLOCK_TIME(block) - INDEX_TIME(pindexLast)) > nLongTimeLimit) {
+            /*if ((BLOCK_TIME(block) - INDEX_TIME(pindexLast)) > nLongTimeLimit) {
 
                 int64_t nNumMissedSteps = ((BLOCK_TIME(block) - INDEX_TIME(pindexLast) - nLongTimeLimit) / nLongTimeStep) + 1;
                 for (int i = 0; i < nNumMissedSteps; ++i) {
                     bnNew = BIGINT_MULTIPLY(bnNew, arith_uint256(110));
                     bnNew = BIGINT_DIVIDE(bnNew, arith_uint256(PERCENT_FACTOR));
                 }
-            }
+            }*/
 
             SET_COMPACT(bnComp, nProofOfWorkLimit);
             if (BIGINT_GREATER_THAN(bnNew, bnComp))
