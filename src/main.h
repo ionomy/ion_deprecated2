@@ -706,15 +706,12 @@ public:
 
     uint256 GetHash() const
     {
-        if (nVersion > 6)
-            return Hash(BEGIN(nVersion), END(nNonce));
-        else
-            return GetPoWHash();
-    }
+		return GetPoWHash();
+	}
 
     uint256 GetPoWHash() const
     {
-		return scrypt_blockhash(CVOIDBEGIN(nVersion));
+		return Hash(BEGIN(nVersion), END(nNonce));
     }
 
     int64_t GetBlockTime() const

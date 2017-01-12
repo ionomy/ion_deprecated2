@@ -20,6 +20,32 @@ struct SeedSpec6 {
 
 #include "chainparamsseeds.h"
 
+void MineGenesis(CBlock genesis, uint256 bnProofOfWorkLimit){
+    // This will figure out a valid hash and Nonce if you're creating a differe$
+    uint256 hashTarget = bnProofOfWorkLimit;
+    printf("Target: %s\n", hashTarget.GetHex().c_str());
+    uint256 newhash = genesis.GetHash();
+    uint256 besthash;
+    memset(&besthash,0xFF,32);
+    while (newhash > hashTarget) {
+        ++genesis.nNonce;
+        if (genesis.nNonce == 0){
+            printf("NONCE WRAPPED, incrementing time");
+            ++genesis.nTime;
+        }
+    newhash = genesis.GetHash();
+    if(newhash < besthash){
+        besthash=newhash;
+        printf("New best: %s\n", newhash.GetHex().c_str());
+    }
+    }
+    printf("Gensis Hash: %s\n", genesis.GetHash().ToString().c_str());
+    printf("Gensis Hash Merkle: %s\n", genesis.hashMerkleRoot.ToString().c_str());
+    printf("Gensis nTime: %u\n", genesis.nTime);
+    printf("Gensis nBits: %08x\n", genesis.nBits);
+    printf("Gensis Nonce: %u\n\n\n", genesis.nNonce);
+}
+
 //
 // Main network
 //
@@ -61,32 +87,33 @@ public:
         pchMessageStart[1] = 0xf4;
         pchMessageStart[2] = 0x1a;
         pchMessageStart[3] = 0xb6;
-        vAlertPubKey = ParseHex(""); // TODO: !
+        vAlertPubKey = ParseHex("040627d06214ba58f42eb74d475d32bc359c822902fb91766be30bfff2b878d2b5d4efa9e38c2a3438b15ff85e734ce3ce0382f8ebb79b6cdb3bc779af69e0b9b8");
         nDefaultPort = 58273;
         nRPCPort = 59273;
-        bnProofOfWorkLimit = ~uint256(0) >> 20;
+        bnProofOfWorkLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
-        const char* pszTimestamp = "ISIS terror attacks in Brussels";
-        std::vector<CTxIn> vin;
-        vin.resize(1);
-        vin[0].scriptSig = CScript() << 0 << CScriptNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        std::vector<CTxOut> vout;
-        vout.resize(1);
-        vout[0].SetEmpty();
-        CTransaction txNew(1, 1458750507, vin, vout, 0);
+        const char* pszTimestamp = "Reuters: Oil up $1 on OPEC output cuts, China demand forecast";
+        CTransaction txNew;
+        txNew.vin.resize(1);
+        txNew.vout.resize(1);
+		txNew.vin[0].scriptSig = CScript() << 0 << CScriptNum(4) << std::vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
+		txNew.vout[0].nValue = (5 * COIN);
+		txNew.vout[0].scriptPubKey = CScript() << ParseHex("04964ae39ac7421145f93a031791749772f671fa1153e4d6df87b1dce87ed2d68a74b46df6cd023ceffbbae4feed084915372d2b8ca866d24dd979af6f09800b3d") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1458750507;
+        genesis.nTime    = 1484236000;
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce   = 468977;
-        
-        hashGenesisBlock = genesis.GetHash(); 
+        genesis.nNonce   = 0;
 
-        assert(hashGenesisBlock == uint256("0x000001a7bb3214e3e1d2e4c256082b817a3c5dff5def37456ae16d7edaa508be"));
-        assert(genesis.hashMerkleRoot == uint256("0xa1de9df44936bd1dd483e217fa17ec1881d2caf741ca67a33f6cd6850183078c"));
+		hashGenesisBlock = genesis.GetHash();
+
+		MineGenesis(genesis, bnProofOfWorkLimit);
         
+        assert(hashGenesisBlock == uint256("0x0000000635a6d786f3d2156979a176792840e047cfe3c5ba62dfeb9943525744"));
+        assert(genesis.hashMerkleRoot == uint256("0xe02c92d8f257aa64537d6e2b8e9407a149ba33b438a06b590832e82032e86f17"));
+
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,103);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,88);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,153);

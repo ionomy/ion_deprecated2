@@ -1,6 +1,6 @@
-![ION logo](https://github.com/empinel/Ion-Core/blob/master/src/qt/res/images/splash3.png)
-
-
+<p align="center">
+  <img src="https://github.com/empinel/Ion-Core/blob/master/src/qt/res/images/splash3.png" alt="Ion_Icon"/>
+</p>
 # **Ion-Core (ION) v1.0**
 
 [![Build Status](https://travis-ci.org/empinel/Ion-Core.png?branch=master)](https://travis-ci.org/empinel/Ion-Core)

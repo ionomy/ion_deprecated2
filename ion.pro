@@ -277,7 +277,7 @@ HEADERS += src/qt/bitcoingui.h src/pow.h \
     src/masternodeman.h \
     src/masternode-payments.h \
     src/spork.h \
-    src/crypto/common.h \
+    src/crypto/common.h src/crypto/aes.h \
     src/crypto/hmac_sha256.h \
     src/crypto/hmac_sha512.h \
     src/crypto/ripemd160.h \
@@ -389,7 +389,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/pow.cpp src/uint256.cpp 
     src/masternode-payments.cpp \
     src/spork.cpp \
     src/masternodeconfig.cpp \
-    src/crypto/hmac_sha256.cpp \
+    src/crypto/hmac_sha256.cpp src/crypto/aes.cpp \
     src/crypto/hmac_sha512.cpp \
     src/crypto/ripemd160.cpp \
     src/crypto/sha1.cpp \
