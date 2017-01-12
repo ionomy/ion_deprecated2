@@ -24,6 +24,11 @@
 
 #include "arith_uint256.h"
 
+int nTargetSpacing = 60;
+static int64_t nTargetTimespan = 2 * 60;
+
+uint256 bnProofOfStakeLimit(~uint256(0) >> 20);
+
 static uint256 GetProofOfStakeLimit(int nHeight)
 {
     return bnProofOfStakeLimit;

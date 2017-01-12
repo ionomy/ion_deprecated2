@@ -19,11 +19,6 @@ class CBlockIndex;
 class uint256;
 class arith_uint256;
 
-int nTargetSpacing = 60;
-static int64_t nTargetTimespan = 2 * 60;
-
-uint256 bnProofOfStakeLimit(~uint256(0) >> 20);
-
 #define PERCENT_FACTOR 100
 
 // #define BLOCK_TYPE CBlock *
