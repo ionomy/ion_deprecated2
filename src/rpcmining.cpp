@@ -170,6 +170,7 @@ Value checkkernel(const Array& params, bool fHelp)
         throw JSONRPCError(-10, "Ion is downloading blocks...");
 
     COutPoint kernel;
+    CBlock* block = pblock;
     CBlockIndex* pindexPrev = pindexBest;
     unsigned int nBits = GetNextTargetRequired(pindexPrev, true);
     int64_t nTime = GetAdjustedTime();

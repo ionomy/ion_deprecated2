@@ -5,6 +5,7 @@
 #ifndef BITCOIN_MAIN_H
 #define BITCOIN_MAIN_H
 
+#include "pow.h"
 #include "core.h"
 #include "bignum.h"
 #include "sync.h"
@@ -154,8 +155,6 @@ bool ProcessMessages(CNode* pfrom);
 bool SendMessages(CNode* pto, bool fSendTrickle);
 void ThreadImport(std::vector<boost::filesystem::path> vImportFiles);
 
-bool CheckProofOfWork(uint256 hash, unsigned int nBits);
-unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfStake);
 int64_t GetProofOfWorkReward(int nHeight, int64_t nFees);
 int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees, int nHeight);
 bool IsInitialBlockDownload();

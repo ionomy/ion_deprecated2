@@ -42,8 +42,6 @@ CTxMemPool mempool;
 map<uint256, CBlockIndex*> mapBlockIndex;
 set<pair<COutPoint, unsigned int> > setStakeSeen;
 
-CBigNum bnProofOfStakeLimit(~uint256(0) >> 20);
-
 unsigned int nStakeMinAge = 24 * 60 * 60; // 24 hours
 unsigned int nModifierInterval = 2 * 60; // time to elapse before new modifier is computed
 
@@ -1446,12 +1444,6 @@ void static PruneOrphanBlocks()
     mapOrphanBlocks.erase(hash);
 }
 
-static CBigNum GetProofOfStakeLimit(int nHeight)
-{
-    return bnProofOfStakeLimit;
-}
-
-
 // miner's coin base reward
 int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
 {
@@ -1501,68 +1493,12 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees, int nHeight)
     return nSubsidy + nFees;
 }
 
-static int64_t nTargetTimespan = 2 * 60;
-
 // ppcoin: find last block index up to pindex
 const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake)
 {
     while (pindex && pindex->pprev && (pindex->IsProofOfStake() != fProofOfStake))
         pindex = pindex->pprev;
     return pindex;
-}
-
-int nTargetSpacing = 60;
-
-unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfStake)
-{
-
-    CBigNum bnTargetLimit = fProofOfStake ? GetProofOfStakeLimit(pindexLast->nHeight) : Params().ProofOfWorkLimit();
-
-    if (pindexLast == NULL)
-        return bnTargetLimit.GetCompact(); // genesis block
-
-    const CBlockIndex* pindexPrev = GetLastBlockIndex(pindexLast, fProofOfStake);
-    if (pindexPrev->pprev == NULL)
-        return bnTargetLimit.GetCompact(); // first block
-    const CBlockIndex* pindexPrevPrev = GetLastBlockIndex(pindexPrev->pprev, fProofOfStake);
-    if (pindexPrevPrev->pprev == NULL)
-        return bnTargetLimit.GetCompact(); // second block
-
-    int64_t nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
-    if (nActualSpacing < 0)
-        nActualSpacing = nTargetSpacing;
-
-    if (nActualSpacing > nTargetSpacing * 10)
-        nActualSpacing = nTargetSpacing * 10;
-
-    // ppcoin: target change every block
-    // ppcoin: retarget with exponential moving toward target spacing
-    CBigNum bnNew;
-    bnNew.SetCompact(pindexPrev->nBits);
-    int64_t nInterval = nTargetTimespan / nTargetSpacing;
-    bnNew *= ((nInterval - 1) * nTargetSpacing + nActualSpacing + nActualSpacing);
-    bnNew /= ((nInterval + 1) * nTargetSpacing);
-
-    if (bnNew <= 0 || bnNew > bnTargetLimit)
-        bnNew = bnTargetLimit;
-
-    return bnNew.GetCompact();
-}
-
-bool CheckProofOfWork(uint256 hash, unsigned int nBits)
-{
-    CBigNum bnTarget;
-    bnTarget.SetCompact(nBits);
-
-    // Check range
-    if (bnTarget <= 0 || bnTarget > Params().ProofOfWorkLimit())
-        return error("CheckProofOfWork() : nBits below minimum work");
-
-    // Check proof of work matches claimed amount
-    if (hash > bnTarget.getuint256())
-        return error("CheckProofOfWork() : hash doesn't match nBits");
-
-    return true;
 }
 
 bool IsInitialBlockDownload()
