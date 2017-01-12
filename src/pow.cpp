@@ -22,7 +22,7 @@
 #include <math.h>
 #include <stdint.h> 
 
-// #include "arith_uint256.h"
+#include "arith_uint256.h"
 
 int nTargetSpacing = 60;
 static int64_t nTargetTimespan = 2 * 60;
@@ -33,11 +33,11 @@ static uint256 GetProofOfStakeLimit(int nHeight)
 {
     return bnProofOfStakeLimit;
 }
-/*
+
 static unsigned int DeltaRetargetingAlgorithm(const INDEX_TYPE pindexLast, bool fProofOfStake,
 													 int nTargetSpacing, unsigned int nFirstDeltaBlock) {
 
-	  uint256 bnTargetLimit = GetProofOfStakeLimit(pindexLast->nHeight);
+	uint256 bnTargetLimit = fProofOfStake ? GetProofOfStakeLimit(pindexLast->nHeight) : Params().ProofOfWorkLimit();
 
       int64_t nRetargetTimespan = nTargetSpacing;
 
@@ -193,54 +193,18 @@ static unsigned int DeltaRetargetingAlgorithm(const INDEX_TYPE pindexLast, bool 
           bnNew = BIGINT_DIVIDE(bnNew, arith_uint256(PERCENT_FACTOR));
         }
       }
+	*/  // TODO: RE-EXAMINE RISKS!
 
-	  // TODO: RE-EXAMINE RISKS!
-	  
       SET_COMPACT(bnComp, bnTargetLimit.GetLow64());
       if (BIGINT_GREATER_THAN(bnNew, bnComp))
         SET_COMPACT(bnNew, bnTargetLimit.GetLow64());
 
       return GET_COMPACT(bnNew);
 }
-*/
+
 unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfStake)
 {
-    uint256 bnTargetLimit = fProofOfStake ? GetProofOfStakeLimit(pindexLast->nHeight) : Params().ProofOfWorkLimit();
-
-    if (pindexLast == NULL)
-        return bnTargetLimit.GetCompact(); // genesis block
-
-    const CBlockIndex* pindexPrev = GetLastBlockIndex(pindexLast, fProofOfStake);
-    if (pindexPrev->pprev == NULL)
-        return bnTargetLimit.GetCompact(); // first block
-    const CBlockIndex* pindexPrevPrev = GetLastBlockIndex(pindexPrev->pprev, fProofOfStake);
-    if (pindexPrevPrev->pprev == NULL)
-        return bnTargetLimit.GetCompact(); // second block
-
-    int64_t nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
-    if (nActualSpacing < 0)
-        nActualSpacing = nTargetSpacing;
-
-    if (nActualSpacing > nTargetSpacing * 10)
-        nActualSpacing = nTargetSpacing * 10;
-
-    // ppcoin: target change every block
-    // ppcoin: retarget with exponential moving toward target spacing
-	
-	uint256 bnNew;
-    uint256 bnOld;
-	bnNew.SetCompact(pindexLast->nBits);
-	bnOld = bnNew;
-
-    int64_t nInterval = nTargetTimespan / nTargetSpacing;
-    bnNew *= ((nInterval - 1) * nTargetSpacing + nActualSpacing + nActualSpacing);
-    bnNew /= ((nInterval + 1) * nTargetSpacing);
-
-    if (bnNew <= 0 || bnNew > bnTargetLimit)
-        bnNew = bnTargetLimit;
-
-	return bnNew.GetCompact();
-	//return DeltaRetargetingAlgorithm(pindexLast, fProofOfStake, nTargetSpacing, 1);
+	return DeltaRetargetingAlgorithm(pindexLast, fProofOfStake, nTargetSpacing, 1);
 }
 
 bool CheckProofOfWork(uint256 hash, unsigned int nBits)
