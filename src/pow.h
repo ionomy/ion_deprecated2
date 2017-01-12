@@ -10,7 +10,6 @@
 
 #include <arith_uint256.h>
 // #include <main.h>
-#include <bignum.h>
 #include <sync.h>
 #include <util.h>
 #include <stdint.h>

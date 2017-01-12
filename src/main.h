@@ -7,7 +7,6 @@
 
 #include "pow.h"
 #include "core.h"
-#include "bignum.h"
 #include "sync.h"
 #include "txmempool.h"
 #include "net.h"

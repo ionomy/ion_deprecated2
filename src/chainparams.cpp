@@ -64,12 +64,12 @@ public:
         vAlertPubKey = ParseHex(""); // TODO: !
         nDefaultPort = 58273;
         nRPCPort = 59273;
-        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);
+        bnProofOfWorkLimit = ~uint256(0) >> 20;
 
         const char* pszTimestamp = "ISIS terror attacks in Brussels";
         std::vector<CTxIn> vin;
         vin.resize(1);
-        vin[0].scriptSig = CScript() << 0 << CBigNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
+        vin[0].scriptSig = CScript() << 0 << CScriptNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         std::vector<CTxOut> vout;
         vout.resize(1);
         vout[0].SetEmpty();
@@ -135,7 +135,7 @@ public:
         pchMessageStart[1] = 0xca;
         pchMessageStart[2] = 0x4d;
         pchMessageStart[3] = 0x3e;
-        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
+        bnProofOfWorkLimit = ~uint256(0) >> 16;
         vAlertPubKey = ParseHex("04cc24ab003c828cdd9cf4db2ebbde8e1cecb3bbfa8b3127fcb9dd9b84d44112080827ed7c49a648af9fe788ff42e316aee665879c553f099e55299d6b54edd7e0");
         nDefaultPort = 27170;
         nRPCPort = 27171;

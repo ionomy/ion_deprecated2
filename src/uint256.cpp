@@ -5,7 +5,7 @@
 
 #include "uint256.h"
 
-#include "utilstrencodings.h"
+#include "util.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -174,15 +174,15 @@ void base_uint<BITS>::SetHex(const char* psz)
 
     // hex string to uint
     const char* pbegin = psz;
-    while (::HexDigit(*psz) != -1)
+    while (HexDigit(*psz) != -1)
         psz++;
     psz--;
     unsigned char* p1 = (unsigned char*)pn;
     unsigned char* pend = p1 + WIDTH * 4;
     while (psz >= pbegin && p1 < pend) {
-        *p1 = ::HexDigit(*psz--);
+        *p1 = HexDigit(*psz--);
         if (psz >= pbegin) {
-            *p1 |= ((unsigned char)::HexDigit(*psz--) << 4);
+            *p1 |= ((unsigned char)HexDigit(*psz--) << 4);
             p1++;
         }
     }

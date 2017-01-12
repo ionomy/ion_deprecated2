@@ -12,7 +12,6 @@ using namespace boost;
 
 #include "script.h"
 #include "keystore.h"
-#include "bignum.h"
 #include "pubkey.h"
 #include "main.h"
 #include "sync.h"
@@ -20,6 +19,15 @@ using namespace boost;
 #include "crypto/ripemd160.h"
 #include "crypto/sha1.h"
 #include "crypto/sha256.h"
+
+
+std::string ValueString(const std::vector<unsigned char>& vch)
+{
+    if (vch.size() <= 4)
+        return strprintf("%d", CScriptNum(vch, false).getint());
+    else
+        return HexStr(vch);
+}
 
 namespace {
 
@@ -111,20 +119,7 @@ bool CheckSig(vector<unsigned char> vchSig, const vector<unsigned char> &vchPubK
 static const valtype vchFalse(0);
 static const valtype vchZero(0);
 static const valtype vchTrue(1, 1);
-static const CBigNum bnZero(0);
-static const CBigNum bnOne(1);
-static const CBigNum bnFalse(0);
-static const CBigNum bnTrue(1);
 static const size_t nDefaultMaxNumSize = 4;
-
-
-CBigNum CastToBigNum(const valtype& vch, const size_t nMaxNumSize = nDefaultMaxNumSize)
-{
-    if (vch.size() > nMaxNumSize)
-        throw runtime_error("CastToBigNum() : overflow");
-    // Get rid of extra leading zeros
-    return CBigNum(CBigNum(vch).getvch());
-}
 
 bool CastToBool(const valtype& vch)
 {
@@ -437,8 +432,15 @@ bool static CheckPubKeyEncoding(const valtype &vchSig) {
 
 bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, const CTransaction& txTo, unsigned int nIn, unsigned int flags, int nHashType)
 {
-    CAutoBN_CTX pctx;
-    CScript::const_iterator pc = script.begin();
+    static const CScriptNum bnZero(0);
+    static const CScriptNum bnOne(1);
+    static const CScriptNum bnFalse(0);
+    static const CScriptNum bnTrue(1);
+    static const valtype vchFalse(0);
+    static const valtype vchZero(0);
+    static const valtype vchTrue(1, 1);
+	
+	CScript::const_iterator pc = script.begin();
     CScript::const_iterator pend = script.end();
     CScript::const_iterator pbegincodehash = script.begin();
     opcodetype opcode;
@@ -448,7 +450,7 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
     if (script.size() > 10000)
         return false;
     int nOpCount = 0;
-
+    bool fRequireMinimal = (flags & SCRIPT_VERIFY_MINIMALDATA) != 0;
 
     try
     {
@@ -510,7 +512,7 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
                 case OP_16:
                 {
                     // ( -- value)
-                    CBigNum bn((int)opcode - (int)(OP_1 - 1));
+                    CScriptNum bn((int)opcode - (int)(OP_1 - 1));
                     stack.push_back(bn.getvch());
                 }
                 break;
@@ -692,7 +694,7 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
                 case OP_DEPTH:
                 {
                     // -- stacksize
-                    CBigNum bn(stack.size());
+                    CScriptNum bn(stack.size());
                     stack.push_back(bn.getvch());
                 }
                 break;
@@ -742,7 +744,7 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
                     // (xn ... x2 x1 x0 n - ... x2 x1 x0 xn)
                     if (stack.size() < 2)
                         return false;
-                    int n = CastToBigNum(stacktop(-1)).getint();
+                    int n = CScriptNum(stacktop(-1), fRequireMinimal).getint();
                     popstack(stack);
                     if (n < 0 || n >= (int)stack.size())
                         return false;
@@ -808,8 +810,8 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
                     if (stack.size() < 3)
                         return false;
                     valtype& vch = stacktop(-3);
-                    int nBegin = CastToBigNum(stacktop(-2)).getint();
-                    int nEnd = nBegin + CastToBigNum(stacktop(-1)).getint();
+                    int nBegin = CScriptNum(stacktop(-2), fRequireMinimal).getint();
+                    int nEnd = nBegin + CScriptNum(stacktop(-1), fRequireMinimal).getint();
                     if (nBegin < 0 || nEnd < nBegin)
                         return false;
                     if (nBegin > (int)vch.size())
@@ -830,7 +832,7 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
                     if (stack.size() < 2)
                         return false;
                     valtype& vch = stacktop(-2);
-                    int nSize = CastToBigNum(stacktop(-1)).getint();
+                    int nSize = CScriptNum(stacktop(-1), fRequireMinimal).getint();
                     if (nSize < 0)
                         return false;
                     if (nSize > (int)vch.size())
@@ -848,7 +850,7 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
                     // (in -- in size)
                     if (stack.size() < 1)
                         return false;
-                    CBigNum bn(stacktop(-1).size());
+                    CScriptNum bn(stacktop(-1).size());
                     stack.push_back(bn.getvch());
                 }
                 break;
@@ -946,13 +948,11 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
                     // (in -- out)
                     if (stack.size() < 1)
                         return false;
-                    CBigNum bn = CastToBigNum(stacktop(-1));
+                    CScriptNum bn(stacktop(-1), fRequireMinimal);
                     switch (opcode)
                     {
                     case OP_1ADD:       bn += bnOne; break;
                     case OP_1SUB:       bn -= bnOne; break;
-                    case OP_2MUL:       bn <<= 1; break;
-                    case OP_2DIV:       bn >>= 1; break;
                     case OP_NEGATE:     bn = -bn; break;
                     case OP_ABS:        if (bn < bnZero) bn = -bn; break;
                     case OP_NOT:        bn = (bn == bnZero); break;
@@ -983,12 +983,12 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
                 case OP_MIN:
                 case OP_MAX:
                 {
-                    // (x1 x2 -- out)
+                     // (x1 x2 -- out)
                     if (stack.size() < 2)
-                        return false;
-                    CBigNum bn1 = CastToBigNum(stacktop(-2));
-                    CBigNum bn2 = CastToBigNum(stacktop(-1));
-                    CBigNum bn;
+						return false;
+                    CScriptNum bn1(stacktop(-2), fRequireMinimal);
+                    CScriptNum bn2(stacktop(-1), fRequireMinimal);
+                    CScriptNum bn(0);
                     switch (opcode)
                     {
                     case OP_ADD:
@@ -997,33 +997,6 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
 
                     case OP_SUB:
                         bn = bn1 - bn2;
-                        break;
-
-                    case OP_MUL:
-                        if (!BN_mul(&bn, &bn1, &bn2, pctx))
-                            return false;
-                        break;
-
-                    case OP_DIV:
-                        if (!BN_div(&bn, NULL, &bn1, &bn2, pctx))
-                            return false;
-                        break;
-
-                    case OP_MOD:
-                        if (!BN_mod(&bn, &bn1, &bn2, pctx))
-                            return false;
-                        break;
-
-                    case OP_LSHIFT:
-                        if (bn2 < bnZero || bn2 > CBigNum(2048))
-                            return false;
-                        bn = bn1 << bn2.getulong();
-                        break;
-
-                    case OP_RSHIFT:
-                        if (bn2 < bnZero || bn2 > CBigNum(2048))
-                            return false;
-                        bn = bn1 >> bn2.getulong();
                         break;
 
                     case OP_BOOLAND:             bn = (bn1 != bnZero && bn2 != bnZero); break;
@@ -1058,9 +1031,9 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
                     // (x min max -- out)
                     if (stack.size() < 3)
                         return false;
-                    CBigNum bn1 = CastToBigNum(stacktop(-3));
-                    CBigNum bn2 = CastToBigNum(stacktop(-2));
-                    CBigNum bn3 = CastToBigNum(stacktop(-1));
+                    CScriptNum bn1(stacktop(-3), fRequireMinimal);
+                    CScriptNum bn2(stacktop(-2), fRequireMinimal);
+                    CScriptNum bn3(stacktop(-1), fRequireMinimal);
                     bool fValue = (bn2 <= bn1 && bn1 < bn3);
                     popstack(stack);
                     popstack(stack);
@@ -1156,7 +1129,7 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
                     if ((int)stack.size() < i)
                         return false;
 
-                    int nKeysCount = CastToBigNum(stacktop(-i)).getint();
+                    int nKeysCount = CScriptNum(stacktop(-i), fRequireMinimal).getint();
                     if (nKeysCount < 0 || nKeysCount > 20)
                         return false;
                     nOpCount += nKeysCount;
@@ -1167,7 +1140,7 @@ bool EvalScript(vector<vector<unsigned char> >& stack, const CScript& script, co
                     if ((int)stack.size() < i)
                         return false;
 
-                    int nSigsCount = CastToBigNum(stacktop(-i)).getint();
+                    int nSigsCount = CScriptNum(stacktop(-i), fRequireMinimal).getint();
                     if (nSigsCount < 0 || nSigsCount > nKeysCount)
                         return false;
                     int isig = ++i;
@@ -3273,4 +3246,27 @@ bool CScript::IsNormalPaymentScript() const
     }
 
     return true;
+}
+
+std::string CScript::ToString(bool fShort) const
+{
+    std::string str;
+    opcodetype opcode;
+    std::vector<unsigned char> vch;
+    const_iterator pc = begin();
+    while (pc < end())
+    {
+        if (!str.empty())
+            str += " ";
+        if (!GetOp(pc, opcode, vch))
+        {
+            str += "[error]";
+            return str;
+        }
+        if (0 <= opcode && opcode <= OP_PUSHDATA4)
+            str += ValueString(vch);
+        else
+            str += GetOpName(opcode);
+    }
+    return str;
 }

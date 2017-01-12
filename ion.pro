@@ -174,7 +174,7 @@ macx:QMAKE_CXXFLAGS_WARN_ON += -Wno-deprecated-declarations
 
 # Input
 DEPENDPATH += src src/json src/qt
-HEADERS += src/qt/bitcoingui.h \
+HEADERS += src/qt/bitcoingui.h src/pow.h \
     src/qt/transactiontablemodel.h \
     src/qt/addresstablemodel.h \
     src/qt/optionsdialog.h \
@@ -190,7 +190,6 @@ HEADERS += src/qt/bitcoingui.h \
     src/allocators.h \
     src/addrman.h \
     src/base58.h \
-    src/bignum.h \
     src/chainparams.h \
     src/chainparamsseeds.h \
     src/checkpoints.h \
@@ -298,7 +297,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/plugins/mrichtexteditor/mrichtextedit.h \
     src/qt/qvalidatedtextedit.h
     
-SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
+SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/pow.cpp src/uint256.cpp \
     src/qt/transactiontablemodel.cpp \
     src/qt/addresstablemodel.cpp \
     src/qt/optionsdialog.cpp \

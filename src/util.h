@@ -328,6 +328,8 @@ inline int64_t abs64(int64_t n)
     return (n >= 0 ? n : -n);
 }
 
+signed char HexDigit(char c);
+
 inline std::string leftTrim(std::string src, char chr)
 {
     std::string::size_type pos = src.find_first_not_of(chr, 0);

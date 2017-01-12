@@ -15,7 +15,6 @@
 #include <boost/variant.hpp>
 
 #include "keystore.h"
-#include "bignum.h"
 #include "util.h"
 #include "stealth.h"
 
@@ -82,7 +81,7 @@ typedef enum ScriptError_t
 #define SCRIPT_ERR_LAST SCRIPT_ERR_ERROR_COUNT
 
 const char* ScriptErrorString(const ScriptError error);
-
+std::string ValueString(const std::vector<unsigned char>& vch);
 
 /** Signature hash types/flags */
 enum
@@ -344,28 +343,6 @@ enum opcodetype
 
 const char* GetOpName(opcodetype opcode);
 
-
-
-inline std::string ValueString(const std::vector<unsigned char>& vch)
-{
-    if (vch.size() <= 4)
-        return strprintf("%d", CBigNum(vch).getint());
-    else
-        return HexStr(vch);
-}
-
-inline std::string StackString(const std::vector<std::vector<unsigned char> >& vStack)
-{
-    std::string str;
-    BOOST_FOREACH(const std::vector<unsigned char>& vch, vStack)
-    {
-        if (!str.empty())
-            str += " ";
-        str += ValueString(vch);
-    }
-    return str;
-}
-
 class scriptnum_error : public std::runtime_error
 {
 public:
@@ -535,9 +512,6 @@ private:
     int64_t m_value;
 };
 
-
-
-
 /** Serialized script, used inside transaction inputs and outputs */
 class CScript : public std::vector<unsigned char>
 {
@@ -548,10 +522,13 @@ protected:
         {
             push_back(n + (OP_1 - 1));
         }
+        else if (n == 0)
+        {
+            push_back(OP_0);
+        }
         else
         {
-            CBigNum bn(n);
-            *this << bn.getvch();
+            *this << CScriptNum::serialize(n);
         }
         return *this;
     }
@@ -562,10 +539,13 @@ protected:
         {
             push_back(n + (OP_1 - 1));
         }
+        else if (n == 0)
+        {
+            push_back(OP_0);
+        }
         else
         {
-            CBigNum bn(n);
-            *this << bn.getvch();
+            *this << CScriptNum::serialize(n);
         }
         return *this;
     }
@@ -590,8 +570,13 @@ public:
         ret += b;
         return ret;
     }
-
-
+    
+    CScript& operator<<(const CScriptNum& b)
+    {
+        *this << b.getvch();
+        return *this;
+    }
+    
     //explicit CScript(char b) is not portable.  Use 'signed char' or 'unsigned char'.
     explicit CScript(signed char b)        { operator<<(b); }
     explicit CScript(short b)              { operator<<(b); }
@@ -603,10 +588,10 @@ public:
     explicit CScript(unsigned short b)     { operator<<(b); }
     explicit CScript(unsigned long b)      { operator<<(b); }
     explicit CScript(unsigned long long b) { operator<<(b); }
+    explicit CScript(const CScriptNum& b) { operator<<(b); }
 
     explicit CScript(opcodetype b)     { operator<<(b); }
     explicit CScript(const uint256& b) { operator<<(b); }
-    explicit CScript(const CBigNum& b) { operator<<(b); }
     explicit CScript(const std::vector<unsigned char>& b) { operator<<(b); }
 
 
@@ -649,12 +634,6 @@ public:
         assert(key.size() < OP_PUSHDATA1);
         insert(end(), (unsigned char)key.size());
         insert(end(), key.begin(), key.end());
-        return *this;
-    }
-
-    CScript& operator<<(const CBigNum& b)
-    {
-        *this << b.getvch();
         return *this;
     }
 
@@ -862,29 +841,8 @@ public:
     void SetDestination(const CTxDestination& address);
     void SetMultisig(int nRequired, const std::vector<CPubKey>& keys);
 
-    std::string ToString(bool fShort=false) const
-    {
-        std::string str;
-        opcodetype opcode;
-        std::vector<unsigned char> vch;
-        const_iterator pc = begin();
-        while (pc < end())
-        {
-            if (!str.empty())
-                str += " ";
-            if (!GetOp(pc, opcode, vch))
-            {
-                str += "[error]";
-                return str;
-            }
-            if (0 <= opcode && opcode <= OP_PUSHDATA4)
-                str += fShort? ValueString(vch).substr(0, 10) : ValueString(vch);
-            else
-                str += GetOpName(opcode);
-        }
-        return str;
-    }
-
+	std::string ToString(bool fShort=false) const;
+	
     CScriptID GetID() const
     {
         return CScriptID(Hash160(*this));
