@@ -21,8 +21,8 @@ class arith_uint256;
 
 #define PERCENT_FACTOR 100
 
-// #define BLOCK_TYPE CBlock *
-// #define BLOCK_TIME(block) block->nTime
+#define BLOCK_TYPE CBlock *
+#define BLOCK_TIME(block) block->nTime
 #define INDEX_TYPE CBlockIndex *
 #define INDEX_HEIGHT(block) block->nHeight
 #define INDEX_TIME(block) block->GetBlockTime()
