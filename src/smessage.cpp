@@ -58,10 +58,10 @@ Notes:
 #include "sync.h"
 #include "ecwrapper.h"
 
-#include "lz4/lz4.c"
+#include "crypto/lz4/lz4.c"
 
-#include "xxhash/xxhash.h"
-#include "xxhash/xxhash.c"
+#include "crypto/xxhash/xxhash.h"
+#include "crypto/xxhash/xxhash.c"
 
 
 boost::thread_group threadGroupSmsg;
