@@ -419,8 +419,6 @@ void BitcoinGUI::createToolBars()
         toolbar->addAction(messageAction);
     }
 
-    toolbar->addAction(blockAction);
-
     QWidget *spacer = makeToolBarSpacer();
     toolbar->addWidget(spacer);
     toolbar->setOrientation(Qt::Vertical);
