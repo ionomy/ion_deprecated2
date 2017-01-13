@@ -1,5 +1,5 @@
 // Copyright (c) 2014 The Bitcoin developers
-// Distributed under the MIT/X11 software license, see the accompanying
+// Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "base58.h"
@@ -193,11 +193,11 @@ int CBase58Data::CompareTo(const CBase58Data& b58) const {
 }
 
 namespace {
-    class CIoncoinAddressVisitor : public boost::static_visitor<bool> {
+    class CIonAddressVisitor : public boost::static_visitor<bool> {
     private:
-        CIoncoinAddress *addr;
+        CIonAddress *addr;
     public:
-        CIoncoinAddressVisitor(CIoncoinAddress *addrIn) : addr(addrIn) { }
+        CIonAddressVisitor(CIonAddress *addrIn) : addr(addrIn) { }
 
         bool operator()(const CKeyID &id) const { return addr->Set(id); }
         bool operator()(const CScriptID &id) const { return addr->Set(id); }
@@ -217,28 +217,28 @@ namespace {
     };
 };
 
-bool CIoncoinAddress::Set(const CKeyID &id) {
+bool CIonAddress::Set(const CKeyID &id) {
     SetData(Params().Base58Prefix(CChainParams::PUBKEY_ADDRESS), &id, 20);
     return true;
 }
 
-bool CIoncoinAddress::Set(const CScriptID &id) {
+bool CIonAddress::Set(const CScriptID &id) {
     SetData(Params().Base58Prefix(CChainParams::SCRIPT_ADDRESS), &id, 20);
     return true;
 }
 
-bool CIoncoinAddress::Set(const CTxDestination &dest) {
-    return boost::apply_visitor(CIoncoinAddressVisitor(this), dest);
+bool CIonAddress::Set(const CTxDestination &dest) {
+    return boost::apply_visitor(CIonAddressVisitor(this), dest);
 }
 
-bool CIoncoinAddress::IsValid() const {
+bool CIonAddress::IsValid() const {
     bool fCorrectSize = vchData.size() == 20;
     bool fKnownVersion = vchVersion == Params().Base58Prefix(CChainParams::PUBKEY_ADDRESS) ||
                          vchVersion == Params().Base58Prefix(CChainParams::SCRIPT_ADDRESS);
     return fCorrectSize && fKnownVersion;
 }
 
-CTxDestination CIoncoinAddress::Get() const {
+CTxDestination CIonAddress::Get() const {
     if (!IsValid())
         return CNoDestination();
     uint160 id;
@@ -251,7 +251,7 @@ CTxDestination CIoncoinAddress::Get() const {
         return CNoDestination();
 }
 
-bool CIoncoinAddress::GetKeyID(CKeyID &keyID) const {
+bool CIonAddress::GetKeyID(CKeyID &keyID) const {
     if (!IsValid() || vchVersion != Params().Base58Prefix(CChainParams::PUBKEY_ADDRESS))
         return false;
     uint160 id;
@@ -260,34 +260,34 @@ bool CIoncoinAddress::GetKeyID(CKeyID &keyID) const {
     return true;
 }
 
-bool CIoncoinAddress::IsScript() const {
+bool CIonAddress::IsScript() const {
     return IsValid() && vchVersion == Params().Base58Prefix(CChainParams::SCRIPT_ADDRESS);
 }
 
-void CIoncoinSecret::SetKey(const CKey& vchSecret) {
+void CIonSecret::SetKey(const CKey& vchSecret) {
     assert(vchSecret.IsValid());
     SetData(Params().Base58Prefix(CChainParams::SECRET_KEY), vchSecret.begin(), vchSecret.size());
     if (vchSecret.IsCompressed())
         vchData.push_back(1);
 }
 
-CKey CIoncoinSecret::GetKey() {
+CKey CIonSecret::GetKey() {
     CKey ret;
     ret.Set(&vchData[0], &vchData[32], vchData.size() > 32 && vchData[32] == 1);
     return ret;
 }
 
-bool CIoncoinSecret::IsValid() const {
+bool CIonSecret::IsValid() const {
     bool fExpectedFormat = vchData.size() == 32 || (vchData.size() == 33 && vchData[32] == 1);
     bool fCorrectVersion = vchVersion == Params().Base58Prefix(CChainParams::SECRET_KEY);
     return fExpectedFormat && fCorrectVersion;
 }
 
-bool CIoncoinSecret::SetString(const char* pszSecret) {
+bool CIonSecret::SetString(const char* pszSecret) {
     return CBase58Data::SetString(pszSecret) && IsValid();
 }
 
-bool CIoncoinSecret::SetString(const std::string& strSecret) {
+bool CIonSecret::SetString(const std::string& strSecret) {
     return SetString(strSecret.c_str());
 }
 

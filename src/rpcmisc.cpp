@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2013 The Bitcoin developers
-// Distributed under the MIT/X11 software license, see the accompanying
+// Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "base58.h"
@@ -115,7 +115,7 @@ public:
             obj.push_back(Pair("hex", HexStr(subscript.begin(), subscript.end())));
             Array a;
             BOOST_FOREACH(const CTxDestination& addr, addresses)
-                a.push_back(CIoncoinAddress(addr).ToString());
+                a.push_back(CIonAddress(addr).ToString());
             obj.push_back(Pair("addresses", a));
             if (whichType == TX_MULTISIG)
                 obj.push_back(Pair("sigsrequired", nRequired));
@@ -138,7 +138,7 @@ Value validateaddress(const Array& params, bool fHelp)
             "validateaddress <ionaddress>\n"
             "Return information about <ionaddress>.");
 
-    CIoncoinAddress address(params[0].get_str());
+    CIonAddress address(params[0].get_str());
     bool isValid = address.IsValid();
 
     Object ret;
@@ -177,7 +177,7 @@ Value validatepubkey(const Array& params, bool fHelp)
     bool isCompressed = pubKey.IsCompressed();
     CKeyID keyID = pubKey.GetID();
 
-    CIoncoinAddress address;
+    CIonAddress address;
     address.Set(keyID);
 
     Object ret;
@@ -214,7 +214,7 @@ Value verifymessage(const Array& params, bool fHelp)
     string strSign     = params[1].get_str();
     string strMessage  = params[2].get_str();
 
-    CIoncoinAddress addr(strAddress);
+    CIonAddress addr(strAddress);
     if (!addr.IsValid())
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid address");
 

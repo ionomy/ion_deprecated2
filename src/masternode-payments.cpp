@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2015 The Dash developers
-// Distributed under the MIT/X11 software license, see the accompanying
+// Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "masternode-payments.h"
@@ -52,7 +52,7 @@ void ProcessMessageMasternodePayments(CNode* pfrom, std::string& strCommand, CDa
 
         CTxDestination address1;
         ExtractDestination(winner.payee, address1);
-        CIoncoinAddress address2(address1);
+        CIonAddress address2(address1);
 
         uint256 hash = winner.GetHash();
         if(mapSeenMasternodeVotes.count(hash)) {
@@ -302,11 +302,11 @@ bool CMasternodePayments::ProcessBlock(int nBlockHeight)
 
     CTxDestination address1;
     ExtractDestination(newWinner.payee, address1);
-    CIoncoinAddress address2(address1);
+    CIonAddress address2(address1);
 
     CTxDestination address3;
     ExtractDestination(payeeSource, address3);
-    CIoncoinAddress address4(address3);
+    CIonAddress address4(address3);
 
     LogPrintf("Winner payee %s nHeight %d vin source %s. \n", address2.ToString().c_str(), newWinner.nBlockHeight, address4.ToString().c_str());
 

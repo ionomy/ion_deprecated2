@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2015 The ShadowCoin developers
-// Distributed under the MIT/X11 software license, see the accompanying
+// Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef SEC_MESSAGE_H
@@ -165,7 +165,7 @@ public:
 
 
 // -- get at the data
-class CIoncoinAddress_B : public CIoncoinAddress
+class CIonAddress_B : public CIonAddress
 {
 public:
     uint8_t getVersion()

@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2013 The Bitcoin developers
-// Distributed under the MIT/X11 software license, see the accompanying
+// Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 //
@@ -98,17 +98,17 @@ public:
  * Script-hash-addresses have version 5 (or 196 testnet).
  * The data vector contains RIPEMD160(SHA256(cscript)), where cscript is the serialized redemption script.
  */
-class CIoncoinAddress : public CBase58Data {
+class CIonAddress : public CBase58Data {
 public:
     bool Set(const CKeyID &id);
     bool Set(const CScriptID &id);
     bool Set(const CTxDestination &dest);
     bool IsValid() const;
 
-    CIoncoinAddress() {}
-    CIoncoinAddress(const CTxDestination &dest) { Set(dest); }
-    CIoncoinAddress(const std::string& strAddress) { SetString(strAddress); }
-    CIoncoinAddress(const char* pszAddress) { SetString(pszAddress); }
+    CIonAddress() {}
+    CIonAddress(const CTxDestination &dest) { Set(dest); }
+    CIonAddress(const std::string& strAddress) { SetString(strAddress); }
+    CIonAddress(const char* pszAddress) { SetString(pszAddress); }
 
     CTxDestination Get() const;
     bool GetKeyID(CKeyID &keyID) const;
@@ -118,7 +118,7 @@ public:
 /**
  * A base58-encoded secret key
  */
-class CIoncoinSecret : public CBase58Data
+class CIonSecret : public CBase58Data
 {
 public:
     void SetKey(const CKey& vchSecret);
@@ -127,11 +127,11 @@ public:
     bool SetString(const char* pszSecret);
     bool SetString(const std::string& strSecret);
 
-    CIoncoinSecret(const CKey& vchSecret) { SetKey(vchSecret); }
-    CIoncoinSecret() {}
+    CIonSecret(const CKey& vchSecret) { SetKey(vchSecret); }
+    CIonSecret() {}
 };
 
-template<typename K, int Size, CChainParams::Base58Type Type> class CIoncoinExtKeyBase : public CBase58Data
+template<typename K, int Size, CChainParams::Base58Type Type> class CIonExtKeyBase : public CBase58Data
 {
 public:
     void SetKey(const K &key) {
@@ -146,15 +146,15 @@ public:
         return ret;
     }
 
-    CIoncoinExtKeyBase(const K &key) {
+    CIonExtKeyBase(const K &key) {
         SetKey(key);
     }
 
-    CIoncoinExtKeyBase() {}
+    CIonExtKeyBase() {}
 };
 
-typedef CIoncoinExtKeyBase<CExtKey, 74, CChainParams::EXT_SECRET_KEY> CIoncoinExtKey;
-typedef CIoncoinExtKeyBase<CExtPubKey, 74, CChainParams::EXT_PUBLIC_KEY> CIoncoinExtPubKey;
+typedef CIonExtKeyBase<CExtKey, 74, CChainParams::EXT_SECRET_KEY> CIonExtKey;
+typedef CIonExtKeyBase<CExtPubKey, 74, CChainParams::EXT_PUBLIC_KEY> CIonExtPubKey;
 
 /** base58-encoded Bitcoin addresses.
  * Public-key-hash-addresses have version 0 (or 111 testnet).
