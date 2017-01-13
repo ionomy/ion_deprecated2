@@ -1,5 +1,5 @@
 /*
- * Qt4 bitcoin GUI.
+ * Qt5 bitcoin GUI.
  *
  * W.J. van der Laan 2011-2012
  * The Bitcoin Developers 2011-2012
@@ -33,6 +33,7 @@
 #include "main.h"
 #include "init.h"
 #include "ui_interface.h"
+#include "proofs.h"
 #include "masternodemanager.h"
 #include "messagemodel.h"
 #include "messagepage.h"
@@ -1136,7 +1137,7 @@ void BitcoinGUI::updateStakingIcon()
         uint64_t nWeight = this->nWeight;
         uint64_t nNetworkWeight = GetPoSKernelPS();
         unsigned nEstimateTime = 0;
-        nEstimateTime = TARGET_SPACING * nNetworkWeight / nWeight;
+        nEstimateTime = nTargetSpacing * nNetworkWeight / nWeight;
 
         QString text;
         if (nEstimateTime < 60)

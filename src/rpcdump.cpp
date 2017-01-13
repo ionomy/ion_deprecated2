@@ -89,7 +89,7 @@ class CTxDump
 {
 public:
     CBlockIndex *pindex;
-    int64_t nValue;
+    CAmount nValue;
     bool fSpent;
     CWalletTx* ptx;
     int nOut;

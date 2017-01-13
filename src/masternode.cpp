@@ -5,6 +5,7 @@
 #include "main.h"
 #include "sync.h"
 #include "util.h"
+#include "amount.h"
 #include "addrman.h"
 #include <boost/lexical_cast.hpp>
 

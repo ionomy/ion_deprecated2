@@ -13,6 +13,7 @@
 #include "guiconstants.h"
 #include "init.h"
 #include "util.h"
+#include "amount.h"
 #include "wallet.h"
 #include "ui_interface.h"
 #include "paymentserver.h"
@@ -64,7 +65,7 @@ static void ThreadSafeMessageBox(const std::string& message, const std::string& 
     }
 }
 
-static bool ThreadSafeAskFee(int64_t nFeeRequired, const std::string& strCaption)
+static bool ThreadSafeAskFee(CAmount nFeeRequired, const std::string& strCaption)
 {
     if(!guiref)
         return false;

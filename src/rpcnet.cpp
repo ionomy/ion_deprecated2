@@ -14,6 +14,7 @@
 #include "sync.h"
 #include "timedata.h"
 #include "util.h"
+#include "amount.h"
 
 #include <boost/foreach.hpp>
 #include "json/json_spirit_value.h"

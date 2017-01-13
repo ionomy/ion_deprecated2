@@ -2,6 +2,7 @@
 #include "net.h"
 #include "masternodeconfig.h"
 #include "util.h"
+#include "amount.h"
 #include <base58.h>
 
 CMasternodeConfig masternodeConfig;

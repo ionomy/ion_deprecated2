@@ -5,6 +5,7 @@
 
 #include "netbase.h"
 #include "util.h"
+#include "amount.h"
 #include "sync.h"
 #include "hash.h"
 

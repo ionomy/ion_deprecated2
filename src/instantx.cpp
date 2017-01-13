@@ -3,6 +3,7 @@
 #include "net.h"
 #include "key.h"
 #include "util.h"
+#include "amount.h"
 #include "base58.h"
 #include "main.h"
 #include "protocol.h"
@@ -173,8 +174,8 @@ bool IsIXTXValid(const CTransaction& txCollateral){
     if(txCollateral.vout.size() < 1) return false;
     if(txCollateral.nLockTime != 0) return false;
 
-    int64_t nValueIn = 0;
-    int64_t nValueOut = 0;
+    CAmount nValueIn = 0;
+    CAmount nValueOut = 0;
     bool missingTx = false;
 
     BOOST_FOREACH(const CTxOut o, txCollateral.vout)

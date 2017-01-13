@@ -7,6 +7,7 @@
 #include <map>
 #include "net.h"
 #include "util.h"
+#include "amount.h"
 
 class uint256;
 class CBlockIndex;

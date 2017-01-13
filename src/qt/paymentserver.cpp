@@ -9,6 +9,7 @@
 #include "guiconstants.h"
 #include "ui_interface.h"
 #include "util.h"
+#include "amount.h"
 
 #include <QByteArray>
 #include <QDataStream>

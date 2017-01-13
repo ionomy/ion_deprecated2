@@ -8,6 +8,7 @@
 
 #include "init.h"
 #include "util.h"
+#include "amount.h"
 
 #ifdef WIN32
 #ifdef _WIN32_WINNT

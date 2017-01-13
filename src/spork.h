@@ -10,6 +10,7 @@
 #include "key.h"
 
 #include "util.h"
+#include "amount.h"
 #include "script.h"
 #include "base58.h"
 #include "main.h"
@@ -51,6 +52,7 @@ class CSporkManager;
 #include "net.h"
 #include "key.h"
 #include "util.h"
+#include "amount.h"
 #include "protocol.h"
 #include "darksend.h"
 #include <boost/lexical_cast.hpp>
@@ -78,7 +80,7 @@ class CSporkMessage
 public:
     std::vector<unsigned char> vchSig;
     int nSporkID;
-    int64_t nValue;
+    CAmount nValue;
     int64_t nTimeSigned;
 
     uint256 GetHash(){
@@ -117,7 +119,7 @@ public:
 
     std::string GetSporkNameByID(int id);
     int GetSporkIDByName(std::string strName);
-    bool UpdateSpork(int nSporkID, int64_t nValue);
+    bool UpdateSpork(int nSporkID, CAmount nValue);
     bool SetPrivKey(std::string strPrivKey);
     bool CheckSignature(CSporkMessage& spork);
     bool Sign(CSporkMessage& spork);

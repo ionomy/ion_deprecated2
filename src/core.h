@@ -117,7 +117,7 @@ public:
 class CTxOut
 {
 public:
-    int64_t nValue;
+    CAmount nValue;
     int nRounds;
     CScript scriptPubKey;
 
@@ -126,7 +126,7 @@ public:
         SetNull();
     }
 
-    CTxOut(int64_t nValueIn, CScript scriptPubKeyIn);
+    CTxOut(CAmount nValueIn, CScript scriptPubKeyIn);
 
     IMPLEMENT_SERIALIZE
     (

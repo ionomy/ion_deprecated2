@@ -8,6 +8,7 @@
 #include "net.h"
 #include "key.h"
 #include "util.h"
+#include "amount.h"
 #include "script.h"
 #include "base58.h"
 #include "protocol.h"
@@ -208,7 +209,7 @@ bool CSporkManager::Sign(CSporkMessage& spork)
     return true;
 }
 
-bool CSporkManager::UpdateSpork(int nSporkID, int64_t nValue)
+bool CSporkManager::UpdateSpork(int nSporkID, CAmount nValue)
 {
 
     CSporkMessage msg;

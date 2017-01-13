@@ -2,6 +2,7 @@
 #define MASTERNODEMANAGER_H
 
 #include "util.h"
+#include "amount.h"
 #include "sync.h"
 
 #include <QWidget>

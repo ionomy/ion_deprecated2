@@ -7,6 +7,7 @@
 
 #include "walletmodel.h"
 #include "util.h"
+#include "amount.h"
 
 #include <QObject>
 

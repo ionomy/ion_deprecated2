@@ -6,6 +6,7 @@
 #include "masternodeman.h"
 #include "darksend.h"
 #include "util.h"
+#include "amount.h"
 #include "sync.h"
 #include "spork.h"
 #include "addrman.h"

@@ -8,6 +8,7 @@
 #include "addrman.h"
 #include "hash.h"
 #include "util.h"
+#include "amount.h"
 
 #ifndef WIN32
 #include <sys/stat.h>

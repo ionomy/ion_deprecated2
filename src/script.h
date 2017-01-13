@@ -16,6 +16,7 @@
 
 #include "keystore.h"
 #include "util.h"
+#include "amount.h"
 #include "stealth.h"
 
 typedef std::vector<unsigned char> valtype;

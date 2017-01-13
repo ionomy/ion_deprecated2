@@ -11,6 +11,7 @@
 #include "rpcserver.h"
 #include "timedata.h"
 #include "util.h"
+#include "amount.h"
 #include "stealth.h"
 #include "spork.h"
 #ifdef ENABLE_WALLET
@@ -260,7 +261,7 @@ Value spork(const Array& params, bool fHelp)
         }
 
         // SPORK VALUE
-        int64_t nValue = params[1].get_int();
+        CAmount nValue = params[1].get_int();
 
         //broadcast new spork
         if(sporkManager.UpdateSpork(nSporkID, nValue)){

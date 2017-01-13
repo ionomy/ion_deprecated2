@@ -4,6 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "util.h"
+#include "amount.h"
 
 #include "chainparams.h"
 #include "sync.h"
@@ -393,7 +394,7 @@ bool ParseMoney(const char* pszIn, int64_t& nRet)
     if (nUnits < 0 || nUnits > COIN)
         return false;
     int64_t nWhole = atoi64(strWhole);
-    int64_t nValue = nWhole*COIN + nUnits;
+    CAmount nValue = nWhole*COIN + nUnits;
 
     nRet = nValue;
     return true;

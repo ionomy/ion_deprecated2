@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "util.h"
+#include "amount.h"
 
 QT_BEGIN_NAMESPACE
 class QDoubleSpinBox;

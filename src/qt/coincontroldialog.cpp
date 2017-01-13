@@ -599,7 +599,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
         sPriorityLabel = CoinControlDialog::getPriorityLabel(dPriority);
 
         // Fee
-        int64_t nFee = nTransactionFee * (1 + (int64_t)nBytes / 1000);
+        CAmount nFee = nTransactionFee * (1 + (int64_t)nBytes / 1000);
 
         // IX Fee
         if(coinControl->useInstantX) nFee = max(nFee, CENT);

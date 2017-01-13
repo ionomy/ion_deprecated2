@@ -2,6 +2,7 @@
 #define OVERVIEWPAGE_H
 
 #include "util.h"
+#include "amount.h"
 
 #include <QTimer>
 #include <QWidget>

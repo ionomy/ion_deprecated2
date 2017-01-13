@@ -114,8 +114,9 @@ OBJS= \
     obj/crypto/sha512.o \
     obj/crypto/aes.o \
     obj/smessage.o \
-    obj/pow.o \
-    obj/uint256.o
+    obj/proofs.o \
+    obj/uint256.o \
+    obj/amount.o
 
 ifeq (${USE_WALLET}, 1)
     DEFS += -DENABLE_WALLET

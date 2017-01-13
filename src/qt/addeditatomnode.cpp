@@ -8,6 +8,7 @@
 #include "wallet.h"
 #include "ui_interface.h"
 #include "util.h"
+#include "amount.h"
 #include "key.h"
 #include "script.h"
 #include "init.h"

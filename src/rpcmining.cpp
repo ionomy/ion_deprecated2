@@ -7,6 +7,7 @@
 #include "rpcserver.h"
 #include "chainparams.h"
 #include "main.h"
+#include "proofs.h"
 #include "db.h"
 #include "txdb.h"
 #include "init.h"
@@ -47,7 +48,7 @@ Value getsubsidy(const Array& params, bool fHelp)
             "getsubsidy [nTarget]\n"
             "Returns proof-of-work subsidy value for the specified value of target.");
 
-    return (int64_t)GetProofOfStakeReward(0, 0, pindexBest->nHeight);
+    return (int64_t)GetCoinstakeValue(0, 0, pindexBest->nHeight);
 }
 
 Value getstakesubsidy(const Array& params, bool fHelp)
@@ -74,7 +75,7 @@ Value getstakesubsidy(const Array& params, bool fHelp)
     if (!tx.GetCoinAge(txdb, pindexBest, nCoinAge))
         throw JSONRPCError(RPC_MISC_ERROR, "GetCoinAge failed");
 
-    return (uint64_t)GetProofOfStakeReward(nCoinAge, 0, pindexBest->nHeight);
+    return (uint64_t)GetCoinstakeValue(nCoinAge, 0, pindexBest->nHeight);
 }
 
 Value getmininginfo(const Array& params, bool fHelp)
@@ -98,7 +99,7 @@ Value getmininginfo(const Array& params, bool fHelp)
     //diff.push_back(Pair("search-interval",      (int)nLastCoinStakeSearchInterval));
     obj.push_back(Pair("difficulty",    GetDifficulty(GetLastBlockIndex(pindexBest, true))));
 
-    obj.push_back(Pair("blockvalue",    (int64_t)GetProofOfStakeReward(0, 0, pindexBest->nHeight)));
+    obj.push_back(Pair("blockvalue",    (int64_t)GetCoinstakeValue(0, 0, pindexBest->nHeight)));
     obj.push_back(Pair("netmhashps",     GetPoWMHashPS()));
     obj.push_back(Pair("netstakeweight", GetPoSKernelPS()));
     obj.push_back(Pair("errors",        GetWarnings("statusbar")));
@@ -128,7 +129,7 @@ Value getstakinginfo(const Array& params, bool fHelp)
 
     uint64_t nNetworkWeight = GetPoSKernelPS();
     bool staking = nLastCoinStakeSearchInterval && nWeight;
-    nExpectedTime = staking ? (TARGET_SPACING * nNetworkWeight / nWeight) : 0;
+    nExpectedTime = staking ? (nTargetSpacing * nNetworkWeight / nWeight) : 0;
 
     Object obj;
 
@@ -217,7 +218,7 @@ Value checkkernel(const Array& params, bool fHelp)
     if (!fCreateBlockTemplate)
         return result;
 
-    int64_t nFees;
+    CAmount nFees;
     auto_ptr<CBlock> pblock(CreateNewBlock(*pMiningKey, true, &nFees));
 
     pblock->nTime = pblock->vtx[0].nTime = nTime;

@@ -9,6 +9,7 @@
 #include "chainparams.h"
 #include "main.h"
 #include "util.h"
+#include "amount.h"
 
 #include <boost/assign/list_of.hpp>
 
@@ -21,9 +22,9 @@ struct SeedSpec6 {
 
 #include "chainparamsseeds.h"
 
-void MineGenesis(CBlock genesis, uint256 bnProofOfWorkLimit){
+void MineGenesis(CBlock genesis, uint256 nProofOfWorkLimit){
     // This will figure out a valid hash and Nonce if you're creating a differe$
-    uint256 hashTarget = bnProofOfWorkLimit;
+    uint256 hashTarget = nProofOfWorkLimit;
     printf("Target: %s\n", hashTarget.GetHex().c_str());
     uint256 newhash = genesis.GetHash();
     uint256 besthash;
@@ -91,7 +92,8 @@ public:
         vAlertPubKey = ParseHex("040627d06214ba58f42eb74d475d32bc359c822902fb91766be30bfff2b878d2b5d4efa9e38c2a3438b15ff85e734ce3ce0382f8ebb79b6cdb3bc779af69e0b9b8");
         nDefaultPort = 58273;
         nRPCPort = 59273;
-        bnProofOfWorkLimit = ~uint256(0) >> 20;
+        nProofOfWorkLimit = ~uint256(0) >> 24;
+        nProofOfStakeLimit = ~uint256(0) >> 16;
 
         const char* pszTimestamp = "Reuters: Oil up $1 on OPEC output cuts, China demand forecast";
         CTransaction txNew;
@@ -106,12 +108,12 @@ public:
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
         genesis.nTime    = 1484236000;
-        genesis.nBits    = 0x1e0fffff;
+        genesis.nBits    = nProofOfWorkLimit.GetCompact();
         genesis.nNonce   = 220206;
 
 		hashGenesisBlock = genesis.GetHash();
 
-		if (false) { MineGenesis(genesis, bnProofOfWorkLimit); }
+		if (false) { MineGenesis(genesis, nProofOfWorkLimit); }
         
         assert(hashGenesisBlock == uint256("0x0000011d499735f29d943efb5d1db5cc9d05fb8e218e3fcd38ece6ded7787a82"));
         assert(genesis.hashMerkleRoot == uint256("0x511020b6687e5dc06b165c5ad6c4bbcf2f0f2e845f5c5ee23fed6bbd50eb8667"));
@@ -129,8 +131,7 @@ public:
         //strSporkKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
         //strMasternodePaymentsPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
         strDarksendPoolDummyAddress = "iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe";
-        nLastPOWBlock 	= 550;
-        nPOSStartBlock 	= 10;
+        nLastPOWBlock 	= 100000; // Preliminary Proof of Work
     }
 
     virtual const CBlock& GenesisBlock() const { return genesis; }
@@ -160,7 +161,8 @@ public:
         pchMessageStart[1] = 0xca;
         pchMessageStart[2] = 0x4d;
         pchMessageStart[3] = 0x3e;
-        bnProofOfWorkLimit = ~uint256(0) >> 16;
+        nProofOfWorkLimit = ~uint256(0) >> 16;
+        nProofOfStakeLimit = ~uint256(0) >> 16;
         vAlertPubKey = ParseHex("04cc24ab003c828cdd9cf4db2ebbde8e1cecb3bbfa8b3127fcb9dd9b84d44112080827ed7c49a648af9fe788ff42e316aee665879c553f099e55299d6b54edd7e0");
         nDefaultPort = 27170;
         nRPCPort = 27171;

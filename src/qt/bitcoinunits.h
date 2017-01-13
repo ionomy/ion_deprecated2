@@ -2,6 +2,7 @@
 #define BITCOINUNITS_H
 
 #include "util.h"
+#include "amount.h"
 
 #include <QString>
 #include <QAbstractListModel>

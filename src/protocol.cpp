@@ -5,6 +5,7 @@
 
 #include "protocol.h"
 #include "util.h"
+#include "amount.h"
 #include "netbase.h"
 
 #ifndef WIN32

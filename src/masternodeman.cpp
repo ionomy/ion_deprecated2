@@ -4,6 +4,7 @@
 #include "darksend.h"
 #include "core.h"
 #include "util.h"
+#include "amount.h"
 #include "addrman.h"
 #include <boost/lexical_cast.hpp>
 #include <boost/filesystem.hpp>

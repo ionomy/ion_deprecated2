@@ -9,6 +9,7 @@
 #include "base58.h"
 #include "init.h"
 #include "util.h"
+#include "amount.h"
 #include "sync.h"
 #include "base58.h"
 #include "db.h"

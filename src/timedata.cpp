@@ -4,10 +4,12 @@
 
 #include "timedata.h"
 
+#include "amount.h"
 #include "netbase.h"
 #include "sync.h"
 #include "ui_interface.h"
 #include "util.h"
+#include "amount.h"
 
 #include <boost/foreach.hpp>
 

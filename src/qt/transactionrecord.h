@@ -3,6 +3,7 @@
 
 #include "uint256.h"
 #include "util.h"
+#include "amount.h"
 
 #include <QList>
 #include <QString>

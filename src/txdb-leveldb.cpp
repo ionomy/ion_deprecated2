@@ -18,6 +18,7 @@
 #include "checkpoints.h"
 #include "txdb.h"
 #include "util.h"
+#include "amount.h"
 #include "main.h"
 #include "chainparams.h"
 

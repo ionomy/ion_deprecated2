@@ -14,6 +14,7 @@
 #include <boost/lexical_cast.hpp>
 //#include "amount.h"
 #include "util.h"
+#include "amount.h"
 //#include "utilmoneystr.h"
 
 #include <fstream>
@@ -42,7 +43,7 @@ void SendMoney(const CTxDestination &address, CAmount nValue, CWalletTx& wtxNew,
 
     // Create and send the transaction
     CReserveKey reservekey(pwalletMain);
-    int64_t nFeeRequired;
+    CAmount nFeeRequired;
     std::string sNarr;
     if (!pwalletMain->CreateTransaction(scriptPubKey, nValue, sNarr, wtxNew, reservekey, nFeeRequired, NULL))
     {

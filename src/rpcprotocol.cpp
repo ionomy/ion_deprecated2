@@ -6,6 +6,7 @@
 #include "rpcprotocol.h"
 
 #include "util.h"
+#include "amount.h"
 
 #include <stdint.h>
 

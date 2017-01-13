@@ -2,6 +2,7 @@
 #define TRANSACTIONFILTERPROXY_H
 
 #include "util.h"
+#include "amount.h"
 
 #include <QSortFilterProxyModel>
 #include <QDateTime>

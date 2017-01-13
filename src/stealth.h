@@ -11,6 +11,7 @@
 #include <inttypes.h>
 
 #include "util.h"
+#include "amount.h"
 #include "serialize.h"
 #include "key.h"
 

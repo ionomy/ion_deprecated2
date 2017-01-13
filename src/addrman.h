@@ -1,6 +1,7 @@
 // Copyright (c) 2012 Pieter Wuille
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #ifndef _BITCOIN_ADDRMAN
 #define _BITCOIN_ADDRMAN 1
 
@@ -9,6 +10,7 @@
 #include "sync.h"
 #include "timedata.h"
 #include "util.h"
+#include "amount.h"
 
 #include <map>
 #include <vector>

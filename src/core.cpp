@@ -5,6 +5,7 @@
 
 #include "core.h"
 #include "util.h"
+#include "amount.h"
 
 std::string COutPoint::ToString() const
 {
@@ -45,7 +46,7 @@ std::string CTxIn::ToString() const
     return str;
 }
 
-CTxOut::CTxOut(int64_t nValueIn, CScript scriptPubKeyIn)
+CTxOut::CTxOut(CAmount nValueIn, CScript scriptPubKeyIn)
 {
     nValue = nValueIn;
     scriptPubKey = scriptPubKeyIn;
