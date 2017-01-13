@@ -8,8 +8,6 @@
 
 #include <QSettings>
 
-bool fUseBlackTheme;
-
 OptionsModel::OptionsModel(QObject *parent) :
     QAbstractListModel(parent)
 {
@@ -46,7 +44,6 @@ void OptionsModel::Init()
     nTransactionFee = settings.value("nTransactionFee").toLongLong();
     nReserveBalance = settings.value("nReserveBalance").toLongLong();
     language = settings.value("language", "").toString();
-    fUseBlackTheme = settings.value("fUseBlackTheme", false).toBool();
 
     if (!settings.contains("nDarksendRounds"))
         settings.setValue("nDarksendRounds", 2);
@@ -122,8 +119,6 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return QVariant(nDarksendRounds);
         case AnonymizeIonAmount:
             return QVariant(nAnonymizeIonAmount);
-        case UseBlackTheme:
-            return QVariant(fUseBlackTheme);
         default:
             return QVariant();
         }
@@ -202,10 +197,6 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             settings.setValue("fCoinControlFeatures", fCoinControlFeatures);
             emit coinControlFeaturesChanged(fCoinControlFeatures);
             }
-            break;
-        case UseBlackTheme:
-            fUseBlackTheme = value.toBool();
-            settings.setValue("fUseBlackTheme", fUseBlackTheme);
             break;
         case DarksendRounds:
             nDarksendRounds = value.toInt();

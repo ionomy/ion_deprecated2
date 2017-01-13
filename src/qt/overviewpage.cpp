@@ -59,7 +59,7 @@ public:
             foreground = qvariant_cast<QColor>(value);
         }
 
-        painter->setPen(fUseBlackTheme ? QColor(255, 255, 255) : foreground);
+        painter->setPen(foreground);
         QRect boundingRect;
         painter->drawText(addressRect, Qt::AlignLeft|Qt::AlignVCenter, address, &boundingRect);
 
@@ -82,7 +82,7 @@ public:
         {
             foreground = option.palette.color(QPalette::Text);
         }
-        painter->setPen(fUseBlackTheme ? QColor(255, 255, 255) : foreground);
+        painter->setPen(foreground);
         QString amountText = BitcoinUnits::formatWithUnit(unit, amount, true);
         if(!confirmed)
         {
@@ -90,7 +90,7 @@ public:
         }
         painter->drawText(amountRect, Qt::AlignRight|Qt::AlignVCenter, amountText);
 
-        painter->setPen(fUseBlackTheme ? QColor(96, 101, 110) : option.palette.color(QPalette::Text));
+        painter->setPen(option.palette.color(QPalette::Text));
         painter->drawText(amountRect, Qt::AlignLeft|Qt::AlignVCenter, GUIUtil::dateTimeStr(date));
 
         painter->restore();
@@ -163,16 +163,6 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
-
-    if (fUseBlackTheme)
-    {
-        const char* whiteLabelQSS = "QLabel { color: rgb(255,255,255); }";
-        ui->labelBalance->setStyleSheet(whiteLabelQSS);
-        ui->labelStake->setStyleSheet(whiteLabelQSS);
-        ui->labelUnconfirmed->setStyleSheet(whiteLabelQSS);
-        ui->labelImmature->setStyleSheet(whiteLabelQSS);
-        ui->labelTotal->setStyleSheet(whiteLabelQSS);
-    }
 }
 
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
@@ -395,7 +385,7 @@ void OverviewPage::updateDarksendProgress()
                 " / " + tr("%n Rounds", "", nDarksendRounds) + "</span>";
     }
     ui->labelAmountRounds->setText(strAmountAndRounds);
-
+    
     // calculate parts of the progress, each of them shouldn't be higher than 1
     // progress of denominating
     float denomPart = 0;

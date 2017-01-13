@@ -175,8 +175,6 @@ namespace GUIUtil
         QString uiOptions;
     };
 
-    void SetBlackThemeQSS(QApplication& app);
-
 #if defined(Q_OS_MAC) && QT_VERSION >= 0x050000
     // workaround for Qt OSX Bug:
     // https://bugreports.qt-project.org/browse/QTBUG-15631
