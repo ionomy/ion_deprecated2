@@ -25,7 +25,7 @@
 #include "arith_uint256.h"
 
 int nTargetSpacing = 60;
-static int64_t nTargetTimespan = 2 * 60;
+static int64_t nTargetTimespan = 60;
 
 uint256 bnProofOfStakeLimit(~uint256(0) >> 20);
 
@@ -38,7 +38,6 @@ unsigned int DeltaRetargetingAlgorithm(const INDEX_TYPE pindexLast, bool fProofO
 {
             int64_t nRetargetTimespan = nPowTargetSpacing;
 
-			uint256 bnTargetLimit = fProofOfStake ? GetProofOfStakeLimit(pindexLast->nHeight) : Params().ProofOfWorkLimit();
 			const unsigned int nProofOfWorkLimit = fProofOfStake ? UintToArith256(GetProofOfStakeLimit(pindexLast->nHeight)).GetCompact() : UintToArith256(Params().ProofOfWorkLimit()).GetCompact();
 
             const unsigned int nLastBlock = 1;
@@ -64,8 +63,8 @@ unsigned int DeltaRetargetingAlgorithm(const INDEX_TYPE pindexLast, bool fProofO
             const int64_t nFloorTimeLimit = nRetargetTimespan * 65 / PERCENT_FACTOR;
 
             const int64_t nDrift = 1;
-            int64_t nLongTimeLimit = ((6 * nDrift)) * 60;
-            int64_t nLongTimeStep = nDrift * 60;
+            // int64_t nLongTimeLimit = ((6 * nDrift)) * 60;
+            // int64_t nLongTimeStep = nDrift * 60;
 
             unsigned int nMinimumAdjustLimit = (unsigned int)nRetargetTimespan * 75 / PERCENT_FACTOR;
 

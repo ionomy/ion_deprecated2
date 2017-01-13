@@ -186,7 +186,7 @@ std::string HelpMessage()
     string strUsage = _("Options:") + "\n";
     strUsage += "  -?                     " + _("This help message") + "\n";
     strUsage += "  -conf=<file>           " + _("Specify configuration file (default: ion.conf)") + "\n";
-    strUsage += "  -pid=<file>            " + _("Specify pid file (default: iond.pid)") + "\n";
+    strUsage += "  -pid=<file>            " + _("Specify pid file (default: xiond.pid)") + "\n";
     strUsage += "  -datadir=<dir>         " + _("Specify data directory") + "\n";
     strUsage += "  -wallet=<dir>          " + _("Specify wallet file (within data directory)") + "\n";
     strUsage += "  -dbcache=<n>           " + _("Set database cache size in megabytes (default: 100)") + "\n";

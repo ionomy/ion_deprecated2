@@ -175,13 +175,13 @@ ifeq (${USE_WALLET}, 1)
         obj/walletdb.o
 endif
 
-all: iond
+all: xiond
 
 # build secp256k1
 DEFS += $(addprefix -I,$(CURDIR)/secp256k1/include)
 secp256k1/src/libsecp256k1_la-secp256k1.o:
 	@echo "Building Secp256k1 ..."; cd secp256k1; chmod 755 *; ./autogen.sh; ./configure --enable-module-recovery; make; cd ..;
-iond: secp256k1/src/libsecp256k1_la-secp256k1.o
+xiond: secp256k1/src/libsecp256k1_la-secp256k1.o
 
 # build leveldb
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
@@ -214,11 +214,11 @@ obj/%.o: %.c
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
-iond: $(OBJS:obj/%=obj/%)
+xiond: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f iond
+	-rm -f xiond
 	-rm -f obj/*.o
 	-rm -f obj/*.P
 	-rm -f obj/build.h

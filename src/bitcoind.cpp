@@ -54,10 +54,10 @@ bool AppInit(int argc, char* argv[])
             // First part of help message is specific to bitcoind / RPC client
             std::string strUsage = _("Ion version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  iond [options]                     " + "\n" +
-                  "  iond [options] <command> [params]  " + _("Send command to -server or iond") + "\n" +
-                  "  iond [options] help                " + _("List commands") + "\n" +
-                  "  iond [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  xiond [options]                     " + "\n" +
+                  "  xiond [options] <command> [params]  " + _("Send command to -server or xiond") + "\n" +
+                  "  xiond [options] help                " + _("List commands") + "\n" +
+                  "  xiond [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage();
 

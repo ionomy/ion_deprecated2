@@ -1454,7 +1454,7 @@ int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
         }
         else
         {
-            nSubsidy = 5 * COIN;
+            nSubsidy = 0 * COIN;
         }
 
     return nSubsidy + nFees;
@@ -2752,11 +2752,9 @@ bool CBlock::AcceptBlock()
 uint256 CBlockIndex::GetBlockTrust() const
 {
     uint256 bnTarget;
-    bool fNegative;
-	bool fOverflow; 
     bnTarget.SetCompact(nBits);
 
-    if (fNegative || fOverflow || bnTarget == 0)
+    if (bnTarget == 0)
         return 0;
 
 	// We need to compute 2**256 / (bnTarget+1), but we can't represent 2**256

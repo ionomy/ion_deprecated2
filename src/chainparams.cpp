@@ -98,7 +98,7 @@ public:
         txNew.vin.resize(1);
         txNew.vout.resize(1);
 		txNew.vin[0].scriptSig = CScript() << 0 << CScriptNum(4) << std::vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-		txNew.vout[0].nValue = (5 * COIN);
+		txNew.vout[0].nValue = (1 * COIN);
 		txNew.vout[0].scriptPubKey = CScript() << ParseHex("04964ae39ac7421145f93a031791749772f671fa1153e4d6df87b1dce87ed2d68a74b46df6cd023ceffbbae4feed084915372d2b8ca866d24dd979af6f09800b3d") << OP_CHECKSIG;
         txNew.nTime = 1484236000;
         genesis.vtx.push_back(txNew);
@@ -107,14 +107,14 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1484236000;
         genesis.nBits    = 0x1e0fffff;
-        genesis.nNonce   = 482553;
+        genesis.nNonce   = 0;
 
 		hashGenesisBlock = genesis.GetHash();
 
-		if (false) { MineGenesis(genesis, bnProofOfWorkLimit); }
+		if (true) { MineGenesis(genesis, bnProofOfWorkLimit); }
         
-        assert(hashGenesisBlock == uint256("0x00000398cb5be6fb088312a523aff4472465076638cbb2b62b0541fdd7e97480"));
-        assert(genesis.hashMerkleRoot == uint256("0x9be5111db9c82a0019bf91a44b8ff2d06f4840385eab2cc0c4638ff72d8631ae"));
+        assert(hashGenesisBlock == uint256("0x"));
+        assert(genesis.hashMerkleRoot == uint256("0x"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,103);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,88);
@@ -122,10 +122,6 @@ public:
         base58Prefixes[STEALTH_ADDRESS] = std::vector<unsigned char>(1,40);
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
-
-//        vSeeds.push_back(CDNSSeedData("ionomy.com","dnsseed.ionomy.com"));
-//        vSeeds.push_back(CDNSSeedData("ionomy.nl","main.seed.ionomy.nl"));
-//        vSeeds.push_back(CDNSSeedData("ionomy.com","dnsseed2.ionomy.com"));
 
         convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
 
