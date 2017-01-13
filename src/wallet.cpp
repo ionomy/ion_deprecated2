@@ -22,6 +22,7 @@
 #include "masternode-payments.h"
 #include "chainparams.h"
 #include "smessage.h"
+#include "main.h"
 
 #include <boost/algorithm/string/replace.hpp>
 
@@ -3331,7 +3332,6 @@ uint64_t CWallet::GetStakeWeight() const
     CTxDB txdb("r");
 
     LOCK2(cs_main, cs_wallet);
-    int nStakeMinConfirmations = 1440;
 
     BOOST_FOREACH(PAIRTYPE(const CWalletTx*, unsigned int) pcoin, setCoins)
     {

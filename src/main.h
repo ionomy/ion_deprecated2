@@ -20,9 +20,8 @@ class CValidationState;
 #define START_MASTERNODE_PAYMENTS_TESTNET 1442690070
 #define START_MASTERNODE_PAYMENTS 1442690070
 
-static const int64_t DARKSEND_COLLATERAL = (20000*COIN);
-static const int64_t DARKSEND_FEE = (0.0085*COIN);
-static const int64_t DARKSEND_POOL_MAX = (199999.99*COIN);
+static const int64_t DARKSEND_COLLATERAL = (0.01*COIN);
+static const int64_t DARKSEND_POOL_MAX = (9999.99*COIN);
 
 static const int64_t TARGET_SPACING = 60;
 
@@ -39,7 +38,7 @@ class CReserveKey;
 class CWallet;
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
-static const unsigned int MAX_BLOCK_SIZE = 8000000;
+static const unsigned int MAX_BLOCK_SIZE = 20000000;
 /** The maximum size for mined blocks */
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
 /** Default for -blockprioritysize, maximum space for zero/low-fee transactions **/
@@ -59,7 +58,7 @@ static const unsigned int DEFAULT_MAX_ORPHAN_BLOCKS = 10000;
 /** The maximum number of entries in an 'inv' protocol message */
 static const unsigned int MAX_INV_SZ = 50000;
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
-static const int64_t MIN_TX_FEE = 1000;
+static const int64_t MIN_TX_FEE = 0.0001*COIN;
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying) */
 static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
 /** No amount larger than this (in satoshi) is valid */
@@ -331,13 +330,13 @@ public:
     int64_t GetValueOut() const
     {
         int64_t nValueOut = 0;
-        BOOST_FOREACH(const CTxOut& txout, vout)
+        for (std::vector<CTxOut>::const_iterator it(vout.begin()); it != vout.end(); ++it)
         {
-            nValueOut += txout.nValue;
-            if (!MoneyRange(txout.nValue) || !MoneyRange(nValueOut))
-                throw std::runtime_error("CTransaction::GetValueOut() : value out of range");
-        }
-        return nValueOut;
+			nValueOut += it->nValue;
+			if (!MoneyRange(it->nValue) || !MoneyRange(nValueOut))
+				throw std::runtime_error("CTransaction::GetValueOut(): value out of range");
+		}
+		return nValueOut;
     }
 
     /** Amount of bitcoins coming in to this transaction

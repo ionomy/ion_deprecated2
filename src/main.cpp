@@ -42,11 +42,11 @@ CTxMemPool mempool;
 map<uint256, CBlockIndex*> mapBlockIndex;
 set<pair<COutPoint, unsigned int> > setStakeSeen;
 
-unsigned int nStakeMinAge = 24 * 60 * 60; // 24 hours
+unsigned int nStakeMinAge = 60; // 24 hours
 unsigned int nModifierInterval = 2 * 60; // time to elapse before new modifier is computed
 
 int nCoinbaseMaturity = 10;
-int nStakeMinConfirmations = 30;
+int nStakeMinConfirmations = 10;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 
@@ -1447,15 +1447,7 @@ void static PruneOrphanBlocks()
 // miner's coin base reward
 int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
 {
-    int64_t nSubsidy = 0 * COIN;
-        if(nHeight == 1)
-        {
-            nSubsidy = 10900000 * COIN;
-        }
-        else
-        {
-            nSubsidy = 0 * COIN;
-        }
+    int64_t nSubsidy = 20000 * COIN;
 
     return nSubsidy + nFees;
 }
@@ -2369,7 +2361,6 @@ bool CTransaction::GetCoinAge(CTxDB& txdb, const CBlockIndex* pindexPrev, uint64
 {
     uint256 bnCentSecond = 0;  // coin age in the unit of cent-seconds
     nCoinAge = 0;
-    int nStakeMinConfirmations = 1440;
 
     if (IsCoinBase())
         return true;

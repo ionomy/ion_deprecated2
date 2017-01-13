@@ -107,14 +107,14 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1484236000;
         genesis.nBits    = 0x1e0fffff;
-        genesis.nNonce   = 0;
+        genesis.nNonce   = 220206;
 
 		hashGenesisBlock = genesis.GetHash();
 
-		if (true) { MineGenesis(genesis, bnProofOfWorkLimit); }
+		if (false) { MineGenesis(genesis, bnProofOfWorkLimit); }
         
-        assert(hashGenesisBlock == uint256("0x"));
-        assert(genesis.hashMerkleRoot == uint256("0x"));
+        assert(hashGenesisBlock == uint256("0x0000011d499735f29d943efb5d1db5cc9d05fb8e218e3fcd38ece6ded7787a82"));
+        assert(genesis.hashMerkleRoot == uint256("0x511020b6687e5dc06b165c5ad6c4bbcf2f0f2e845f5c5ee23fed6bbd50eb8667"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,103);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,88);
@@ -129,8 +129,8 @@ public:
         //strSporkKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
         //strMasternodePaymentsPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
         strDarksendPoolDummyAddress = "iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe";
-        nLastPOWBlock 	= 2000;
-        nPOSStartBlock 	= 1;
+        nLastPOWBlock 	= 550;
+        nPOSStartBlock 	= 10;
     }
 
     virtual const CBlock& GenesisBlock() const { return genesis; }
@@ -167,10 +167,7 @@ public:
         strDataDir = "testnet";
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nBits  = 520159231; 
-        genesis.nNonce = 35117;
-
-//        assert(hashGenesisBlock == uint256("0x9672529bc958a440a8acd061d914120d44c914a06454b82d3e1cd68fe4f1f916"));
+        assert(hashGenesisBlock == uint256("0x0000011d499735f29d943efb5d1db5cc9d05fb8e218e3fcd38ece6ded7787a82"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
