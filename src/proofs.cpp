@@ -18,7 +18,12 @@
 // miner's coin base reward
 int64_t GetCoinbaseValue(int nHeight, CAmount nFees)
 {
-    CAmount nSubsidy = 20000 * COIN;
+    CAmount nSubsidy = 0;
+
+        if(nHeight == 1)
+        {
+            nSubsidy = 16030000 * COIN;
+        }
 
     return nSubsidy + nFees;
 }
