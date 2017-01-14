@@ -11,3 +11,7 @@ qrc_bitcoin.cpp
 src/qt/locale/*.qm
 release
 src/iond*
+
+*.plist
+
+ion-Qt.app/Contents/PkgInfo
