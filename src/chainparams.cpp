@@ -104,9 +104,8 @@ public:
         genesis.nBits    = 0x1e00ffff;
         genesis.nNonce   = 359900;
 
-		hashGenesisBlock = genesis.GetHash();
-
-		if (false) { MineGenesis(genesis, nProofOfWorkLimit); }
+	hashGenesisBlock = genesis.GetHash();
+	if (false) { MineGenesis(genesis, nProofOfWorkLimit); }
         
         assert(hashGenesisBlock == uint256("0x0000009b33ffdb43dc629edff9f4490d9b71cfe5effada3de8b7f2179e514175"));
         assert(genesis.hashMerkleRoot == uint256("0x2de1c19c955399e93a071058647e66f315b193f9d64c73f8acac6830eae65295"));
@@ -118,9 +117,10 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
         
+	vSeeds.push_back(CDNSSeedData("seeder.ionomy.com", "seeder2.ionomy.com"));
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
-        nPoolMaxTransactions = 3;
+	nPoolMaxTransactions = 3;
         //strSporkKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
         //strMasternodePaymentsPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
         strDarksendPoolDummyAddress = "iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe";
