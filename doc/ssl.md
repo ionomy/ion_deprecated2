@@ -1,6 +1,6 @@
 Enabling SSL on original client daemon
 ======================================
-By default, Ioncoin allows JSON-RPC commands to be sent to http://localhost:17171
+By default, Ion allows JSON-RPC commands to be sent to http://localhost:17171
 and accepts connections only from the localhost.
 
 JSON-RPC Over SSL Setup
@@ -19,7 +19,7 @@ for this to work properly.
     * Edit the ion.conf and add
       rpcssl=1
 
-3. Restart Ioncoin to make these changes take effect.
+3. Restart Ion to make these changes take effect.
 
 4. Optionally you can test SSL functionality using the openssl s_client command
     * openssl s_client -connect localhost:15004

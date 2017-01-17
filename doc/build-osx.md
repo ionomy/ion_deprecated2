@@ -27,7 +27,7 @@ but you can get the current version from http://developer.apple.com
 
 1.  Clone the github tree to get the source code:
 
-git clone http://github.com/xiondev/ioncoin ion
+git clone http://github.com/Ion-Network/Ion-Core ion
 
 2.  Download and install MacPorts from http://www.macports.org/
 
