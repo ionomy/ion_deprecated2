@@ -200,7 +200,6 @@ HEADERS += src/qt/bitcoingui.h src/proofs.h src/amount.h \
     src/hash.h \
     src/uint256.h \
     src/kernel.h \
-    src/pbkdf2.h \
     src/serialize.h \
     src/support/cleanse.h \
     src/core.h \
@@ -215,7 +214,6 @@ HEADERS += src/qt/bitcoingui.h src/proofs.h src/amount.h \
     src/txmempool.h \
     src/walletdb.h \
     src/script.h \
-    src/scrypt.h \
     src/init.h \
     src/mruset.h \
     src/json/json_spirit_writer_template.h \
@@ -322,7 +320,6 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/proofs.cpp src/uint256.c
     src/key.cpp \
     src/pubkey.cpp \
     src/script.cpp \
-    src/scrypt.cpp \
     src/core.cpp \
     src/main.cpp \
     src/miner.cpp \
@@ -373,7 +370,6 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/proofs.cpp src/uint256.c
     src/qt/rpcconsole.cpp \
     src/noui.cpp \
     src/kernel.cpp \
-    src/pbkdf2.cpp \
     src/support/cleanse.cpp \
     src/stealth.cpp \
     src/qt/flowlayout.cpp \

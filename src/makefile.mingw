@@ -86,14 +86,12 @@ OBJS= \
     obj/rpcsmessage.o \
     obj/timedata.o \
     obj/script.o \
-    obj/scrypt.o \
     obj/sync.o \
     obj/txmempool.o \
     obj/util.o \
     obj/hash.o \
     obj/noui.o \
     obj/kernel.o \
-    obj/pbkdf2.o \
     obj/chainparams.o \
     obj/stealth.o \
     obj/activemasternode.o \

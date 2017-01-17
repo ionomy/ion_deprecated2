@@ -87,8 +87,6 @@ OBJS= \
     obj/hash.o \
     obj/noui.o \
     obj/kernel.o \
-    obj/pbkdf2.o \
-    obj/scrypt.o \
     obj/chainparams.o
 
 ifeq (${USE_WALLET}, 1)
