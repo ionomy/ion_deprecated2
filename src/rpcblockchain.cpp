@@ -6,7 +6,7 @@
 
 #include "rpcserver.h"
 #include "main.h"
-#include "kernel.h"
+#include "stake.h"
 #include "checkpoints.h"
 
 using namespace json_spirit;

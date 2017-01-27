@@ -6,7 +6,7 @@
 
 #include "txdb.h"
 #include "miner.h"
-#include "kernel.h"
+#include "stake.h"
 #include "masternodeman.h"
 #include "masternode-payments.h"
 

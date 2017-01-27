@@ -13,7 +13,7 @@
 #include "checkpoints.h"
 #include "db.h"
 #include "init.h"
-#include "kernel.h"
+#include "stake.h"
 #include "net.h"
 #include "txdb.h"
 #include "txmempool.h"

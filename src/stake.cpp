@@ -6,7 +6,7 @@
 #include <boost/assign/list_of.hpp>
 
 #include "proofs.h"
-#include "kernel.h"
+#include "stake.h"
 #include "txdb.h"
 
 using namespace std;

@@ -14,7 +14,7 @@
 #include <leveldb/filter_policy.h>
 #include <memenv/memenv.h>
 
-#include "kernel.h"
+#include "stake.h"
 #include "checkpoints.h"
 #include "txdb.h"
 #include "util.h"

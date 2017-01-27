@@ -137,7 +137,7 @@ OBJS= \
     obj/util.o \
     obj/hash.o \
     obj/noui.o \
-    obj/kernel.o \
+    obj/stake.o \
     obj/chainparams.o \
     obj/stealth.o \
     obj/activemasternode.o \

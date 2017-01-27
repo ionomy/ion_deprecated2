@@ -212,7 +212,7 @@ HEADERS += src/qt/bitcoingui.h src/proofs.h src/amount.h \
     src/util.h \
     src/hash.h \
     src/uint256.h \
-    src/kernel.h \
+    src/stake.h \
     src/serialize.h \
     src/support/cleanse.h \
     src/core.h \
@@ -382,7 +382,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/proofs.cpp src/uint256.c
     src/qt/paymentserver.cpp \
     src/qt/rpcconsole.cpp \
     src/noui.cpp \
-    src/kernel.cpp \
+    src/stake.cpp \
     src/support/cleanse.cpp \
     src/stealth.cpp \
     src/qt/flowlayout.cpp \

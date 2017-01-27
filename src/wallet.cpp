@@ -7,7 +7,7 @@
 
 #include "base58.h"
 #include "coincontrol.h"
-#include "kernel.h"
+#include "stake.h"
 #include "net.h"
 #include "timedata.h"
 #include "txdb.h"
