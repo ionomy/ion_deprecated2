@@ -178,6 +178,14 @@ QString ClientModel::formatBuildDate() const
     return QString::fromStdString(CLIENT_DATE);
 }
 
+QString ClientModel::getNetworkName() const
+{
+    QString netname(QString::fromStdString(Params().DataDir()));
+    if(netname.isEmpty())
+        netname = "main";
+    return netname;
+}
+
 bool ClientModel::isReleaseVersion() const
 {
     return CLIENT_VERSION_IS_RELEASE;
