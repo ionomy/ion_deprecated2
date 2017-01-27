@@ -76,15 +76,15 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0xbf;
-        pchMessageStart[1] = 0xf4;
-        pchMessageStart[2] = 0x1a;
-        pchMessageStart[3] = 0xb6;
+        pchMessageStart[0] = 0x7e;
+        pchMessageStart[1] = 0x3f;
+        pchMessageStart[2] = 0x95;
+        pchMessageStart[3] = 0xbb;
         vAlertPubKey = ParseHex("040627d06214ba58f42eb74d475d32bc359c822902fb91766be30bfff2b878d2b5d4efa9e38c2a3438b15ff85e734ce3ce0382f8ebb79b6cdb3bc779af69e0b9b8");
-        nDefaultPort = 58273;
-        nRPCPort = 59273;
+        nDefaultPort = 15200;
+        nRPCPort = 15201;
         nProofOfWorkLimit = ~uint256(0) >> 24; // 000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-        nProofOfStakeLimit = ~uint256(0) >> 24;
+        nProofOfStakeLimit = ~uint256(0) >> 20;
 
         const char* pszTimestamp = "Reuters: Merkel expected to speak with Trump about Russia";
 	std::vector<CTxIn> vin;
@@ -117,7 +117,8 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-	vSeeds.push_back(CDNSSeedData("seeder.ionomy.com", "seeder2.ionomy.com"));
+	vSeeds.push_back(CDNSSeedData("seeder.baseserv.com", "main.seeder.baseserv.com"));
+        vSeeds.push_back(CDNSSeedData("seeder.uksafedns.net", "main.seeder.uksafedns.net"));
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
 	nPoolMaxTransactions = 3;
