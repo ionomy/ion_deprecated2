@@ -102,13 +102,19 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1485517600;
         genesis.nBits    = 0x1e00ffff;
-        genesis.nNonce   = 0;
+        genesis.nNonce   = 56961757;
 
 	hashGenesisBlock = genesis.GetHash();
-	if (true) { MineGenesis(genesis, nProofOfWorkLimit); }
-
-        assert(hashGenesisBlock == uint256("0x0000009b33ffdb43dc629edff9f4490d9b71cfe5effada3de8b7f2179e514175"));
-        assert(genesis.hashMerkleRoot == uint256("0x2de1c19c955399e93a071058647e66f315b193f9d64c73f8acac6830eae65295"));
+	if (false) { MineGenesis(genesis, nProofOfWorkLimit); }
+/**
+	Gensis Hash: 000000c4f068822742fe2576d9da3ebc057e227be478d4dd419ac58ca23ab5a7
+	Gensis Hash Merkle: 7ca71c0b618948ceba95805287d1e48e3f3f6cc4fb3b761d05c405b7e8640370
+	Gensis nTime: 1485517600
+	Gensis nBits: 1e00ffff
+	Gensis Nonce: 56961757
+*/
+        assert(hashGenesisBlock == uint256("0x000000c4f068822742fe2576d9da3ebc057e227be478d4dd419ac58ca23ab5a7"));
+        assert(genesis.hashMerkleRoot == uint256("0x7ca71c0b618948ceba95805287d1e48e3f3f6cc4fb3b761d05c405b7e8640370"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,103);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,88);
