@@ -94,28 +94,28 @@ public:
 		vout.resize(1);
 		vout[0].scriptPubKey = CScript() << ParseHex("04964ae39ac7421145f93a031791749772f671fa1153e4d6df87b1dce87ed2d68a74b46df6cd023ceffbbae4feed084915372d2b8ca866d24dd979af6f09800b3d") << OP_CHECKSIG;
 		vout[0].nValue = (1 * COIN);
-		CTransaction txNew(1, 1485517600, vin, vout, 0);
+		CTransaction txNew(1, 1485544000, vin, vout, 0);
 
 		genesis.vtx.push_back(txNew);
 		genesis.hashPrevBlock = 0;
 		genesis.hashMerkleRoot = genesis.BuildMerkleTree();
 		genesis.nVersion = 1;
-		genesis.nTime    = 1485517600;
+		genesis.nTime    = 1485544000;
 		genesis.nBits    = 0x1e00ffff;
-		genesis.nNonce   = 56961757;
+		genesis.nNonce   = 15789410;
 
 		hashGenesisBlock = genesis.GetHash();
 		if (false) { MineGenesis(genesis, nProofOfWorkLimit); }
 	
 /**
-		Gensis Hash: 000000c4f068822742fe2576d9da3ebc057e227be478d4dd419ac58ca23ab5a7
-		Gensis Hash Merkle: 7ca71c0b618948ceba95805287d1e48e3f3f6cc4fb3b761d05c405b7e8640370
-		Gensis nTime: 1485517600
+		Gensis Hash: 0000007d36f5940db0ec8bd99e75cceb3bfa7fd3d11bf2f2898815a6a6630d7e
+		Gensis Hash Merkle: 15f1ba05923859ecb9bf820bed78954c16057396ef4aa4bd57a4a5ee0d695cef
+		Gensis nTime: 1485544000
 		Gensis nBits: 1e00ffff
-		Gensis Nonce: 56961757
+		Gensis Nonce: 15789410
 */
-        assert(hashGenesisBlock == uint256("0x000000c4f068822742fe2576d9da3ebc057e227be478d4dd419ac58ca23ab5a7"));
-        assert(genesis.hashMerkleRoot == uint256("0x7ca71c0b618948ceba95805287d1e48e3f3f6cc4fb3b761d05c405b7e8640370"));
+        assert(hashGenesisBlock == uint256("0x0000007d36f5940db0ec8bd99e75cceb3bfa7fd3d11bf2f2898815a6a6630d7e"));
+        assert(genesis.hashMerkleRoot == uint256("0x15f1ba05923859ecb9bf820bed78954c16057396ef4aa4bd57a4a5ee0d695cef"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,103);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,88);
