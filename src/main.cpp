@@ -1207,7 +1207,7 @@ int CMerkleTx::GetBlocksToMaturity() const
 {
     if (!(IsCoinBase() || IsCoinStake()))
         return 0;
-    return max(0, nCoinbaseMaturity - GetDepthInMainChain());
+    return max(0, DetermineCoinbaseMaturity() - GetDepthInMainChain());
 }
 
 
@@ -1666,7 +1666,7 @@ bool CTransaction::ConnectInputs(CTxDB& txdb, MapPrevTx inputs, map<uint256, CTx
             if (txPrev.IsCoinBase() || txPrev.IsCoinStake())
             {
                 int nSpendDepth;
-                if (IsConfirmedInNPrevBlocks(txindex, pindexBlock, nCoinbaseMaturity, nSpendDepth)){
+                if (IsConfirmedInNPrevBlocks(txindex, pindexBlock, DetermineCoinbaseMaturity(), nSpendDepth)){
                     return error("ConnectInputs() : tried to spend %s at depth %d", txPrev.IsCoinBase() ? "coinbase" : "coinstake", nSpendDepth);
                 }
             }
@@ -2334,7 +2334,7 @@ bool CTransaction::GetCoinAge(CTxDB& txdb, const CBlockIndex* pindexPrev, uint64
 
         int nSpendDepth;
 
-        if (IsConfirmedInNPrevBlocks(txindex, pindexPrev, nCoinbaseMaturity - 1, nSpendDepth))
+        if (IsConfirmedInNPrevBlocks(txindex, pindexPrev, DetermineCoinbaseMaturity() - 1, nSpendDepth))
         {
             LogPrint("coinage", "coin age skip nSpendDepth=%d\n", nSpendDepth + 1);
             continue; // only count coins meeting min confirmations requirement
@@ -2492,10 +2492,9 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) c
 
     // ----------- masternode payments -----------
 
-    bool MasternodePayments = false;
+    bool MasternodePayments = true;
     bool fIsInitialDownload = IsInitialBlockDownload();
 
-    if(nTime > START_MASTERNODE_PAYMENTS) MasternodePayments = true;
     if (!fIsInitialDownload)
     {
         if(MasternodePayments)

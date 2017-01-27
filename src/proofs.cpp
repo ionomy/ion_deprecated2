@@ -15,48 +15,47 @@
 #include <math.h>
 #include <stdint.h> 
 
+int DetermineCoinbaseMaturity() {
+	if(pindexBest->nHeight <= 100) {
+		return (int)5; // This will allow for premine distribution to propogate faster
+	} else if(pindexBest->nHeight <= 500) {
+		return (int)10; // This will allow for transactions to propogate faster
+	} else {
+		return (int)60; // Coinbase will take approx. 1 hr to reach confirmation
+	}
+}
+
 // miner's coin base reward
 int64_t GetCoinbaseValue(int nHeight, CAmount nFees)
 {
     CAmount nSubsidy = 0;
 
-        if(nHeight == 1)
-        {
-            nSubsidy = 16030000 * COIN;
-        }
+	if(nHeight == 1) {
+		nSubsidy = 16030000 * COIN;
+	}
 
-    return nSubsidy + nFees;
+    return nSubsidy;
 }
 
 // miner's coin stake reward based on coin age spent (coin-days)
 int64_t GetCoinstakeValue(int64_t nCoinAge, CAmount nFees, int nHeight)
 {
-    CAmount nSubsidy = 0.2 * COIN;
+	CAmount nSubsidy = 0.2 * COIN;
 
-      if(nHeight < 525600)
-        {
-            nSubsidy = 23 * COIN;
-        }
-        else if(nHeight < 1051200)
-        {
-            nSubsidy = 17 * COIN;
-        }
-        else if(nHeight < 1576800)
-        {
-            nSubsidy = 11.5 * COIN;
-        }
-        else if(nHeight < 2102400)
-        {
-            nSubsidy = 5.75 * COIN;
-        }
-        else if(nHeight < 2628000)
-        {
-            nSubsidy = 1.85 * COIN;
-        }
-        else
-        {
-            nSubsidy = 0.2 * COIN;
-        }
+	if(nHeight < 525600) {
+		nSubsidy = 23 * COIN;
+	}
+	else if(nHeight < 1051200) {
+		nSubsidy = 17 * COIN;
+	} else if(nHeight < 1576800) {
+		nSubsidy = 11.5 * COIN;
+	} else if(nHeight < 2102400) {
+		nSubsidy = 5.75 * COIN;
+	} else if(nHeight < 2628000) {
+		nSubsidy = 1.85 * COIN;
+	} else {
+		nSubsidy = 0.2 * COIN;
+	}
 
     return nSubsidy + nFees;
 }

@@ -1739,7 +1739,7 @@ void CWallet::AvailableCoinsForStaking(vector<COutput>& vCoins, unsigned int nSp
             if (nDepth < 1)
                 continue;
 
-            if (nDepth < nCoinbaseMaturity)
+            if (nDepth < DetermineCoinbaseMaturity())
             {
                 continue;
             }
@@ -3337,7 +3337,7 @@ uint64_t CWallet::GetStakeWeight() const
     BOOST_FOREACH(PAIRTYPE(const CWalletTx*, unsigned int) pcoin, setCoins)
     {
         CTxIndex txindex;
-        if (pcoin.first->GetDepthInMainChain() >= nCoinbaseMaturity)
+        if (pcoin.first->GetDepthInMainChain() >= DetermineCoinbaseMaturity())
             nWeight += pcoin.first->vout[pcoin.second].nValue;
     }
 
@@ -3507,17 +3507,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     // Masternode Payments
     int payments = 1;
     // start masternode payments
-    bool bMasterNodePayment = true; // note was false, set true to test
-
-    if ( Params().NetworkID() == CChainParams::TESTNET ){
-        if (GetTime() > START_MASTERNODE_PAYMENTS_TESTNET ){
-            bMasterNodePayment = true;
-        }
-    }else{
-        if (GetTime() > START_MASTERNODE_PAYMENTS){
-            bMasterNodePayment = true;
-        }
-    }
+    bool bMasterNodePayment = true;
 
     CScript payee;
     CTxIn vin;

@@ -17,8 +17,10 @@ class CBlockIndex;
 class uint256;
 
 static const int nTargetSpacing = 64;
-static const int nCoinbaseMaturity = 1;
 
+/** Determine Coinbase Maturity (generally not a good idea - done so to increase speed) */
+int DetermineCoinbaseMaturity();
+/** Calculate difficulty using retarget algorithm by maintaining target */
 unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfStake);
 /** Check whether a block hash satisfies the proof-of-work requirement specified by nBits */
 bool CheckProofOfWork(uint256 hash, unsigned int nBits);

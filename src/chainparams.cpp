@@ -86,32 +86,33 @@ public:
         nProofOfWorkLimit = ~uint256(0) >> 24; // 000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         nProofOfStakeLimit = ~uint256(0) >> 20;
 
-        const char* pszTimestamp = "Reuters: Merkel expected to speak with Trump about Russia";
-	std::vector<CTxIn> vin;
-        vin.resize(1);
-        vin[0].scriptSig = CScript() << 0 << CScriptNum(4) << std::vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        std::vector<CTxOut> vout;
-        vout.resize(1);
-	vout[0].scriptPubKey = CScript() << ParseHex("04964ae39ac7421145f93a031791749772f671fa1153e4d6df87b1dce87ed2d68a74b46df6cd023ceffbbae4feed084915372d2b8ca866d24dd979af6f09800b3d") << OP_CHECKSIG;
-        vout[0].nValue = (1 * COIN);
-	CTransaction txNew(1, 1485517600, vin, vout, 0);
+		const char* pszTimestamp = "Reuters: Merkel expected to speak with Trump about Russia";
+		std::vector<CTxIn> vin;
+		vin.resize(1);
+		vin[0].scriptSig = CScript() << 0 << CScriptNum(4) << std::vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
+		std::vector<CTxOut> vout;
+		vout.resize(1);
+		vout[0].scriptPubKey = CScript() << ParseHex("04964ae39ac7421145f93a031791749772f671fa1153e4d6df87b1dce87ed2d68a74b46df6cd023ceffbbae4feed084915372d2b8ca866d24dd979af6f09800b3d") << OP_CHECKSIG;
+		vout[0].nValue = (1 * COIN);
+		CTransaction txNew(1, 1485517600, vin, vout, 0);
 
-	genesis.vtx.push_back(txNew);
-        genesis.hashPrevBlock = 0;
-        genesis.hashMerkleRoot = genesis.BuildMerkleTree();
-        genesis.nVersion = 1;
-        genesis.nTime    = 1485517600;
-        genesis.nBits    = 0x1e00ffff;
-        genesis.nNonce   = 56961757;
+		genesis.vtx.push_back(txNew);
+		genesis.hashPrevBlock = 0;
+		genesis.hashMerkleRoot = genesis.BuildMerkleTree();
+		genesis.nVersion = 1;
+		genesis.nTime    = 1485517600;
+		genesis.nBits    = 0x1e00ffff;
+		genesis.nNonce   = 56961757;
 
-	hashGenesisBlock = genesis.GetHash();
-	if (false) { MineGenesis(genesis, nProofOfWorkLimit); }
+		hashGenesisBlock = genesis.GetHash();
+		if (false) { MineGenesis(genesis, nProofOfWorkLimit); }
+	
 /**
-	Gensis Hash: 000000c4f068822742fe2576d9da3ebc057e227be478d4dd419ac58ca23ab5a7
-	Gensis Hash Merkle: 7ca71c0b618948ceba95805287d1e48e3f3f6cc4fb3b761d05c405b7e8640370
-	Gensis nTime: 1485517600
-	Gensis nBits: 1e00ffff
-	Gensis Nonce: 56961757
+		Gensis Hash: 000000c4f068822742fe2576d9da3ebc057e227be478d4dd419ac58ca23ab5a7
+		Gensis Hash Merkle: 7ca71c0b618948ceba95805287d1e48e3f3f6cc4fb3b761d05c405b7e8640370
+		Gensis nTime: 1485517600
+		Gensis nBits: 1e00ffff
+		Gensis Nonce: 56961757
 */
         assert(hashGenesisBlock == uint256("0x000000c4f068822742fe2576d9da3ebc057e227be478d4dd419ac58ca23ab5a7"));
         assert(genesis.hashMerkleRoot == uint256("0x7ca71c0b618948ceba95805287d1e48e3f3f6cc4fb3b761d05c405b7e8640370"));
@@ -123,15 +124,14 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-	vSeeds.push_back(CDNSSeedData("seeder.baseserv.com", "main.seeder.baseserv.com"));
+		vSeeds.push_back(CDNSSeedData("seeder.baseserv.com", "main.seeder.baseserv.com"));
         vSeeds.push_back(CDNSSeedData("seeder.uksafedns.net", "main.seeder.uksafedns.net"));
+        
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
-	nPoolMaxTransactions = 3;
-        //strSporkKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
-        //strMasternodePaymentsPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
+		nPoolMaxTransactions = 3;
         strDarksendPoolDummyAddress = "iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe";
-        nLastPOWBlock 	= 100; // Preliminary Proof of Work
+        nLastPOWBlock 	= 500; // Preliminary Proof of Work
     }
 
     virtual const CBlock& GenesisBlock() const { return genesis; }

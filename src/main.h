@@ -16,9 +16,6 @@
 
 class CValidationState;
 
-#define START_MASTERNODE_PAYMENTS_TESTNET 1442690070
-#define START_MASTERNODE_PAYMENTS 1442690070
-
 static const int64_t DARKSEND_COLLATERAL = (0.01*COIN);
 static const int64_t DARKSEND_POOL_MAX = (9999.99*COIN);
 
@@ -55,7 +52,7 @@ static const unsigned int DEFAULT_MAX_ORPHAN_BLOCKS = 10000;
 /** The maximum number of entries in an 'inv' protocol message */
 static const unsigned int MAX_INV_SZ = 50000;
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
-static const int64_t MIN_TX_FEE = 0.0001*COIN;
+static const int64_t MIN_TX_FEE = (0.0001*COIN);
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying) */
 static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
