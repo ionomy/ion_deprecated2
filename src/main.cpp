@@ -42,8 +42,8 @@ CTxMemPool mempool;
 map<uint256, CBlockIndex*> mapBlockIndex;
 set<pair<COutPoint, unsigned int> > setStakeSeen;
 
-unsigned int nStakeMinAge = 8 * 60 * 60; // 8 hours
-unsigned int nModifierInterval = 2 * 60; // time to elapse before new modifier is computed
+unsigned int nStakeMinAge = 60; // 8 hours
+unsigned int nModifierInterval = 60; // time to elapse before new modifier is computed
 
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
