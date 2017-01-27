@@ -474,7 +474,7 @@ bool CWallet::EncryptWallet(const SecureString& strWalletPassphrase)
     if (!GetRandBytes(&vMasterKey[0], WALLET_CRYPTO_KEY_SIZE))
         return false;
 
-    CMasterKey kMasterKey;
+    CMasterKey kMasterKey(nDerivationMethodIndex);
 
     RandAddSeedPerfmon();
     kMasterKey.vchSalt.resize(WALLET_CRYPTO_SALT_SIZE);
