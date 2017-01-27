@@ -188,9 +188,9 @@ void MasternodeManager::on_startButton_clicked()
     int r = index.row();
     std::string sAlias = ui->tableWidget_2->item(r, 0)->text().toStdString();
 
-
-
     if(pwalletMain->IsLocked()) {
+		QMessageBox::warning(this, tr("Masternode Start Failed"), tr("Wallet is currently encrypted! \nPlease unlock your wallet before continuing"));
+		return;
     }
 
     std::string statusObj;
@@ -224,6 +224,8 @@ void MasternodeManager::on_startButton_clicked()
 void MasternodeManager::on_startAllButton_clicked()
 {
     if(pwalletMain->IsLocked()) {
+		QMessageBox::warning(this, tr("Masternode Start Failed"), tr("Wallet is currently encrypted! \nPlease unlock your wallet before continuing"));
+		return;
     }
 
     std::vector<CMasternodeConfig::CMasternodeEntry> mnEntries;
