@@ -350,8 +350,6 @@ bool CCryptoKeyStore::EncryptKeys(CKeyingMaterial& vMasterKeyIn)
     return true;
 }
 
-
-/*
 bool SecMsgCrypter::SetKey(const std::vector<uint8_t>& vchNewKey, uint8_t* chNewIV)
 {
     if (vchNewKey.size() < sizeof(chKey))
@@ -426,4 +424,3 @@ bool SecMsgCrypter::Decrypt(uint8_t* chCiphertext, uint32_t nCipher, std::vector
 
     return true;
 };
-*/

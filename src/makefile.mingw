@@ -83,7 +83,6 @@ OBJS= \
     obj/rpcnet.o \
     obj/rpcblockchain.o \
     obj/rpcrawtransaction.o \
-    obj/rpcsmessage.o \
     obj/timedata.o \
     obj/script.o \
     obj/sync.o \
@@ -110,8 +109,6 @@ OBJS= \
     obj/crypto/sha1.o \
     obj/crypto/sha256.o \
     obj/crypto/sha512.o \
-    obj/crypto/aes.o \
-    obj/smessage.o \
     obj/proofs.o \
     obj/uint256.o \
     obj/amount.o

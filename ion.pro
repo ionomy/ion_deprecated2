@@ -288,7 +288,7 @@ HEADERS += src/qt/bitcoingui.h src/proofs.h src/amount.h \
     src/masternodeman.h \
     src/masternode-payments.h \
     src/spork.h \
-    src/crypto/common.h src/crypto/aes.h \
+    src/crypto/common.h \
     src/crypto/hmac_sha256.h \
     src/crypto/hmac_sha512.h \
     src/crypto/ripemd160.h \
@@ -299,12 +299,6 @@ HEADERS += src/qt/bitcoingui.h src/proofs.h src/amount.h \
     src/qt/addeditatomnode.h \
     src/qt/atomnodeconfigdialog.h \
     src/qt/qcustomplot.h \
-    src/smessage.h \
-    src/qt/messagepage.h \
-    src/qt/messagemodel.h \
-    src/qt/sendmessagesdialog.h \
-    src/qt/sendmessagesentry.h \
-    src/qt/plugins/mrichtexteditor/mrichtextedit.h \
     src/qt/qvalidatedtextedit.h
     
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/proofs.cpp src/uint256.cpp src/amount.cpp \
@@ -397,7 +391,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/proofs.cpp src/uint256.c
     src/masternode-payments.cpp \
     src/spork.cpp \
     src/masternodeconfig.cpp \
-    src/crypto/hmac_sha256.cpp src/crypto/aes.cpp \
+    src/crypto/hmac_sha256.cpp \
     src/crypto/hmac_sha512.cpp \
     src/crypto/ripemd160.cpp \
     src/crypto/sha1.cpp \
@@ -407,14 +401,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/proofs.cpp src/uint256.c
     src/qt/addeditatomnode.cpp \
     src/qt/atomnodeconfigdialog.cpp \
     src/qt/qcustomplot.cpp \
-    src/smessage.cpp \
-    src/qt/messagepage.cpp \
-    src/qt/messagemodel.cpp \
-    src/qt/sendmessagesdialog.cpp \
-    src/qt/sendmessagesentry.cpp \
-    src/qt/qvalidatedtextedit.cpp \
-    src/qt/plugins/mrichtexteditor/mrichtextedit.cpp \
-    src/rpcsmessage.cpp
+    src/qt/qvalidatedtextedit.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc
@@ -435,11 +422,7 @@ FORMS += \
     src/qt/forms/darksendconfig.ui \
     src/qt/forms/masternodemanager.ui \
     src/qt/forms/addeditatomnode.ui \
-    src/qt/forms/atomnodeconfigdialog.ui \
-    src/qt/forms/messagepage.ui \
-    src/qt/forms/sendmessagesentry.ui \
-    src/qt/forms/sendmessagesdialog.ui \
-    src/qt/plugins/mrichtexteditor/mrichtextedit.ui
+    src/qt/forms/atomnodeconfigdialog.ui
 
 contains(USE_QRCODE, 1) {
 HEADERS += src/qt/qrcodedialog.h

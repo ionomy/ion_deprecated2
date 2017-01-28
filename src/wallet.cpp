@@ -21,7 +21,6 @@
 #include "masternodeman.h"
 #include "masternode-payments.h"
 #include "chainparams.h"
-#include "smessage.h"
 #include "main.h"
 #include "proofs.h"
 
@@ -262,7 +261,6 @@ bool CWallet::Unlock(const SecureString& strWalletPassphrase, bool anonymizeOnly
 
     fWalletUnlockAnonymizeOnly = anonymizeOnly;
     UnlockStealthAddresses(vMasterKey);
-    SecureMsgWalletUnlocked();
     return true;
     }
     return false;

@@ -33,7 +33,7 @@ void ProcessMessageMasternodePayments(CNode* pfrom, std::string& strCommand, CDa
 
         if(pfrom->HasFulfilledRequest("mnget")) {
             LogPrintf("mnget - peer already asked me for the list\n");
-            Misbehaving(pfrom->GetId(), 20);
+            pfrom->Misbehaving(20);
             return;
         }
 
@@ -68,7 +68,7 @@ void ProcessMessageMasternodePayments(CNode* pfrom, std::string& strCommand, CDa
 
         if(winner.vin.nSequence != std::numeric_limits<unsigned int>::max()){
             LogPrintf("mnw - invalid nSequence\n");
-            Misbehaving(pfrom->GetId(), 100);
+            pfrom->Misbehaving(100);
             return;
         }
 
@@ -76,7 +76,7 @@ void ProcessMessageMasternodePayments(CNode* pfrom, std::string& strCommand, CDa
 
         if(!masternodePayments.CheckSignature(winner)){
             LogPrintf("mnw - invalid signature\n");
-            Misbehaving(pfrom->GetId(), 100);
+            pfrom->Misbehaving(100);
             return;
         }
 
