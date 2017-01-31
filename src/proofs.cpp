@@ -15,11 +15,19 @@
 #include <math.h>
 #include <stdint.h> 
 
+uint256 CBlock::GetHash() const {
+	return GetPoWHash();
+}
+
+uint256 CBlock::GetPoWHash() const {
+	return Hash(BEGIN(nVersion), END(nNonce));
+}
+
 int DetermineCoinbaseMaturity() {
 	if(pindexBest->nHeight <= 100) {
-		return (int)5; // This will allow for premine distribution to propogate faster
-	} else if(pindexBest->nHeight <= 500) {
-		return (int)10; // This will allow for transactions to propogate faster
+		return (int)10; // This will allow for premine distribution to propogate faster
+	} else if(pindexBest->nHeight <= Params().LastPOWBlock()) {
+		return (int)10; // This will allow for our proof of work to fully send coins and mobilize network
 	} else {
 		return (int)60; // Coinbase will take approx. 1 hr to reach confirmation
 	}
@@ -31,7 +39,7 @@ int64_t GetCoinbaseValue(int nHeight, CAmount nFees)
     CAmount nSubsidy = 0;
 
 	if(nHeight == 1) {
-		nSubsidy = 16030000 * COIN;
+		nSubsidy = 16035000 * COIN;
 	}
 
     return nSubsidy;
@@ -45,13 +53,13 @@ int64_t GetCoinstakeValue(int64_t nCoinAge, CAmount nFees, int nHeight)
 	if(nHeight < 525600) {
 		nSubsidy = 23 * COIN;
 	}
-	else if(nHeight < 1051200) {
+	else if(nHeight <= 1051200) {
 		nSubsidy = 17 * COIN;
-	} else if(nHeight < 1576800) {
+	} else if(nHeight <= 1576800) {
 		nSubsidy = 11.5 * COIN;
-	} else if(nHeight < 2102400) {
+	} else if(nHeight <= 2102400) {
 		nSubsidy = 5.75 * COIN;
-	} else if(nHeight < 2628000) {
+	} else if(nHeight <= 2628000) {
 		nSubsidy = 1.85 * COIN;
 	} else {
 		nSubsidy = 0.2 * COIN;

@@ -70,52 +70,59 @@ void MineGenesis(CBlock genesis, uint256 nProofOfWorkLimit){
     printf("Gensis Nonce: %u\n\n\n", genesis.nNonce);
 }
 
+static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesisOutputScript, const uint32_t nTime, const uint32_t nNonce, const uint32_t nBits, const int32_t nVersion, const CAmount& genesisReward)
+{
+	std::vector<CTxIn> vin;
+	vin.resize(1);
+	vin[0].scriptSig = CScript() << nTime << CScriptNum(4) << std::vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
+	std::vector<CTxOut> vout;
+	vout.resize(1);
+	vout[0].nValue = genesisReward;
+	vout[0].scriptPubKey = genesisOutputScript;
+	CTransaction txNew(1, nTime, vin, vout, 0);
+		
+    CBlock genesis;
+    genesis.nTime    = nTime;
+    genesis.nBits    = nBits;
+    genesis.nNonce   = nNonce;
+    genesis.nVersion = nVersion;
+    genesis.vtx.push_back(txNew);
+    genesis.hashPrevBlock.SetNull();
+    genesis.hashMerkleRoot = genesis.BuildMerkleTree();
+
+    return genesis;
+}
+
+static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
+{
+	const char* pszTimestamp = "[Reuters] Fired: Trump dumps top lawyer who defied immigration order";
+    const CScript genesisOutputScript = CScript() << ParseHex("045622582bdfad9366cdff9652d35a562af17ea4e3462d32cd988b32919ba2ff4bc806485be5228185ad3f75445039b6e744819c4a63304277ca8d20c99a6acec8") << OP_CHECKSIG;
+    return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
+}
+
 class CMainParams : public CChainParams {
 public:
     CMainParams() {
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0x7e;
-        pchMessageStart[1] = 0x3f;
-        pchMessageStart[2] = 0x95;
-        pchMessageStart[3] = 0xbb;
-        vAlertPubKey = ParseHex("040627d06214ba58f42eb74d475d32bc359c822902fb91766be30bfff2b878d2b5d4efa9e38c2a3438b15ff85e734ce3ce0382f8ebb79b6cdb3bc779af69e0b9b8");
-        nDefaultPort = 15200;
-        nRPCPort = 15201;
-        nProofOfWorkLimit = ~uint256(0) >> 24; // 000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        pchMessageStart[0] = 0xdb;
+        pchMessageStart[1] = 0x28;
+        pchMessageStart[2] = 0xc9;
+        pchMessageStart[3] = 0x9b;
+        vAlertPubKey = ParseHex("");
+        nDefaultPort = 12700;
+        nRPCPort = 12705;
+        nProofOfWorkLimit = ~uint256(0) >> 24;
         nProofOfStakeLimit = ~uint256(0) >> 20;
 
-		const char* pszTimestamp = "Reuters: Merkel expected to speak with Trump about Russia";
-		std::vector<CTxIn> vin;
-		vin.resize(1);
-		vin[0].scriptSig = CScript() << 0 << CScriptNum(4) << std::vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-		std::vector<CTxOut> vout;
-		vout.resize(1);
-		vout[0].scriptPubKey = CScript() << ParseHex("04964ae39ac7421145f93a031791749772f671fa1153e4d6df87b1dce87ed2d68a74b46df6cd023ceffbbae4feed084915372d2b8ca866d24dd979af6f09800b3d") << OP_CHECKSIG;
-		vout[0].nValue = (1 * COIN);
-		CTransaction txNew(1, 1485544000, vin, vout, 0);
-
-		genesis.vtx.push_back(txNew);
-		genesis.hashPrevBlock = 0;
-		genesis.hashMerkleRoot = genesis.BuildMerkleTree();
-		genesis.nVersion = 1;
-		genesis.nTime    = 1485544000;
-		genesis.nBits    = 0x1e00ffff;
-		genesis.nNonce   = 15789410;
-
+		genesis = CreateGenesisBlock(1485852000, 0, (bnProofOfWorkLimit.GetCompact()), 1, (1 * COIN));
 		hashGenesisBlock = genesis.GetHash();
-		if (false) { MineGenesis(genesis, nProofOfWorkLimit); }
+
+		if (true) { MineGenesis(genesis, nProofOfWorkLimit); }
 	
-/**
-		Gensis Hash: 0000007d36f5940db0ec8bd99e75cceb3bfa7fd3d11bf2f2898815a6a6630d7e
-		Gensis Hash Merkle: 15f1ba05923859ecb9bf820bed78954c16057396ef4aa4bd57a4a5ee0d695cef
-		Gensis nTime: 1485544000
-		Gensis nBits: 1e00ffff
-		Gensis Nonce: 15789410
-*/
-        assert(hashGenesisBlock == uint256("0x0000007d36f5940db0ec8bd99e75cceb3bfa7fd3d11bf2f2898815a6a6630d7e"));
-        assert(genesis.hashMerkleRoot == uint256("0x15f1ba05923859ecb9bf820bed78954c16057396ef4aa4bd57a4a5ee0d695cef"));
+        assert(hashGenesisBlock == uint256("0x"));
+        assert(genesis.hashMerkleRoot == uint256("0x"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,103);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,88);
@@ -131,7 +138,7 @@ public:
 
 		nPoolMaxTransactions = 3;
         strDarksendPoolDummyAddress = "iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe";
-        nLastPOWBlock 	= 500; // Preliminary Proof of Work
+        nLastPOWBlock 	= 1000;
     }
 
     virtual const CBlock& GenesisBlock() const { return genesis; }
@@ -163,20 +170,17 @@ public:
         pchMessageStart[3] = 0x3e;
         nProofOfWorkLimit = ~uint256(0) >> 16;
         nProofOfStakeLimit = ~uint256(0) >> 16;
-        vAlertPubKey = ParseHex("04cc24ab003c828cdd9cf4db2ebbde8e1cecb3bbfa8b3127fcb9dd9b84d44112080827ed7c49a648af9fe788ff42e316aee665879c553f099e55299d6b54edd7e0");
+        vAlertPubKey = ParseHex("");
         nDefaultPort = 27170;
         nRPCPort = 27171;
         strDataDir = "testnet";
 
-        genesis.nVersion = 1;
-        genesis.nTime    = 1484332000;
-        genesis.nBits    = 0x1f00ffff;
-        genesis.nNonce   = 1172;
+		genesis = CreateGenesisBlock(1485852000, 0, (bnProofOfWorkLimit.GetCompact()), 1, (1 * COIN));
 
 		if (false) { MineGenesis(genesis, nProofOfWorkLimit); }
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
-        // assert(hashGenesisBlock == uint256("0x00008ca69320cdd1932a5d19f6602b383d6683e4185b552acb05a32dd94995f2"));
+        assert(hashGenesisBlock == uint256("0x"));
 
         vFixedSeeds.clear();
         vSeeds.clear();

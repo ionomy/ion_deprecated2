@@ -18,6 +18,9 @@ class uint256;
 
 static const int nTargetSpacing = 64;
 
+unsigned int nStakeMinAge 		= 8 * 60 * 60;
+unsigned int nModifierInterval 	= 2 * 60 * 60;
+
 /** Determine Coinbase Maturity (generally not a good idea - done so to increase speed) */
 int DetermineCoinbaseMaturity();
 /** Calculate difficulty using retarget algorithm by maintaining target */

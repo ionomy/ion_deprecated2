@@ -62,9 +62,7 @@ static const int MAX_BLOCKS_IN_TRANSIT_PER_PEER = 128;
 /** Timeout in seconds before considering a block download peer unresponsive. */
 static const unsigned int BLOCK_DOWNLOAD_TIMEOUT = 60;
 
-
-static const int64_t DRIFT = 600;
-inline int64_t FutureDrift(int64_t nTime) { return nTime + DRIFT; }
+inline int64_t FutureDrift(int64_t nTime) { return nTime + 600; }
 
 /** "reject" message codes **/
 static const unsigned char REJECT_INVALID = 0x10;
@@ -688,16 +686,10 @@ public:
         return (nBits == 0);
     }
 
-    uint256 GetHash() const
-    {
-		return GetPoWHash();
-	}
+    uint256 GetHash() const;
 
-    uint256 GetPoWHash() const
-    {
-		return Hash(BEGIN(nVersion), END(nNonce));
-    }
-
+    uint256 GetPoWHash() const;
+    
     int64_t GetBlockTime() const
     {
         return (int64_t)nTime;
