@@ -75,8 +75,9 @@ extern CTxMemPool mempool;
 extern std::map<uint256, CBlockIndex*> mapBlockIndex;
 extern std::set<std::pair<COutPoint, unsigned int> > setStakeSeen;
 extern CBlockIndex* pindexGenesisBlock;
-extern unsigned int nStakeMinAge;
 extern unsigned int nNodeLifespan;
+extern unsigned int nStakeMinAge;
+extern unsigned int nModifierInterval;
 extern int nBestHeight;
 extern uint256 nBestChainTrust;
 extern uint256 nBestInvalidTrust;
@@ -1024,7 +1025,7 @@ public:
 
     int64_t GetPastTimeLimit() const
     {
-        return GetBlockTime() - DRIFT;
+        return GetBlockTime() - 600;
     }
 
     enum { nMedianTimeSpan=11 };

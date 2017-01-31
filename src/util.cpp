@@ -1077,13 +1077,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Ion
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Ion
-    // Mac: ~/Library/Application Support/Ion
-    // Unix: ~/.ion
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Ionomy
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Ionomy
+    // Mac: ~/Library/Application Support/Ionomy
+    // Unix: ~/.ionomy
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "IonX";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Ionomy";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -1095,10 +1095,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     fs::create_directory(pathRet);
-    return pathRet / "IonX";
+    return pathRet / "Ionomy";
 #else
     // Unix
-    return pathRet / ".ionx";
+    return pathRet / ".ionomy";
 #endif
 #endif
 }

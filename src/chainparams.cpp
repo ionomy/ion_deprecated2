@@ -44,32 +44,6 @@ static void convertSeed6(std::vector<CAddress> &vSeedsOut, const SeedSpec6 *data
     }
 }
 
-void MineGenesis(CBlock genesis, uint256 nProofOfWorkLimit){
-    // This will figure out a valid hash and Nonce if you're creating a differe$
-    uint256 hashTarget = nProofOfWorkLimit;
-    printf("Target: %s\n", hashTarget.GetHex().c_str());
-    uint256 newhash = genesis.GetHash();
-    uint256 besthash;
-    memset(&besthash,0xFF,32);
-    while (newhash > hashTarget) {
-        ++genesis.nNonce;
-        if (genesis.nNonce == 0){
-            printf("NONCE WRAPPED, incrementing time");
-            ++genesis.nTime;
-        }
-    newhash = genesis.GetHash();
-    if(newhash < besthash){
-        besthash=newhash;
-        printf("New best: %s\n", newhash.GetHex().c_str());
-    }
-    }
-    printf("Gensis Hash: %s\n", genesis.GetHash().ToString().c_str());
-    printf("Gensis Hash Merkle: %s\n", genesis.hashMerkleRoot.ToString().c_str());
-    printf("Gensis nTime: %u\n", genesis.nTime);
-    printf("Gensis nBits: %08x\n", genesis.nBits);
-    printf("Gensis Nonce: %u\n\n\n", genesis.nNonce);
-}
-
 static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesisOutputScript, const uint32_t nTime, const uint32_t nNonce, const uint32_t nBits, const int32_t nVersion, const CAmount& genesisReward)
 {
 	std::vector<CTxIn> vin;
@@ -113,16 +87,14 @@ public:
         vAlertPubKey = ParseHex("");
         nDefaultPort = 12700;
         nRPCPort = 12705;
-        nProofOfWorkLimit = ~uint256(0) >> 24;
-        nProofOfStakeLimit = ~uint256(0) >> 20;
+        nProofOfWorkLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        nProofOfStakeLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
-		genesis = CreateGenesisBlock(1485852000, 0, (bnProofOfWorkLimit.GetCompact()), 1, (1 * COIN));
+		genesis = CreateGenesisBlock(1485852000, 42471846, 0x1e00ffff, 1, (1 * COIN));
 		hashGenesisBlock = genesis.GetHash();
-
-		if (true) { MineGenesis(genesis, nProofOfWorkLimit); }
 	
-        assert(hashGenesisBlock == uint256("0x"));
-        assert(genesis.hashMerkleRoot == uint256("0x"));
+        assert(hashGenesisBlock == uint256("0x00000093e590d8e59badd564f3c8386202ff9ff9c386b0cd057372fd69dd7b8c"));
+        assert(genesis.hashMerkleRoot == uint256("0xc69f10e624adbe0cf8fb71c17fb36fca8bed8255cf3d14216c740a47756bb6ee"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,103);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,88);
@@ -137,7 +109,7 @@ public:
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
 		nPoolMaxTransactions = 3;
-        strDarksendPoolDummyAddress = "iUUCtBZUVR98Cufh9BbSSqUPJFEtPKSLSe";
+        strDarksendPoolDummyAddress = "iqbMeTpdFfxiNcWHn255T2TneJTrUECCBE";
         nLastPOWBlock 	= 1000;
     }
 
@@ -168,20 +140,15 @@ public:
         pchMessageStart[1] = 0xca;
         pchMessageStart[2] = 0x4d;
         pchMessageStart[3] = 0x3e;
-        nProofOfWorkLimit = ~uint256(0) >> 16;
-        nProofOfStakeLimit = ~uint256(0) >> 16;
+        nProofOfWorkLimit =  uint256S("000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        nProofOfStakeLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         vAlertPubKey = ParseHex("");
         nDefaultPort = 27170;
         nRPCPort = 27171;
         strDataDir = "testnet";
 
-		genesis = CreateGenesisBlock(1485852000, 0, (bnProofOfWorkLimit.GetCompact()), 1, (1 * COIN));
-
-		if (false) { MineGenesis(genesis, nProofOfWorkLimit); }
-
-        // Modify the testnet genesis block so the timestamp is valid for a later start.
-        assert(hashGenesisBlock == uint256("0x"));
-
+		genesis = CreateGenesisBlock(1485852000, 5579, 0x1f0fffff, 1, (1 * COIN));
+    
         vFixedSeeds.clear();
         vSeeds.clear();
 
