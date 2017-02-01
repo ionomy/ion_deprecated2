@@ -85,6 +85,7 @@ int64_t enforceMasternodePaymentsTime = 4085657524;
 int nMasternodeMinProtocol = 0;
 bool fSucessfullyLoaded = false;
 bool fEnableDarksend = false;
+bool fPendingTest = true;
 /** All denominations used by darksend */
 std::vector<int64_t> darkSendDenominations;
 
