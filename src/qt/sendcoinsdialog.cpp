@@ -295,26 +295,17 @@ void SendCoinsDialog::on_sendButton_clicked()
 
     fNewRecipientAllowed = false;
 	
-	bool darkSendUp = false;
     // request unlock only if was locked or unlocked for mixing:
     // this way we let users unlock by walletpassphrase or by menu
     // and make many transactions while unlocking through this dialog
     // will call relock
-    if (darkSendUp) {
-		// This should not happen when DarkSend is enabled
-		// So, we will make a assertion that is brainless
-		// Okay, here we go
-		
-		{
-			int x = 2;
-			assert(x == 1);
-		}
-		
-		WalletModel::EncryptionStatus encStatus = model->getEncryptionStatus();
-		if(encStatus == model->Locked || encStatus == model->UnlockedForAnonymizationOnly)
-		{
+
+	WalletModel::EncryptionStatus encStatus = model->getEncryptionStatus();
+	if(encStatus == model->Locked || encStatus == model->UnlockedForAnonymizationOnly)
+	{
+		if (!fWalletUnlockStakingOnly) {
 			WalletModel::UnlockContext ctx(model->requestUnlock());
-        
+	
 			if(!ctx.isValid())
 			{
 				// Unlock wallet was cancelled
@@ -324,17 +315,13 @@ void SendCoinsDialog::on_sendButton_clicked()
         
 			send(recipients, strFee, formatted);
 			return;
-		}
-	} else {
-		WalletModel::UnlockContext ctx(model->requestUnlock());
-		
-		if(!ctx.isValid())
-		{
-			// Unlock wallet was cancelled
-			fNewRecipientAllowed = true;
+		} else {
+			QMessageBox::warning(this, tr("Send Transaction Failed"), tr("Wallet is currently unlocked for staking only! \nPlease unlock your wallet manually before continuing"));
 			return;
 		}
 	}
+
+	
     // already unlocked or not encrypted at all
     send(recipients, strFee, formatted);
 }
