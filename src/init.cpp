@@ -260,6 +260,7 @@ std::string HelpMessage()
     strUsage += "  -createwalletbackups=<n> " + _("Number of automatic wallet backups (default: 10)") + "\n";
     strUsage += "  -keypool=<n>           " + _("Set key pool size to <n> (default: 1000) (litemode: 100)") + "\n";
     strUsage += "  -rescan                " + _("Rescan the block chain for missing wallet transactions") + "\n";
+    strUsage += "  -zapwallettxes         " + _("Clear list of wallet transactions (diagnostic tool; implies -rescan)") + "\n";
     strUsage += "  -salvagewallet         " + _("Attempt to recover private keys from a corrupt wallet.dat") + "\n";
     strUsage += "  -checkblocks=<n>       " + _("How many blocks to check at startup (default: 500, 0 = all)") + "\n";
     strUsage += "  -checklevel=<n>        " + _("How thorough the block verification is (0-6, default: 1)") + "\n";
@@ -375,9 +376,10 @@ bool AppInit2(boost::thread_group& threadGroup)
         return InitError("Invalid combination of -testnet and -regtest.");
     }
 
-    if (TestNet())
-    {
-        SoftSetBoolArg("-irc", true);
+    // -zapwallettx implies a rescan
+    if (GetBoolArg("-zapwallettxes", false)) {
+        if (SoftSetBoolArg("-rescan", true))
+            LogPrintf("AppInit2 : parameter interaction: -zapwallettxes=1 -> setting -rescan=1\n");
     }
 
     if (mapArgs.count("-bind")) {
@@ -819,6 +821,20 @@ bool AppInit2(boost::thread_group& threadGroup)
         pwalletMain = NULL;
         LogPrintf("Wallet disabled!\n");
     } else {
+		if (GetBoolArg("-zapwallettxes", false)) {
+             uiInterface.InitMessage(_("Zapping all transactions from wallet..."));
+ 
+             pwalletMain = new CWallet(strWalletFile);
+             DBErrors nZapWalletRet = pwalletMain->ZapWalletTx();
+             if (nZapWalletRet != DB_LOAD_OK) {
+                 uiInterface.InitMessage(_("Error loading wallet.dat: Wallet corrupted"));
+                 return false;
+             }
+ 
+             delete pwalletMain;
+             pwalletMain = NULL;
+		}
+ 
         uiInterface.InitMessage(_("Loading wallet..."));
 
         nStart = GetTimeMillis();
