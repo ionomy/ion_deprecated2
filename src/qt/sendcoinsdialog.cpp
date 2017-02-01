@@ -294,12 +294,13 @@ void SendCoinsDialog::on_sendButton_clicked()
     }
 
     fNewRecipientAllowed = false;
-
+	
+	bool darkSendUp == false;
     // request unlock only if was locked or unlocked for mixing:
     // this way we let users unlock by walletpassphrase or by menu
     // and make many transactions while unlocking through this dialog
     // will call relock
-    if(true) {
+    if (darkSendUp) {
 		// This should not happen when DarkSend is enabled
 		// So, we will make a assertion that is brainless
 		// Okay, here we go

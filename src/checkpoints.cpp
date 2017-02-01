@@ -11,12 +11,11 @@
 #include "main.h"
 #include "uint256.h"
 
-
+extern static MapCheckpoints mapPremineSendBlocks;
 static const int nCheckpointSpan = 5000;
 
 namespace Checkpoints
 {
-    typedef std::map<int, uint256> MapCheckpoints;
 
     //
     // What makes a good checkpoint block?
@@ -27,9 +26,11 @@ namespace Checkpoints
     //
     static MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        (0,	Params().HashGenesisBlock() )
+        (0,	Params().HashGenesisBlock() ),
+        mapPremineSendBlocks
+        // (1000000000, "0x00000000000000000000000000000000000000000000000000000000000000")
     ;
-
+    
     // TestNet has no checkpoints
     static MapCheckpoints mapCheckpointsTestnet;
 
