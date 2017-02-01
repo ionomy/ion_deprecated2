@@ -1,6 +1,7 @@
 #include "overviewpage.h"
 #include "ui_overviewpage.h"
 
+#include "util.h"
 #include "clientmodel.h"
 #include "darksend.h"
 #include "darksendconfig.h"
@@ -140,7 +141,7 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     fLiteMode = GetBoolArg("-litemode", false);
 
-    if(fLiteMode){
+    if(fLiteMode || fPendingTest){
         ui->frameDarksend->setVisible(false);
     } else {
         if(fMasterNode){
@@ -173,7 +174,7 @@ void OverviewPage::handleTransactionClicked(const QModelIndex &index)
 
 OverviewPage::~OverviewPage()
 {
-    if(!fLiteMode && !fMasterNode) disconnect(timer, SIGNAL(timeout()), this, SLOT(darkSendStatus()));
+    if(!fLiteMode && !fMasterNode && !fPendingTest) disconnect(timer, SIGNAL(timeout()), this, SLOT(darkSendStatus()));
     delete ui;
 }
 

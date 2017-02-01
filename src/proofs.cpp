@@ -4,6 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include <boost/assign/list_of.hpp> // for 'map_list_of()'
+
 #include "proofs.h"
 
 #include "chainparams.h"
@@ -19,7 +21,7 @@
 unsigned int nStakeMinAge       = 8 * 60 * 60;
 unsigned int nModifierInterval  = 2 * 60 * 60;
 
-static MapCheckpoints mapPremineSendBlocks =
+MapCheckpoints mapPremineSendBlocks =
 	boost::assign::map_list_of
 	(0,	Params().HashGenesisBlock() )
 ;

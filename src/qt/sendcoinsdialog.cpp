@@ -295,7 +295,7 @@ void SendCoinsDialog::on_sendButton_clicked()
 
     fNewRecipientAllowed = false;
 	
-	bool darkSendUp == false;
+	bool darkSendUp = false;
     // request unlock only if was locked or unlocked for mixing:
     // this way we let users unlock by walletpassphrase or by menu
     // and make many transactions while unlocking through this dialog
@@ -307,7 +307,7 @@ void SendCoinsDialog::on_sendButton_clicked()
 		
 		{
 			int x = 2;
-			assert(int x == 1);
+			assert(x == 1);
 		}
 		
 		WalletModel::EncryptionStatus encStatus = model->getEncryptionStatus();

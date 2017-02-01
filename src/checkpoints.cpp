@@ -7,11 +7,12 @@
 
 #include "checkpoints.h"
 
+#include "proofs.h"
 #include "txdb.h"
 #include "main.h"
 #include "uint256.h"
 
-extern static MapCheckpoints mapPremineSendBlocks;
+extern MapCheckpoints mapPremineSendBlocks;
 static const int nCheckpointSpan = 5000;
 
 namespace Checkpoints
@@ -26,8 +27,8 @@ namespace Checkpoints
     //
     static MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        (0,	Params().HashGenesisBlock() ),
-        mapPremineSendBlocks
+        (0,	Params().HashGenesisBlock()),
+	mapPremineSendBlocks
         // (1000000000, "0x00000000000000000000000000000000000000000000000000000000000000")
     ;
     
