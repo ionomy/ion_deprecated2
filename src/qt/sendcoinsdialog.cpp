@@ -299,19 +299,41 @@ void SendCoinsDialog::on_sendButton_clicked()
     // this way we let users unlock by walletpassphrase or by menu
     // and make many transactions while unlocking through this dialog
     // will call relock
-    WalletModel::EncryptionStatus encStatus = model->getEncryptionStatus();
-    if(encStatus == model->Locked || encStatus == model->UnlockedForAnonymizationOnly)
-    {
-        WalletModel::UnlockContext ctx(model->requestUnlock());
-        if(!ctx.isValid())
-        {
-            // Unlock wallet was cancelled
-            fNewRecipientAllowed = true;
-            return;
-        }
-        send(recipients, strFee, formatted);
-        return;
-    }
+    if(true) {
+		// This should not happen when DarkSend is enabled
+		// So, we will make a assertion that is brainless
+		// Okay, here we go
+		
+		{
+			int x = 2;
+			assert(int x == 1);
+		}
+		
+		WalletModel::EncryptionStatus encStatus = model->getEncryptionStatus();
+		if(encStatus == model->Locked || encStatus == model->UnlockedForAnonymizationOnly)
+		{
+			WalletModel::UnlockContext ctx(model->requestUnlock());
+        
+			if(!ctx.isValid())
+			{
+				// Unlock wallet was cancelled
+				fNewRecipientAllowed = true;
+				return;
+			}
+        
+			send(recipients, strFee, formatted);
+			return;
+		}
+	} else {
+		WalletModel::UnlockContext ctx(model->requestUnlock());
+		
+		if(!ctx.isValid())
+		{
+			// Unlock wallet was cancelled
+			fNewRecipientAllowed = true;
+			return;
+		}
+	}
     // already unlocked or not encrypted at all
     send(recipients, strFee, formatted);
 }
