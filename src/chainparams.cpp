@@ -44,7 +44,7 @@ static void convertSeed6(std::vector<CAddress> &vSeedsOut, const SeedSpec6 *data
     }
 }
 
-static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesisOutputScript, const uint32_t nTime, const uint32_t nNonce, const uint32_t nBits, const int32_t nVersion, const CAmount& genesisReward)
+static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesisOutputScript, const uint64_t nTime, const uint32_t nNonce, const uint32_t nBits, const int32_t nVersion, const CAmount& genesisReward)
 {
 	std::vector<CTxIn> vin;
 	vin.resize(1);
@@ -67,9 +67,9 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     return genesis;
 }
 
-static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
+static CBlock CreateGenesisBlock(uint64_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-	const char* pszTimestamp = "[Reuters] Fired: Trump dumps top lawyer who defied immigration order";
+	const char* pszTimestamp = "The Guardian: [2nd Feb 2017] Finsbury Park mosque wins apology and damages from Thomson Reuters";
     const CScript genesisOutputScript = CScript() << ParseHex("045622582bdfad9366cdff9652d35a562af17ea4e3462d32cd988b32919ba2ff4bc806485be5228185ad3f75445039b6e744819c4a63304277ca8d20c99a6acec8") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -80,21 +80,21 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0xdb;
-        pchMessageStart[1] = 0x28;
-        pchMessageStart[2] = 0xc9;
-        pchMessageStart[3] = 0x9b;
+        pchMessageStart[0] = 0xc4;
+        pchMessageStart[1] = 0xe1;
+        pchMessageStart[2] = 0xd8;
+        pchMessageStart[3] = 0xec;
         vAlertPubKey = ParseHex("");
-        nDefaultPort = 12700;
-        nRPCPort = 12705;
+        nDefaultPort = 13200;
+        nRPCPort = 13205;
         nProofOfWorkLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         nProofOfStakeLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
-		genesis = CreateGenesisBlock(1485852000, 42471846, 0x1e00ffff, 1, (1 * COIN));
+		genesis = CreateGenesisBlock(1486045800, 28884498, 0x1e00ffff, 1, (1 * COIN));
 		hashGenesisBlock = genesis.GetHash();
 	
-        assert(hashGenesisBlock == uint256("0x00000093e590d8e59badd564f3c8386202ff9ff9c386b0cd057372fd69dd7b8c"));
-        assert(genesis.hashMerkleRoot == uint256("0xc69f10e624adbe0cf8fb71c17fb36fca8bed8255cf3d14216c740a47756bb6ee"));
+        assert(hashGenesisBlock == uint256("0x0000004cf5ffbf2e31a9aa07c86298efb01a30b8911b80af7473d1114715084b"));
+        assert(genesis.hashMerkleRoot == uint256("0x7af2e961c5262cb0411edcb7414ab7178133fc06257ceb47d349e4e5e35e2d40"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,103);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,88);
