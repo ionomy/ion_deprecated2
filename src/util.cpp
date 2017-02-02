@@ -1083,7 +1083,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Unix: ~/.ion
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "IonX";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "ionomy";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -1095,10 +1095,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     fs::create_directory(pathRet);
-    return pathRet / "IonX";
+    return pathRet / "ionomy";
 #else
     // Unix
-    return pathRet / ".ionx";
+    return pathRet / ".ionomy";
 #endif
 #endif
 }
@@ -1236,7 +1236,7 @@ std::string getTimeString(int64_t timestamp, char *buffer, size_t nBuffer)
     struct tm* dt;
     time_t t = timestamp;
     dt = localtime(&t);
-    
+
     strftime(buffer, nBuffer, "%Y-%m-%d %H:%M:%S %z", dt); // %Z shows long strings on windows
     return std::string(buffer); // copies the null-terminated character sequence
 };
@@ -1251,7 +1251,7 @@ std::string bytesReadable(uint64_t nBytes)
         return strprintf("%.2f MB", nBytes/1024.0/1024.0);
     if (nBytes >= 1024)
         return strprintf("%.2f KB", nBytes/1024.0);
-    
+
     return strprintf("%d B", nBytes);
 };
 
