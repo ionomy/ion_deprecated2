@@ -85,8 +85,8 @@ public:
         pchMessageStart[2] = 0xd8;
         pchMessageStart[3] = 0xec;
         vAlertPubKey = ParseHex("");
-        nDefaultPort = 13200;
-        nRPCPort = 13205;
+        nDefaultPort = 12700;
+        nRPCPort = 12705;
         nProofOfWorkLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         nProofOfStakeLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
