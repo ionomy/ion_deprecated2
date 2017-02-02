@@ -23,7 +23,7 @@ unsigned int nModifierInterval  = 2 * 60 * 60;
 
 MapCheckpoints mapPremineSendBlocks =
 	boost::assign::map_list_of
-	(0,	Params().HashGenesisBlock() )
+	(1,	("0x0000009ad0f20270e5a024348958d1e13101519cde3b66173eb72fd9ec1a1e7c") ) // Premine 
 ;
 
 uint256 CBlock::GetHash() const {
