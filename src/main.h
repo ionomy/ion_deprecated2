@@ -52,7 +52,7 @@ static const unsigned int DEFAULT_MAX_ORPHAN_BLOCKS = 10000;
 /** The maximum number of entries in an 'inv' protocol message */
 static const unsigned int MAX_INV_SZ = 50000;
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
-static const int64_t MIN_TX_FEE = (0.0001*COIN);
+static const int64_t MIN_TX_FEE = 1000;
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying) */
 static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
@@ -62,9 +62,7 @@ static const int MAX_BLOCKS_IN_TRANSIT_PER_PEER = 128;
 /** Timeout in seconds before considering a block download peer unresponsive. */
 static const unsigned int BLOCK_DOWNLOAD_TIMEOUT = 60;
 
-
-static const int64_t DRIFT = 600;
-inline int64_t FutureDrift(int64_t nTime) { return nTime + DRIFT; }
+inline int64_t FutureDrift(int64_t nTime) { return nTime + 16200; }
 
 /** "reject" message codes **/
 static const unsigned char REJECT_INVALID = 0x10;
@@ -77,8 +75,9 @@ extern CTxMemPool mempool;
 extern std::map<uint256, CBlockIndex*> mapBlockIndex;
 extern std::set<std::pair<COutPoint, unsigned int> > setStakeSeen;
 extern CBlockIndex* pindexGenesisBlock;
-extern unsigned int nStakeMinAge;
 extern unsigned int nNodeLifespan;
+extern unsigned int nStakeMinAge;
+extern unsigned int nModifierInterval;
 extern int nBestHeight;
 extern uint256 nBestChainTrust;
 extern uint256 nBestInvalidTrust;
@@ -688,16 +687,10 @@ public:
         return (nBits == 0);
     }
 
-    uint256 GetHash() const
-    {
-		return GetPoWHash();
-	}
+    uint256 GetHash() const;
 
-    uint256 GetPoWHash() const
-    {
-		return Hash(BEGIN(nVersion), END(nNonce));
-    }
-
+    uint256 GetPoWHash() const;
+    
     int64_t GetBlockTime() const
     {
         return (int64_t)nTime;
@@ -1032,7 +1025,7 @@ public:
 
     int64_t GetPastTimeLimit() const
     {
-        return GetBlockTime() - DRIFT;
+        return GetBlockTime() - 600;
     }
 
     enum { nMedianTimeSpan=11 };
