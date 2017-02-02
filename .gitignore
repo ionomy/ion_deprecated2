@@ -5,8 +5,8 @@ Makefile
 object_script.transfer-qt.Debug
 object_script.transfer-qt.Release
 iom.pro.user
-ion-qt_plugin_import.cpp
-ion-qt
+ionx-Qt_plugin_import.cpp
+ionx-Qt
 qrc_bitcoin.cpp
 src/qt/locale/*.qm
 release
@@ -14,4 +14,4 @@ src/iond*
 
 *.plist
 
-ion-Qt.app/Contents/PkgInfo
+ionx-Qt.app/Contents/PkgInfo

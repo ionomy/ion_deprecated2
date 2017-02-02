@@ -1,4 +1,4 @@
-Ion-qt: Qt5 GUI for Ion
+ionx-Qt: Qt5 GUI for Ion
 ===============================
 
 Linux
