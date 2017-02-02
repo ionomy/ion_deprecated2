@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/empinel/Ion-Core/blob/master/src/qt/res/images/splash3.png" alt="Ion_Icon"/>
+  <img src="https://github.com/empinel/Ion-Core/blob/master/src/qt/res/images/splash3.png" alt="ION_Icon"/>
 </p>
 # **Ion-Core (ION) v1.0**
 
