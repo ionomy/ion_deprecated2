@@ -1076,8 +1076,8 @@ Dit betekend dat een fee van %2 is vereist.</translation>
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Ion-Qt</source>
-        <translation>Ion-Qt</translation>
+        <source>ionx-Qt</source>
+        <translation>ionx-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1577,8 +1577,8 @@ Dit betekend dat een fee van %2 is vereist.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Ion-Qt help message to get a list with possible Ion command-line options.</source>
-        <translation>Laat het Ion-QT help bericht zien om een lijst te krijgen met mogelijke Ion command-regel opties.</translation>
+        <source>Show the ionx-Qt help message to get a list with possible Ion command-line options.</source>
+        <translation>Laat het ionx-Qt help bericht zien om een lijst te krijgen met mogelijke Ion command-regel opties.</translation>
     </message>
     <message>
         <location line="+3"/>

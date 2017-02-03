@@ -1076,8 +1076,8 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Ion-Qt</source>
-        <translation>Ion-Qt</translation>
+        <source>ionx-Qt</source>
+        <translation>ionx-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1577,8 +1577,8 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Ion-Qt help message to get a list with possible Ion command-line options.</source>
-        <translation>Zobrazit Ion-Qt nápovědu pro zobrazení seznam dostupným možností příkazového řádku.</translation>
+        <source>Show the ionx-Qt help message to get a list with possible Ion command-line options.</source>
+        <translation>Zobrazit ionx-Qt nápovědu pro zobrazení seznam dostupným možností příkazového řádku.</translation>
     </message>
     <message>
         <location line="+3"/>

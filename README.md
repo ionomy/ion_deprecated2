@@ -19,8 +19,8 @@ Ion Integration/Staging Tree
 * PoW Difficulty Retarget: 2 Blocks 
 * Full Confirmation: 60 Blocks
 * PoS Algorithm: SHA256d
-* PoS Target Spacing: 64 Seconds 
-* PoS Difficulty Retarget: 2 Blocks 
+* PoS Target Spacing: 64 Seconds
+* PoS Difficulty Retarget: 2 Blocks
 * PoS Reward: Varied
 * PoS Min: 1 Day
 * PoS Max: Unlimited
@@ -44,7 +44,7 @@ RPC Port = 27171
 
 UNIX BUILD NOTES
 ====================
-Some notes on how to build Ion in Unix. 
+Some notes on how to build Ion in Unix.
 
 Note
 ---------------------
@@ -65,7 +65,7 @@ make
 make install # optional
 ```
 
-This will build ion-qt as well if the dependencies are met.
+This will build ionx-Qt as well if the dependencies are met.
 
 Dependencies
 ---------------------
@@ -101,7 +101,7 @@ Dependency Build Instructions: Ubuntu & Debian
 Build requirements:
 
     sudo apt-get install git build-essential libtool autotools-dev autoconf pkg-config libssl-dev libcrypto++-dev libevent-dev libminiupnpc-dev libgmp-dev
-    
+
 for Ubuntu 12.04 and later or Debian 7 and later libboost-all-dev has to be installed:
 
     sudo apt-get install libboost-all-dev
@@ -137,7 +137,7 @@ Optional:
 Dependencies for the GUI: Ubuntu & Debian
 -----------------------------------------
 
-If you want to build Ion-Qt, make sure that the required packages for Qt development
+If you want to build ionx-Qt, make sure that the required packages for Qt development
 are installed. Qt 5 is necessary to build the GUI.
 If both Qt 4 and Qt 5 are installed, Qt 5 will be used. Pass `--with-gui=qt5` to configure to choose Qt5.
 To build without GUI pass `--without-gui`.
@@ -150,7 +150,7 @@ libqrencode (optional) can be installed with:
 
     sudo apt-get install libqrencode-dev
 
-Once these are installed, they will be found by configure and a ion-qt executable will be
+Once these are installed, they will be found by configure and a ionx-Qt executable will be
 built by default.
 
 Notes
@@ -200,7 +200,7 @@ tar -xzvf db-4.8.30.NC.tar.gz
 cd db-4.8.30.NC/build_unix/
 #  Note: Do a static build so that it can be embedded into the exectuable, instead of having to find a .so at runtime
 ../dist/configure --prefix=/usr/local --enable-cxx
-make 
+make
 sudo make install
 
 ```

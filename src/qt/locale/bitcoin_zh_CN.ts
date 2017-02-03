@@ -1074,8 +1074,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Ion-Qt</source>
-        <translation>黑币客户端Ion-Qt</translation>
+        <source>ionx-Qt</source>
+        <translation>黑币客户端ionx-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1575,7 +1575,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Ion-Qt help message to get a list with possible Ion command-line options.</source>
+        <source>Show the ionx-Qt help message to get a list with possible Ion command-line options.</source>
         <translation>显示关于命令行选项的帮助信息。</translation>
     </message>
     <message>

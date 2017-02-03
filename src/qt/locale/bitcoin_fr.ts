@@ -1076,8 +1076,8 @@ Cela implique que des frais à hauteur d&apos;au moins %2 seront nécessaires.</
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Ion-Qt</source>
-        <translation>Ion-Qt</translation>
+        <source>ionx-Qt</source>
+        <translation>ionx-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1577,8 +1577,8 @@ Cela implique que des frais à hauteur d&apos;au moins %2 seront nécessaires.</
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Ion-Qt help message to get a list with possible Ion command-line options.</source>
-        <translation>Afficher le message d&apos;aide Ion-Qt afin d&apos;obtenir la liste des options de de L&apos;outil en ligne de commande Ion</translation>
+        <source>Show the ionx-Qt help message to get a list with possible Ion command-line options.</source>
+        <translation>Afficher le message d&apos;aide ionx-Qt afin d&apos;obtenir la liste des options de de L&apos;outil en ligne de commande Ion</translation>
     </message>
     <message>
         <location line="+3"/>

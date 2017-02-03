@@ -1076,8 +1076,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <message>
         <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>Ion-Qt</source>
-        <translation>Ion-Qt</translation>
+        <source>ionx-Qt</source>
+        <translation>ionx-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1577,8 +1577,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Ion-Qt help message to get a list with possible Ion command-line options.</source>
-        <translation>Afișa mesajul de ajutor Ion-Qt pentru a obține o listă cu posibile opțiuni de linie de comandă Ion.</translation>
+        <source>Show the ionx-Qt help message to get a list with possible Ion command-line options.</source>
+        <translation>Afișa mesajul de ajutor ionx-Qt pentru a obține o listă cu posibile opțiuni de linie de comandă Ion.</translation>
     </message>
     <message>
         <location line="+3"/>

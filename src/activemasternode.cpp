@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2012 The Darkcoin developers
-// Copyright (c) 2017 Empinel / The Ion Developers
+// Copyright (c) 2017 Empinel / The ION Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -46,14 +46,14 @@ void CActiveMasternode::ManageStatus()
 
         LogPrintf("CActiveMasternode::ManageStatus() - Checking inbound connection to '%s'\n", service.ToString().c_str());
 
-                  
+
             if(!ConnectNode((CAddress)service, service.ToString().c_str())){
                 notCapableReason = "Could not connect to " + service.ToString();
                 status = MASTERNODE_NOT_CAPABLE;
                 LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason.c_str());
                 return;
             }
-        
+
 
         if(pwalletMain->IsLocked()){
             notCapableReason = "Wallet is locked.";

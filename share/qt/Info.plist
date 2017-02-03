@@ -7,13 +7,13 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Ion-Qt</string>
+	<string>ionx-Qt</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleExecutable</key>
-	<string>Ion-Qt</string>
+	<string>ionx-Qt</string>
 	<key>CFBundleIdentifier</key>
-	<string>co.ion.Ion-Qt</string>
+	<string>co.ion.ionx-Qt</string>
         <key>CFBundleURLTypes</key>
         <array>
           <dict>

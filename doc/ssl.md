@@ -15,7 +15,7 @@ for this to work properly.
     (NOTE: you should NOT enter a passphrase)
 
 2. Configure NeosCoin to use SSL
-    * Stop your current xiond or ion-qt
+    * Stop your current xiond or ionx-Qt
     * Edit the ion.conf and add
       rpcssl=1
 
