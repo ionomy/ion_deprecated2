@@ -12,8 +12,6 @@
 class uint256;
 class CBlockIndex;
 
-typedef std::map<int, uint256> MapCheckpoints;
-
 /** Block-chain checkpoints are compiled-in sanity checks.
  * They are updated every release or three.
  */

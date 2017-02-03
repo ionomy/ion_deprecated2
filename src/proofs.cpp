@@ -4,8 +4,6 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include <boost/assign/list_of.hpp> // for 'map_list_of()'
-
 #include "proofs.h"
 
 #include "chainparams.h"
@@ -20,16 +18,6 @@
 
 unsigned int nStakeMinAge       = 8 * 60 * 60;
 unsigned int nModifierInterval  = 2 * 60 * 60;
-
-MapCheckpoints mapPremineSendBlocks =
-	boost::assign::map_list_of
-	(1,	("0x0000004cf5ffbf2e31a9aa07c86298efb01a30b8911b80af7473d1114715084b") ) // Premine
-	(10,	("0x00000032f5a96d31d74b380c0336445baccb73a01bdbedec868283019bad7016") )  // Confirmation of Premine
-	(22,	("0x00000002e04f91402d78b84433ec744aacac5c40952b918fe09a7d623ac33967") )
-	(32,	("0x0000001880da8fd09cc6f5e93315135fe686eb49f9054c807fa810d56ebb013b") )
-	(35,	("0x0000000af6204fd43bb9cafea1dd192c245979d4dd7bde19efb92f633589ade5") )
-	(45,	("0x00000006d6b9e9fba4dee10bc63ca7ea764c80c2b9c4fa6ddedb944eb288a371") )
-;
 
 uint256 CBlock::GetHash() const {
 	return GetPoWHash();
