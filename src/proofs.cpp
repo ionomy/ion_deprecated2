@@ -16,9 +16,6 @@
 #include <math.h>
 #include <stdint.h> 
 
-unsigned int nStakeMinAge       = 8 * 60 * 60;
-unsigned int nModifierInterval  = 2 * 60 * 60;
-
 uint256 CBlock::GetHash() const {
 	return GetPoWHash();
 }
@@ -32,6 +29,20 @@ int DetermineCoinbaseMaturity() {
 		return (int)10; // This will allow for premine distribution to propogate faster
 	} else {
 		return (int)60; // Coinbase will take approx. 1 hr to reach confirmation
+	}
+}
+
+unsigned int DetermineMinStakeAge() {
+	if(pindexBest->nHeight <= 10000) {
+		return (unsigned int)(30*60);
+	} if(pindexBest->nHeight <= 25000) {
+		return (unsigned int)(2*60*60);
+	} if(pindexBest->nHeight <= 45000) {
+		return (unsigned int)(5*60*60);
+	} if(pindexBest->nHeight <= 65000) {
+		return (unsigned int)((30*60)+(6*60*60));
+	} else {
+		return (unsigned int)(8*60*60); 
 	}
 }
 
@@ -123,3 +134,6 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits)
 
     return true;
 }
+
+unsigned int nStakeMinAge       = DetermineMinStakeAge();
+unsigned int nModifierInterval  = 2 * 60 * 60;
