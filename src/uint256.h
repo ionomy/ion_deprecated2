@@ -35,6 +35,19 @@ public:
             pn[i] = 0;
     }
 
+    bool IsNull() const
+    {
+        for (int i = 0; i < WIDTH; i++)
+            if (pn[i] != 0)
+                return false;
+        return true;
+    }
+
+    void SetNull()
+    {
+        memset(pn, 0, sizeof(pn));
+    }
+
     base_uint(const base_uint& b)
     {
         for (int i = 0; i < WIDTH; i++)

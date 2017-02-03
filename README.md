@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/empinel/Ion-Core/blob/master/src/qt/res/images/splash3.png" alt="ION_Icon"/>
+  <img src="https://github.com/Ion-Network/Ion-Core/blob/master/src/qt/res/images/splash.png" alt="Ion_Icon"/>
 </p>
 # **Ion-Core (ION) v1.0**
 
@@ -15,9 +15,9 @@ Ion Integration/Staging Tree
 * Coin Suffix: ION
 * PoW Algorithm: SHA256d
 * PoW Period: 2,000 Network Initiation Blocks
-* PoW Median Target Spacing: 60 Seconds
-* PoW Difficulty Retarget: 2 Blocks
-* Full Confirmation: 10 Blocks
+* PoW Median Target Spacing: 64 Seconds 
+* PoW Difficulty Retarget: 2 Blocks 
+* Full Confirmation: 60 Blocks
 * PoS Algorithm: SHA256d
 * PoS Target Spacing: 64 Seconds
 * PoS Difficulty Retarget: 2 Blocks
@@ -25,7 +25,7 @@ Ion Integration/Staging Tree
 * PoS Min: 1 Day
 * PoS Max: Unlimited
 * Total Coins: 20,000,000 ION
-* Block Size: 8 Mega-bytes (MB)
+* Block Size: 2 Mega-bytes (MB)
 
 
 Ion is a digital currency that enables instant payments to anyone, anywhere in the world. Ion uses peer-to-peer technology over ClearNet to operate with no central authority (centralisation): managing transactions and issuing currency (ION) are carried out collectively by the Ion network. Ion is the name of open source software which enables the use of the currency ION.

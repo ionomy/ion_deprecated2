@@ -85,6 +85,7 @@ int64_t enforceMasternodePaymentsTime = 4085657524;
 int nMasternodeMinProtocol = 0;
 bool fSucessfullyLoaded = false;
 bool fEnableDarksend = false;
+bool fPendingTest = true;
 /** All denominations used by darksend */
 std::vector<int64_t> darkSendDenominations;
 
@@ -1077,10 +1078,10 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Ion
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Ion
-    // Mac: ~/Library/Application Support/Ion
-    // Unix: ~/.ion
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Ionomy
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Ionomy
+    // Mac: ~/Library/Application Support/Ionomy
+    // Unix: ~/.ionomy
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "ionomy";

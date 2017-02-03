@@ -294,24 +294,34 @@ void SendCoinsDialog::on_sendButton_clicked()
     }
 
     fNewRecipientAllowed = false;
-
+	
     // request unlock only if was locked or unlocked for mixing:
     // this way we let users unlock by walletpassphrase or by menu
     // and make many transactions while unlocking through this dialog
     // will call relock
-    WalletModel::EncryptionStatus encStatus = model->getEncryptionStatus();
-    if(encStatus == model->Locked || encStatus == model->UnlockedForAnonymizationOnly)
-    {
-        WalletModel::UnlockContext ctx(model->requestUnlock());
-        if(!ctx.isValid())
-        {
-            // Unlock wallet was cancelled
-            fNewRecipientAllowed = true;
-            return;
-        }
-        send(recipients, strFee, formatted);
-        return;
-    }
+
+	WalletModel::EncryptionStatus encStatus = model->getEncryptionStatus();
+	if(encStatus == model->Locked || encStatus == model->UnlockedForAnonymizationOnly)
+	{
+		if (!fWalletUnlockStakingOnly) {
+			WalletModel::UnlockContext ctx(model->requestUnlock());
+	
+			if(!ctx.isValid())
+			{
+				// Unlock wallet was cancelled
+				fNewRecipientAllowed = true;
+				return;
+			}
+        
+			send(recipients, strFee, formatted);
+			return;
+		} else {
+			QMessageBox::warning(this, tr("Send Transaction Failed"), tr("Wallet is currently unlocked for staking only! \nPlease unlock your wallet manually before continuing"));
+			return;
+		}
+	}
+
+	
     // already unlocked or not encrypted at all
     send(recipients, strFee, formatted);
 }
@@ -622,7 +632,7 @@ void SendCoinsDialog::processSendCoinsReturn(const WalletModel::SendCoinsReturn 
         msgParams.second = CClientUIInterface::MSG_ERROR;
         break;
     case WalletModel::IXTransactionCreationFailed:
-        msgParams.first = tr("InstantX doesn't support sending values that high yet. Transactions are currently limited to 500 ION.");
+        msgParams.first = tr("InstantX doesn't support sending values that high yet. Transactions are currently limited to 1000 ION.");
         msgParams.second = CClientUIInterface::MSG_ERROR;
         break;
     case WalletModel::TransactionCommitFailed:
