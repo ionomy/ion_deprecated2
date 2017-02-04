@@ -16,7 +16,7 @@
 #include <math.h>
 #include <stdint.h> 
 
-unsigned int nStakeMinAge       = 8 * 60 * 60;
+unsigned int nStakeMinAge       = 1 * 60 * 60;
 unsigned int nModifierInterval  = 2 * 60 * 60;
 
 uint256 CBlock::GetHash() const {
