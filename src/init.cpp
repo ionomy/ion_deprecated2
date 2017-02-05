@@ -1033,8 +1033,6 @@ bool AppInit2(boost::thread_group& threadGroup)
         nDarksendRounds = 99999;
     }
 
-	if(fPendingTest) { fEnableDarksend = false; }
-
     nAnonymizeIonAmount = GetArg("-anonymizeionamount", 0);
     if(nAnonymizeIonAmount > 999999) nAnonymizeIonAmount = 999999;
     if(nAnonymizeIonAmount < 2) nAnonymizeIonAmount = 2;

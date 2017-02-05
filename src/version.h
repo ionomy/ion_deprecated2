@@ -13,7 +13,7 @@
 
 static const int CLIENT_VERSION =
                            1000000 * CLIENT_VERSION_MAJOR
-                         +   00000 * CLIENT_VERSION_MINOR
+                         +   10000 * CLIENT_VERSION_MINOR
                          +     000 * CLIENT_VERSION_REVISION
                          +       0 * CLIENT_VERSION_BUILD;
 
@@ -30,7 +30,7 @@ static const int DATABASE_VERSION = 70510;
 // network protocol versioning
 //
 
-static const int PROTOCOL_VERSION = 95050;
+static const int PROTOCOL_VERSION = 95500;
 
 // intial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 900;
@@ -57,7 +57,7 @@ static const int CADDR_TIME_VERSION = 95050;
 
 // only request blocks from nodes outside this range of versions
 static const int NOBLKS_VERSION_START = 0;
-static const int NOBLKS_VERSION_END = 95005;
+static const int NOBLKS_VERSION_END = 95400;
 
 // BIP 0031, pong message, is enabled for all versions AFTER this one
 static const int BIP0031_VERSION = 95000;
