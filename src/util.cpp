@@ -1193,6 +1193,7 @@ static void WriteConfigFile(FILE* configFile)
     fputs ("daemon=1\n", configFile);    
     fputs ("listen=1\n", configFile);
     fputs ("discover=1\n", configFile);
+    fputs ("port=12700\n", configFile);
     fputs ("rpcport=12705\n", configFile);
     fputs (sUserID.c_str(), configFile);
     fputs (sRPCpassword.c_str(), configFile);
