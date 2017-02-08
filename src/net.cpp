@@ -1,8 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2012 The Bitcoin developers
-// Distributed under the MIT/X11 software license, see the accompanying
+// Copyright (c) 2009-2017 The Bitcoin developers
+// Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include "init.h"
 #include "chainparams.h"
 #include "db.h"
 #include "net.h"
@@ -10,6 +11,7 @@
 #include "addrman.h"
 #include "ui_interface.h"
 #include "darksend.h"
+#include "wallet.h"
 
 #ifdef WIN32
 #include <string.h>
@@ -28,7 +30,7 @@
 using namespace std;
 using namespace boost;
 
-static const int MAX_OUTBOUND_CONNECTIONS = 16;
+static const int MAX_OUTBOUND_CONNECTIONS = 12;
 
 bool OpenNetworkConnection(const CAddress& addrConnect, CSemaphoreGrant *grantOutbound = NULL, const char *strDest = NULL, bool fOneShot = false);
 
@@ -68,9 +70,9 @@ CCriticalSection cs_setservAddNodeAddresses;
 
 vector<std::string> vAddedNodes;
 CCriticalSection cs_vAddedNodes;
-		
-NodeId nLastNodeId = 0;		
-CCriticalSection cs_nLastNodeId;		
+
+NodeId nLastNodeId = 0;
+CCriticalSection cs_nLastNodeId;
 
 static CSemaphore *semOutbound = NULL;
 
@@ -138,6 +140,7 @@ bool RecvLine(SOCKET hSocket, string& strLine)
     {
         char c;
         int nBytes = recv(hSocket, &c, 1, 0);
+
         if (nBytes > 0)
         {
             if (c == '\n')
@@ -174,11 +177,12 @@ bool RecvLine(SOCKET hSocket, string& strLine)
             {
                 // socket error
                 int nErr = WSAGetLastError();
-                LogPrint("net", "recv failed: %d\n", nErr);
+                LogPrint("net", "recv failed: %s\n", nErr);
                 return false;
             }
         }
     }
+    return false;
 }
 
 int GetnScore(const CService& addr)
@@ -196,23 +200,21 @@ bool IsPeerAddrLocalGood(CNode *pnode)
            !IsLimited(pnode->addrLocal.GetNetwork());
 }
 
-// pushes our own address to a peer
-void AdvertizeLocal(CNode *pnode)
+// used when scores of local addresses may have changed
+// pushes better local address to peers
+void static AdvertizeLocal()
 {
-    if (!fNoListen && pnode->fSuccessfullyConnected)
+    LOCK(cs_vNodes);
+    BOOST_FOREACH(CNode* pnode, vNodes)
     {
-        CAddress addrLocal = GetLocalAddress(&pnode->addr);
-        // If discovery is enabled, sometimes give our peer the address it
-        // tells us that it sees us as in case it has a better idea of our
-        // address than we do.
-        if (IsPeerAddrLocalGood(pnode) && (!addrLocal.IsRoutable() ||
-             GetRand((GetnScore(addrLocal) > LOCAL_MANUAL) ? 8:2) == 0))
+        if (pnode->fSuccessfullyConnected)
         {
-            addrLocal.SetIP(pnode->addrLocal);
-        }
-        if (addrLocal.IsRoutable())
-        {
-            pnode->PushAddress(addrLocal);
+            CAddress addrLocal = GetLocalAddress(&pnode->addr);
+            if (addrLocal.IsRoutable() && (CService)addrLocal != (CService)pnode->addrLocal)
+            {
+                pnode->PushAddress(addrLocal);
+                pnode->addrLocal = addrLocal;
+            }
         }
     }
 }
@@ -249,6 +251,8 @@ bool AddLocal(const CService& addr, int nScore)
         }
         SetReachable(addr.GetNetwork());
     }
+
+    AdvertizeLocal();
 
     return true;
 }
@@ -287,6 +291,9 @@ bool SeenLocal(const CService& addr)
             return false;
         mapLocalHost[addr].nScore++;
     }
+
+    AdvertizeLocal();
+
     return true;
 }
 
@@ -358,9 +365,9 @@ CNode* ConnectNode(CAddress addrConnect, const char *pszDest, bool darkSendMaste
         CNode* pnode = FindNode((CService)addrConnect);
         if (pnode)
         {
-			if(darkSendMaster)		
-                pnode->fDarkSendMaster = true;		
-                
+            if(darkSendMaster)
+                pnode->fDarkSendMaster = true;
+
             pnode->AddRef();
             return pnode;
         }
@@ -472,36 +479,21 @@ bool CNode::IsBanned(CNetAddr ip)
     return fResult;
 }
 
-bool CNode::Misbehaving(int howmuch)
-{
-    if (addr.IsLocal())
+bool CNode::Ban(const CNetAddr &addr) {
+    int64_t banTime = GetTime()+GetArg("-bantime", 60*60*24);  // Default 24-hour ban
     {
-        LogPrintf("Warning: Local node %s misbehaving (delta: %d)!\n", addrName, howmuch);
-        return false;
+        LOCK(cs_setBanned);
+        if (setBanned[addr] < banTime)
+            setBanned[addr] = banTime;
     }
-
-    nMisbehavior += howmuch;
-    if (nMisbehavior >= GetArg("-banscore", 100))
-    {
-        int64_t banTime = GetTime()+GetArg("-bantime", 60*60*24);  // Default 24-hour ban
-        LogPrintf("Misbehaving: %s (%d -> %d) DISCONNECTING\n", addr.ToString(), nMisbehavior-howmuch, nMisbehavior);
-        {
-            LOCK(cs_setBanned);
-            if (setBanned[addr] < banTime)
-                setBanned[addr] = banTime;
-        }
-        CloseSocketDisconnect();
-        return true;
-    } else
-        LogPrintf("Misbehaving: %s (%d -> %d)\n", addr.ToString(), nMisbehavior-howmuch, nMisbehavior);
-    return false;
+    return true;
 }
 
 #undef X
 #define X(name) stats.name = name
 void CNode::copyStats(CNodeStats &stats)
 {
-	stats.nodeid = this->GetId();
+    stats.nodeid = this->GetId();
     X(nServices);
     X(nLastSend);
     X(nLastRecv);
@@ -509,17 +501,16 @@ void CNode::copyStats(CNodeStats &stats)
     X(nTimeOffset);
     X(addrName);
     X(nVersion);
-	X(cleanSubVer);	
+    X(cleanSubVer);
     X(strSubVer);
     X(fInbound);
     X(nStartingHeight);
-    X(nMisbehavior);
     X(nSendBytes);
     X(nRecvBytes);
     stats.fSyncNode = (this == pnodeSync);
 
     // It is common for nodes with good ping times to suddenly become lagged,
-    // due to a new block arriving or other large transfer.
+    // due to a new block arriving or other large ion.
     // Merely reporting pingtime might fool the caller into thinking the node was still responsive,
     // since pingtime does not update until the ping is complete, which might take a while.
     // So, if a ping is taking an unusually long time in flight,
@@ -825,14 +816,14 @@ void ThreadSocketHandler()
                     if (pnode->fInbound)
                         nInbound++;
             }
-
+            int nMaxOutbound = min(MAX_OUTBOUND_CONNECTIONS, (int)GetArg("-maxconnections", 25));
             if (hSocket == INVALID_SOCKET)
             {
                 int nErr = WSAGetLastError();
                 if (nErr != WSAEWOULDBLOCK)
                     LogPrintf("socket error accept failed: %d\n", nErr);
             }
-            else if (nInbound >= GetArg("-maxconnections", 125) - MAX_OUTBOUND_CONNECTIONS)
+            else if (nInbound >= nMaxOutbound)
             {
                 closesocket(hSocket);
             }
@@ -843,6 +834,15 @@ void ThreadSocketHandler()
             }
             else
             {
+                // According to the internet TCP_NODELAY is not carried into accepted sockets
+                // on all platforms.  Set it again here just to be sure.
+                int set = 1;
+#ifdef WIN32
+                setsockopt(hSocket, IPPROTO_TCP, TCP_NODELAY, (const char*)&set, sizeof(int));
+#else
+                setsockopt(hSocket, IPPROTO_TCP, TCP_NODELAY, (void*)&set, sizeof(int));
+#endif
+
                 LogPrint("net", "accepted connection %s\n", addr.ToString());
                 CNode* pnode = new CNode(hSocket, addr, "", true);
                 pnode->AddRef();
@@ -1022,7 +1022,9 @@ void ThreadMapPort()
         string strDesc = "Ion " + FormatFullVersion();
 
         try {
-          while (true) {
+            while (!ShutdownRequested()) {
+                boost::this_thread::interruption_point();
+
 #ifndef UPNPDISCOVER_SUCCESS
                 /* miniupnpc 1.5 */
                 r = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype,
@@ -1095,7 +1097,7 @@ void ThreadDNSAddressSeed()
 {
     // goal: only query DNS seeds if address need is acute
     if ((addrman.size() > 0) &&
-        (!GetBoolArg("-forcednsseed", false))) {
+        (!GetBoolArg("-forcednsseed", true))) {
         MilliSleep(11 * 1000);
 
         LOCK(cs_vNodes);
@@ -1237,7 +1239,8 @@ void ThreadOpenConnections()
         int nTries = 0;
         while (true)
         {
-            CAddress addr = addrman.Select();
+            // use an nUnkBias between 10 (no outgoing connections) and 90 (8 outgoing connections)
+            CAddress addr = addrman.Select(10 + min(nOutbound,8)*10);
 
             // if we selected an invalid address, restart
             if (!addr.IsValid() || setConnected.count(addr.GetGroup()) || IsLocal(addr))
@@ -1491,6 +1494,18 @@ bool BindListenPort(const CService &addrBind, string& strError)
     strError = "";
     int nOne = 1;
 
+#ifdef WIN32
+    // Initialize Windows Sockets
+    WSADATA wsadata;
+    int ret = WSAStartup(MAKEWORD(2,2), &wsadata);
+    if (ret != NO_ERROR)
+    {
+        strError = strprintf("Error: TCP/IP socket library failed to start (WSAStartup returned error %d)", ret);
+        LogPrintf("%s\n", strError);
+        return false;
+    }
+#endif
+
     // Create socket for listening for incoming connections
     struct sockaddr_storage sockaddr;
     socklen_t len = sizeof(sockaddr);
@@ -1509,15 +1524,20 @@ bool BindListenPort(const CService &addrBind, string& strError)
         return false;
     }
 
+
+#ifndef WIN32
 #ifdef SO_NOSIGPIPE
     // Different way of disabling SIGPIPE on BSD
     setsockopt(hListenSocket, SOL_SOCKET, SO_NOSIGPIPE, (void*)&nOne, sizeof(int));
 #endif
-
-#ifndef WIN32
     // Allow binding if the port is still in TIME_WAIT state after
     // the program was closed and restarted.  Not an issue on windows.
     setsockopt(hListenSocket, SOL_SOCKET, SO_REUSEADDR, (void*)&nOne, sizeof(int));
+    // Disable Nagle's algorithm
+    setsockopt(hListenSocket, IPPROTO_TCP, TCP_NODELAY, (void*)&nOne, sizeof(int));
+#else
+    setsockopt(hListenSocket, SOL_SOCKET, SO_REUSEADDR, (const char*)&nOne, sizeof(int));
+    setsockopt(hListenSocket, IPPROTO_TCP, TCP_NODELAY, (const char*)&nOne, sizeof(int));
 #endif
 
 
@@ -1557,7 +1577,7 @@ bool BindListenPort(const CService &addrBind, string& strError)
         if (nErr == WSAEADDRINUSE)
             strError = strprintf(_("Unable to bind to %s on this computer. Ion is probably already running."), addrBind.ToString());
         else
-            strError = strprintf(_("Unable to bind to %s on this computer (iond returned error %d, %s)"), addrBind.ToString(), nErr, strerror(nErr));
+            strError = strprintf(_("Unable to bind to %s on this computer (bind returned error %d, %s)"), addrBind.ToString(), nErr, strerror(nErr));
         LogPrintf("%s\n", strError);
         return false;
     }
@@ -1634,7 +1654,7 @@ void StartNode(boost::thread_group& threadGroup)
 {
     if (semOutbound == NULL) {
         // initialize semaphore
-        int nMaxOutbound = min(MAX_OUTBOUND_CONNECTIONS, (int)GetArg("-maxconnections", 125));
+        int nMaxOutbound = min(MAX_OUTBOUND_CONNECTIONS, (int)GetArg("-maxconnections", 25));
         semOutbound = new CSemaphore(nMaxOutbound);
     }
 
@@ -1738,17 +1758,20 @@ void RelayTransaction(const CTransaction& tx, const uint256& hash, const CDataSt
     RelayInventory(inv);
 }
 
-void RelayTransactionLockReq(const CTransaction& tx, bool relayToAll)		
-{		
-    CInv inv(MSG_TXLOCK_REQUEST, tx.GetHash());		
-    //broadcast the new lock		
-    LOCK(cs_vNodes);		
-    BOOST_FOREACH(CNode* pnode, vNodes)		
-    {		
-        if(!relayToAll && !pnode->fRelayTxes)		
-            continue;		
-        pnode->PushMessage("txlreq", tx);		
-    }		
+void RelayTransactionLockReq(const CTransaction& tx, bool relayToAll)
+{
+    CInv inv(MSG_TXLOCK_REQUEST, tx.GetHash());
+
+    //broadcast the new lock
+    LOCK(cs_vNodes);
+    BOOST_FOREACH(CNode* pnode, vNodes)
+    {
+        if(!relayToAll && !pnode->fRelayTxes)
+            continue;
+
+        pnode->PushMessage("txlreq", tx);
+    }
+
 }
 
 void CNode::RecordBytesRecv(uint64_t bytes)

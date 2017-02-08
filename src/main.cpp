@@ -259,24 +259,6 @@ void MarkBlockAsReceived(const uint256 &hash, NodeId nodeFrom = -1) {
 
 }
 
-void Misbehaving(NodeId pnode, int howmuch)
-{
-    if (howmuch == 0)
-        return;
-
-    CNodeState *state = State(pnode);
-    if (state == NULL)
-        return;
-
-    state->nMisbehavior += howmuch;
-    if (state->nMisbehavior >= GetArg("-banscore", 100))
-    {
-        LogPrintf("Misbehaving: %s (%d -> %d) BAN THRESHOLD EXCEEDED\n", state->name.c_str(), state->nMisbehavior-howmuch, state->nMisbehavior);
-        state->fShouldBan = true;
-    } else
-        LogPrintf("Misbehaving: %s (%d -> %d)\n", state->name.c_str(), state->nMisbehavior-howmuch, state->nMisbehavior);
-}
-
 // Requires cs_main.
 bool AddBlockToQueue(NodeId nodeid, const uint256 &hash) {
     if (mapBlocksToDownload.count(hash) || mapBlocksInFlight.count(hash))
@@ -2743,6 +2725,24 @@ bool static IsCanonicalBlockSignature(CBlock* pblock)
     return IsDERSignature(pblock->vchBlockSig, false);
 }
 
+void Misbehaving(NodeId pnode, int howmuch)
+{
+    if (howmuch == 0)
+        return;
+
+    CNodeState *state = State(pnode);
+    if (state == NULL)
+        return;
+
+    state->nMisbehavior += howmuch;
+    if (state->nMisbehavior >= GetArg("-banscore", 100))
+    {
+        LogPrintf("Misbehaving: %s (%d -> %d) BAN THRESHOLD EXCEEDED\n", state->name.c_str(), state->nMisbehavior-howmuch, state->nMisbehavior);
+        state->fShouldBan = true;
+    } else
+        LogPrintf("Misbehaving: %s (%d -> %d)\n", state->name.c_str(), state->nMisbehavior-howmuch, state->nMisbehavior);
+}
+
 bool ProcessBlock(CNode* pfrom, CBlock* pblock)
 {
     AssertLockHeld(cs_main);
@@ -2768,7 +2768,7 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
         if (deltaTime < 0)
         {
             if (pfrom)
-                pfrom->Misbehaving(1);
+                Misbehaving(pfrom->GetId(), 1);
             return error("ProcessBlock() : block with timestamp before last checkpoint");
         }
     }
@@ -3511,7 +3511,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         // Each connection can only send one version message
         if (pfrom->nVersion != 0)
         {
-            pfrom->Misbehaving(1);
+            Misbehaving(pfrom->GetId(), 1);
             return false;
         }
 
@@ -3616,7 +3616,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
     else if (pfrom->nVersion == 0)
     {
         // Must have a version message before anything else
-        pfrom->Misbehaving(1);
+        Misbehaving(pfrom->GetId(), 1);
         return false;
     }
 
@@ -3637,7 +3637,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             return true;
         if (vAddr.size() > 1000)
         {
-            pfrom->Misbehaving(20);
+            Misbehaving(pfrom->GetId(), 20);
             return error("message addr size() = %u", vAddr.size());
         }
 
@@ -3699,7 +3699,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         vRecv >> vInv;
         if (vInv.size() > MAX_INV_SZ)
         {
-            pfrom->Misbehaving(20);
+            Misbehaving(pfrom->GetId(), 20);
             return error("message inv size() = %u", vInv.size());
         }
 
@@ -3739,7 +3739,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         vRecv >> vInv;
         if (vInv.size() > MAX_INV_SZ)
         {
-            pfrom->Misbehaving(20);
+            Misbehaving(pfrom->GetId(), 20);
             return error("message getdata size() = %u", vInv.size());
         }
 
@@ -3873,7 +3873,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                 std::string errorMessage = "";
                 if(!darkSendSigner.VerifyMessage(pmn->pubkey2, vchSig, strMessage, errorMessage)){
                     LogPrintf("dstx: Got bad masternode address signature %s \n", vin.ToString().c_str());
-                    //pfrom->Misbehaving(20);
+                    //Misbehaving(pfrom->GetId(), 20);
                     return false;
                 }
 
@@ -3954,7 +3954,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             CInv inv(MSG_DSTX, tx.GetHash());
             RelayInventory(inv);
         }
-        if (tx.nDoS) pfrom->Misbehaving(tx.nDoS);
+        if (tx.nDoS) Misbehaving(pfrom->GetId(), tx.nDoS);
     }
 
 
@@ -4114,10 +4114,10 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                 // Small DoS penalty so peers that send us lots of
                 // duplicate/expired/invalid-signature/whatever alerts
                 // eventually get banned.
-                // This isn't a pfrom->Misbehaving(100) (immediate ban) because the
+                // This isn't a Misbehaving(100) (immediate ban) because the
                 // peer might be an older or different implementation with
                 // a different signature key, etc.
-                pfrom->Misbehaving(10);
+                Misbehaving(pfrom->GetId(), 10);
             }
         }
     }
@@ -4324,20 +4324,26 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
         static int64_t nLastRebroadcast;
         if (!IsInitialBlockDownload() && (GetTime() - nLastRebroadcast > 24 * 60 * 60))
         {
-            LOCK(cs_vNodes);
-            BOOST_FOREACH(CNode* pnode, vNodes)
             {
-                // Periodically clear setAddrKnown to allow refresh broadcasts
-                if (nLastRebroadcast)
-                    pnode->setAddrKnown.clear();
+                LOCK(cs_vNodes);
+                BOOST_FOREACH(CNode* pnode, vNodes)
+                {
+                    // Periodically clear setAddrKnown to allow refresh broadcasts
+                    if (nLastRebroadcast)
+                        pnode->setAddrKnown.clear();
 
-                // Rebroadcast our address
-                AdvertizeLocal(pnode);
+                    // Rebroadcast our address
+                    if (!fNoListen)
+                    {
+                        CAddress addr = GetLocalAddress(&pnode->addr);
+                        if (addr.IsRoutable())
+                            pnode->PushAddress(addr);
+                    }
+                }
             }
-            if (!vNodes.empty())
-                nLastRebroadcast = GetTime();
+            nLastRebroadcast = GetTime();
         }
-        
+
         //
         // Message: addr
         //
@@ -4363,6 +4369,21 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
             if (!vAddr.empty())
                 pto->PushMessage("addr", vAddr);
         }
+
+        CNodeState &state = *State(pto->GetId());
+        if (state.fShouldBan) {
+            if (pto->addr.IsLocal())
+                LogPrintf("Warning: not banning local node %s!\n", pto->addr.ToString().c_str());
+            else {
+                pto->fDisconnect = true;
+                CNode::Ban(pto->addr);
+            }
+            state.fShouldBan = false;
+        }
+
+        BOOST_FOREACH(const CBlockReject& reject, state.rejects)
+            pto->PushMessage("reject", (string)"block", reject.chRejectCode, reject.strRejectReason, reject.hashBlock);
+        state.rejects.clear();
 
         //
         // Message: inventory
@@ -4417,7 +4438,6 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
         // in flight for over two minutes, since we first had a chance to
         // process an incoming block.
         int64_t nNow = GetTimeMicros();
-		CNodeState &state = *State(pto->GetId());
         if (!pto->fDisconnect && state.nBlocksInFlight && 
             state.nLastBlockReceive < state.nLastBlockProcess - BLOCK_DOWNLOAD_TIMEOUT*1000000 && 
             state.vBlocksInFlight.front().nTime < state.nLastBlockProcess - 2*BLOCK_DOWNLOAD_TIMEOUT*1000000) {
