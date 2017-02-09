@@ -542,6 +542,12 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (fDaemon)
         fprintf(stdout, "Ion server starting\n"); 
 
+	if (TestNet()){
+		printf("TESTNET IS BROKEN! PLEASE REFRAIN FROM USE!\n"); // For visibility in terminals
+		LogPrintf("TESTNET IS BROKEN! PLEASE REFRAIN FROM USE!\n");
+        assert((int)1 == (int)2);
+	}
+
     int64_t nStart;
 
     // ********************************************************* Step 5: Backup wallet and verify wallet database integrity
@@ -787,32 +793,6 @@ bool AppInit2(boost::thread_group& threadGroup)
     nStart = GetTimeMillis();
     if (!LoadBlockIndex())
         return InitError(_("Error loading block database"));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // as LoadBlockIndex can take several minutes, it's possible the user
     // requested to kill bitcoin-qt during the last operation. If so, exit.

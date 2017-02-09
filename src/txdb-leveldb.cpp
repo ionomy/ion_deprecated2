@@ -57,6 +57,8 @@ void init_blockindex(leveldb::Options& options, bool fRemoveOld = false) {
         }
     }
 
+    options.create_if_missing = true;
+
     filesystem::create_directory(directory);
     LogPrintf("Opening LevelDB in %s\n", directory.string());
     leveldb::Status status = leveldb::DB::Open(options, directory.string(), &txdb);
@@ -396,6 +398,7 @@ bool CTxDB::LoadBlockIndex()
 
         iterator->Next();
     }
+    
     delete iterator;
 
     boost::this_thread::interruption_point();
@@ -444,6 +447,7 @@ bool CTxDB::LoadBlockIndex()
         nCheckDepth = 1000000000; // suffices until the year 19000
     if (nCheckDepth > nBestHeight)
         nCheckDepth = nBestHeight;
+        
     LogPrintf("Verifying last %i blocks at level %i\n", nCheckDepth, nCheckLevel);
     CBlockIndex* pindexFork = NULL;
     map<pair<unsigned int, unsigned int>, CBlockIndex*> mapBlockPos;
