@@ -59,6 +59,7 @@ private:
 
     TxViewDelegate *txdelegate;
     TransactionFilterProxy *filter;
+	bool fProduction;
 
 private slots:
     void toggleDarksend();

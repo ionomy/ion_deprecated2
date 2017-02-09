@@ -13,7 +13,6 @@
 #include "amount.h"
 #include "base58.h"
 #include "main.h"
-#include "timedata.h"
 #include "script.h"
 #include "masternode.h"
 
