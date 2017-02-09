@@ -3577,7 +3577,10 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         }
         if (!vRecv.empty())
             vRecv >> pfrom->nStartingHeight;
+
         if (!vRecv.empty())
+            vRecv >> pfrom->fRelayTxes;
+        else
             pfrom->fRelayTxes = true;
 
         // Disconnect if we connected to ourself
