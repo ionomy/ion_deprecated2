@@ -140,15 +140,20 @@ public:
         pchMessageStart[1] = 0xca;
         pchMessageStart[2] = 0x4d;
         pchMessageStart[3] = 0x3e;
-        nProofOfWorkLimit =  uint256S("000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        nProofOfStakeLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         vAlertPubKey = ParseHex("");
         nDefaultPort = 27170;
         nRPCPort = 27171;
         strDataDir = "testnet";
+   
+        nProofOfWorkLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        nProofOfStakeLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
-		genesis = CreateGenesisBlock(1485852000, 5579, 0x1f0fffff, 1, (1 * COIN));
-    
+		genesis = CreateGenesisBlock(1486629906, 2600259, 0x1e00ffff, 1, (1 * COIN));
+		hashGenesisBlock = genesis.GetHash();
+		
+        assert(hashGenesisBlock == uint256("0x0000005deb091119131413624780e4094b178172df0cf3a715ac1f5e0fe68b04"));
+        assert(genesis.hashMerkleRoot == uint256("0x9b401afc7d346eff56b954a6c8ec24938f00d2f4e8b995c2b7b10101498a8459"));
+                
         vFixedSeeds.clear();
         vSeeds.clear();
 

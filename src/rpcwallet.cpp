@@ -10,7 +10,6 @@
 #include "init.h"
 #include "net.h"
 #include "netbase.h"
-#include "timedata.h"
 #include "util.h"
 #include "amount.h"
 #include "wallet.h"

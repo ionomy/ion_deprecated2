@@ -9,7 +9,7 @@
 #include "coincontrol.h"
 #include "stake.h"
 #include "net.h"
-#include "timedata.h"
+#include "util.h"
 #include "txdb.h"
 #include "ui_interface.h"
 #include "walletdb.h"
@@ -1263,7 +1263,7 @@ void CWallet::ReacceptWalletTransactions()
         }
     }
 }
-/*
+
 void CWalletTx::RelayWalletTransaction(CTxDB& txdb, std::string strCommand)
 {
     if (!(IsCoinBase() || IsCoinStake()))
@@ -1279,37 +1279,6 @@ void CWalletTx::RelayWalletTransaction(CTxDB& txdb, std::string strCommand)
                 LogPrintf("Relaying wtx %s\n", hash.ToString());
                 RelayTransaction((CTransaction)*this, hash);
             }
-        }
-    }
-}
-*/
-
-
-void CWalletTx::RelayWalletTransaction(CTxDB& txdb, std::string strCommand)
-{
-    BOOST_FOREACH(const CMerkleTx& tx, vtxPrev)
-    {
-        if (!(tx.IsCoinBase() || tx.IsCoinStake()))
-        {
-            uint256 hash = tx.GetHash();
-            if (!txdb.ContainsTx(hash))
-                RelayTransaction((CTransaction)tx, hash);
-        }
-    }
-    if (!(IsCoinBase() || IsCoinStake()))
-    {
-        if (GetDepthInMainChain() == 0) {
-            uint256 hash = GetHash();
-
-            if(strCommand == "txlreq"){
-                LogPrintf("Relaying txlreq %s\n", hash.ToString());
-                mapTxLockReq.insert(make_pair(hash, ((CTransaction)*this)));
-                CreateNewLock(((CTransaction)*this));
-                RelayTransactionLockReq((CTransaction)*this, true);
-            } else {
-				LogPrintf("Relaying wtx %s\n", hash.ToString());
-				RelayTransaction((CTransaction)*this, hash);
-			}
         }
     }
 }
