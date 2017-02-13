@@ -3882,7 +3882,8 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
         //masternode signed transaction
         bool ignoreFees = false;
-        CInv inv; CTxIn vin;
+        CInv inv; 
+	CTxIn vin;
         vector<unsigned char> vchSig;
         int64_t sigTime;
         CTxDB txdb("r");
