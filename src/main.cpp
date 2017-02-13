@@ -3533,6 +3533,8 @@ void static ProcessGetData(CNode* pfrom)
 
 bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 {
+    CInv inv;
+
     RandAddSeedPerfmon();
     LogPrint("net", "received: %s (%u bytes)\n", strCommand, vRecv.size());
     if (mapArgs.count("-dropmessagestest") && GetRand(atoi(mapArgs["-dropmessagestest"])) == 0)
@@ -3835,6 +3837,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
     {
         CBlockLocator locator;
         uint256 hashStop;
+
         vRecv >> locator >> hashStop;
 
         LOCK(cs_main);
@@ -3883,23 +3886,23 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         CTxIn vin;
         vector<unsigned char> vchSig;
         int64_t sigTime;
-        CInv inv;
         CTxDB txdb("r");
 
         if(strCommand == "tx") {
-            CInv inv(MSG_TX, tx.GetHash());
+            vRecv >> tx;
+            inv = CInv(MSG_TX, tx.GetHash());
             // Check for recently rejected (and do other quick existence checks)
             if (AlreadyHave(txdb, inv))
                 return true;
+        }
 
-            vRecv >> tx;
-        } else if (strCommand == "dstx") {
-            CInv inv(MSG_DSTX, tx.GetHash());
+        else if (strCommand == "dstx") {
+            vRecv >> tx >> vin >> vchSig >> sigTime;
+	    inv = CInv(MSG_DSTX, tx.GetHash());
             // Check for recently rejected (and do other quick existence checks)
             if (AlreadyHave(txdb, inv))
                 return true;
             //these allow masternodes to publish a limited amount of free transactions
-            vRecv >> tx >> vin >> vchSig >> sigTime;
 
             CMasternode* pmn = mnodeman.Find(vin);
             if(pmn != NULL)
@@ -4003,7 +4006,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
                 LogPrint("mempool", "mapOrphan overflow, removed %u tx\n", nEvicted);
         }
         if(strCommand == "dstx"){
-            CInv inv(MSG_DSTX, tx.GetHash());
+            inv = CInv(MSG_DSTX, tx.GetHash());
             RelayInventory(inv);
         }
         if (tx.nDoS) Misbehaving(pfrom->GetId(), tx.nDoS);
@@ -4018,7 +4021,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
         LogPrint("net", "received block %s\n", hashBlock.ToString());
 
-        CInv inv(MSG_BLOCK, hashBlock);
+        inv = CInv(MSG_BLOCK, hashBlock);
         pfrom->AddInventoryKnown(inv);
 
         LOCK(cs_main);
@@ -4055,7 +4058,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         mempool.queryHashes(vtxid);
         vector<CInv> vInv;
         for (unsigned int i = 0; i < vtxid.size(); i++) {
-            CInv inv(MSG_TX, vtxid[i]);
+            inv = CInv(MSG_TX, vtxid[i]);
             vInv.push_back(inv);
             if (i == (MAX_INV_SZ - 1))
                     break;
@@ -4493,8 +4496,8 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
         // in flight for over two minutes, since we first had a chance to
         // process an incoming block.
         int64_t nNow = GetTimeMicros();
-        if (!pto->fDisconnect && state.nBlocksInFlight && 
-            state.nLastBlockReceive < state.nLastBlockProcess - BLOCK_DOWNLOAD_TIMEOUT*1000000 && 
+        if (!pto->fDisconnect && state.nBlocksInFlight &&
+            state.nLastBlockReceive < state.nLastBlockProcess - BLOCK_DOWNLOAD_TIMEOUT*1000000 &&
             state.vBlocksInFlight.front().nTime < state.nLastBlockProcess - 2*BLOCK_DOWNLOAD_TIMEOUT*1000000) {
             LogPrintf("Peer %s is stalling block download, disconnecting\n", state.name.c_str());
             pto->fDisconnect = true;
