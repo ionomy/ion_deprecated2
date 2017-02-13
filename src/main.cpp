@@ -4021,7 +4021,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
         LogPrint("net", "received block %s\n", hashBlock.ToString());
 
-        inv = CInv(MSG_BLOCK, hashBlock);
+        CInv inv = CInv(MSG_BLOCK, hashBlock);
         pfrom->AddInventoryKnown(inv);
 
         LOCK(cs_main);
