@@ -56,6 +56,7 @@ bool fConfChange;
 unsigned int nNodeLifespan;
 unsigned int nDerivationMethodIndex;
 unsigned int nMinerSleep;
+int nMaxConnections;
 bool fUseFastIndex;
 bool fOnlyTor = false;
 
@@ -372,6 +373,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     nNodeLifespan = GetArg("-addrlifespan", 7);
     fUseFastIndex = GetBoolArg("-fastindex", true);
     nMinerSleep = GetArg("-minersleep", 500);
+    nMaxConnections = GetArg("-maxconnections", 125);
 
     nDerivationMethodIndex = 0;
 
