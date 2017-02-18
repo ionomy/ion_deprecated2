@@ -1160,66 +1160,17 @@ boost::filesystem::path GetMasternodeConfigFile()
     return pathConfigFile;
 }
 
-static std::string GenerateRandomString(unsigned int len) {
-    if (len == 0){
-        len = 24;
-    }
-    srand(time(NULL) + len); //seed srand before using
-    char s[len];
-    static const char alphanum[] =
-        "0123456789"
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "abcdefghijklmnopqrstuvwxyz"
-        "@*[]{}+-~";
-
-    for (unsigned int i = 0; i < len; ++i) {
-        s[i] = alphanum[rand() % (sizeof(alphanum) - 1)];
-    }
-    s[len] = 0;
-    std::string sPassword(s);
-    return sPassword;
-}
-
-static unsigned int RandomIntegerRange(unsigned int nMin, unsigned int nMax)
-{
-	srand(time(NULL) + nMax); //seed srand before using
-	return nMin + rand() % (nMax - nMin) + 1;
-}
-
-static void WriteConfigFile(FILE* configFile)
-{
-    std::string sRPCpassword = "rpcpassword=" + GenerateRandomString(RandomIntegerRange(18, 24)) + "\n";
-    std::string sUserID = "rpcuser=" + GenerateRandomString(RandomIntegerRange(7, 11)) + "\n";
-    
-    fputs ("daemon=1\n", configFile);    
-    fputs ("listen=1\n", configFile);
-    fputs ("discover=1\n", configFile);
-    fputs ("port=12700\n", configFile);
-    fputs ("rpcport=12705\n", configFile);
-    fputs (sUserID.c_str(), configFile);
-    fputs (sRPCpassword.c_str(), configFile);
-    fputs ("addnode=163.172.213.62\n", configFile);
-    fputs ("addnode=51.15.3.128\n", configFile);
-    fputs ("addnode=128.199.165.79\n", configFile);
-    fputs ("addnode=162.243.38.133\n", configFile);
-
-    fclose(configFile);
-}
-
 void ReadConfigFile(map<string, string>& mapSettingsRet,
                     map<string, vector<string> >& mapMultiSettingsRet)
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
-    
     if (!streamConfig.good()){
-        // Create ion.conf if it does not exist
+        // Create empty ion.conf if it does not exist
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
-        if (configFile != NULL) {
-            // Write ion.conf file with random username and password.
-            WriteConfigFile(configFile);
-            // New ion.conf file written, now read it.
-        }
-	}
+        if (configFile != NULL)
+            fclose(configFile);
+        return; // Nothing to read, so just return
+    }
 
     set<string> setOptions;
     setOptions.insert("*");
