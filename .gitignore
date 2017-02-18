@@ -1,17 +1,21 @@
-debug
-build
-Makefile.Release
-Makefile.Debug
-Makefile
-object_script.ionx-Qt.Debug
-object_script.ionx-Qt.Release
-iom.pro.user
-ionx-Qt_plugin_import.cpp
-ionx-Qt
-qrc_bitcoin.cpp
-src/qt/locale/*.qm
-release
-src/iond*
+*.tar.gz
 
-*.plist
+*.exe
+src/ion
+src/iond
+
+# autoreconf
+share/qt/Info.plist
+
+# Compilation and Qt preprocessor part
+*.qm
+Makefile
+ionx-Qt
 ionx-Qt.app
+
+# Resources cpp
+qrc_*.cpp
+
+# Mac specific
+.DS_Store
+build
