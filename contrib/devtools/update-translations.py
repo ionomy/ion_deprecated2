@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # Copyright (c) 2014 Wladimir J. van der Laan
 # Copyright (c) 2017 Mitchell Cash
 # Distributed under the MIT software license, see the accompanying
