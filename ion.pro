@@ -12,6 +12,22 @@ greaterThan(QT_MAJOR_VERSION, 4) {
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 }
 
+win32:BOOST_LIB_SUFFIX=-mgw49-mt-s-1_63
+win32:BOOST_INCLUDE_PATH=C:/deps/boost_1_63_0
+win32:BOOST_LIB_PATH=C:/deps/boost_1_63_0/stage/lib
+win32:BDB_INCLUDE_PATH=C:/deps/db-4.8.30.NC/build_unix
+win32:BDB_LIB_PATH=C:/deps/db-4.8.30.NC/build_unix
+win32:OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.2j/include
+win32:OPENSSL_LIB_PATH=C:/deps/openssl-1.0.2j
+win32:MINIUPNPC_INCLUDE_PATH=C:/deps/
+win32:MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
+win32:LIBPNG_INCLUDE_PATH=d:/deps/libpng-1.6.28
+win32:LIBPNG_LIB_PATH=d:/deps/libpng-1.6.28/.libs
+win32:QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
+win32:QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
+
+USE_UPNP=1
+
 # for boost 1.37, add -mt to the boost libraries
 # use: qmake BOOST_LIB_SUFFIX=-mt
 # for boost thread win32 with _win32 sufix
@@ -135,10 +151,10 @@ LIBS += $$PWD/src/secp256k1/src/libsecp256k1_la-secp256k1.o
    QMAKE_CLEAN += $$PWD/src/secp256k1/src/libsecp256k1_la-secp256k1.o; cd $$PWD/src/secp256k1; $(MAKE) clean
 } else {
    isEmpty(SECP256K1_LIB_PATH) {
-       windows:SECP256K1_LIB_PATH=C:\Ion-Seron\src\secp256k1\.libs
+       windows:SECP256K1_LIB_PATH=C:\ion\src\secp256k1\.libs
    }
    isEmpty(SECP256K1_INCLUDE_PATH) {
-       windows:SECP256K1_INCLUDE_PATH=C:\Ion-Seron\src\secp256k1\include
+       windows:SECP256K1_INCLUDE_PATH=C:\ion\src\secp256k1\include
    }
 }
 
