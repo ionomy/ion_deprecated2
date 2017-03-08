@@ -26,8 +26,6 @@ win32:LIBPNG_LIB_PATH=d:/deps/libpng-1.6.28/.libs
 win32:QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
 win32:QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
 
-USE_UPNP=1
-
 # for boost 1.37, add -mt to the boost libraries
 # use: qmake BOOST_LIB_SUFFIX=-mt
 # for boost thread win32 with _win32 sufix
