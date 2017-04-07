@@ -247,6 +247,8 @@ int main(int argc, char *argv[])
 
         boost::thread_group threadGroup;
 
+	SelectParamsFromCommandLine();
+	//ALERT: BitcoinGUI initializes the chain, and since AppInit2 hasn't been called yet, GetDataDir() doesn't know which ChainParams to use. Workaround is to call SelectParamsFromCommandLine() earlier
         BitcoinGUI window;
         guiref = &window;
 

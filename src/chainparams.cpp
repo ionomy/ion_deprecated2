@@ -136,26 +136,24 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0x2f;
-        pchMessageStart[1] = 0xca;
-        pchMessageStart[2] = 0x4d;
-        pchMessageStart[3] = 0x3e;
+        pchMessageStart[0] = 0xdb;
+        pchMessageStart[1] = 0x86;
+        pchMessageStart[2] = 0xfc;
+        pchMessageStart[3] = 0x69;
         vAlertPubKey = ParseHex("");
         nDefaultPort = 27170;
-        nRPCPort = 27171;
+        nRPCPort = 27175;
         strDataDir = "testnet";
    
         nProofOfWorkLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         nProofOfStakeLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
-		genesis = CreateGenesisBlock(1486629906, 2600259, 0x1e00ffff, 1, (1 * COIN));
-		hashGenesisBlock = genesis.GetHash();
-		
-        assert(hashGenesisBlock == uint256("0x0000005deb091119131413624780e4094b178172df0cf3a715ac1f5e0fe68b04"));
-        assert(genesis.hashMerkleRoot == uint256("0x9b401afc7d346eff56b954a6c8ec24938f00d2f4e8b995c2b7b10101498a8459"));
-                
-        vFixedSeeds.clear();
-        vSeeds.clear();
+	genesis = CreateGenesisBlock(1491737471, 1603027, 0x1e00ffff, 1, (1 * COIN));
+        
+	hashGenesisBlock = genesis.GetHash();
+	
+	assert(hashGenesisBlock == uint256("0x0000002bed128b6b2a62bd8edd4e6f8a414eac38e256aa0194adb8c93fe18132"));		
+	assert(genesis.hashMerkleRoot == uint256("0x24c7b9bada3984f99ec9072672d3f7180af711b5eed5b82b321848b973b4a41e"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,97);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -164,9 +162,28 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        nLastPOWBlock = 0x7fffffff;
+        vFixedSeeds.clear();
+        vSeeds.clear();
+	vSeeds.push_back(CDNSSeedData("seeder.baseserv.com", "testnet.seeder.baseserv.com"));
+        vSeeds.push_back(CDNSSeedData("seeder.uksafedns.net", "testnet.seeder.uksafedns.net"));
+        
+        convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
+
+	nPoolMaxTransactions = 3;
+        strDarksendPoolDummyAddress = "gCJDCcmcVZcfnwAZdEt7dg5s5jjAbDp9dZdhXAmP5NM";
+        nLastPOWBlock 	= 300;
     }
+
+    virtual const CBlock& GenesisBlock() const { return genesis; }
     virtual Network NetworkID() const { return CChainParams::TESTNET; }
+
+    virtual const vector<CAddress>& FixedSeeds() const {
+        return vFixedSeeds;
+    }
+protected:
+    CBlock genesis;
+    vector<CAddress> vFixedSeeds;
+
 };
 static CTestNetParams testNetParams;
 
