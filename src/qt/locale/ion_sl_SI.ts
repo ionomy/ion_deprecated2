@@ -64,10 +64,6 @@
         <translation>Potrdi sporočilo, da zagotovite, da je bilo podpisano z izbranim Ion naslovom</translation>
     </message>
     <message>
-        <source>&amp;Verify Message</source>
-        <translation>&amp;Potrdi sporočilo</translation>
-    </message>
-    <message>
         <source>&amp;Delete</source>
         <translation>&amp;Izbriši</translation>
     </message>
@@ -1394,10 +1390,6 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
     <message>
         <source>Clear &amp;All</source>
         <translation>Počisti &amp;vse </translation>
-    </message>
-    <message>
-        <source>&amp;Verify Message</source>
-        <translation>&amp;Potrdi sporočilo</translation>
     </message>
     <message>
         <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
