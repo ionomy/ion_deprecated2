@@ -2,6 +2,12 @@ Contents
 ========
 This directory contains tools for developers working on this repository.
 
+optimize-pngs.py
+================
+
+A script to optimize png files in the ion
+repository (requires pngcrush).
+
 update-translations.py
 ======================
 
