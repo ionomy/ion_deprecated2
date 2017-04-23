@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en">
+<TS version="2.1" language="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -15,11 +15,11 @@
     </message>
     <message>
         <location line="+41"/>
-        <source>Copyright (c) 2016-2017 The ion Core developers
-Copyright (c) 2014-2015 Transfer Developers
-Copyright (c) 2013-2014 The NovaCoin developers
+        <source>Copyright (c) 2009-2015 The Bitcoin Core developers
 Copyright (c) 2011-2012 Peercoin (PPCoin) Developers
-Copyright (c) 2009-2015 The Bitcoin Core developers</source>
+Copyright (c) 2013-2014 The NovaCoin developers
+Copyright (c) 2014-2015 Transfer Developers
+Copyright (c) 2016-2017 The ion Core developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -27,9 +27,9 @@ Copyright (c) 2009-2015 The Bitcoin Core developers</source>
         <source>
 This is experimental software.
 
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;.
+Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;a href=&quot;https://www.openssl.org/&quot;&gt;https://www.openssl.org/&lt;/a&gt;) and cryptographic software written by Eric Young (&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;eay@cryptsoft.com&lt;/a&gt;) and UPnP software written by Thomas Bernard.</source>
+This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1111,7 +1111,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+1"/>
         <source>This label turns red, if any recipient receives an amount smaller than %1.
 
- This means a fee of at least %2 is required.
+ This means a fee of at least %2 is required. 
 
  Amounts below 0.546 times the minimum relay fee are shown as DUST.</source>
         <translation type="unfinished"></translation>
@@ -1376,11 +1376,6 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+5"/>
-        <source>Rank</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
         <source>Active</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1460,7 +1455,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../masternodemanager.cpp" line="+192"/>
+        <location filename="../masternodemanager.cpp" line="+189"/>
         <location line="+35"/>
         <source>Masternode Start Failed</source>
         <translation type="unfinished"></translation>
@@ -1468,7 +1463,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="-35"/>
         <location line="+35"/>
-        <source>Wallet is currently encrypted!
+        <source>Wallet is currently encrypted! 
 Please unlock your wallet before continuing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3044,12 +3039,6 @@ Please unlock your wallet before continuing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>Wallet is currently unlocked for Staking or unlocked for DarkSend Anonymization only!
-Please unlock your wallet manually or wait for DarkSend mixing to complete before continuing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="+30"/>
         <source>Are you sure you want to send?</source>
         <translation type="unfinished"></translation>
@@ -3100,7 +3089,13 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
         <translation>Confirm send coins</translation>
     </message>
     <message>
-        <location line="+219"/>
+        <location line="-78"/>
+        <source>Wallet is currently unlocked for Staking or unlocked for DarkSend Anonymization only! 
+Please unlock your wallet manually or wait for DarkSend mixing to complete before continuing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+297"/>
         <source>The recipient address is not valid, please recheck.</source>
         <translation>The recipient address is not valid, please recheck.</translation>
     </message>
@@ -4050,39 +4045,474 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
 <context>
     <name>bitcoin-core</name>
     <message>
-        <location filename="../bitcoinstrings.cpp" line="+172"/>
+        <location filename="../bitcoinstrings.cpp" line="+216"/>
         <source>Ion version</source>
         <translation>Ion version</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+88"/>
         <source>Usage:</source>
         <translation>Usage:</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-47"/>
         <source>Send command to -server or xiond</source>
         <translation>Send command to -server or xiond</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-36"/>
         <source>List commands</source>
         <translation>List commands</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-29"/>
         <source>Get help for a command</source>
         <translation>Get help for a command</translation>
     </message>
     <message>
-        <location line="-146"/>
+        <location line="-183"/>
+        <source> Insufficient funds.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source> Signing transaction failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source> Transaction too large</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source> Darksend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source> InstantX requires inputs with at least 10 confirmations, you might need to wait a few minutes and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source> Unable to locate enough Darksend denominated funds for this transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source> Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 ION.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source> Unable to locate enough Darksend non-denominated funds for this transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv3:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Disable all Darksend and Stealth Messaging related functionality (0-1, default: 0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Enable instantx, show confirmations for locked transactions (bool, default: true)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Enable use of automated darksend for funds stored in this wallet (0-1, default: 0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Error: The transaction was rejected.  This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Error: Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Found unconfirmed denominated outputs, will wait till they confirm to continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Provide liquidity to Darksend by infrequently mixing coins on a continual basis (0-100, default: 0, 1=very frequent, high fees, 100=very infrequent, low fees)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Set external address:port to get to this masternode (example: address:port)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Show N confirmations for a successfully locked transaction (0-9999, default: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Transfercoin will not work properly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Already have that input.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Can&apos;t denominate: no compatible inputs left.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Can&apos;t find random Masternode.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Can&apos;t mix while sync in progress.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Clear list of wallet transactions (diagnostic tool; implies -rescan)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Collateral is not valid.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Collateral not valid.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Darksend is idle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Darksend options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Darksend request complete:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Darksend request incomplete:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Enable the client to act as a masternode (0-1, default: 0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Entries are full.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error connecting to Masternode.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error loading block database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Error recovering public key.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error: A fatal internal error occured, see debug.log for details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: Can&apos;t select current denominated inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error: Wallet locked, unable to create transaction  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Error: You already have pending entries in the Darksend pool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Finalizing transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Find peers using internet relay chat (default: 0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Found enough users, signing ( waiting %s )</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Found enough users, signing ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Ignore masternodes less than version (example: 61401; default : 0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Importing...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Incompatible mode.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Incompatible version.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Input is not valid.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>InstantX options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Invalid masternodeprivkey. Please see documenation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Invalid private key.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Invalid script detected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Invalid scriptPubKey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Keep N Ion anonymized (default: 0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Last Darksend was too recent.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Last successful Darksend action was too recent.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 12705)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Listen for connections on &lt;port&gt; (default: 12700)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Loading masternode cache...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Loading wallet... (%3.2f %%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Lock is already in place.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Lock masternodes from masternode configuration file (default: 1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Masternode options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Masternode queue is full.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Masternode:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Missing input transaction information.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Mixing in progress...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>No Masternodes detected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>No compatible Masternode found.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>No funds detected in need of denominating.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>No matching denominations found for mixing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Non-standard public key detected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Not compatible with existing transactions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Not in the Masternode list.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Number of automatic wallet backups (default: 10)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>Options:</source>
         <translation>Options:</translation>
     </message>
     <message>
+        <location line="+3"/>
+        <source>Rebuilding address index...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Session not complete!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Session timed out.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set database cache size in megabytes (default: 100)</source>
+        <translation type="unfinished">Set database cache size in megabytes (default: 25) {100)?}</translation>
+    </message>
+    <message>
         <location line="+2"/>
+        <source>Set key pool size to &lt;n&gt; (default: 1000) (litemode: 100)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Set the masternode private key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Signing failed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Signing timed out.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Specify configuration file (default: ion.conf)</source>
         <translation>Specify configuration file (default: ion.conf)</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Specify masternode configuration file (default: masternode.conf)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -4090,17 +4520,17 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
         <translation>Specify pid file (default: xiond.pid)</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+1"/>
         <source>Specify wallet file (within data directory)</source>
         <translation>Specify wallet file (within data directory)</translation>
     </message>
     <message>
-        <location line="-1"/>
+        <location line="-3"/>
         <source>Specify data directory</source>
         <translation>Specify data directory</translation>
     </message>
     <message>
-        <location line="-25"/>
+        <location line="-252"/>
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
@@ -4115,97 +4545,82 @@ for example: alertnotify=echo %%s | mail -s &quot;Ion Alert&quot; admin@foo.com
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Set database cache size in megabytes (default: 25)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+241"/>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Set database disk log size in megabytes (default: 100)</translation>
     </message>
     <message>
-        <location line="+6"/>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="-35"/>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Maintain at most &lt;n&gt; connections to peers (default: 125)</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-69"/>
         <source>Connect to a node to retrieve peer addresses, and disconnect</source>
         <translation>Connect to a node to retrieve peer addresses, and disconnect</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+119"/>
         <source>Specify your own public address</source>
         <translation>Specify your own public address</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="-133"/>
         <source>Bind to given address. Use [host]:port notation for IPv6</source>
         <translation>Bind to given address. Use [host]:port notation for IPv6</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-50"/>
         <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+48"/>
         <source>Always query for peer addresses via DNS lookup (default: 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+141"/>
         <source>Threshold for disconnecting misbehaving peers (default: 100)</source>
         <translation>Threshold for disconnecting misbehaving peers (default: 100)</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-198"/>
         <source>Number of seconds to keep misbehaving peers from reconnecting (default: 86400)</source>
         <translation>Number of seconds to keep misbehaving peers from reconnecting (default: 86400)</translation>
     </message>
     <message>
-        <location line="-37"/>
+        <location line="-49"/>
         <source>An error occurred while setting up the RPC port %u for listening on IPv4: %s</source>
         <translation></translation>
     </message>
     <message>
-        <location line="+64"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location line="-16"/>
+        <location line="+100"/>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Accept command line and JSON-RPC commands</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+115"/>
         <source>Run in the background as a daemon and accept commands</source>
         <translation>Run in the background as a daemon and accept commands</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+55"/>
         <source>Use the test network</source>
         <translation>Use the test network</translation>
     </message>
     <message>
-        <location line="-24"/>
+        <location line="-169"/>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
         <translation>Accept connections from outside (default: 1 if no -proxy or -connect)</translation>
     </message>
     <message>
-        <location line="-29"/>
+        <location line="-99"/>
         <source>An error occurred while setting up the RPC port %u for listening on IPv6, falling back to IPv4: %s</source>
         <translation></translation>
     </message>
     <message>
-        <location line="+95"/>
+        <location line="+61"/>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: 27000)</source>
         <translation>Set maximum size of high-priority/low-fee transactions in bytes (default: 27000)</translation>
     </message>
@@ -4215,62 +4630,52 @@ for example: alertnotify=echo %%s | mail -s &quot;Ion Alert&quot; admin@foo.com
         <translation>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</translation>
     </message>
     <message>
-        <location line="-102"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Ion will not work properly.</translation>
-    </message>
-    <message>
-        <location line="+131"/>
+        <location line="+6"/>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
         <translation>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</translation>
     </message>
     <message>
-        <location line="-18"/>
+        <location line="+3"/>
         <source>Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
         <translation>Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect you should restore from a backup.</translation>
     </message>
     <message>
-        <location line="-31"/>
+        <location line="+23"/>
         <source>Attempt to recover private keys from a corrupt wallet.dat</source>
         <translation>Attempt to recover private keys from a corrupt wallet.dat</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+2"/>
         <source>Block creation options:</source>
         <translation>Block creation options:</translation>
     </message>
     <message>
-        <location line="-68"/>
+        <location line="+11"/>
         <source>Connect only to the specified node(s)</source>
         <translation>Connect only to the specified node(s)</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+7"/>
         <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
         <translation>Discover own IP address (default: 1 when listening and no -externalip)</translation>
     </message>
     <message>
-        <location line="+100"/>
+        <location line="+19"/>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>Failed to listen on any port. Use -listen=0 if you want this.</translation>
     </message>
     <message>
-        <location line="-90"/>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>Sync checkpoints policy (default: strict)</translation>
-    </message>
-    <message>
-        <location line="+88"/>
+        <location line="+21"/>
         <source>Invalid -tor address: &apos;%s&apos;</source>
         <translation>Invalid -tor address: &apos;%s&apos;</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+3"/>
         <source>Invalid amount for -reservebalance=&lt;amount&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location line="-87"/>
+        <location line="+25"/>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
         <translation>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</translation>
     </message>
@@ -4280,233 +4685,312 @@ for example: alertnotify=echo %%s | mail -s &quot;Ion Alert&quot; admin@foo.com
         <translation>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: 1000)</translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="+11"/>
         <source>Only connect to nodes in network &lt;net&gt; (IPv4, IPv6 or Tor)</source>
         <translation>Only connect to nodes in network &lt;net&gt; (IPv4, IPv6 or Tor)</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+3"/>
         <source>Prepend debug output with timestamp</source>
         <translation>Prepend debug output with timestamp</translation>
     </message>
     <message>
-        <location line="+40"/>
+        <location line="+6"/>
         <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
         <translation>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</translation>
     </message>
     <message>
-        <location line="-80"/>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>Select the version of socks proxy to use (4-5, default: 5)</translation>
-    </message>
-    <message>
-        <location line="+42"/>
+        <location line="+3"/>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Send trace/debug info to console instead of debug.log file</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+9"/>
         <source>Set maximum block size in bytes (default: 250000)</source>
         <translation>Set maximum block size in bytes (default: 250000)</translation>
     </message>
     <message>
-        <location line="-1"/>
+        <location line="+1"/>
         <source>Set minimum block size in bytes (default: 0)</source>
         <translation>Set minimum block size in bytes (default: 0)</translation>
     </message>
     <message>
-        <location line="-34"/>
+        <location line="+3"/>
         <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
         <translation>Shrink debug.log file on client startup (default: 1 when no -debug)</translation>
     </message>
     <message>
-        <location line="-43"/>
+        <location line="+4"/>
         <source>Specify connection timeout in milliseconds (default: 5000)</source>
         <translation>Specify connection timeout in milliseconds (default: 5000)</translation>
     </message>
     <message>
-        <location line="+115"/>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location line="-85"/>
+        <location line="+31"/>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>Use UPnP to map the listening port (default: 0)</translation>
     </message>
     <message>
-        <location line="-1"/>
+        <location line="+1"/>
         <source>Use UPnP to map the listening port (default: 1 when listening)</source>
         <translation>Use UPnP to map the listening port (default: 1 when listening)</translation>
     </message>
     <message>
-        <location line="-26"/>
+        <location line="+1"/>
         <source>Use proxy to reach tor hidden services (default: same as -proxy)</source>
         <translation>Use proxy to reach tor hidden services (default: same as -proxy)</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+2"/>
         <source>Username for JSON-RPC connections</source>
         <translation>Username for JSON-RPC connections</translation>
     </message>
     <message>
-        <location line="+51"/>
+        <location line="+2"/>
         <source>Verifying database integrity...</source>
         <translation></translation>
     </message>
     <message>
-        <location line="+44"/>
+        <location line="-130"/>
         <source>Error: Wallet locked, unable to create transaction!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="-112"/>
         <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>Error: Transaction creation failed!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
+        <location line="-11"/>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+258"/>
         <source>Warning</source>
         <translation type="unfinished">Warning</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-117"/>
         <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location line="-1"/>
+        <location line="+119"/>
         <source>Warning: This version is obsolete, upgrade required!</source>
         <translation>Warning: This version is obsolete, upgrade required!</translation>
     </message>
     <message>
-        <location line="-54"/>
+        <location line="+1"/>
+        <source>Will retry...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Your entries added successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Your transaction was accepted into the pool!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Zapping all transactions from wallet...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>wallet.dat corrupt, salvage failed</source>
         <translation></translation>
     </message>
     <message>
-        <location line="-56"/>
+        <location line="-76"/>
         <source>Password for JSON-RPC connections</source>
         <translation>Password for JSON-RPC connections</translation>
     </message>
     <message>
-        <location line="-31"/>
+        <location line="-140"/>
         <source>Sync time with other nodes. Disable if time on your system is precise e.g. syncing with NTP (default: 1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+19"/>
         <source>When creating transactions, ignore inputs with value less than this (default: 0.01)</source>
         <translation></translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="-36"/>
         <source>Output debugging information (default: 0, supplying &lt;category&gt; is optional)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+103"/>
         <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-56"/>
         <source>&lt;category&gt; can be:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="-83"/>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly. This is intended for regression testing tools and app development.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+88"/>
         <source>Allow JSON-RPC connections from specified IP address</source>
         <translation>Allow JSON-RPC connections from specified IP address</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+114"/>
         <source>Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)</source>
         <translation>Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)</translation>
     </message>
     <message>
+        <location line="+24"/>
+        <source>Submitted following entries to masternode: %u / %d</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+1"/>
+        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Submitted to masternode, waiting in queue %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>This is not a Masternode.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Transaction amount too small</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transaction amounts must be positive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transaction created successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transaction fees are too high.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transaction not valid, please try again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transaction not valid.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Transmitting final transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Unable to sign masternode payment winner, wrong key?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Unable to sign spork message, wrong key?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Unknown state: id = %u</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Unknown transaction type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Use N separate masternodes to anonymize funds  (2-8, default: 2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Value more than Darksend pool maximum allows.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>Wait for RPC server to start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-43"/>
         <source>Set the number of threads to service RPC calls (default: 4)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-188"/>
         <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
         <translation>Execute command when the best block changes (%s in cmd is replaced by block hash)</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-3"/>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
         <translation>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+172"/>
         <source>Require a confirmations for change (default: 0)</source>
         <translation></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="-175"/>
         <source>Execute command when a relevant alert is received (%s in cmd is replaced by message)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+226"/>
         <source>Upgrade wallet to latest format</source>
         <translation>Upgrade wallet to latest format</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Set key pool size to &lt;n&gt; (default: 100)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="-50"/>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Rescan the block chain for missing wallet transactions</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-59"/>
         <source>How thorough the block verification is (0-6, default: 1)</source>
         <translation>How thorough the block verification is (0-6, default: 1)</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+4"/>
         <source>Imports blocks from external blk000?.dat file</source>
         <translation>Imports blocks from external blk000?.dat file</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+108"/>
         <source>Use OpenSSL (https) for JSON-RPC connections</source>
         <translation>Use OpenSSL (https) for JSON-RPC connections</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-45"/>
         <source>Server certificate file (default: server.cert)</source>
         <translation>Server certificate file (default: server.cert)</translation>
     </message>
@@ -4516,74 +5000,64 @@ for example: alertnotify=echo %%s | mail -s &quot;Ion Alert&quot; admin@foo.com
         <translation>Server private key (default: server.pem)</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="-60"/>
         <source>Initialization sanity check failed. Ion is shutting down.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+50"/>
+        <location line="-18"/>
         <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="-3"/>
         <source>Error: Disk space is low!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-69"/>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location line="-173"/>
+        <location line="+173"/>
         <source>This help message</source>
         <translation>This help message</translation>
     </message>
     <message>
-        <location line="+103"/>
+        <location line="+30"/>
         <source>Wallet %s resides outside data directory %s.</source>
         <translation>Wallet %s resides outside data directory %s.</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="-19"/>
         <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
         <translation>Unable to bind to %s on this computer (bind returned error %d, %s)</translation>
     </message>
     <message>
-        <location line="-132"/>
-        <source>Connect through socks proxy</source>
-        <translation>Connect through socks proxy</translation>
-    </message>
-    <message>
-        <location line="+3"/>
+        <location line="-153"/>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Allow DNS lookups for -addnode, -seednode and -connect</translation>
     </message>
     <message>
-        <location line="+125"/>
+        <location line="+81"/>
         <source>Loading addresses...</source>
         <translation>Loading addresses...</translation>
     </message>
     <message>
-        <location line="-12"/>
-        <source>Error loading blkindex.dat</source>
-        <translation>Error loading blkindex.dat</translation>
-    </message>
-    <message>
-        <location line="+2"/>
+        <location line="-49"/>
         <source>Error loading wallet.dat: Wallet corrupted</source>
         <translation>Error loading wallet.dat: Wallet corrupted</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+1"/>
         <source>Error loading wallet.dat: Wallet requires newer version of Ion</source>
         <translation>Error loading wallet.dat: Wallet requires newer version of Ion</translation>
+    </message>
+    <message>
+        <location line="+140"/>
+        <source>Wallet is locked.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -4591,152 +5065,137 @@ for example: alertnotify=echo %%s | mail -s &quot;Ion Alert&quot; admin@foo.com
         <translation>Wallet needed to be rewritten: restart Ion to complete</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-143"/>
         <source>Error loading wallet.dat</source>
         <translation>Error loading wallet.dat</translation>
     </message>
     <message>
-        <location line="-16"/>
+        <location line="+32"/>
         <source>Invalid -proxy address: &apos;%s&apos;</source>
         <translation>Invalid -proxy address: &apos;%s&apos;</translation>
     </message>
     <message>
-        <location line="-1"/>
+        <location line="+94"/>
         <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
         <translation>Unknown network specified in -onlynet: &apos;%s&apos;</translation>
     </message>
     <message>
-        <location line="-1"/>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Unknown -socks proxy version requested: %i</translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="-146"/>
         <source>Cannot resolve -bind address: &apos;%s&apos;</source>
         <translation>Cannot resolve -bind address: &apos;%s&apos;</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+1"/>
         <source>Cannot resolve -externalip address: &apos;%s&apos;</source>
         <translation>Cannot resolve -externalip address: &apos;%s&apos;</translation>
     </message>
     <message>
-        <location line="-23"/>
+        <location line="+54"/>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos;</source>
         <translation>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos;</translation>
     </message>
     <message>
-        <location line="+60"/>
+        <location line="+51"/>
         <source>Sending...</source>
         <translation>Sending...</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-49"/>
         <source>Invalid amount</source>
         <translation>Invalid amount</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-6"/>
         <source>Insufficient funds</source>
         <translation>Insufficient funds</translation>
     </message>
     <message>
-        <location line="-40"/>
+        <location line="+20"/>
         <source>Loading block index...</source>
         <translation>Loading block index...</translation>
     </message>
     <message>
-        <location line="-109"/>
+        <location line="-83"/>
         <source>Add a node to connect to and attempt to keep the connection open</source>
         <translation>Add a node to connect to and attempt to keep the connection open</translation>
     </message>
     <message>
-        <location line="+124"/>
+        <location line="+155"/>
         <source>Unable to bind to %s on this computer. Ion is probably already running.</source>
         <translation>Unable to bind to %s on this computer. Ion is probably already running.</translation>
     </message>
     <message>
-        <location line="-100"/>
+        <location line="-110"/>
         <source>Fee per KB to add to transactions you send</source>
         <translation>Fee per KB to add to transactions you send</translation>
     </message>
     <message>
-        <location line="+33"/>
-        <source>Minimize weight consumption (experimental) (default: 0)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
+        <location line="+6"/>
         <source>How many blocks to check at startup (default: 500, 0 = all)</source>
         <translation></translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+25"/>
         <source>Keep at most &lt;n&gt; unconnectable blocks in memory (default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
+        <location line="+101"/>
         <source>Warning: Deprecated argument -debugnet ignored, use -debug=net</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-111"/>
         <source>Invalid amount for -mininput=&lt;amount&gt;: &apos;%s&apos;</source>
         <translation></translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-163"/>
         <source>Cannot obtain a lock on data directory %s. Ion is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+127"/>
         <source>Error initializing wallet database environment %s!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+56"/>
         <source>Loading wallet...</source>
         <translation>Loading wallet...</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="-75"/>
         <source>Cannot downgrade wallet</source>
         <translation>Cannot downgrade wallet</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>Cannot write default address</source>
         <translation>Cannot write default address</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+98"/>
         <source>Rescanning...</source>
         <translation>Rescanning...</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="-86"/>
         <source>Done loading</source>
         <translation>Done loading</translation>
     </message>
     <message>
-        <location line="-160"/>
+        <location line="+120"/>
         <source>To use the %s option</source>
         <translation>To use the %s option</translation>
     </message>
     <message>
-        <location line="+187"/>
+        <location line="-110"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location line="-18"/>
+        <location line="-47"/>
         <source>You must set rpcpassword=&lt;password&gt; in the configuration file:
 %s
 If the file does not exist, create it with owner-readable-only file permissions.</source>
