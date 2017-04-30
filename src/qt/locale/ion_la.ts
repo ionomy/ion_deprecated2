@@ -1,4 +1,4 @@
-<TS language="la" version="2.0">
+<TS language="la" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -1169,10 +1169,6 @@ Inscriptio: %4
         <translation>Specifica indicem datorum</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Constitue magnitudinem databasis cache in megabytes (praedefinitum: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Manutene non plures quam &lt;n&gt; conexiones ad paria (praedefinitum: 125)</translation>
     </message>
@@ -1325,10 +1321,6 @@ Inscriptio: %4
         <translation>Progredere cassidile ad formam recentissimam</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Constitue magnitudinem stagni clavium ad &lt;n&gt; (praedefinitum: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Iterum perlege catenam frustorum propter absentes cassidilis transactiones</translation>
     </message>
@@ -1375,10 +1367,6 @@ Inscriptio: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Ignotum rete specificatum in -onlynet: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Ignota -socks vicarii versio postulata: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

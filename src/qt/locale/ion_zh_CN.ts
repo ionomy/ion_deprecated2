@@ -1,4 +1,4 @@
-<TS language="zh_CN" version="2.0">
+<TS language="zh_CN" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -9,21 +9,7 @@
         <source>&lt;b&gt;Ion&lt;/b&gt; version</source>
         <translation>&lt;b&gt;黑币客户端&lt;/b&gt; 版本</translation>
     </message>
-    <message>
-        <source>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;a href="http://www.opensource.org/licenses/mit-license.php"&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;a href="https://www.openssl.org/"&gt;https://www.openssl.org/&lt;/a&gt;) and cryptographic software written by Eric Young (&lt;a href="mailto:eay@cryptsoft.com"&gt;eay@cryptsoft.com&lt;/a&gt;) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-这是一套实验性软件。
-
-本软件是依据MIT/X11软件授权条款散布。详情见附带的COPYING或&lt;a href="http://www.opensource.org/licenses/mit-license.php"&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;.
-
-本产品包含了由OpenSSL Project开发的OpenSSL Toolkit (&lt;a href="https://www.openssl.org/"&gt;https://www.openssl.org/&lt;/a&gt;)和Eric Young (&lt;a href="mailto:eay@cryptsoft.com"&gt;eay@cryptsoft.com&lt;/a&gt;) 的加密软件，以及Thomas Bernard的UPnP软件。</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>AddEditAtomNode</name>
     </context>
@@ -2046,16 +2032,8 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
 </translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>设置数据库缓冲区大小 (缺省: 25MB)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>设置数据库日志文件大小(单位MB，默认值100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>监听&lt;port&gt;端口的连接 (默认: 15714 测试网: 25714)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -2090,10 +2068,6 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
         <translation>设置RPC监听端口%u时发生错误, IPv4:%s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>监听 &lt;port&gt; 端口的JSON-RPC连接 (默认: 15715 测试网: 25715)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>接受命令行和 JSON-RPC 命令
 </translation>
@@ -2126,10 +2100,6 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
         <translation>警告：-paytxfee 交易费设置得太高了！每笔交易都将支付交易费。</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>警告：请确认您计算机的本地时间。如果时钟错误，黑币客户端将不能正常工作。</translation>
-    </message>
-    <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
         <translation>警告：钱包文件wallet.dat读取失败！最重要的公钥、私钥数据都没有问题，但是交易记录或地址簿数据不正确，或者存在数据丢失。</translation>
     </message>
@@ -2156,10 +2126,6 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
     <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>监听端口失败。请使用 -listen=0 参数。</translation>
-    </message>
-    <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>同步检测点政策 (默认：严格)</translation>
     </message>
     <message>
         <source>Invalid -tor address: '%s'</source>
@@ -2190,10 +2156,6 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
         <translation>SSL选项：(参见Bitcoin Wiki关于SSL设置栏目)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>选择要使用的SOCKS代理版本 (4-5, 默认 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>跟踪/调试信息输出到控制台，不输出到 debug.log 文件</translation>
     </message>
@@ -2212,11 +2174,6 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
     <message>
         <source>Specify connection timeout in milliseconds (default: 5000)</source>
         <translation>设置连接超时时间(缺省：5000毫秒)</translation>
-    </message>
-    <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>无法为记录点签名，错误的记录点密钥。</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
@@ -2247,10 +2204,6 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
         <translation>错误：该笔交易需至少支付 %s 的手续费。</translation>
     </message>
     <message>
-        <source>Error: Transaction creation failed!</source>
-        <translation>错误：交易创建失败。</translation>
-    </message>
-    <message>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
         <translation>错误：交易被拒绝。可能由于钱包中部分金额已被使用，例如您使用了钱包数据的副本，在副本中某些金额已被使用，但在此处尚未被标记为已使用。</translation>
     </message>
@@ -2261,10 +2214,6 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
     <message>
         <source>Information</source>
         <translation>信息</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>警告：检测到同步记录点错误，已跳过。</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2336,11 +2285,6 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
         <translation>将钱包升级到最新的格式</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>设置密钥池大小为 &lt;n&gt; (缺省: 100)
-</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>重新扫描区块链以查找遗漏的钱包交易</translation>
     </message>
@@ -2383,10 +2327,6 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
         <translation>这是一个预发布测试版本 - 风险须自行承担 - 不适用于挖矿或商家应用</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>警告：发现无效的记录点。所显示的交易信息未必正确！请升级客户端或联系开发者。</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>本帮助信息
 </translation>
@@ -2400,20 +2340,12 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
         <translation>无法绑定本机端口 %s  (返回错误消息 %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>通过socks代理连接</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>使用 -addnode, -seednode 和 -connect 选项时允许查询DNS</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>正在加载地址簿...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>blkindex.dat 文件加载出错</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2438,10 +2370,6 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>-onlynet 指定的是未知网络：%s</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>被指定的是未知socks代理版本: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>
@@ -2486,10 +2414,6 @@ alertnotify=echo %%s | mail -s "Ion Alert" admin@foo.com
     <message>
         <source>How many blocks to check at startup (default: 500, 0 = all)</source>
         <translation>启动时检测的区块数量 (默认: 2500, 0表示检测全部)</translation>
-    </message>
-    <message>
-        <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
-        <translation>可用加密算法 (默认: TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!AH:!3DES:@STRENGTH)</translation>
     </message>
     <message>
         <source>Invalid amount for -mininput=&lt;amount&gt;: '%s'</source>

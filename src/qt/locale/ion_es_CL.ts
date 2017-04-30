@@ -1,4 +1,4 @@
-<TS language="es_CL" version="2.0">
+<TS language="es_CL" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -1032,10 +1032,6 @@ Dirección: %4</translation>
 </translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Asigna el tamaño del caché de la base de datos en MB (25 predeterminado)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Mantener al menos &lt;n&gt; conecciones por cliente (por defecto: 125) </translation>
     </message>
@@ -1122,11 +1118,6 @@ Dirección: %4</translation>
     <message>
         <source>Upgrade wallet to latest format</source>
         <translation>Actualizar billetera al formato actual</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Ajusta el numero de claves en reserva &lt;n&gt; (predeterminado: 100)
-</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>

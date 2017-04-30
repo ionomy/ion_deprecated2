@@ -1,4 +1,4 @@
-<TS language="pam" version="2.0">
+<TS language="pam" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -1137,10 +1137,6 @@ Address: %4
         <translation>Pilinan ing data directory</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Ilage ya ing dagul o lati na ing database cache king megabytes (default: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Mag-maintain peka &lt;n&gt; koneksion keng peers (default: 125)</translation>
     </message>
@@ -1241,10 +1237,6 @@ Address: %4
         <translation>I-upgrade ing wallet king pekabayung porma</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>I-set ing key pool size king &lt;n&gt;(default: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>I-scan pasibayu ing block chain para kareng mauaualang transaksion</translation>
     </message>
@@ -1291,10 +1283,6 @@ Address: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>E kilalang network ing mepili king -onlynet: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>E kilalang -socks proxy version requested: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

@@ -1,4 +1,4 @@
-<TS language="sl_SI" version="2.0">
+<TS language="sl_SI" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1881,16 +1881,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
         <translation>Določi podatkovni imenik</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Nastavi pomnilnik podatkovne zbirke v megabajtih (privzeto: 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Nastavi velikost zapisa podatkovne baze na disku v megabajtih (privzeto: 100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Sprejmi povezave na &lt;port&gt; (privzeta vrata: 15714 ali testnet: 25714) </translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -1921,10 +1913,6 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
         <translation>Prišlo je do napake pri nastavljanju RPC porta %u za vhodne povezave na IPv4: %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>Sprejmi povezave na &lt;port&gt; (privzeta vrata: 15714 ali testnet: 25714) </translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Sprejmi ukaze iz ukazne vrstice in JSON-RPC</translation>
     </message>
@@ -1951,10 +1939,6 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Opozorilo: -paytxfee je nastavljen zelo visoko! To je transakcijska provizija, ki jo boste plačali ob pošiljanju transakcije.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Opozorilo: Prosimo preverite svoj datum in čas svojega računalnika! Če je vaša ura nastavljena napačno Ion ne bo deloval.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -1985,10 +1969,6 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
         <translation>Poslušanje za vrata je spodletelo. Če želite lahko uporabite ukaz -listen=0.</translation>
     </message>
     <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>Sinhronizacija načina točk preverjanja (privzeto: strogo)</translation>
-    </message>
-    <message>
         <source>Invalid -tor address: '%s'</source>
         <translation>Neveljaven -tor naslov: '%s'</translation>
     </message>
@@ -2017,10 +1997,6 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
         <translation>SSL možnosti: (glejte Bitcoin Wiki za navodla, kako nastaviti SSL)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>Izberi verzijo socks proxya za uporabo (4-5, privzeto: 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Pošlji sledilne/razhroščevalne informacije v konzolo namesto jih shraniti v debug.log datoteko</translation>
     </message>
@@ -2041,12 +2017,6 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
         <translation>Določi čas pavze povezovanja v milisekundah (privzeto: 5000)</translation>
     </message>
     <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>Ni bilo mogoče vpisati točke preverjanja, napačen ključ za točko preverjanja?
-</translation>
-    </message>
-    <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>Uporabi UPnP za mapiranje vrat poslušanja (privzeto: 0)</translation>
     </message>
@@ -2065,10 +2035,6 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
     <message>
         <source>Verifying database integrity...</source>
         <translation>Potrdite neoporečnost baze podatkov...</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>OPOZORILO: zaznana je bila kršitev s sinhronizirami točkami preverjanja, a je bila izpuščena.</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2119,10 +2085,6 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
         <translation>Posodobi denarnico v najnovejši zapis</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Nastavi velikost ključa bazena na &lt;n&gt; (privzeto: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Ponovno preglej verigo blokov za manjkajoče transakcije denarnice</translation>
     </message>
@@ -2147,10 +2109,6 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
         <translation>Zasebni ključ strežnika (privzet: server.pem)</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>OPOZORILO: Najdene so bile neveljavne točke preverjanja! Prikazane transakcije so morda napačne! Poiščite novo različico aplikacije ali pa obvestite razvijalce.</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>To sporočilo pomoči</translation>
     </message>
@@ -2163,20 +2121,12 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
         <translation>Na tem računalniku je bilo nemogoče vezati na %s (bind returned error %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>Poveži se skozi socks proxy</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Omogoči DNS povezave za -addnode, -seednode in -connect</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>Nalaganje naslovov ...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>Napaka pri nalaganju blkindex.dat</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2201,10 +2151,6 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Neznano omrežje določeno v -onlynet: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Zahtevana neznana -socks proxy različica: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

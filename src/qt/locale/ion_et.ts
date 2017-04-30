@@ -1,4 +1,4 @@
-<TS language="et" version="2.0">
+<TS language="et" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1184,10 +1184,6 @@ Aadress: %4⏎</translation>
         <translation>Täpsusta andmekataloog</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Sea andmebaasi vahemälu suurus MB (vaikeväärtus: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Säilita vähemalt &lt;n&gt; ühendust peeridega (vaikeväärtus: 125)</translation>
     </message>
@@ -1340,10 +1336,6 @@ Aadress: %4⏎</translation>
         <translation>Uuenda rahakott uusimasse vormingusse</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Sea võtmete hulgaks &lt;n&gt; (vaikeväärtus: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Otsi ploki jadast rahakoti kadunud tehinguid</translation>
     </message>
@@ -1380,10 +1372,6 @@ Aadress: %4⏎</translation>
         <translation>Aadresside laadimine...</translation>
     </message>
     <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>Viga faili blkindex.dat laadimisel</translation>
-    </message>
-    <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
         <translation>Viga wallet.dat käivitamisel. Vigane rahakkott</translation>
     </message>
@@ -1406,10 +1394,6 @@ Aadress: %4⏎</translation>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Kirjeldatud tundmatu võrgustik -onlynet'is: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Küsitud tundmatu -socks proxi versioon: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

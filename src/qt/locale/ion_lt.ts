@@ -1,4 +1,4 @@
-<TS language="lt" version="2.0">
+<TS language="lt" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -1182,10 +1182,6 @@ Adresas: %4</translation>
     <message>
         <source>Upgrade wallet to latest format</source>
         <translation>Atnaujinti piniginę į naujausią formatą</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Nustatyti rakto apimties dydį &lt;n&gt; (pagal nutylėjimą: 100)</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>

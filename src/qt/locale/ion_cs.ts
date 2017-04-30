@@ -1,4 +1,4 @@
-<TS language="cs" version="2.0">
+<TS language="cs" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1897,16 +1897,8 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
         <translation>Adresář pro data</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Nastavit velikost databázové vyrovnávací paměti v megabajtech (výchozí: 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Nastav velikost databázového logu na disku (výchozí: 100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Naslouchej připojením na &lt;port&gt; (výchozí: 15714 nebo testovací síť: 25714)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -1931,10 +1923,6 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
     <message>
         <source>Number of seconds to keep misbehaving peers from reconnecting (default: 86400)</source>
         <translation>Doba ve vteřinách, po kterou se nebudou moci zlobivé uzly znovu připojit (výchozí: 86400)</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>Naslouchej JSON-RPC připojením na &lt;port&gt; (výchozí: 15715 nebo testovací síť: 25715)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -1965,10 +1953,6 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
         <translation>Upozornění: -paytxfee je nastaveno velmi vysoko! Toto je transakční poplatek, který zaplatíš za každou poslanou transakci.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Upozornění: Zkontroluj prosím datum a čas tvého počítače! Pokud jdou tvé hodiny špatně, tak Ion nebude pracovat správně. </translation>
-    </message>
-    <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
         <translation>Upozornění: nastala chyba při čtení souboru wallet.dat! Všechny klíče se přečetly správně, ale data o transakcích nebo záznamy v adresáři mohou chybět či být nesprávné.</translation>
     </message>
@@ -1995,10 +1979,6 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
     <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>Nepodařilo se naslouchat na žádném portu. Použij -listen=0, pokud to byl tvůj záměr.</translation>
-    </message>
-    <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>Synchronizuj politiku kontrolních bodů (výchozí: přísný)</translation>
     </message>
     <message>
         <source>Invalid -tor address: '%s'</source>
@@ -2029,10 +2009,6 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
         <translation>Možnosti SSL: (viz instrukce nastavení SSL v Bitcoin Wiki)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>Vyber verzi SOCKS proxy, která se bude používat (4-5, výchozí: 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Posílat stopovací/ladicí informace do konzole místo do souboru debug.log</translation>
     </message>
@@ -2053,12 +2029,6 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
         <translation>Zadej časový limit spojení v milisekundách (výchozí: 5000)</translation>
     </message>
     <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>Není možné podepsat kontrolní bod, špatný kontrolní bod?
-</translation>
-    </message>
-    <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>Použít UPnP k namapování naslouchacího portu (výchozí: 0)</translation>
     </message>
@@ -2077,10 +2047,6 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
     <message>
         <source>Verifying database integrity...</source>
         <translation>Ověřování integrity databáze...</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>UPOZORNĚNÍ: detekováno porušení synchronizovaného kontrolního bodu, ale bylo to přeskočeno!</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2131,10 +2097,6 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
         <translation>Převést peněženku na nejnovější formát</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Nastavit zásobník klíčů na velikost &lt;n&gt; (výchozí: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Přeskenovat řetězec bloků na chybějící transakce tvé pěněženky</translation>
     </message>
@@ -2163,10 +2125,6 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
         <translation>Chyba: Peněženka odemčena pouze pro stakování, není možné vytvářet transakce.</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>UPOZORNĚNÍ: Nalezen neplatný kontrolní bod! Zobrazené transakce nemusí být správné! Možná budeš muset provést aktualizaci, nebo kontaktovat vývojáře.</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Tato nápověda</translation>
     </message>
@@ -2179,20 +2137,12 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
         <translation>Nedaří se mi připojit na %s na tomhle počítači (operace bind vrátila chybu %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>Připoj se přes SOCKS proxy</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Povolit DNS dotazy pro -addnode (přidání uzlu), -seednode a -connect (připojení)</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>Načítám adresy...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>Chyba načítání blkindex.dat</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2217,10 +2167,6 @@ To znamená, že je potřebný poplatek ve výši nejméně %2.</translation>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>V -onlynet byla uvedena neznámá síť: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>V -socks byla požadována neznámá verze proxy: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

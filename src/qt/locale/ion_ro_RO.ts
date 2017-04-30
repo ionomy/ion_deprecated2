@@ -1,4 +1,4 @@
-<TS language="ro_RO" version="2.0">
+<TS language="ro_RO" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1893,16 +1893,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Specifică dosarul de date</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Setează mărimea cache a bazei de date în megabiți (implicit: 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Setează mărimea cache a bazei de date în megabiți (implicit: 100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Ascultă pentru conectări pe &lt;port&gt; (implicit:  15714 sau testnet: 25714) </translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -1933,10 +1925,6 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>A intervenit o eroare in timp ce se seta portul RPC %u pentru ascultare pe IPv4: %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>Ascultă pentru conexiuni JSON-RPC pe &lt;port&gt; (implicit:15715 sau testnet: 25715)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Se acceptă comenzi din linia de comandă și comenzi JSON-RPC</translation>
     </message>
@@ -1963,10 +1951,6 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Atentie: setarea -paytxfee este foarte ridicata! Aceasta este taxa tranzactiei pe care o vei plati daca trimiti o tranzactie.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Atentie: Va rugam verificati ca timpul si data calculatorului sunt corete. Daca timpul este gresit Ion nu va functiona corect.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -1997,10 +1981,6 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Am esuat ascultarea pe orice port. Folositi -listen=0 daca vreti asta.</translation>
     </message>
     <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>Sincronizeaza politica checkpoint(implicit: strict)</translation>
-    </message>
-    <message>
         <source>Invalid -tor address: '%s'</source>
         <translation>Adresa -tor invalida: '%s'</translation>
     </message>
@@ -2029,10 +2009,6 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Optiuni SSl (vezi Bitcoin wiki pentru intructiunile de instalare)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>Selectati versiunea de proxy socks(4-5, implicit: 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Trimite informațiile trace/debug la consolă în locul fișierului debug.log</translation>
     </message>
@@ -2053,12 +2029,6 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Specifică intervalul maxim de conectare în milisecunde (implicit: 5000)</translation>
     </message>
     <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>În imposibilitatea de a semna checkpoint-ul, checkpointkey greșit?
-</translation>
-    </message>
-    <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>Foloseste UPnP pentru a vedea porturile (initial: 0)</translation>
     </message>
@@ -2077,10 +2047,6 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <message>
         <source>Verifying database integrity...</source>
         <translation>Se verifica integritatea bazei de date...</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>ATENTIONARE: s-a detectat o violare a checkpoint-ului sincronizat, dar s-a ignorat!</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2131,10 +2097,6 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Actualizează portofelul la ultimul format</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Setează mărimea bazinului de chei la &lt;n&gt; (implicit: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Rescanează lanțul de bloc pentru tranzacțiile portofel lipsă</translation>
     </message>
@@ -2163,10 +2125,6 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Eroare: portofel blocat doar pentru staking, tranzactia nu s-a creat.</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>ATENTIONARE: checkpoint invalid! Trazatiile afisate pot fi incorecte! Posibil să aveți nevoie să faceți upgrade, sau să  notificati dezvoltatorii.</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Acest mesaj de ajutor</translation>
     </message>
@@ -2179,20 +2137,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Nu se poate folosi %s pe acest calculator (eroarea returnată este %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>Conectează-te printr-un proxy socks</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Permite căutări DNS pentru -addnode, -seednode și -connect</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>Încarc adrese...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>Eroare la încărcarea blkindex.dat</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2217,10 +2167,6 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Rețeaua specificată în -onlynet este necunoscută: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>S-a cerut o versiune necunoscută de proxy -socks: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

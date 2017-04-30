@@ -1,4 +1,4 @@
-<TS language="nb" version="2.0">
+<TS language="nb" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1609,10 +1609,6 @@ Dette betyr at det trengs en avgift på minimum %2.</translation>
         <translation>Angi mappe for datafiler</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Sett størrelse på mellomlager for database i megabytes (standardverdi: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Hold maks &lt;n&gt; koblinger åpne til andre noder (standardverdi: 125)</translation>
     </message>
@@ -1769,10 +1765,6 @@ Dette betyr at det trengs en avgift på minimum %2.</translation>
         <translation>Oppgradér lommebok til nyeste format</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Angi størrelse på nøkkel-lager til &lt;n&gt; (standardverdi: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Se gjennom blokk-kjeden etter manglende lommeboktransaksjoner</translation>
     </message>
@@ -1823,10 +1815,6 @@ Dette betyr at det trengs en avgift på minimum %2.</translation>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Ukjent nettverk angitt i -onlynet '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Ukjent -socks proxy versjon angitt: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

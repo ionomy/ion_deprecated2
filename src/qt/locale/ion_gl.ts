@@ -1,4 +1,4 @@
-<TS language="gl" version="2.0">
+<TS language="gl" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1493,10 +1493,6 @@ Dirección: %4
         <translation>Especificar directorio de datos</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Fixar tamaño da caché da base de datos en megabytes (por defecto: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Manter como moito &lt;n&gt; conexións con pares (por defecto: 125)</translation>
     </message>
@@ -1649,10 +1645,6 @@ Dirección: %4
         <translation>Actualizar moedeiro ao formato máis recente</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Fixar tamaño do pool de claves a &lt;n&gt; (por defecto: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Rescanear transaccións ausentes na cadea de bloques</translation>
     </message>
@@ -1699,10 +1691,6 @@ Dirección: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Rede descoñecida especificada en -onlynet: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Versión solicitada de proxy -socks descoñecida: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

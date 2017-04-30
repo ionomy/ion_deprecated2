@@ -1,4 +1,4 @@
-<TS language="fr" version="2.0">
+<TS language="fr" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1897,16 +1897,8 @@ Cela implique que des frais à hauteur d'au moins %2 seront nécessaires.</trans
         <translation>Spécifier le répertoire de données</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Définir la taille du tampon de base de données en mégaoctets (par défaut : 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Définir la taille du journal de base de données en mégaoctets (par défaut : 100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Écouter les connexions sur le &lt;port&gt; (par défault: 15714 ou testnet: 25714)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -1937,10 +1929,6 @@ Cela implique que des frais à hauteur d'au moins %2 seront nécessaires.</trans
         <translation>Une erreur est survenue lors du positionnement du port RPC %u pour écouter sur une adresse IPv4 : %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>Écouter les connexions JSON-RPC sur le &lt;port&gt; (default: 15715 or testnet: 25715)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Accepter les commandes de JSON-RPC et de la ligne de commande</translation>
     </message>
@@ -1967,10 +1955,6 @@ Cela implique que des frais à hauteur d'au moins %2 seront nécessaires.</trans
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Attention : -paytxfee est réglée sur un montant très élevé ! Il s'agit des frais de transaction que vous payerez si vous envoyez une transaction.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Avertissement: Veuillez vérifier la date et l'heure de votre ordinateur. Ion ne pourra pas fonctionner correctement si l'horloge est réglée de façon incorrecte</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -2001,10 +1985,6 @@ Cela implique que des frais à hauteur d'au moins %2 seront nécessaires.</trans
         <translation>Échec de l'écoute sur un port quelconque. Utilisez -listen=0 si vous voulez ceci.</translation>
     </message>
     <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>Politique de synchronisation des checkpoints (default: strict)</translation>
-    </message>
-    <message>
         <source>Invalid -tor address: '%s'</source>
         <translation>Adresse -tor invalide: '%s'</translation>
     </message>
@@ -2033,10 +2013,6 @@ Cela implique que des frais à hauteur d'au moins %2 seront nécessaires.</trans
         <translation>Options SSL : (voir le Wiki de Bitcoin pour les instructions de configuration du SSL)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>Sélectionner la version du proxy socks à utiliser (4-5, par défaut: 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Envoyer les informations de débogage/trace à la console au lieu du fichier debug.log</translation>
     </message>
@@ -2057,12 +2033,6 @@ Cela implique que des frais à hauteur d'au moins %2 seront nécessaires.</trans
         <translation>Spécifier le délai d'expiration de la connexion en millisecondes (par défaut: 5000)</translation>
     </message>
     <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>Impossible de "signer" le checkpoint, mauvaise clef de checkpoint?
-</translation>
-    </message>
-    <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>Utiliser l'UPnP pour rediriger le port d'écoute (par défaut: 0)</translation>
     </message>
@@ -2081,10 +2051,6 @@ Cela implique que des frais à hauteur d'au moins %2 seront nécessaires.</trans
     <message>
         <source>Verifying database integrity...</source>
         <translation>Vérification d'intégrité de la base de données...</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>ATTENTION : violation du checkpoint de synchronisation, mais ignorée!</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2135,10 +2101,6 @@ Cela implique que des frais à hauteur d'au moins %2 seront nécessaires.</trans
         <translation>Mettre à niveau le portefeuille vers le format le plus récent</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Régler la taille de la réserve de clefs sur &lt;n&gt; (par défaut : 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Réanalyser la chaîne de blocs pour les transactions de portefeuille manquantes</translation>
     </message>
@@ -2167,10 +2129,6 @@ Cela implique que des frais à hauteur d'au moins %2 seront nécessaires.</trans
         <translation>Erreur: Portefeuille déverrouillé uniquement pour "staking" , impossible d'effectuer cette transaction</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>AVERTISSEMENT: point de contrôle invalide! Les transactions affichées peuvent être incorrectes! Il est peut-être nécessaire d'effectuer une mise à jour, ou d'avertir les développeurs du projet.</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Ce message d'aide</translation>
     </message>
@@ -2183,20 +2141,12 @@ Cela implique que des frais à hauteur d'au moins %2 seront nécessaires.</trans
         <translation>Impossible de se lier à %s sur cet ordinateur (bind a retourné l'erreur %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>Se connecter à travers un proxy socks</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Autoriser les recherches DNS pour -addnode, -seednode et -connect</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>Chargement des adresses…</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>Erreur de chargement du fichier blkindex.dat</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2221,10 +2171,6 @@ Cela implique que des frais à hauteur d'au moins %2 seront nécessaires.</trans
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Réseau inconnu spécifié sur -onlynet : « %s »</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Version inconnue de serveur mandataire -socks demandée : %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

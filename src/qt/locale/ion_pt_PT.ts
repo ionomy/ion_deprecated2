@@ -1,4 +1,4 @@
-<TS language="pt_PT" version="2.0">
+<TS language="pt_PT" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -1377,10 +1377,6 @@ Endereço: %4
         <translation>Especificar pasta de dados</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Definir o tamanho da cache de base de dados em megabytes (por defeito: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Manter no máximo &lt;n&gt; ligações a outros nós da rede (por defeito: 125)</translation>
     </message>
@@ -1533,10 +1529,6 @@ Endereço: %4
         <translation>Atualize a carteira para o formato mais recente</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Definir o tamanho da memória de chaves para &lt;n&gt; (por defeito: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Reexaminar a cadeia de blocos para transações em falta na carteira</translation>
     </message>
@@ -1583,10 +1575,6 @@ Endereço: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Rede desconhecida especificada em -onlynet: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Versão desconhecida de proxy -socks requisitada: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

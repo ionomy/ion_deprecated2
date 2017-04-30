@@ -1,4 +1,4 @@
-<TS language="sr" version="2.0">
+<TS language="sr" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -736,10 +736,6 @@ Address: %4
     <message>
         <source>Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)</source>
         <translation>Pošalji komande to nodu koji radi na &lt;ip&gt; (default: 127.0.0.1)</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Odredi veličinu zaštićenih ključeva na &lt;n&gt; (default: 100)</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>

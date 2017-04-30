@@ -1,4 +1,4 @@
-<TS language="ka" version="2.0">
+<TS language="ka" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -1357,10 +1357,6 @@ Address: %4
         <translation>მიუთითეთ მონაცემთა კატალოგი</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>მონაცემთა ბაზის ქეშის ზომა მეგაბაიტებში (ნაგულისხმევია 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>არაუმეტეს &lt;n&gt; შეერთებისა პირებზე (ნაგულისხმევი: 125)</translation>
     </message>
@@ -1513,10 +1509,6 @@ Address: %4
         <translation>საფულის ფორმატის განახლება</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>გასაღების პულის ზომა იქნება &lt;n&gt; (ნაგულისხმევი: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>ბლოკების ჯაჭვის გადამოწმება საფულეში გამორჩენილ ტრანსაქციებზე</translation>
     </message>
@@ -1563,10 +1555,6 @@ Address: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>-onlynet-ში მითითებულია უცნობი ქსელი: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>მოთხოვნილია -socks პროქსის უცნობი ვერსია: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

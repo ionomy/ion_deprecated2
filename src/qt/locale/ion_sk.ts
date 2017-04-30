@@ -1,4 +1,4 @@
-<TS language="sk" version="2.0">
+<TS language="sk" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -9,21 +9,7 @@
         <source>&lt;b&gt;Ion&lt;/b&gt; version</source>
         <translation>&lt;b&gt;Ion&lt;/b&gt; verzia</translation>
     </message>
-    <message>
-        <source>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;a href="http://www.opensource.org/licenses/mit-license.php"&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;a href="https://www.openssl.org/"&gt;https://www.openssl.org/&lt;/a&gt;) and cryptographic software written by Eric Young (&lt;a href="mailto:eay@cryptsoft.com"&gt;eay@cryptsoft.com&lt;/a&gt;) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-Toto je experimentálny softvér. 
-
-Distribuovaný pod softvérovou licenciou MIT/X11, viď priložený súbor COPYING alebo &lt;a href="http://www.opensource.org/licenses/mit-license.php"&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;. 
-
-Tento produkt obsahuje softvér vyvinutý projektom OpenSSL Project pre použitie v sade OpenSSL Toolkit  (&lt;a href="https://www.openssl.org/"&gt;https://www.openssl.org/&lt;/a&gt;), šifrovací softvér, ktorý napísal Eric Young (&lt;a href="mailto:eay@cryptsoft.com"&gt;eay@cryptsoft.com&lt;/a&gt;) a UPnP softvér ktorý napísal Thomas Bernard.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>AddEditAtomNode</name>
     </context>
@@ -2050,16 +2036,8 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
 </translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Nastaviť veľkosť vyrovnávajúcej pamäte pre databázu v megabytoch (predvolené: 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Nastaviť veľkosť databázového denníka na disku v MB (predvolené: 100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Počúvať pripojenia na &lt;port&gt; (predvolené: 15714 alebo testovacia sieť: 25714)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -2098,10 +2076,6 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
         <translation>Pri nastavovaní portu RPC %u pre počúvanie na IPv4 došlo k chybe: %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>Počúvajte pre JSON-RPC spojenie na &lt;port&gt; (predvolené: 15715 alebo testovaciasieť: 25715)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Prijímať príkazy z príkazového riadku a JSON-RPC</translation>
     </message>
@@ -2128,10 +2102,6 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Upozornenie: -paytxfee je nastavené veľmi vysoko. Toto sú transakčné poplatky ktoré zaplatíte ak odošlete transakciu.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Upozornenie: Skontrolujte, že dátum a čas počítača sú správne! Ak je Váš čas nesprávny Ion nebude pracovať správne.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -2162,10 +2132,6 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
         <translation>Nepodarilo sa počúvať žiadnom porte. Použite -listen=0 ak to chcete.</translation>
     </message>
     <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>Sync checkpoints policy (predvolené: strict)</translation>
-    </message>
-    <message>
         <source>Invalid -tor address: '%s'</source>
         <translation>Neplatná -tor adresa: '%s'</translation>
     </message>
@@ -2194,10 +2160,6 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
         <translation>SSL možnosť: (pozrite Bitcoin Wiki pre návod na nastavenie SSL)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>Vyberte verziu SOCKS proxy pre používanie (4-5, predvolené: 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Odoslať trace/debug informácie na konzolu namiesto debug.info žurnálu</translation>
     </message>
@@ -2216,12 +2178,6 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
     <message>
         <source>Specify connection timeout in milliseconds (default: 5000)</source>
         <translation>Určiť aut spojenia v milisekundách (predvolené: 5000)</translation>
-    </message>
-    <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>Nemožno podpísať kontrolný bod, zlý checkpointkey?
-</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
@@ -2252,10 +2208,6 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
         <translation>Chyba: Táto operácia vyžaduje transakčný poplatok vo výške aspoň %s, kvôli jej množstvu, zložitosti, alebo použitím nedávno prijatých finančných prostriedkov!</translation>
     </message>
     <message>
-        <source>Error: Transaction creation failed!</source>
-        <translation>Chyba: Vytvorenie transakcie zlyhalo!</translation>
-    </message>
-    <message>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
         <translation>Chyba: Transakcia bola zamietnutá! Toto môže nastať, ak niektoré z mincí vo vašej peňaženke sa už použili, ako napríklad, ak ste použili kópiu wallet.dat a mince boli použité v kópii, ale neboli označené ako použité tu.</translation>
     </message>
@@ -2266,10 +2218,6 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
     <message>
         <source>Information</source>
         <translation>Informácia</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>UPOZORNENIE: detekovaný synchronizovaný porušený checkpoint, ale preskočený!</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2344,10 +2292,6 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
         <translation>Aktualizuj peňaženku na najnovší formát.</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Nastaviť zásobu adries na &lt;n&gt; (predvolené: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Znovu skenovať reťaz blokov pre chýbajúce transakcie</translation>
     </message>
@@ -2388,10 +2332,6 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
         <translation>Toto je predbežná testovacia zostava - používate na vlastné riziko - nepoužívajte na ťaženie alebo obchodné aplikácie</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>UPOZORNENIE: Neplatný checkpoint nájdený! Uvedené transakcie nemusia byť správne! Možno budete musieť upgradovať, alebo upozorniť vývojárov.</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Táto pomocná správa</translation>
     </message>
@@ -2404,20 +2344,12 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
         <translation>Nemôžem sa pripojiť k %s na tomto počítači (bind vrátil chybu %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>Pripojenie cez SOCKS proxy</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Povoliť vyhľadávanie DNS pre pridanie nódy a spojenie</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>Načítavanie adries...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>Chyba pri načítaní blkindex.dat</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2484,20 +2416,12 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
         <translation>Poplatok za KB pridať do transakcií, ktoré odosielate</translation>
     </message>
     <message>
-        <source>Minimize weight consumption (experimental) (default: 0)</source>
-        <translation>Minimalizovať spotrebu hmotnosti (experimentálne) (predvolené: 0)</translation>
-    </message>
-    <message>
         <source>How many blocks to check at startup (default: 500, 0 = all)</source>
         <translation>Koľko blokov skontrolovať pri štarte (predvolené: 2500, 0 = všetky) {500, 0 ?}</translation>
     </message>
     <message>
         <source>Keep at most &lt;n&gt; unconnectable blocks in memory (default: %u)</source>
         <translation>Uchovávať najviac &lt;n&gt; nepripojiteľných blokov v pamäti (predvolené: %u)</translation>
-    </message>
-    <message>
-        <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
-        <translation>Akceptovateľné šifry (predvolené: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</translation>
     </message>
     <message>
         <source>Warning: Deprecated argument -debugnet ignored, use -debug=net</source>

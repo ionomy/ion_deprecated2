@@ -1,4 +1,4 @@
-<TS language="id_ID" version="2.0">
+<TS language="id_ID" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1289,10 +1289,6 @@ Alamat: %4
         <translation>Tentukan direktori data</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Atur ukuran tembolok dalam megabyte (standar: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Mengatur  hubungan paling banyak &lt;n&gt; ke peer (standar: 125)</translation>
     </message>
@@ -1353,10 +1349,6 @@ Alamat: %4
         <translation>Perbarui dompet ke format terbaru</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Kirim ukuran kolam kunci ke &lt;n&gt; (standar: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Pindai ulang rantai-blok untuk transaksi dompet yang hilang</translation>
     </message>
@@ -1407,10 +1399,6 @@ Alamat: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Jaringan tidak diketahui yang ditentukan dalam -onlynet: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Diminta versi proxy -socks tidak diketahui: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>
