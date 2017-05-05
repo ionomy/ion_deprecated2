@@ -1,4 +1,4 @@
-<TS language="it" version="2.0">
+<TS language="it" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -1406,10 +1406,6 @@ Indirizzo: %4
 </translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Imposta la dimensione cache del database in megabyte (predefinita: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Mantieni al massimo &lt;n&gt; connessioni ai peer (predefinite: 125)</translation>
     </message>
@@ -1568,10 +1564,6 @@ Indirizzo: %4
         <translation>Aggiorna il wallet all'ultimo formato</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Impostare la quantità di chiavi di riserva a &lt;n&gt; (predefinita: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Ripeti analisi della catena dei blocchi per cercare le transazioni  mancanti dal portamonete
 </translation>
@@ -1622,10 +1614,6 @@ Indirizzo: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Rete sconosciuta specificata in -onlynet: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Versione -socks proxy sconosciuta richiesta: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

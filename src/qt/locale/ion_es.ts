@@ -1,4 +1,4 @@
-<TS language="es" version="2.0">
+<TS language="es" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1900,16 +1900,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
         <translation>Especificar directorio para los datos</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Establecer el tamaño de caché de la base de datos en megabytes (predeterminado: 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Ajusta el tamaño de la base de datos del registro en megabytes (por defecto: 100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Escuchando conexiones en el puerto &lt;port&gt; (por defecto: 15714 o testnet: 25714)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -1938,10 +1930,6 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     <message>
         <source>An error occurred while setting up the RPC port %u for listening on IPv4: %s</source>
         <translation>Ha ocurrido un error al configurar el puerto RPC %u para escucha en IPv4: %s</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>Escuchar conexiones JSON-RPC en &lt;port&gt; (predeterminado: 15715 o testnet: 25715)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -1975,10 +1963,6 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
         <translation>Aviso: ¡-paytxfee tiene un valor muy alto! Esta es la comisión que pagará si envía una transacción.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Advertencia: Verifique que la fecha y hora del equipo sean correctas! Si su reloj es erróneo Ion no funcionará correctamente.</translation>
-    </message>
-    <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
         <translation>Aviso: ¡Error al leer wallet.dat! Todas las claves se han leído correctamente, pero podrían faltar o ser incorrectos los datos de transacciones o las entradas de la libreta de direcciones.</translation>
     </message>
@@ -2007,10 +1991,6 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
         <translation>Ha fallado la escucha en todos los puertos. Use -listen=0 si desea esto.</translation>
     </message>
     <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>Política de puntos de control de sincronización (por defecto: estricta)</translation>
-    </message>
-    <message>
         <source>Invalid -tor address: '%s'</source>
         <translation>Dirección -tor inválida: '%s'</translation>
     </message>
@@ -2037,10 +2017,6 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     <message>
         <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
         <translation>Opciones SSL: (ver la Bitcoin Wiki para instrucciones de configuración SSL)</translation>
-    </message>
-    <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>Selecciona la versión de socks proxy a usar (4-5, por defecto: 5)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
@@ -2082,10 +2058,6 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     <message>
         <source>Verifying database integrity...</source>
         <translation>Verificando la integridad de la base de datos...</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>ADVERTENCIA: violación de un punto de control sincronizado detectada, se saltara!</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2139,11 +2111,6 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
         <translation>Actualizar el monedero al último formato</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Ajustar el número de claves en reserva &lt;n&gt; (predeterminado: 100)
-</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Volver a examinar la cadena de bloques en busca de transacciones del monedero perdidas</translation>
     </message>
@@ -2175,10 +2142,6 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
         <translation>Error: Monedero desbloqueado sólo para hacer "stake", no es posible crear una transacción.</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>ADVERTENCIA: Punto de control no válido encontrado! Las transacciones que se muestran pueden no ser correctas! Puede que tenga que actualizar o notificar a los desarrolladores.</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Este mensaje de ayuda
 </translation>
@@ -2192,20 +2155,12 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
         <translation>No es posible conectar con %s en este sistema (bind ha dado el error %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>Conecte a través del socks proxy</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Permitir búsquedas DNS para -addnode, -seednode y -connect</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>Cargando direcciones...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>Error al cargar blkindex.dat</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2230,10 +2185,6 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>La red especificada en -onlynet '%s' es desconocida</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Solicitada versión de proxy -socks desconocida: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

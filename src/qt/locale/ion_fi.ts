@@ -1,4 +1,4 @@
-<TS language="fi" version="2.0">
+<TS language="fi" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -9,22 +9,7 @@
         <source>&lt;b&gt;Ion&lt;/b&gt; version</source>
         <translation>&lt;b&gt;Ion&lt;/b&gt;-asiakasohjelman versio</translation>
     </message>
-    <message>
-        <source>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;a href="http://www.opensource.org/licenses/mit-license.php"&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;a href="https://www.openssl.org/"&gt;https://www.openssl.org/&lt;/a&gt;) and cryptographic software written by Eric Young (&lt;a href="mailto:eay@cryptsoft.com"&gt;eay@cryptsoft.com&lt;/a&gt;) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-Tämä on kokeilukäyttöön suunnattua ohjelmistoa.
-
-Levitetään MIT/X11 ohjelmistolisenssin alaisuudessa. Tarkemmat tiedot löytyvät tiedostosta COPYING tai osoitteesta http://www.opensource.org/licenses/mit-license.php.
-
-Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-työkalupakettia varten (&lt;a href="https://www.openssl.org/"&gt;https://www.openssl.org/&lt;/a&gt;), Eric Youngin 
-(&lt;a href="mailto:eay@cryptsoft.com"&gt;eay@cryptsoft.com&lt;/a&gt;) kehittämän salausohjelmiston sekä Thomas Bernardin UPnP-ohjelmiston.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>AddEditAtomNode</name>
     </context>
@@ -1991,16 +1976,8 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>Määritä datahakemisto</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Aseta tietokannan välimuistin koko megatavuina (oletus: 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Aseta tietokannan lokien maksimikoko megatavuissa (oletus: 100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Kuuntele yhteyksiä portissa &lt;port&gt; (oletus: 15714 tai testiverkko: 25714)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -2039,10 +2016,6 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>Virhe avattaessa RPC-porttia %u kuunneltavaksi IPv4-osoitteessa: %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>Kuuntele JSON-RPC-yhteyksiä portissa &lt;port&gt; (oletus: 15715 tai testiverkko: 25715)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Hyväksy merkkipohjaiset- ja JSON-RPC-käskyt</translation>
     </message>
@@ -2069,10 +2042,6 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Varoitus: -paytxfee on asetettu erittäin korkeaksi! Tämä on maksukulu jonka tulet maksamaan kun lähetät siirron.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Varoitus: Tarkista, että tietokoneesi aika ja päivämäärä ovat oikeassa! Jos kellosi on väärässä, Ion ei toimi oikein.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -2103,10 +2072,6 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>Kuuntelu ei onnistunut missään portissa. Käytä -listen=0 jos haluat tätä.</translation>
     </message>
     <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>Synkronoi tallennuspisteiden käytännöt (oletus: strict)</translation>
-    </message>
-    <message>
         <source>Invalid -tor address: '%s'</source>
         <translation>Epäkelpo -tor-osoite: '%s'</translation>
     </message>
@@ -2135,10 +2100,6 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>SSL asetukset (katso Bitcoin Wikistä tarkemmat SSL ohjeet)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>Valitse SOCKS-välityspalvelimen versio (4-5, oletus 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Lähetä jäljitys/debug-tieto konsoliin, debug.log-tiedoston sijaan</translation>
     </message>
@@ -2159,12 +2120,6 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>Määritä yhteyden aikakataisu millisekunneissa (vakioasetus: 5000)</translation>
     </message>
     <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>Ei voitu kirjata tallennuspistettä, väärä checkpointkey?
-</translation>
-    </message>
-    <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>Käytä UPnP:tä kuunneltavan portin avaamiseen (vakioasetus: 0)</translation>
     </message>
@@ -2183,10 +2138,6 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     <message>
         <source>Verifying database integrity...</source>
         <translation>Tarkistetaan tietokannan eheyttä...</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>VAROITUS: synkronoidun tallennuspisteen rikkomista havaittu, mutta ohitettu!</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2237,10 +2188,6 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>Päivitä lompakko uusimpaan formaattiinsa</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Aseta avainpoolin koko arvoon &lt;n&gt; (oletus: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Skannaa uudelleen lohkoketju lompakon puuttuvien rahasiirtojen vuoksi</translation>
     </message>
@@ -2277,10 +2224,6 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>Tämä on esijulkaistu testikäännös - käytä omalla vastuulla - älä käytä louhintaan tai kaupankäyntisovellutuksiin</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>VAROITUS: Epäkelpo tarkistuspiste löydetty! Ilmoitetut varojensiirrot eivät välttämättä pidä paikkaansa! Sinun täytyy päivittää asiakasohjelma tai ilmoittaa kehittäjille ongelmasta.</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Tämä ohjeviesti</translation>
     </message>
@@ -2293,20 +2236,12 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>Kytkeytyminen %s tällä tietokonella ei onnistu (kytkeytyminen tulosti virheen %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>Yhdistä SOCKS-välityspalvelimen lävitse</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Salli DNS kyselyt -addnode, -seednode ja -connect yhteydessä</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>Ladataan osoitteita...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>Virhe ladattaessa blkindex.dat-tiedostoa</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2331,10 +2266,6 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Tuntematon verkko -onlynet parametrina: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Tuntematonta -SOCKS-versiota pyydettiin: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>
@@ -2375,10 +2306,6 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     <message>
         <source>Fee per KB to add to transactions you send</source>
         <translation>Rahansiirtopalkkio kilotavua kohden lähetettäviin rahansiirtoihisi</translation>
-    </message>
-    <message>
-        <source>Minimize weight consumption (experimental) (default: 0)</source>
-        <translation>Minimoi painoarvon menekki (kokeellinen) (oletus: 0)</translation>
     </message>
     <message>
         <source>Invalid amount for -mininput=&lt;amount&gt;: '%s'</source>

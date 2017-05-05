@@ -1,4 +1,4 @@
-<TS language="hr" version="2.0">
+<TS language="hr" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -997,10 +997,6 @@ Adresa:%4
         <translation>Odredi direktorij za datoteke</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Postavi cache za bazu podataka u MB (zadano:25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Održavaj najviše &lt;n&gt; veza sa članovima (default: 125)</translation>
     </message>
@@ -1083,10 +1079,6 @@ Adresa:%4
     <message>
         <source>Upgrade wallet to latest format</source>
         <translation>Nadogradite novčanik u posljednji format.</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Podesi memorijski prostor za ključeve na &lt;n&gt; (ugrađeni izbor: 100)</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>

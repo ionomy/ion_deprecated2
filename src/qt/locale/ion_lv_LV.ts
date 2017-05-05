@@ -1,4 +1,4 @@
-<TS language="lv_LV" version="2.0">
+<TS language="lv_LV" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -921,10 +921,6 @@ Adrese: %4
         <translation>Norādiet datu direktoriju</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Uzstādiet datu bāzes bufera izmēru megabaitos (pēc noklusēšanas: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Uzturēt līdz &lt;n&gt; savienojumiem ar citiem mezgliem(pēc noklusēšanas: 125)</translation>
     </message>
@@ -985,10 +981,6 @@ Adrese: %4
         <translation>Atjaunot maciņa formātu uz jaunāko</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Uzstādīt atslēgu bufera izmēru uz &lt;n&gt; (pēc noklusēšanas: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Atkārtoti skanēt bloku virkni, meklējot trūkstošās maciņa transakcijas</translation>
     </message>
@@ -1035,10 +1027,6 @@ Adrese: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>-onlynet komandā norādīts nepazīstams tīkls: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Pieprasīta nezināma -socks proxy versija: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

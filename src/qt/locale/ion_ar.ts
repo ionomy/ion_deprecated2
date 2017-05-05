@@ -1,4 +1,4 @@
-<TS language="ar" version="2.0">
+<TS language="ar" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1104,10 +1104,6 @@
         <translation>حدد موقع مجلد المعلومات او data directory</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>ضع حجم كاش قاعدة البيانات بالميجابايت (الافتراضي: 25)</translation>
-    </message>
-    <message>
         <source>Specify your own public address</source>
         <translation>حدد عنوانك العام هنا</translation>
     </message>
@@ -1118,10 +1114,6 @@
     <message>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
         <translation>قبول الاتصالات من خارج</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>تحذير : تأكد من ساعة وتاريخ الكمبيوتر! اذا ساعة غير صحيحة بلاك كوين لن يعمل بشكل صحيح</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -1178,10 +1170,6 @@
     <message>
         <source>Loading addresses...</source>
         <translation>تحميل العنوان</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>خظا في تحميل blkindex.dat</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>

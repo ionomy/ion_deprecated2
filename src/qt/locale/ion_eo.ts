@@ -1,4 +1,4 @@
-<TS language="eo" version="2.0">
+<TS language="eo" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -1381,10 +1381,6 @@ Adreso: %4
         <translation>Specifi dosieron por datumoj</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Specifi grandon de datumbazo je megabajtoj (defaŭlte: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Subteni maksimume &lt;n&gt; konektojn al samtavolanoj (defaŭlte: 125)</translation>
     </message>
@@ -1537,10 +1533,6 @@ Adreso: %4
         <translation>Ĝisdatigi monujon al plej lasta formato</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Agordi la grandon de la ŝlosilo-vico al &lt;n&gt; (defaŭlte: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Reskani la blokĉenon por mankantaj monujaj transakcioj</translation>
     </message>
@@ -1587,10 +1579,6 @@ Adreso: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Nekonata reto specifita en -onlynet: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Nekonata versio de -socks petita: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

@@ -1,4 +1,4 @@
-<TS language="ja" version="2.0">
+<TS language="ja" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1896,16 +1896,8 @@ This label turns red, if the priority is smaller than "medium".
         <translation>データ ディレクトリの指定</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>データベースのキャッシュサイズをメガバイトで設定 (初期値: 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>メガバイトでのデータベースのログザイズの大きさの設定(デファルト：100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>&lt;port&gt; で 接続をリスン (デフォルト: 15714かtestnet は 25714)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -1936,10 +1928,6 @@ This label turns red, if the priority is smaller than "medium".
         <translation>IPv4 でリスンする RPC ポート %u の設定中にエラーが発生しました: %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>&lt;port&gt; で JSON-RPC 接続をリスン (デフォルト: 15715かtestnet は 25715)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>コマンドラインと JSON-RPC コマンドを許可</translation>
     </message>
@@ -1966,10 +1954,6 @@ This label turns red, if the priority is smaller than "medium".
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>警告: -paytxfee が非常に高く設定されています! これは処理を送信する場合に支払う取引手数料です。</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation> 警告：コンピュータの日付と時間を調べてください。時間ずらしかったばい、ブラックコイン QTは正しく行動しない。</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -2000,10 +1984,6 @@ This label turns red, if the priority is smaller than "medium".
         <translation>ポートのリスンに失敗しました。必要であれば -listen=0 を使用してください。</translation>
     </message>
     <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>同期チェックポイント方針(デファルト：厳しい)</translation>
-    </message>
-    <message>
         <source>Invalid -tor address: '%s'</source>
         <translation>無効なTORアドレス: '%s'</translation>
     </message>
@@ -2032,10 +2012,6 @@ This label turns red, if the priority is smaller than "medium".
         <translation>SSL オプション: (SSLのセットアップ手順は Bitcoin Wiki をご覧下さい)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>SOCKSプロクシーのバージョンを選択する (4-5、 デファルト: 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>トレース/デバッグ情報を debug.log ファイルの代わりにコンソールへ送る</translation>
     </message>
@@ -2056,12 +2032,6 @@ This label turns red, if the priority is smaller than "medium".
         <translation>接続のタイムアウトをミリセコンドで指定 (初期値: 5000)</translation>
     </message>
     <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>チェックポイントを署名できません。checkpointkeyは違いますか。
-</translation>
-    </message>
-    <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>リスン ポートの割当に UPnP を使用 (初期値: 0)</translation>
     </message>
@@ -2080,10 +2050,6 @@ This label turns red, if the priority is smaller than "medium".
     <message>
         <source>Verifying database integrity...</source>
         <translation>データベースの保全性を確認最中...</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>警告：シンクロナイズドチェックポイント違反を検出したが、チェックポイントを飛ばした。</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2134,10 +2100,6 @@ This label turns red, if the priority is smaller than "medium".
         <translation>ウォレットを最新のフォーマットにアップグレード</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>key pool のサイズを &lt;n&gt; (初期値: 100) にセット</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>失ったウォレットの処理のブロック チェーンを再スキャン</translation>
     </message>
@@ -2166,10 +2128,6 @@ This label turns red, if the priority is smaller than "medium".
         <translation>エラー：アンロックされたウォレットは賭けるためだけで、処理を作られない。</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>警告：無効なチェックポイントを見つかりました！表示された処理は正しくない可能性がある！アップグレードするか、デベロッパーに報告する必要があります。</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>このヘルプ メッセージ</translation>
     </message>
@@ -2182,20 +2140,12 @@ This label turns red, if the priority is smaller than "medium".
         <translation>このコンピュータの %s にバインドすることができません (バインドが返したエラーは %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>SOCKSプロキシで接続する</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>-addnode, -seednode と -connect で DNS ルックアップを許可する</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>アドレスを読み込んでいます...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>blkindex.dat 読み込みエラー</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2220,10 +2170,6 @@ This label turns red, if the priority is smaller than "medium".
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>-onlynet で指定された '%s' は未知のネットワークです</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>-socks で指定された %i は未知のバージョンです</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

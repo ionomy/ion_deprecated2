@@ -1,4 +1,4 @@
-<TS language="be_BY" version="2.0">
+<TS language="be_BY" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -685,10 +685,6 @@ Address: %4
         <translation>Вызначыць каталог даных</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Пазначыць памер кэшу базы звестак у мегабайтах (тыпова: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Трымаць не больш за &lt;n&gt; злучэнняў на асобу (зыходна: 125)</translation>
     </message>
@@ -739,10 +735,6 @@ Address: %4
     <message>
         <source>Upgrade wallet to latest format</source>
         <translation>Абнавіць гаманец на новы фармат</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Устанавіць памер фонда ключоў у &lt;n&gt; (тыпова: 100)</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>

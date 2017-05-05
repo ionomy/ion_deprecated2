@@ -1,4 +1,4 @@
-<TS language="es_DO" version="2.0">
+<TS language="es_DO" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -1380,10 +1380,6 @@ Dirección: %4
         <translation>Especificar directorio para los datos</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Establecer el tamaño de caché de la base de datos en megabytes (predeterminado: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Mantener como máximo &lt;n&gt; conexiones a pares (predeterminado: 125)</translation>
     </message>
@@ -1543,11 +1539,6 @@ Dirección: %4
         <translation>Actualizar el monedero al último formato</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Ajustar el número de claves en reserva &lt;n&gt; (predeterminado: 100)
-</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Volver a examinar la cadena de bloques en busca de transacciones del monedero perdidas</translation>
     </message>
@@ -1598,10 +1589,6 @@ Dirección: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>La red especificada en -onlynet '%s' es desconocida</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Solicitada versión de proxy -socks desconocida: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

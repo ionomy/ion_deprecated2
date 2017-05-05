@@ -1,4 +1,4 @@
-<TS language="da" version="2.0">
+<TS language="da" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1881,16 +1881,8 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Angiv datakatalog</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Angiv databasecachestørrelse i megabytes (standard: 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Set database disk logstørrelsen i megabyte (standard: 100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Lyt efter forbindelser på &lt;port&gt; (default: 15714 eller Testnet: 25714)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -1921,10 +1913,6 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Der opstod en fejl ved angivelse af RPC-porten %u til at lytte på IPv4: %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>Spor efter JSON-RPC-forbindelser på &lt;port&gt; (default: 15715 eller Testnet: 25715)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Accepter kommandolinje- og JSON-RPC-kommandoer</translation>
     </message>
@@ -1951,10 +1939,6 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Advarsel: -paytxfee er sat meget højt! Dette er det gebyr du vil betale, hvis du sender en transaktion.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Advarsel: Kontroller venligst, at computerens dato og klokkeslæt er korrekt! Hvis dit ur er forkert vil Ion ikke fungere korrekt.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -1985,10 +1969,6 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Lytning på enhver port mislykkedes. Brug -listen=0, hvis du ønsker dette.</translation>
     </message>
     <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>Synkroniser checkpoints politik (default: streng)</translation>
-    </message>
-    <message>
         <source>Invalid amount for -reservebalance=&lt;amount&gt;</source>
         <translation>Ugyldigt beløb for-reservebalance = &lt;beløb&gt;</translation>
     </message>
@@ -2013,10 +1993,6 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>SSL-indstillinger: (se Bitcoin Wiki for SSL-opsætningsinstruktioner)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>Vælg den version af socks proxy du vil bruge (4-5, standard: 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Send sporings-/fejlsøgningsinformation til konsollen i stedet for debug.log filen</translation>
     </message>
@@ -2037,12 +2013,6 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Angiv tilslutningstimeout i millisekunder (standard: 5000)</translation>
     </message>
     <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>Kan ikke logge checkpoint, forkert checkpointkey?
-</translation>
-    </message>
-    <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>Forsøg at bruge UPnP til at konfigurere den lyttende port (standard: 0)</translation>
     </message>
@@ -2061,10 +2031,6 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     <message>
         <source>Verifying database integrity...</source>
         <translation>Bekræfter database integritet ...</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>ADVARSEL: synkroniseret checkpoint overtrædelse opdaget, men skibbet!</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2111,10 +2077,6 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Opgrader tegnebog til seneste format</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Angiv nøglepoolstørrelse til &lt;n&gt; (standard: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Gennemsøg blokkæden for manglende tegnebogstransaktioner</translation>
     </message>
@@ -2143,10 +2105,6 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Fejl: Pung låst for at udregne rente, ude af stand til at skabe transaktion.</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>ADVARSEL: Ugyldig checkpoint fundet! Viste transaktioner er måske ikke korrekte! Du kan være nødt til at opgradere, eller underrette udviklerne.</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Denne hjælpebesked</translation>
     </message>
@@ -2155,20 +2113,12 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Kunne ikke tildele %s på denne computer (bind returnerede fejl %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>Tilslut gennem socks proxy</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Tillad DNS-opslag for -addnode, -seednode og -connect</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>Indlæser adresser...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>Fejl ved indlæsning af blkindex.dat</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2193,10 +2143,6 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Ukendt netværk anført i -onlynet: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Ukendt -socks proxy-version: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

@@ -1,4 +1,4 @@
-<TS language="sv" version="2.0">
+<TS language="sv" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1897,16 +1897,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <translation>Ange katalog för data</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Sätt databas cache storleken i megabyte (förvalt: 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Sätt databas logg storleken i MB (standard: 100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Lyssna efter anslutningar på &lt;port&gt; (standard: 15714 eller testnät: 25714)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -1937,10 +1929,6 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <translation>Ett fel uppstod vid upprättandet av RPC port %u för att lyssna på IPv4: %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>Lyssna efter JSON-RPC anslutningar på &lt;port&gt; (standard: 15715 eller testnät: 25715)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Tillåt kommandon från kommandotolken och JSON-RPC-kommandon</translation>
     </message>
@@ -1967,10 +1955,6 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Varning: -paytxfee är satt väldigt hög! Detta är avgiften du kommer betala för varje transaktion.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Varning: Kolla att din dators tid och datum är rätt. Ion kan inte fungera ordentligt om tiden i datorn är fel.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -2001,10 +1985,6 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <translation>Misslyckades att lyssna på någon port. Använd -listen=0 om du vill detta.</translation>
     </message>
     <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>Synka kontrollpunkts policy (standard: strict)</translation>
-    </message>
-    <message>
         <source>Invalid -tor address: '%s'</source>
         <translation>Fel -tor adress: '%s'</translation>
     </message>
@@ -2033,10 +2013,6 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <translation>SSL-inställningar: (se Bitcoin-wikin för SSL-setup instruktioner)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>Välj version av socks proxy (4-5, förval 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Skicka trace-/debuginformation till terminalen istället för till debug.log</translation>
     </message>
@@ -2057,12 +2033,6 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <translation>Ange timeout för uppkoppling i millisekunder (förvalt: 5000)</translation>
     </message>
     <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>Kan inte signera checkpoint, fel checkpointkey?
-</translation>
-    </message>
-    <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>Använd UPnP för att mappa den lyssnande porten (förvalt: 0)</translation>
     </message>
@@ -2081,10 +2051,6 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <source>Verifying database integrity...</source>
         <translation>Verifierar integriteten i databasen...</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>VARNING: synkroniserad kontrollpunkts brott upptäckt, men hoppades över!</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2135,10 +2101,6 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <translation>Uppgradera plånboken till senaste formatet</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Sätt storleken på nyckelpoolen till &lt;n&gt; (förvalt: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Sök i blockkedjan efter saknade plånboks transaktioner</translation>
     </message>
@@ -2167,10 +2129,6 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <translation>Fel: Plånboken öppnad endast för stake-process, kan inte skapa transaktion.</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>VARNING: Felaktig kontrollpunkt hittad! Visade transaktioner kan vara felaktiga! Du kan behöva uppgradera eller kontakta utvecklarna.</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Det här hjälp medelandet</translation>
     </message>
@@ -2183,20 +2141,12 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <translation>Det går inte att binda till %s på den här datorn (bind returnerade felmeddelande %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>Koppla genom en socks proxy</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Tillåt DNS-sökningar för -addnode, -seednode och -connect</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>Laddar adresser...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>Fel vid laddande av blkindex.dat</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2221,10 +2171,6 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Okänt nätverk som anges i -onlynet: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Okänd -socks proxy version begärd: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

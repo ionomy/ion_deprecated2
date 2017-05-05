@@ -1,4 +1,4 @@
-<TS language="ko_KR" version="2.0">
+<TS language="ko_KR" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -1325,10 +1325,6 @@ Address: %4
         <translation>데이터 폴더 지정</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>데이터베이스 캐시 크기를 메가바이트로 지정(기본값:25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>가장 잘 연결되는 사용자를 유지합니다(기본값: 125)</translation>
     </message>
@@ -1437,10 +1433,6 @@ Address: %4
         <translation>지갑을 최근 형식으로 개선하시오</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>키 풀 크기 설정 &lt;n&gt;(기본값: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>누락된 지갑 송금에 대한 블록 체인 다시 검색</translation>
     </message>
@@ -1487,10 +1479,6 @@ Address: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>-onlynet에 지정한 네트워크를 알 수 없습니다: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>요청한 -socks 프록히 버전을 알 수 없습니다: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

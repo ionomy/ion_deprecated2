@@ -1,4 +1,4 @@
-<TS language="uk" version="2.0">
+<TS language="uk" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -1161,10 +1161,6 @@ Address: %4
         <translation>Вкажіть робочий каталог</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Встановити розмір кешу бази даних в мегабайтах (типово: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>Підтримувати не більше &lt;n&gt; зв'язків з колегами (типово: 125)</translation>
     </message>
@@ -1305,10 +1301,6 @@ Address: %4
         <translation>Модернізувати гаманець до останнього формату</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Встановити розмір пулу ключів &lt;n&gt; (типово: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Пересканувати ланцюжок блоків, в пошуку втрачених транзакцій</translation>
     </message>
@@ -1355,10 +1347,6 @@ Address: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Невідома мережа вказана в -onlynet: «%s»</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>В параметрі -socks запитується невідома версія: %i</translation>
     </message>
     <message>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>

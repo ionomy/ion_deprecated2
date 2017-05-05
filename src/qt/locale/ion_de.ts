@@ -1,4 +1,4 @@
-<TS language="de" version="2.0">
+<TS language="de" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1752,16 +1752,8 @@ Adresse: %4</translation>
         <translation>Datenverzeichnis festlegen</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Größe des Datenbankcaches in MB festlegen (Standard: 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Größe des Datenbankspeichers in MB festlegen (Standard: 100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Horche für verbindungen auf &lt;Port&gt; (Standard: 15714 oder Testnetz: 25714)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -1786,10 +1778,6 @@ Adresse: %4</translation>
     <message>
         <source>An error occurred while setting up the RPC port %u for listening on IPv4: %s</source>
         <translation>Beim Einrichten des abzuhörenden RPC-Ports %u für IPv4 ist ein Fehler aufgetreten: %s</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>Horche für eingehende JSON-RPC Verbindungen auf &lt;Port&gt;(Standard: 15715 or Testnetz: 25715)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -1818,10 +1806,6 @@ Adresse: %4</translation>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Warnung: -paytxfee ist auf einen sehr hohen Wert festgelegt! Dies ist die Gebühr die beim Senden einer Transaktion fällig wird.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Wanung : Bitte prüfen Sie ob Datum und Uhrzeit richtig eingestellt sind. Wenn das Datum falsch ist wird Ion nicht richtig funktionieren.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -1872,10 +1856,6 @@ Adresse: %4</translation>
         <translation>SSL-Optionen: (siehe Bitcoin-Wiki für SSL-Installationsanweisungen)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>SOCKS Proxy Version auswählen (4-5, Standart: 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Rückverfolgungs- und Debuginformationen an die Konsole senden anstatt sie in die Datei debug.log zu schreiben</translation>
     </message>
@@ -1894,12 +1874,6 @@ Adresse: %4</translation>
     <message>
         <source>Specify connection timeout in milliseconds (default: 5000)</source>
         <translation>Verbindungstimeout in Millisekunden festlegen (Standard: 5000)</translation>
-    </message>
-    <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>Sicherungspunkt konnte nicht signiert werden. Ist der Schlüssel korrekt?
-</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
@@ -1970,10 +1944,6 @@ Adresse: %4</translation>
         <translation>Wallet auf das neueste Format aktualisieren</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Größe des Schlüsselpools festlegen auf &lt;n&gt; (Standard: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Blockkette erneut nach fehlenden Wallet-Transaktionen durchsuchen</translation>
     </message>
@@ -2002,10 +1972,6 @@ Adresse: %4</translation>
         <translation>Warnung: Festplatte hat wenig freien Speicher</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>WARNUNG : Ungültiger Checkpunkt gefunden! Angezeigte Transaktionen können falsch sein! Sie müssen vielleicht updaten oder die Entwickler benachrichtigen.</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Dieser Hilfetext</translation>
     </message>
@@ -2018,20 +1984,12 @@ Adresse: %4</translation>
         <translation>Kann auf diesem Computer nicht an %s binden (von bind zurückgegebener Fehler %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>Verbinde über socks proxy</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Erlaube DNS-Namensauflösung für -addnode, -seednode und -connect</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>Lade Adressen...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>Fehler beim laden von blkindex.dat</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2056,10 +2014,6 @@ Adresse: %4</translation>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Unbekannter Netztyp in -onlynet angegeben: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Unbekannte Proxyversion in -socks angefordert: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>
@@ -2102,16 +2056,8 @@ Adresse: %4</translation>
         <translation>Gebühr pro KB, zusätzlich zur ausgehenden Transaktion</translation>
     </message>
     <message>
-        <source>Minimize weight consumption (experimental) (default: 0)</source>
-        <translation>Minimiere Verbrauch von Gewicht (experimentell) (Standard: 0)</translation>
-    </message>
-    <message>
         <source>How many blocks to check at startup (default: 500, 0 = all)</source>
         <translation>Anzahl der zu prüfenden Blöcke bei Programmstart (Standard: 2500, 0 = alle)</translation>
-    </message>
-    <message>
-        <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
-        <translation>Gültige Codierschlüssel (Standard: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</translation>
     </message>
     <message>
         <source>Invalid amount for -mininput=&lt;amount&gt;: '%s'</source>

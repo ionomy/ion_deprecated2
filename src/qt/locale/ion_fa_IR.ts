@@ -1,4 +1,4 @@
-<TS language="fa_IR" version="2.0">
+<TS language="fa_IR" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>
@@ -791,10 +791,6 @@ Address: %4
         <translation>دایرکتوری داده را مشخص کن</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>حافظه بانک داده را به مگابایت تنظیم کنید (پیش فرض: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>نگهداری &lt;N&gt; ارتباطات برای قرینه سازی  (پیش فرض:125)</translation>
     </message>
@@ -849,10 +845,6 @@ Address: %4
     <message>
         <source>Upgrade wallet to latest format</source>
         <translation>wallet را به جدیدترین نسخه روزآمد کنید</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>حجم key pool  را به اندازه &lt;n&gt; تنظیم کنید (پیش فرض:100)</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>

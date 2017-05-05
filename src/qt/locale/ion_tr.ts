@@ -1,4 +1,4 @@
-<TS language="tr" version="2.0">
+<TS language="tr" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -9,21 +9,7 @@
         <source>&lt;b&gt;Ion&lt;/b&gt; version</source>
         <translation>&lt;b&gt;Ion&lt;/b&gt; versiyonu</translation>
     </message>
-    <message>
-        <source>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;a href="http://www.opensource.org/licenses/mit-license.php"&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;a href="https://www.openssl.org/"&gt;https://www.openssl.org/&lt;/a&gt;) and cryptographic software written by Eric Young (&lt;a href="mailto:eay@cryptsoft.com"&gt;eay@cryptsoft.com&lt;/a&gt;) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-Bu, deneysel bir yazılımdır.
-
-MIT/X11 yazılım lisansı kapsamında yayınlanmıştır, beraberindeki COPYING dosyasına veya &lt;a href="http://www.opensource.org/licenses/mit-license.php"&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt; sayfasına bakınız.
-
-Bu ürün, OpenSSL projesi tarafından OpenSSL araç takımıThis product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;a href="https://www.openssl.org/"&gt;https://www.openssl.org/&lt;/a&gt;) için geliştirilmiş yazılımı, Eric Young (&lt;a href="mailto:eay@cryptsoft.com"&gt;eay@cryptsoft.com&lt;/a&gt;) tarafından hazırlanmış şifreleme yazılımı ve Thomas Bernard tarafından yazılmış UPnP yazılımı içerir.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>AddEditAtomNode</name>
     </context>
@@ -1919,16 +1905,8 @@ This label turns red, if the priority is smaller than "medium".
         <translation>Veri dizinini belirt</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Veritabanı önbellek boyutunu megabayt olarak belirt (varsayılan: 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Veritabanı disk log boyutunu megabayt olarak ayarla (varsayılan: 100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>&lt;port&gt; üzerinde bağlantıları dinle (varsayılan: 15714 veya testnet: 25714)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -1959,10 +1937,6 @@ This label turns red, if the priority is smaller than "medium".
         <translation>IPv4 üzerinde dinlemek için %u numaralı RPC portunun kurulumu sırasında hata meydana geldi: %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>&lt;port&gt; üzerinde JSON-RPC bağlantılarını dinle (varsayılan: 15715 veya testnet: 25715)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Konut satırı ve JSON-RPC komutlarını kabul et</translation>
     </message>
@@ -1989,10 +1963,6 @@ This label turns red, if the priority is smaller than "medium".
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Uyarı: -paytxfee çok yüksek bir değere ayarlanmış! Bu, bir işlem gönderdiğiniz takdirde ödeyeceğiniz ücrettir.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Uyarı: Lütfen bilgisayarınızın tarih ve saatinin doğru olduğunu kontrol ediniz! Saatiniz yanlış ise, Ion düzgün çalışmayacaktır.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -2023,10 +1993,6 @@ This label turns red, if the priority is smaller than "medium".
         <translation>Herhangi bir portun dinlenmesi başarısız oldu. Bunu istiyorsanız -listen=0 seçeneğini kullanınız.</translation>
     </message>
     <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>Kontrol noktası politikasını senkronize et (varsayılan: sıkı)</translation>
-    </message>
-    <message>
         <source>Invalid -tor address: '%s'</source>
         <translation>Geçersiz -tor adresi: '%s'</translation>
     </message>
@@ -2055,10 +2021,6 @@ This label turns red, if the priority is smaller than "medium".
         <translation> SSL seçenekleri: (SSL kurulum bilgisi için Bitcoin vikisine bakınız)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>Kullanılacak socks vekil sunucusunun versiyonunu seç (4-5, varsayılan: 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Trace/hata ayıklama verilerini debug.log dosyası yerine konsola gönder</translation>
     </message>
@@ -2079,12 +2041,6 @@ This label turns red, if the priority is smaller than "medium".
         <translation>Bağlantı zaman aşım süresini milisaniye olarak belirt (varsayılan: 5000)</translation>
     </message>
     <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>Kontrol noktası imzalanamadı, bu bir hatalı kontrol noktası anahtarı mı?
-</translation>
-    </message>
-    <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>Dinlenecek portu haritalamak için UPnP kullan (varsayılan: 0)</translation>
     </message>
@@ -2103,10 +2059,6 @@ This label turns red, if the priority is smaller than "medium".
     <message>
         <source>Verifying database integrity...</source>
         <translation>Veritabanı bütünlüğü doğrulanıyor...</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>UYARI: senkronize edilen kontrol noktası ihlali tespit edildi ancak atlandı!</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2157,10 +2109,6 @@ This label turns red, if the priority is smaller than "medium".
         <translation>Cüzdanı en yeni biçime güncelle</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Anahtar alan boyutunu &lt;n&gt; değerine ayarla (varsayılan: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Blok zincirini eksik cüzdan işlemleri için tekrar tara</translation>
     </message>
@@ -2193,10 +2141,6 @@ This label turns red, if the priority is smaller than "medium".
         <translation>Hata: Cüzdanın kilidi sadece pay almak için açılmıştır, işlem yaratılamıyor.</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>UYARI: Geçersiz kontrol noktası bulundu! Görüntülenen işlemler doğru olmayabilir! Güncelleme yapmanız veya geliştiricilere haber vermeniz gerekebilir.</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Bu yardım mesajı</translation>
     </message>
@@ -2209,20 +2153,12 @@ This label turns red, if the priority is smaller than "medium".
         <translation>Bu bilgisayarda %s unsuruna bağlanılamadı. (bind şu hatayı iletti: %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>Socks vekil sunucu yoluyla bağlan</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>-addnode, -seednode ve -connect için DNS aramalarına izin ver</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>Adresler yükleniyor...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>blkindex.dat yüklenirken hata</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2247,10 +2183,6 @@ This label turns red, if the priority is smaller than "medium".
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>-onlynet için bilinmeyen bir şebeke belirtildi: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Bilinmeyen bir -socks vekil sürümü talep edildi: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

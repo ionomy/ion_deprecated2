@@ -1,4 +1,4 @@
-<TS language="vi" version="2.0">
+<TS language="vi" version="2.1">
 <context>
     <name>AboutDialog</name>
     </context>

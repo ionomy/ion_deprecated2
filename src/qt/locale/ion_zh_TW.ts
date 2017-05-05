@@ -1,4 +1,4 @@
-<TS language="zh_TW" version="2.0">
+<TS language="zh_TW" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1481,10 +1481,6 @@ Address: %4
         <translation>指定資料目錄</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>設定資料庫快取大小成多少百萬位元組(MB；預設值: 25)</translation>
-    </message>
-    <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
         <translation>維持連線節點數的上限為 &lt;n&gt; 個(預設值: 125)</translation>
     </message>
@@ -1638,10 +1634,6 @@ Address: %4
         <translation>把錢包檔案升級成最新的格式</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>設定密鑰池大小成 &lt;n&gt; (預設值: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>重新掃描區塊鏈，來尋找錢包可能漏掉的交易。</translation>
     </message>
@@ -1688,10 +1680,6 @@ Address: %4
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>在 -onlynet 指定了不明的網路別: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>在 -socks 指定了不明的代理協定版本: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>

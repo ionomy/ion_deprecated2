@@ -1,4 +1,4 @@
-<TS language="ca_ES" version="2.0">
+<TS language="ca_ES" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1857,16 +1857,8 @@ Address: %4
         <translation>Especificar directori de dades</translation>
     </message>
     <message>
-        <source>Set database cache size in megabytes (default: 25)</source>
-        <translation>Establir tamany de la memoria cau en megabytes (per defecte: 25)</translation>
-    </message>
-    <message>
         <source>Set database disk log size in megabytes (default: 100)</source>
         <translation>Configurar la mida del registre en disc de la base de dades en megabytes (per defecte: 100)</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
-        <translation>Escoltar connexions en &lt;port&gt; (per defecte: 15714 o testnet: 25714)</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
@@ -1897,10 +1889,6 @@ Address: %4
         <translation>Ha sorgit un error al configurar el port RPC %u escoltant a IPv4: %s</translation>
     </message>
     <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation>Escoltar connexions JSON-RPC al port &lt;port&gt; (per defecte: 15715 o testnet: 25715)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Acceptar línia d'ordres i ordres JSON-RPC </translation>
     </message>
@@ -1927,10 +1915,6 @@ Address: %4
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Advertència: el -paytxfee és molt elevat! Aquesta és la comissió de transacció que pagaràs quan enviis una transacció.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Ion will not work properly.</source>
-        <translation>Avís: Comproveu que la data i hora de l'equip siguin correctes! Si el seu rellotge és erroni Ion no funcionarà correctament.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -1961,10 +1945,6 @@ Address: %4
         <translation>Error al escoltar a qualsevol port. Utilitza -listen=0 si vols això.</translation>
     </message>
     <message>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation>Política dels punts de control de sincronització (per defecte: estricta)</translation>
-    </message>
-    <message>
         <source>Invalid -tor address: '%s'</source>
         <translation>Adreça -tor invalida: '%s'</translation>
     </message>
@@ -1993,10 +1973,6 @@ Address: %4
         <translation>Opcions SSL: (veure la Wiki de Bitcoin per a instruccions de configuració SSL)</translation>
     </message>
     <message>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation>Seleccioneu la versió de proxy socks per utilitzar (4-5, per defecte: 5)</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Enviar informació de traça/depuració a la consola en comptes del arxiu debug.log</translation>
     </message>
@@ -2017,12 +1993,6 @@ Address: %4
         <translation>Especificar el temps limit per a un intent de connexió en milisegons (per defecte: 5000)</translation>
     </message>
     <message>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation>No es pot signar el punt de control, la clau del punt de control esta malament?
-</translation>
-    </message>
-    <message>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>Utilitza UPnP per a mapejar els ports d'escolta (per defecte: 0)</translation>
     </message>
@@ -2041,10 +2011,6 @@ Address: %4
     <message>
         <source>Verifying database integrity...</source>
         <translation>Comprovant la integritat de la base de dades ...</translation>
-    </message>
-    <message>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
-        <translation>ADVERTÈNCIA: violació de punt de control sincronitzat detectada, es saltarà!</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
@@ -2096,10 +2062,6 @@ Executar una ordre quan es rep un avís rellevant (%s en cmd es substitueix per 
         <translation>Actualitzar moneder a l'últim format</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Establir límit de nombre de claus a &lt;n&gt; (per defecte: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Re-escanejar cadena de blocs en cerca de transaccions de moneder perdudes</translation>
     </message>
@@ -2128,10 +2090,6 @@ Executar una ordre quan es rep un avís rellevant (%s en cmd es substitueix per 
         <translation>Error: Cartera bloquejada nomès per a fer "stake", no es pot de crear la transacció</translation>
     </message>
     <message>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation>ADVERTÈNCIA: Punt de control invàlid! Les transaccions mostrades podríen no ser correctes! Podria ser necessari actualitzar o notificar-ho als desenvolupadors.</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Aquest misatge d'ajuda</translation>
     </message>
@@ -2144,20 +2102,12 @@ Executar una ordre quan es rep un avís rellevant (%s en cmd es substitueix per 
         <translation>Impossible d'unir %s a aquest ordinador (s'ha retornat l'error %d, %s)</translation>
     </message>
     <message>
-        <source>Connect through socks proxy</source>
-        <translation>Conectar a través d'un proxy SOCKS</translation>
-    </message>
-    <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Permetre consultes DNS per a -addnode, -seednode i -connect</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
         <translation>Carregant adreces...</translation>
-    </message>
-    <message>
-        <source>Error loading blkindex.dat</source>
-        <translation>Error carregant blkindex.dat</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet corrupted</source>
@@ -2182,10 +2132,6 @@ Executar una ordre quan es rep un avís rellevant (%s en cmd es substitueix per 
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Xarxa desconeguda especificada a -onlynet: '%s'</translation>
-    </message>
-    <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>S'ha demanat una versió desconeguda de -socks proxy: %i</translation>
     </message>
     <message>
         <source>Cannot resolve -bind address: '%s'</source>
