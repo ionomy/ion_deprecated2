@@ -191,10 +191,10 @@ Value masternode(const Array& params, bool fHelp)
         }
         pwalletMain->Lock();
 
-        if(activeMasternode.status == MASTERNODE_STOPPED) return "successfully stopped masternode";
-        if(activeMasternode.status == MASTERNODE_NOT_CAPABLE) return "not capable masternode";
+        if(activeMasternode.status == MASTERNODE_STOPPED) return "Successfully stopped masternode";
+        if(activeMasternode.status == MASTERNODE_NOT_CAPABLE) return "Not a capable masternode";
 
-        return "unknown";
+        return "Unknown";
     }
 
     if (strCommand == "stop-alias")
@@ -354,14 +354,7 @@ Value masternode(const Array& params, bool fHelp)
             pwalletMain->Lock();
         }
 
-        if(activeMasternode.status == MASTERNODE_REMOTELY_ENABLED) return "masternode started remotely";
-        if(activeMasternode.status == MASTERNODE_INPUT_TOO_NEW) return "masternode input must have at least 15 confirmations";
-        if(activeMasternode.status == MASTERNODE_STOPPED) return "masternode is stopped";
-        if(activeMasternode.status == MASTERNODE_IS_CAPABLE) return "successfully started masternode";
-        if(activeMasternode.status == MASTERNODE_NOT_CAPABLE) return "not capable masternode: " + activeMasternode.notCapableReason;
-        if(activeMasternode.status == MASTERNODE_SYNC_IN_PROCESS) return "sync in process. Must wait until client is synced to start.";
-
-        return "unknown";
+        return activeMasternode.getStatusMessage();
     }
 
     if (strCommand == "start-alias")
@@ -482,13 +475,16 @@ Value masternode(const Array& params, bool fHelp)
 
     if (strCommand == "debug")
     {
-        if(activeMasternode.status == MASTERNODE_REMOTELY_ENABLED) return "masternode started remotely";
-        if(activeMasternode.status == MASTERNODE_INPUT_TOO_NEW) return "masternode input must have at least 15 confirmations";
-        if(activeMasternode.status == MASTERNODE_IS_CAPABLE) return "successfully started masternode";
-        if(activeMasternode.status == MASTERNODE_STOPPED) return "masternode is stopped";
-        if(activeMasternode.status == MASTERNODE_NOT_CAPABLE) return "not capable masternode: " + activeMasternode.notCapableReason;
-        if(activeMasternode.status == MASTERNODE_SYNC_IN_PROCESS) return "sync in process. Must wait until client is synced to start.";
-
+        switch (activeMasternode.status){
+            case MASTERNODE_REMOTELY_ENABLED:
+            case MASTERNODE_INPUT_TOO_NEW:
+            case MASTERNODE_IS_CAPABLE:
+            case MASTERNODE_STOPPED:
+            case MASTERNODE_SYNC_IN_PROCESS:
+            case MASTERNODE_NOT_CAPABLE:
+                return activeMasternode.getStatusMessage();               
+        }
+        
         CTxIn vin = CTxIn();
         CPubKey pubkey = CScript();
         CKey key;
@@ -747,8 +743,8 @@ Value masternode(const Array& params, bool fHelp)
         mnObj.push_back(Pair("vin", activeMasternode.vin.ToString().c_str()));
         mnObj.push_back(Pair("service", activeMasternode.service.ToString().c_str()));
         mnObj.push_back(Pair("status", activeMasternode.status));
+        mnObj.push_back(Pair("statusMessage", activeMasternode.getStatusMessage()));
         mnObj.push_back(Pair("pubKeyMasternode", address2.ToString().c_str()));
-        mnObj.push_back(Pair("notCapableReason", activeMasternode.notCapableReason.c_str()));
         return mnObj;
     }
 

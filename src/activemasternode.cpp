@@ -37,7 +37,7 @@ void CActiveMasternode::ManageStatus()
             if(!GetLocal(service)) {
                 notCapableReason = "Can't detect external address. Please use the masternodeaddr configuration option.";
                 status = MASTERNODE_NOT_CAPABLE;
-                LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason.c_str());
+                LogPrintf("CActiveMasternode::ManageStatus() %s (%s)\n", getStatusMessage(status), notCapableReason.c_str());
                 return;
             }
         } else {
@@ -478,4 +478,26 @@ bool CActiveMasternode::EnableHotColdMasterNode(CTxIn& newVin, CService& newServ
     LogPrintf("CActiveMasternode::EnableHotColdMasterNode() - Enabled! You may shut down the cold daemon.\n");
 
     return true;
+}
+
+std::string CActiveMasternode::getStatusMessage(){
+    return getStatusMessage(status);    
+}
+    
+std::string CActiveMasternode::getStatusMessage(int status) {
+
+    switch (status){
+        case MASTERNODE_NOT_PROCESSED:      return "Masternode has not been processed."; 
+        case MASTERNODE_IS_CAPABLE:         return "Masternode is a capable masternode and is in running status."; 
+        case MASTERNODE_NOT_CAPABLE:        return "Masternode not capable to be started (" + notCapableReason + ")"; 
+        case MASTERNODE_STOPPED:            return "Masternode is stopped."; 
+        case MASTERNODE_INPUT_TOO_NEW:      return "Masternode not started: input must have at least 15 confirmations."; 
+        case MASTERNODE_PORT_NOT_OPEN:      return "Masternode port is not open."; // This status is currently never used
+        case MASTERNODE_PORT_OPEN:          return "Masternode port is open."; // This status is currently never used
+        case MASTERNODE_SYNC_IN_PROCESS:    return "Masternode Sync in progress. Must wait until sync is complete to start masternode."; 
+        case MASTERNODE_REMOTELY_ENABLED:   return "Masternode is remotely enabled and is in a running status."; 
+        default:
+            break;
+    }
+    return "Unknown status";
 }

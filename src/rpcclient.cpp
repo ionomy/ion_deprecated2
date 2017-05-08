@@ -257,6 +257,16 @@ int CommandLineRPC(int argc, char *argv[])
             strPrint = "error: " + write_string(error, false);
             int code = find_value(error.get_obj(), "code").get_int();
             nRet = abs(code);
+
+            if (error.type() != null_type){
+                const Value &errMsg = find_value(error.get_obj(), "message");
+                
+                strPrint = "error code: " +  boost::lexical_cast<std::string>(nRet) + "\n";
+                
+                if (!errMsg.is_null())
+                    strPrint += "error message: " + errMsg.get_str() + "\n";
+            }
+
         }
         else
         {
