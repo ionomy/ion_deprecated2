@@ -1,6 +1,6 @@
 Enabling SSL on original client daemon
 ======================================
-By default, Ion allows JSON-RPC commands to be sent to http://localhost:17171
+By default, Ion allows JSON-RPC commands to be sent to http://localhost:12705
 and accepts connections only from the localhost.
 
 JSON-RPC Over SSL Setup
@@ -14,7 +14,7 @@ for this to work properly.
     * openssl req -new -x509 -nodes -sha1 -days 3650 -key server.pem > server.cert
     (NOTE: you should NOT enter a passphrase)
 
-2. Configure NeosCoin to use SSL
+2. Configure Ion to use SSL
     * Stop your current xiond or ionx-Qt
     * Edit the ion.conf and add
       rpcssl=1
