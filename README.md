@@ -39,7 +39,7 @@ RPC Port = 12705
 
 **TestNet Parameters**
 P2P Port = 27170
-RPC Port = 27171
+RPC Port = 27175
 
 
 UNIX BUILD NOTES
