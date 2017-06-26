@@ -229,7 +229,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Firmar &amp;mensaje...</translation>
@@ -714,7 +714,7 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -918,7 +918,7 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Elegir la subdivisión predeterminada para mostrar cantidades en la interfaz y cuando se envían bitcoins.</translation>
+        <translation>Elegir la subdivisión predeterminada para mostrar cantidades en la interfaz y cuando se envían ions.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1143,7 +1143,7 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Enviar bitcoins</translation>
+        <translation>Enviar ions</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1275,7 +1275,7 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Confirmar el envío de bitcoins</translation>
+        <translation>Confirmar el envío de ions</translation>
     </message>
     <message>
         <source>The recipient address is not valid, please recheck.</source>
@@ -1855,7 +1855,7 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Ion version</source>
         <translation>versión Ion</translation>
@@ -1865,8 +1865,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
         <translation>Uso:</translation>
     </message>
     <message>
-        <source>Send command to -server or xiond</source>
-        <translation>Envía un comando a -server o xiond</translation>
+        <source>Send command to -server or iond</source>
+        <translation>Envía un comando a -server o iond</translation>
     </message>
     <message>
         <source>List commands</source>
@@ -1884,12 +1884,12 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
 </translation>
     </message>
     <message>
-        <source>Specify configuration file (default: ion.conf)</source>
-        <translation>Especifica un archivo de configuración (por defecto: ion.conf)</translation>
+        <source>Specify configuration file (default: ioncoin.conf)</source>
+        <translation>Especifica un archivo de configuración (por defecto: ioncoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: xiond.pid)</source>
-        <translation>Especifica un archivo pid (por defecto: xiond.pid)</translation>
+        <source>Specify pid file (default: iond.pid)</source>
+        <translation>Especifica un archivo pid (por defecto: iond.pid)</translation>
     </message>
     <message>
         <source>Specify wallet file (within data directory)</source>
@@ -2015,8 +2015,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
         <translation>Prefijar salida de depuración con marca de tiempo</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>Opciones SSL: (ver la Bitcoin Wiki para instrucciones de configuración SSL)</translation>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
+        <translation>Opciones SSL: (ver la Ion Wiki para instrucciones de configuración SSL)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>

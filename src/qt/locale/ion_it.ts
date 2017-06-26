@@ -161,7 +161,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Firma il &amp;messaggio...</translation>
@@ -475,7 +475,7 @@ Indirizzo: %4
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -744,7 +744,7 @@ Indirizzo: %4
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Spedisci Bitcoin</translation>
+        <translation>Spedisci Ion</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -848,7 +848,7 @@ Indirizzo: %4
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Conferma la spedizione di bitcoin</translation>
+        <translation>Conferma la spedizione di ion</translation>
     </message>
     <message>
         <source>The recipient address is not valid, please recheck.</source>
@@ -974,7 +974,7 @@ Indirizzo: %4
     </message>
     <message>
         <source>The entered address does not refer to a key.</source>
-        <translation>L'indirizzo bitcoin inserito non è associato a nessuna chiave.</translation>
+        <translation>L'indirizzo ion inserito non è associato a nessuna chiave.</translation>
     </message>
     <message>
         <source>Wallet unlock was cancelled.</source>
@@ -1376,7 +1376,7 @@ Indirizzo: %4
     <name>WalletModel</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Usage:</source>
         <translation>Utilizzo:</translation>
@@ -1497,8 +1497,8 @@ Indirizzo: %4
         <translation>Connetti solo a nodi nella rete &lt;net&gt; (IPv4, IPv6 o Tor)</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>Opzioni SSL: (vedi il wiki di Bitcoin per le istruzioni di configurazione SSL)</translation>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
+        <translation>Opzioni SSL: (vedi il wiki di Ion per le istruzioni di configurazione SSL)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>

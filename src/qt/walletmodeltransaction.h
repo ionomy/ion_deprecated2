@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_WALLETMODELTRANSACTION_H
-#define BITCOIN_QT_WALLETMODELTRANSACTION_H
+#ifndef ION_QT_WALLETMODELTRANSACTION_H
+#define ION_QT_WALLETMODELTRANSACTION_H
 
 #include "walletmodel.h"
 #include "util.h"
@@ -44,4 +44,4 @@ private:
     CAmount fee;
 };
 
-#endif // BITCOIN_QT_WALLETMODELTRANSACTION_H
+#endif // ION_QT_WALLETMODELTRANSACTION_H

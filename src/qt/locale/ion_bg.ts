@@ -145,7 +145,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Подписване на &amp;съобщение...</translation>
@@ -294,7 +294,7 @@
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -935,7 +935,7 @@
     <name>WalletModel</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Usage:</source>
         <translation>Използване:</translation>

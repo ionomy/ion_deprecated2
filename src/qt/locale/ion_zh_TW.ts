@@ -229,7 +229,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>簽署訊息...</translation>
@@ -574,7 +574,7 @@ Address: %4
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -1455,7 +1455,7 @@ Address: %4
     <name>WalletModel</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Usage:</source>
         <translation>用法:</translation>
@@ -1570,8 +1570,8 @@ Address: %4
         <translation>只和 &lt;net&gt; 網路上的節點連線(IPv4, IPv6, 或 Tor)</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>SSL 選項: (SSL 設定程序請見 Bitcoin Wiki)</translation>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
+        <translation>SSL 選項: (SSL 設定程序請見 Ion Wiki)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>

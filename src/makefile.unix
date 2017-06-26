@@ -121,7 +121,7 @@ OBJS= \
     obj/pubkey.o \
     obj/ecwrapper.o \
     obj/init.o \
-    obj/bitcoind.o \
+    obj/iond.o \
     obj/keystore.o \
     obj/core.o \
     obj/main.o \
@@ -144,14 +144,14 @@ OBJS= \
     obj/chainparams.o \
     obj/stealth.o \
     obj/activemasternode.o \
-    obj/darksend.o \
-    obj/darksend-relay.o \
+    obj/stashedsend.o \
+    obj/stashedsend-relay.o \
     obj/instantx.o \
     obj/masternodeconfig.o \
     obj/masternodeman.o \
     obj/masternode.o \
     obj/masternode-payments.o \
-    obj/rpcdarksend.o \
+    obj/rpcstashedsend.o \
     obj/spork.o \
     obj/crypto/hmac_sha256.o \
     obj/crypto/hmac_sha512.o \
@@ -176,13 +176,13 @@ ifeq (${USE_WALLET}, 1)
         obj/walletdb.o
 endif
 
-all: xiond
+all: iond
 
 # build secp256k1
 DEFS += $(addprefix -I,$(CURDIR)/secp256k1/include)
 secp256k1/src/libsecp256k1_la-secp256k1.o:
 	@echo "Building Secp256k1 ..."; cd secp256k1; chmod 755 *; ./autogen.sh; ./configure --enable-module-recovery; make; cd ..;
-xiond: secp256k1/src/libsecp256k1_la-secp256k1.o
+iond: secp256k1/src/libsecp256k1_la-secp256k1.o
 
 # build leveldb
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
@@ -215,11 +215,11 @@ obj/%.o: %.c
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
-xiond: $(OBJS:obj/%=obj/%)
+iond: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f xiond
+	-rm -f iond
 	-rm -f obj/*.o
 	-rm -f obj/*.P
 	-rm -f obj/build.h

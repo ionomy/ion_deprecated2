@@ -1,0 +1,33 @@
+# /etc/conf.d/iond: config file for /etc/init.d/iond
+
+# Config file location
+#IOND_CONFIGFILE="/etc/ion/ioncoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $IOND_USER)
+#IOND_PIDDIR="/var/run/iond"
+
+# What filename to give the pidfile
+#IOND_PIDFILE="${IOND_PIDDIR}/iond.pid"
+
+# Where to write iond data (be mindful that the blockchain is large)
+#IOND_DATADIR="/var/lib/iond"
+
+# User and group to own iond process
+#IOND_USER="ion"
+#IOND_GROUP="ion"
+
+# Path to iond executable
+#IOND_BIN="/usr/bin/iond"
+
+# Nice value to run iond under
+#IOND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#IOND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for iond to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+IOND_SIGTERM_TIMEOUT=60

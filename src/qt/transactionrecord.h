@@ -77,12 +77,12 @@ public:
         RecvWithAddress,
         RecvFromOther,
         SendToSelf,
-        RecvWithDarksend,
-        DarksendDenominate,
-        DarksendCollateralPayment,
-        DarksendMakeCollaterals,
-        DarksendCreateDenominations,
-        Darksent
+        RecvWithStashedsend,
+        StashedsendDenominate,
+        StashedsendCollateralPayment,
+        StashedsendMakeCollaterals,
+        StashedsendCreateDenominations,
+        Stashedsent
     };
 
     /** Number of confirmation recommended for accepting a transaction */

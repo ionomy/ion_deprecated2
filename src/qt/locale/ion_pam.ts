@@ -161,7 +161,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>I-sign ing &amp;mensayi</translation>
@@ -338,7 +338,7 @@ Address: %4
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -1115,7 +1115,7 @@ Address: %4
     <name>WalletModel</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Usage:</source>
         <translation>Pamanggamit:</translation>
@@ -1197,8 +1197,8 @@ Address: %4
         <translation>Memali ya ing pamakiramdam kareng gang nanung port. Gamita me ini -listen=0 nung buri me ini.</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>Pipamilian ning SSL: (lawen ye ing Bitcoin Wiki para king SSL setup instructions)</translation>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
+        <translation>Pipamilian ning SSL: (lawen ye ing Ion Wiki para king SSL setup instructions)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>

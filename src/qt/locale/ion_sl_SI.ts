@@ -225,7 +225,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Podpiši &amp;sporočilo ...</translation>
@@ -706,7 +706,7 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -1839,7 +1839,7 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Ion version</source>
         <translation>Ion različica</translation>
@@ -1849,7 +1849,7 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
         <translation>Uporaba:</translation>
     </message>
     <message>
-        <source>Send command to -server or xiond</source>
+        <source>Send command to -server or iond</source>
         <translation>Pošlji ukaz na -server ali blackoind</translation>
     </message>
     <message>
@@ -1865,11 +1865,11 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
         <translation>Možnosti:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: ion.conf)</source>
-        <translation>Določi konfiguracijsko datoteko (privzeto: ion.conf)</translation>
+        <source>Specify configuration file (default: ioncoin.conf)</source>
+        <translation>Določi konfiguracijsko datoteko (privzeto: ioncoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: xiond.pid)</source>
+        <source>Specify pid file (default: iond.pid)</source>
         <translation>Določi pid datoteko (privzeto: ion.pid)</translation>
     </message>
     <message>
@@ -1993,8 +1993,8 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot "srednja".
         <translation>Opremi output rahroščevanja s časovnim žigom. </translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>SSL možnosti: (glejte Bitcoin Wiki za navodla, kako nastaviti SSL)</translation>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
+        <translation>SSL možnosti: (glejte Ion Wiki za navodla, kako nastaviti SSL)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>

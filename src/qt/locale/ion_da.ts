@@ -225,7 +225,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Underskriv besked...</translation>
@@ -706,7 +706,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -910,7 +910,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Vælg den standard underopdelingsenhed, som skal vises i brugergrænsefladen og ved afsendelse af bitcoins.</translation>
+        <translation>Vælg den standard underopdelingsenhed, som skal vises i brugergrænsefladen og ved afsendelse af ions.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1135,7 +1135,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Send bitcoins</translation>
+        <translation>Send ions</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1267,7 +1267,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Bekræft afsendelse af bitcoins</translation>
+        <translation>Bekræft afsendelse af ions</translation>
     </message>
     <message>
         <source>The recipient address is not valid, please recheck.</source>
@@ -1353,7 +1353,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     </message>
     <message>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Du kan underskrive beskeder med dine Bitcoin-adresser for at bevise, at de tilhører dig. Pas på ikke at underskrive noget vagt, da phisingangreb kan narre dig til at overdrage din identitet. Underskriv kun fuldt detaljerede udsagn, du er enig i.</translation>
+        <translation>Du kan underskrive beskeder med dine Ion-adresser for at bevise, at de tilhører dig. Pas på ikke at underskrive noget vagt, da phisingangreb kan narre dig til at overdrage din identitet. Underskriv kun fuldt detaljerede udsagn, du er enig i.</translation>
     </message>
     <message>
         <source>The address to sign the message with (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
@@ -1839,7 +1839,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Ion version</source>
         <translation>Ion version</translation>
@@ -1849,8 +1849,8 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Anvendelse:</translation>
     </message>
     <message>
-        <source>Send command to -server or xiond</source>
-        <translation>Send kommando til-server eller xiond</translation>
+        <source>Send command to -server or iond</source>
+        <translation>Send kommando til-server eller iond</translation>
     </message>
     <message>
         <source>List commands</source>
@@ -1865,12 +1865,12 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Indstillinger:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: ion.conf)</source>
-        <translation>Angiv konfigurationsfil (default: ion.conf)</translation>
+        <source>Specify configuration file (default: ioncoin.conf)</source>
+        <translation>Angiv konfigurationsfil (default: ioncoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: xiond.pid)</source>
-        <translation>Angiv pid fil (standard: xiond.pid)</translation>
+        <source>Specify pid file (default: iond.pid)</source>
+        <translation>Angiv pid fil (standard: iond.pid)</translation>
     </message>
     <message>
         <source>Specify wallet file (within data directory)</source>
@@ -1989,8 +1989,8 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Prepend debug output med tidsstempel</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>SSL-indstillinger: (se Bitcoin Wiki for SSL-opsætningsinstruktioner)</translation>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
+        <translation>SSL-indstillinger: (se Ion Wiki for SSL-opsætningsinstruktioner)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>

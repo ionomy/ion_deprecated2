@@ -2,8 +2,12 @@
 // Copyright (c) 2009-2017 The Bitcoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef BITCOIN_NET_H
-#define BITCOIN_NET_H
+#ifndef ION_NET_H
+#define ION_NET_H
+
+#if defined(HAVE_CONFIG_H)
+#include "config/ion-config.h"
+#endif
 
 #include "compat.h"
 #include "core.h"
@@ -64,7 +68,7 @@ CNode* FindNode(const CNetAddr& ip);
 CNode* FindNode(const CSubNet& subNet);
 CNode* FindNode(std::string addrName);
 CNode* FindNode(const CService& ip);
-CNode* ConnectNode(CAddress addrConnect, const char *strDest = NULL, bool darkSendMaster=false);
+CNode* ConnectNode(CAddress addrConnect, const char *strDest = NULL, bool stashedSendMaster=false);
 void MapPort(bool fUseUPnP);
 unsigned short GetListenPort();
 bool BindListenPort(const CService &bindAddr, std::string& strError=REF(std::string()));
@@ -352,7 +356,7 @@ public:
     // b) the peer may tell us in their version message that we should not relay tx invs
     //    until they have initialized their bloom filter.
     bool fRelayTxes;
-    bool fDarkSendMaster;
+    bool fStashedSendMaster;
     CSemaphoreGrant grantOutbound;
     int nRefCount;
     NodeId id;
@@ -378,7 +382,7 @@ public:
     mruset<CAddress> setAddrKnown;
     bool fGetAddr;
     std::set<uint256> setKnown;
-    uint256 hashCheckpointKnown; // ppcoin: known sent sync-checkpoint
+    uint256 hashCheckpointKnown; // ion: known sent sync-checkpoint
 
     // inventory based relay
     mruset<CInv> setInventoryKnown;

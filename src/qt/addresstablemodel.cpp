@@ -205,7 +205,7 @@ QVariant AddressTableModel::data(const QModelIndex &index, int role) const
         QFont font;
         if(index.column() == Address)
         {
-            font = GUIUtil::bitcoinAddressFont();
+            font = GUIUtil::ionAddressFont();
         }
         return font;
     }
@@ -343,7 +343,7 @@ QModelIndex AddressTableModel::index(int row, int column, const QModelIndex &par
 
 void AddressTableModel::updateEntry(const QString &address, const QString &label, bool isMine, int status)
 {
-    // Update address book model from Bitcoin core
+    // Update address book model from Ion core
     priv->updateEntry(address, label, isMine, status);
 }
 

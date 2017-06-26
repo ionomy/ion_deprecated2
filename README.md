@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://github.com/Ion-Network/Ion-Core/blob/master/src/qt/res/images/splash.png" alt="Ion_Icon"/>
 </p>
-# **Ion-Core (ION) v1.0**
+# **Ion-Core (ION) v2.1.6**
 
 [![Build Status](https://travis-ci.org/ionomy/ion.svg?branch=master)](https://travis-ci.org/ionomy/ion)
 
@@ -9,6 +9,36 @@ Ion Integration/Staging Tree
 ================================
 
 **Copyright (c) 2016-2017 ionomy**
+Copyright (c) 2017 🐼CEVAP🐼
+
+                 `/:`                           
+              -odN:                             
+           `+mMMN-                              
+           +MMMM/.--`               ..          
+          +NMMMh/MMMMh            .dMMm+        
+        -mMMMMM/NMMMMM`          .NMMMMMd       
+       oMMMMMMM.sMMMMm.          .MMMMMMs       
+      /MMMMMMMMo `/N/             /mMMdyd-      
+      dMMMMMMMMM-  `                -+ :Mm      
+     .MMMMMMMMMMy                      -MM-     
+     :MMMMMMMMMM:                      `MM+     
+     /MMMMMMMMMm       `      `         dMh     
+     :MMMMMMMMMd    `+mM-    /MNy:      yMM.    
+     .MMMMMMMMMN`  -NMMy     `hMMMd`    dMMs    
+      +MMMMMMMMM/  `ydo        /dy:    -MMMM:   
+       /MMMMMMMMm`                    `mMMMMN.  
+        oMMMMMMMMm/    `ydmmNy     .+yNMMMMMMm` 
+        .MMMMMMMMMMmo.  `:oo-    /dMMMMMMMMMMMd 
+         NMMMMMMMMMMMMms:    .:sNMMMMMMMMMMMMMMo
+     hmmm sMMMMMMMMMMMMMMMMNNNhmm mMMMMMMMMMMMMMN
+     ,NMMMmymMMMMMMMMMMMMMMMd/,     dMMMMMMMMMMMMs
+     hMMMMMMMMMMMMMMMMMMMMy-        dMMMMMMMMMMMm,
+    ,yNMMMMMMMMMMMMMMMMMMo    .h-.-oMMMMMMMMMMMM: 
+       ,.:::sMMMMMMMMMMMMMs  -NMMMMMMMMMMMMMMMMh  
+            :MMMMMMMMMMMMMM+ .////NMMMMMMMMMMMd,  
+             +hdNNMMMMNNmdy/       .-://+++/:.    
+
+
 
 #### What is Ion?
 ----------------
@@ -39,8 +69,7 @@ RPC Port = 12705
 
 **TestNet Parameters**
 P2P Port = 27170
-RPC Port = 27175
-
+RPC Port = 27171
 
 UNIX BUILD NOTES
 ====================
@@ -56,16 +85,86 @@ for example, when specifying the the path of the dependency:
 Here BDB_PREFIX must absolute path - it is defined using $(pwd) which ensures
 the usage of the absolute path.
 
-To Build
+<<<<<<< HEAD
+BUILD QT AND IOND FOR LINUX (Method 1)
+=======
+Build ION-QT and IOND for LINUX (Method 1)
+>>>>>>> master
+--------------------
+    ./autogen.sh;./configure;make
+
+
+<<<<<<< HEAD
+BUILD QT AND IOND FOR WINDOWS 64 Bit (Method 1)
+--------------------
+To build executables for Windows 64-bit, install the following dependencies:
+    sudo apt-get install g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
+
+Then build using:
+=======
+Build ION-QT and IOND for WINDOWS 64 Bit (Method 1)
+--------------------
+To build executables for Windows 64-bit, install the following dependencies:
+
+    sudo apt-get install g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
+
+Then build using:
+
+>>>>>>> master
+    cd depends
+    make HOST=x86_64-w64-mingw32
+    cd ..
+    CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/
+    make
+
+<<<<<<< HEAD
+BUILD QT AND IOND FOR WINDOWS 32 Bit (Method 1)
+--------------------
+To build executables for Windows 64-bit, install the following dependencies:
+    sudo apt-get install g++-mingw-w64-i686 mingw-w64-i686-dev
+
+Then build using:
+=======
+Build ION-QT and IOND for WINDOWS 32 Bit (Method 1)
+--------------------
+To build executables for Windows 64-bit, install the following dependencies:
+
+    sudo apt-get install g++-mingw-w64-i686 mingw-w64-i686-dev
+
+Then build using:
+
+>>>>>>> master
+    cd depends
+    make HOST=i686-w64-mingw32
+    cd ..
+    ./autogen.sh # not required when building from tarball
+    CONFIG_SITE=$PWD/depends/i686-w64-mingw32/share/config.site ./configure --prefix=/
+    make
+
+To Build ion-qt (Method 2)
+---------------------
+[Download](https://www.qt.io/download/) and install latest QT creator, import .pro file and compile 
+1. Start QT creator
+2. Open QT project file *.pro (Keyboard Shortcut: STRG+C)
+3. Build all (Keyboard shortcut: STRG+SHIFT+B)
+
+Example Build Command (Method 3)
+--------------------
+Qt Wallet and Deamon, CLI version build:
+
+    qmake && make && cd src && make -f src/makefile.unix
+
+Deamon Only Buld:
+
+    cd src && make -f src/makefile.unix
+
+To Build (without QT Version) (Method 3)
 ---------------------
 
 ```bash
-qmake
-make
-make install # optional
+autoreconf --install ; ./configure ; make
 ```
-
-This will build ionx-Qt as well if the dependencies are met.
+This will build ion without QT (no GUI) if all dependencies are met.
 
 Dependencies
 ---------------------
@@ -137,7 +236,7 @@ Optional:
 Dependencies for the GUI: Ubuntu & Debian
 -----------------------------------------
 
-If you want to build ionx-Qt, make sure that the required packages for Qt development
+If you want to build ion-Qt, make sure that the required packages for Qt development
 are installed. Qt 5 is necessary to build the GUI.
 If both Qt 4 and Qt 5 are installed, Qt 5 will be used. Pass `--with-gui=qt5` to configure to choose Qt5.
 To build without GUI pass `--without-gui`.
@@ -150,12 +249,12 @@ libqrencode (optional) can be installed with:
 
     sudo apt-get install libqrencode-dev
 
-Once these are installed, they will be found by configure and a ionx-Qt executable will be
+Once these are installed, they will be found by configure and a ion-Qt executable will be
 built by default.
 
 Notes
 -----
-The release is built with GCC and then "strip xiond" to strip the debug
+The release is built with GCC and then "strip iond" to strip the debug
 symbols, which reduces the executable size by about 90%.
 
 
@@ -236,7 +335,7 @@ Hardening enables the following features:
 
     To test that you have built PIE executable, install scanelf, part of paxutils, and use:
 
-        scanelf -e ./xiond
+        scanelf -e ./iond
 
     The output should contain:
      TYPE
@@ -250,21 +349,14 @@ Hardening enables the following features:
     executable without the non-executable stack protection.
 
     To verify that the stack is non-executable after compiling use:
-    `scanelf -e ./xiond`
+    `scanelf -e ./iond`
 
     the output should contain:
     STK/REL/PTL
     RW- R-- RW-
 
     The STK RW- means that the stack is readable and writeable but not executable.
+<<<<<<< HEAD
 
-
-Example Build Command
---------------------
-Qt Wallet and Deamon, CLI version build:
-
-    qmake && make && cd src && make -f src/makefile.unix
-
-Deamon Only Buld:
-
-    cd src && make -f src/makefile.unix
+=======
+>>>>>>> master

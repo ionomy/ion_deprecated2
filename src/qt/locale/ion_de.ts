@@ -225,7 +225,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Nachricht signieren...</translation>
@@ -661,7 +661,7 @@ Adresse: %4</translation>
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -1058,7 +1058,7 @@ Adresse: %4</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Bitcoins überweisen</translation>
+        <translation>Ions überweisen</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1714,14 +1714,14 @@ Adresse: %4</translation>
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Usage:</source>
         <translation>Benutzung:</translation>
     </message>
     <message>
-        <source>Send command to -server or xiond</source>
-        <translation>Kommando versenden an -server oder xiond </translation>
+        <source>Send command to -server or iond</source>
+        <translation>Kommando versenden an -server oder iond </translation>
     </message>
     <message>
         <source>List commands</source>
@@ -1736,11 +1736,11 @@ Adresse: %4</translation>
         <translation>Optionen:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: ion.conf)</source>
-        <translation>Konfigurationsdatei angeben (Standard: ion.conf)</translation>
+        <source>Specify configuration file (default: ioncoin.conf)</source>
+        <translation>Konfigurationsdatei angeben (Standard: ioncoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: xiond.pid)</source>
+        <source>Specify pid file (default: iond.pid)</source>
         <translation>PID Datei angeben (Standard: ion.pid)</translation>
     </message>
     <message>
@@ -1852,8 +1852,8 @@ Adresse: %4</translation>
         <translation>Debuginformationen einen Zeitstempel voranstellen</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>SSL-Optionen: (siehe Bitcoin-Wiki für SSL-Installationsanweisungen)</translation>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
+        <translation>SSL-Optionen: (siehe Ion-Wiki für SSL-Installationsanweisungen)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>

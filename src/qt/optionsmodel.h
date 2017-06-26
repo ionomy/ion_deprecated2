@@ -13,7 +13,7 @@ QT_BEGIN_NAMESPACE
 class QNetworkProxy;
 QT_END_NAMESPACE
 
-/** Interface from Qt to configuration data structure for Bitcoin client.
+/** Interface from Qt to configuration data structure for Ion client.
    To Qt, the options are presented as a list with the different options
    laid out vertically.
    This can be changed to a tree once the settings become sufficiently
@@ -37,11 +37,11 @@ public:
         ProxySocksVersion,      // int
         Fee,                    // qint64
         ReserveBalance,         // qint64
-        DisplayUnit,            // BitcoinUnits::Unit
+        DisplayUnit,            // IonUnits::Unit
         Language,               // QString
         CoinControlFeatures,    // bool
         UseBlackTheme,     // bool
-        DarksendRounds,    // int
+        StashedsendRounds,    // int
         AnonymizeIonAmount, //int
         OptionIDRowCount,
     };
@@ -83,7 +83,7 @@ signals:
     void transactionFeeChanged(qint64);
     void reserveBalanceChanged(qint64);
     void coinControlFeaturesChanged(bool);
-    void darksendRoundsChanged(int);
+    void stashedsendRoundsChanged(int);
     void AnonymizeIonAmountChanged(int);
 };
 

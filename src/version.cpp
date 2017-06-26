@@ -5,10 +5,14 @@
 
 #include "version.h"
 
+// TODO: make sure this doesn't conflict with config/ion-config.h
+
 // Name of client reported in the 'version' message. Report the same name
-// for both bitcoind and bitcoin-qt, to make it harder for attackers to
+// for both iond and ion-qt, to make it harder for attackers to
 // target servers or GUI users specifically.
+
 const std::string CLIENT_NAME("Iodine");
+//const std::string CLIENT_NAME("💩🐼💡💎📈💰🎎⛓️🗺️⛓️💃👯‍♀️🕹️🐣💩");
 
 // Client version number
 #define CLIENT_VERSION_SUFFIX   ""

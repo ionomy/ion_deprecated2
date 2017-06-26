@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_LEVELDB_H
-#define BITCOIN_LEVELDB_H
+#ifndef ION_LEVELDB_H
+#define ION_LEVELDB_H
 
 #include "main.h"
 
@@ -205,4 +205,4 @@ private:
 };
 
 
-#endif // BITCOIN_DB_H
+#endif // ION_DB_H

@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2017 The Bitcoin developers
-// Copyright (c) 2017 Empinel/The Ion Developers
+// Copyright (c) 2017 Empinel/The Bitcoin Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -129,7 +129,7 @@ Value getstakinginfo(const Array& params, bool fHelp)
 
     uint64_t nNetworkWeight = GetPoSKernelPS();
     bool staking = nLastCoinStakeSearchInterval && nWeight;
-    nExpectedTime = staking ? (nTargetSpacing * nNetworkWeight / nWeight) : 0;
+    nExpectedTime = staking ? (Params().TargetSpacing() * nNetworkWeight / nWeight) : 0;
 
     Object obj;
 

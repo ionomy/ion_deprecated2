@@ -32,10 +32,10 @@ public:
     void setClientModel(ClientModel *clientModel);
     void setWalletModel(WalletModel *walletModel);
     void showOutOfSyncWarning(bool fShow);
-    void updateDarksendProgress();
+    void updateStashedsendProgress();
 
 public slots:
-    void darkSendStatus();
+    void stashedSendStatus();
     void setBalance(const CAmount& balance, const CAmount& stake, const CAmount& unconfirmedBalance, const CAmount& immatureBalance, const CAmount& anonymizedBalance, const CAmount& watchOnlyBalance, const CAmount& watchOnlyStake, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance);
 
 signals:
@@ -62,9 +62,9 @@ private:
 	bool fProduction;
 
 private slots:
-    void toggleDarksend();
-    void darksendAuto();
-    void darksendReset();
+    void toggleStashedsend();
+    void stashedsendAuto();
+    void stashedsendReset();
     void updateDisplayUnit();
     void handleTransactionClicked(const QModelIndex &index);
     void updateAlerts(const QString &warnings);

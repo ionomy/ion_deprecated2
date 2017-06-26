@@ -233,7 +233,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Podpísať &amp;správu...</translation>
@@ -777,7 +777,7 @@ To znamená, že je potrebný poplatok aspoň %2.</translation>
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -1970,7 +1970,7 @@ To znamená, že je potrebný poplatok aspoň %2.</translation>
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Ion version</source>
         <translation>Ion verzia</translation>
@@ -1980,8 +1980,8 @@ To znamená, že je potrebný poplatok aspoň %2.</translation>
         <translation>Použitie:</translation>
     </message>
     <message>
-        <source>Send command to -server or xiond</source>
-        <translation>Pošli príkaz na -server alebo xiond</translation>
+        <source>Send command to -server or iond</source>
+        <translation>Pošli príkaz na -server alebo iond</translation>
     </message>
     <message>
         <source>List commands</source>
@@ -1996,12 +1996,12 @@ To znamená, že je potrebný poplatok aspoň %2.</translation>
         <translation>Možnosti:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: ion.conf)</source>
-        <translation>Zadajte konfiguračný súbor (predvolené: ion.conf)</translation>
+        <source>Specify configuration file (default: ioncoin.conf)</source>
+        <translation>Zadajte konfiguračný súbor (predvolené: ioncoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: xiond.pid)</source>
-        <translation>Zadajte pid súbor (predvolené: xiond.pid)</translation>
+        <source>Specify pid file (default: iond.pid)</source>
+        <translation>Zadajte pid súbor (predvolené: iond.pid)</translation>
     </message>
     <message>
         <source>Specify wallet file (within data directory)</source>
@@ -2156,8 +2156,8 @@ napríklad: alertnotify=echo %%s | mail -s "Ion upozornenie" admin@foo.com
         <translation>Pred debug výstup s časovou pečiatkou</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>SSL možnosť: (pozrite Bitcoin Wiki pre návod na nastavenie SSL)</translation>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
+        <translation>SSL možnosť: (pozrite Ion Wiki pre návod na nastavenie SSL)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>

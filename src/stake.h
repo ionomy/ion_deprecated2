@@ -1,8 +1,8 @@
 // Copyright (c) 2012-2013 The PPCoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef PPCOIN_KERNEL_H
-#define PPCOIN_KERNEL_H
+#ifndef ION_KERNEL_H
+#define ION_KERNEL_H
 
 #include "main.h"
 
@@ -39,4 +39,4 @@ int64_t GetWeight(int64_t nIntervalBeginning, int64_t nIntervalEnd);
 // Convenient for searching a kernel
 bool CheckKernel(CBlockIndex* pindexPrev, unsigned int nBits, int64_t nTime, const COutPoint& prevout, int64_t* pBlockTime = NULL);
 
-#endif // PPCOIN_KERNEL_H
+#endif // ION_KERNEL_H

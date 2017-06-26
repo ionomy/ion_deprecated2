@@ -233,7 +233,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Mesaj imzala...</translation>
@@ -718,7 +718,7 @@ This label turns red, if the priority is smaller than "medium".
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -922,7 +922,7 @@ This label turns red, if the priority is smaller than "medium".
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Bitcoin gönderildiğinde arayüzde gösterilecek varsayılan alt birimi seçiniz.</translation>
+        <translation>Ion gönderildiğinde arayüzde gösterilecek varsayılan alt birimi seçiniz.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1147,7 +1147,7 @@ This label turns red, if the priority is smaller than "medium".
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Bitcoin yolla</translation>
+        <translation>Ion yolla</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1863,7 +1863,7 @@ This label turns red, if the priority is smaller than "medium".
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Ion version</source>
         <translation>Ion versiyonu</translation>
@@ -1873,8 +1873,8 @@ This label turns red, if the priority is smaller than "medium".
         <translation>Kullanım:</translation>
     </message>
     <message>
-        <source>Send command to -server or xiond</source>
-        <translation>-sunucu veya xiond'ye komut gönder</translation>
+        <source>Send command to -server or iond</source>
+        <translation>-sunucu veya iond'ye komut gönder</translation>
     </message>
     <message>
         <source>List commands</source>
@@ -1889,11 +1889,11 @@ This label turns red, if the priority is smaller than "medium".
         <translation>Seçenekler:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: ion.conf)</source>
-        <translation>Konfigürasyon dosyasını belirt (varsayılan: ion.conf)</translation>
+        <source>Specify configuration file (default: ioncoin.conf)</source>
+        <translation>Konfigürasyon dosyasını belirt (varsayılan: ioncoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: xiond.pid)</source>
+        <source>Specify pid file (default: iond.pid)</source>
         <translation>pid dosyasını belirt (varsayılan: ion.pid)</translation>
     </message>
     <message>
@@ -2017,8 +2017,8 @@ This label turns red, if the priority is smaller than "medium".
         <translation>Tarih bilgisini, hata ayıklama çıktısının başına ekle</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation> SSL seçenekleri: (SSL kurulum bilgisi için Bitcoin vikisine bakınız)</translation>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
+        <translation> SSL seçenekleri: (SSL kurulum bilgisi için Ion vikisine bakınız)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>

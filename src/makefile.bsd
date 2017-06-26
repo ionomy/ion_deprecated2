@@ -102,7 +102,7 @@ OBJS= \
     obj/crypter.o \
     obj/key.o \
     obj/init.o \
-    obj/bitcoind.o \
+    obj/iond.o \
     obj/keystore.o \
     obj/core.o \
     obj/main.o \
@@ -136,7 +136,7 @@ ifeq (${USE_WALLET}, 1)
         obj/walletdb.o
 endif
 
-all: xiond
+all: iond
 
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/include)
@@ -161,11 +161,11 @@ obj/%.o: %.cpp
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
-xiond: $(OBJS:obj/%=obj/%)
+iond: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f xiond
+	-rm -f iond
 	-rm -f obj/*.o
 	-rm -f obj/*.P
 	-rm -f obj/build.h

@@ -1,6 +1,6 @@
 #include "masternode.h"
 #include "masternodeman.h"
-#include "darksend.h"
+#include "stashedsend.h"
 #include "core.h"
 #include "main.h"
 #include "sync.h"
@@ -193,7 +193,7 @@ void CMasternode::Check()
     if(!unitTest){
         CValidationState state;
         CTransaction tx = CTransaction();
-        CTxOut vout = CTxOut(DARKSEND_POOL_MAX, darkSendPool.collateralPubKey);
+        CTxOut vout = CTxOut(STASHEDSEND_POOL_MAX, stashedSendPool.collateralPubKey);
         tx.vin.push_back(vin);
         tx.vout.push_back(vout);
 

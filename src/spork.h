@@ -1,4 +1,4 @@
-// Copyright (c) 2015 The Ion developers
+// Copyright (c) 2015 The Bitcoin developers
 // Copyright (c) 2009-2012 The Darkcoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -54,7 +54,7 @@ class CSporkManager;
 #include "util.h"
 #include "amount.h"
 #include "protocol.h"
-#include "darksend.h"
+#include "stashedsend.h"
 #include <boost/lexical_cast.hpp>
 
 using namespace std;

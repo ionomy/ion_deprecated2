@@ -2,8 +2,12 @@
 // Copyright (c) 2009-2017 The Bitcoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef _BITCOIN_COMPAT_H
-#define _BITCOIN_COMPAT_H
+#ifndef _ION_COMPAT_H
+#define _ION_COMPAT_H
+
+#if defined(HAVE_CONFIG_H)
+#include "config/ion-config.h"
+#endif
 
 #ifdef WIN32
 #ifdef _WIN32_WINNT

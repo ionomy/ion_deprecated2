@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_EC_WRAPPER_H
-#define BITCOIN_EC_WRAPPER_H
+#ifndef ION_EC_WRAPPER_H
+#define ION_EC_WRAPPER_H
 
 #include <cstddef>
 #include <vector>

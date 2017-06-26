@@ -1,9 +1,14 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+#if defined(HAVE_CONFIG_H)
+#include "config/ion-config.h"
+#endif
+
 #include "optionsmodel.h"
 
-#include "bitcoinunits.h"
+#include "ionunits.h"
 #include "guiutil.h"
 
 #include "init.h"
@@ -53,7 +58,7 @@ void OptionsModel::Init()
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", BitcoinUnits::BTC);
+        settings.setValue("nDisplayUnit", IonUnits::ION);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
     
     fUseBlackTheme = settings.value("fUseBlackTheme", false).toBool();
@@ -62,15 +67,15 @@ void OptionsModel::Init()
         settings.setValue("fCoinControlFeatures", false);
     fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
 
-    // Dark Send
-    if (!settings.contains("nDarksendRounds"))
-        settings.setValue("nDarksendRounds", 2);
-    nDarksendRounds = settings.value("nDarksendRounds").toLongLong();
+    // Stashed Send
+    if (!settings.contains("nStashedsendRounds"))
+        settings.setValue("nStashedsendRounds", 2);
+    nStashedsendRounds = settings.value("nStashedsendRounds").toLongLong();
     if (!settings.contains("nAnonymizeIonAmount"))
         settings.setValue("nAnonymizeIonAmount", 1000);
     nAnonymizeIonAmount = settings.value("nAnonymizeIonAmount").toLongLong();
-    if (settings.contains("nDarksendRounds"))
-        SoftSetArg("-darksendrounds", settings.value("nDarksendRounds").toString().toStdString());
+    if (settings.contains("nStashedsendRounds"))
+        SoftSetArg("-stashedsendrounds", settings.value("nStashedsendRounds").toString().toStdString());
     if (settings.contains("nAnonymizeIonAmount"))
         SoftSetArg("-anonymizeionamount", settings.value("nAnonymizeIonAmount").toString().toStdString());
 
@@ -204,8 +209,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return settings.value("language");
         case CoinControlFeatures:
             return fCoinControlFeatures;
-        case DarksendRounds:
-            return QVariant(nDarksendRounds);
+        case StashedsendRounds:
+            return QVariant(nStashedsendRounds);
         case AnonymizeIonAmount:
             return QVariant(nAnonymizeIonAmount);
         case UseBlackTheme:
@@ -313,10 +318,10 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             fUseBlackTheme = value.toBool();
             settings.setValue("fUseBlackTheme", fUseBlackTheme);
             break;
-        case DarksendRounds:
-            nDarksendRounds = value.toInt();
-            settings.setValue("nDarksendRounds", nDarksendRounds);
-            emit darksendRoundsChanged(nDarksendRounds);
+        case StashedsendRounds:
+            nStashedsendRounds = value.toInt();
+            settings.setValue("nStashedsendRounds", nStashedsendRounds);
+            emit stashedsendRoundsChanged(nStashedsendRounds);
             break;
         case AnonymizeIonAmount:
             nAnonymizeIonAmount = value.toInt();

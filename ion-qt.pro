@@ -1,6 +1,6 @@
 TEMPLATE = app
-TARGET = ionx-qt
-VERSION = 1.0.0
+TARGET = ion-qt
+VERSION = 2.1.6.0
 INCLUDEPATH += src src/json src/qt
 QT += network printsupport
 DEFINES += ENABLE_WALLET
@@ -46,10 +46,10 @@ UI_DIR = build
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
     # Mac: compile for maximum compatibility (10.5, 32-bit)
-    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.9 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
-    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.9 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
-    macx:QMAKE_LFLAGS += -mmacosx-version-min=10.9 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
-    macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.9 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
+    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
+    macx:QMAKE_LFLAGS += -mmacosx-version-min=10.7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
+    macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
 
 
     !windows:!macx {
@@ -106,8 +106,8 @@ contains(USE_IPV6, -) {
     DEFINES += USE_IPV6=$$USE_IPV6
 }
 
-contains(BITCOIN_NEED_QT_PLUGINS, 1) {
-    DEFINES += BITCOIN_NEED_QT_PLUGINS
+contains(ION_NEED_QT_PLUGINS, 1) {
+    DEFINES += ION_NEED_QT_PLUGINS
     QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
 }
 
@@ -198,7 +198,7 @@ macx:QMAKE_CXXFLAGS_WARN_ON += -Wno-deprecated-declarations
 
 # Input
 DEPENDPATH += src src/json src/qt
-HEADERS += src/qt/bitcoingui.h src/proofs.h src/amount.h \
+HEADERS += src/qt/iongui.h src/proofs.h src/amount.h \
     src/qt/transactiontablemodel.h \
     src/qt/addresstablemodel.h \
     src/qt/bantablemodel.h \
@@ -210,7 +210,7 @@ HEADERS += src/qt/bitcoingui.h src/proofs.h src/amount.h \
     src/qt/signverifymessagedialog.h \
     src/qt/aboutdialog.h \
     src/qt/editaddressdialog.h \
-    src/qt/bitcoinaddressvalidator.h \
+    src/qt/ionaddressvalidator.h \
     src/alert.h \
     src/allocators.h \
     src/addrman.h \
@@ -260,7 +260,7 @@ HEADERS += src/qt/bitcoingui.h src/proofs.h src/amount.h \
     src/qt/trafficgraphwidget.h \
     src/qt/transactiondesc.h \
     src/qt/transactiondescdialog.h \
-    src/qt/bitcoinamountfield.h \
+    src/qt/ionamountfield.h \
     src/wallet.h \
     src/keystore.h \
     src/qt/transactionfilterproxy.h \
@@ -275,7 +275,7 @@ HEADERS += src/qt/bitcoingui.h src/proofs.h src/amount.h \
     src/crypter.h \
     src/qt/sendcoinsentry.h \
     src/qt/qvalidatedlineedit.h \
-    src/qt/bitcoinunits.h \
+    src/qt/ionunits.h \
     src/qt/qvaluecombobox.h \
     src/qt/askpassphrasedialog.h \
     src/protocol.h \
@@ -290,10 +290,10 @@ HEADERS += src/qt/bitcoingui.h src/proofs.h src/amount.h \
     src/tinyformat.h \
     src/stealth.h \
     src/qt/flowlayout.h \
-    src/qt/darksendconfig.h \
+    src/qt/stashedsendconfig.h \
     src/masternode.h \
-    src/darksend.h \
-    src/darksend-relay.h \
+    src/stashedsend.h \
+    src/stashedsend-relay.h \
     src/instantx.h \
     src/activemasternode.h \
     src/masternodeconfig.h \
@@ -317,7 +317,7 @@ HEADERS += src/qt/bitcoingui.h src/proofs.h src/amount.h \
     src/qt/multisigdialog.h \
     src/limitedmap.h
 
-SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/proofs.cpp src/uint256.cpp src/amount.cpp \
+SOURCES += src/qt/ion.cpp src/qt/iongui.cpp src/proofs.cpp src/uint256.cpp src/amount.cpp \
     src/qt/transactiontablemodel.cpp \
     src/qt/addresstablemodel.cpp \
     src/qt/bantablemodel.cpp \
@@ -329,7 +329,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/proofs.cpp src/uint256.c
     src/qt/signverifymessagedialog.cpp \
     src/qt/aboutdialog.cpp \
     src/qt/editaddressdialog.cpp \
-    src/qt/bitcoinaddressvalidator.cpp \
+    src/qt/ionaddressvalidator.cpp \
     src/alert.cpp \
     src/allocators.cpp \
     src/base58.cpp \
@@ -362,8 +362,8 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/proofs.cpp src/uint256.c
     src/qt/trafficgraphwidget.cpp \
     src/qt/transactiondesc.cpp \
     src/qt/transactiondescdialog.cpp \
-    src/qt/bitcoinstrings.cpp \
-    src/qt/bitcoinamountfield.cpp \
+    src/qt/ionstrings.cpp \
+    src/qt/ionamountfield.cpp \
     src/wallet.cpp \
     src/keystore.cpp \
     src/qt/transactionfilterproxy.cpp \
@@ -385,7 +385,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/proofs.cpp src/uint256.c
     src/crypter.cpp \
     src/qt/sendcoinsentry.cpp \
     src/qt/qvalidatedlineedit.cpp \
-    src/qt/bitcoinunits.cpp \
+    src/qt/ionunits.cpp \
     src/qt/qvaluecombobox.cpp \
     src/qt/askpassphrasedialog.cpp \
     src/protocol.cpp \
@@ -397,11 +397,11 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/proofs.cpp src/uint256.c
     src/support/cleanse.cpp \
     src/stealth.cpp \
     src/qt/flowlayout.cpp \
-    src/qt/darksendconfig.cpp \
+    src/qt/stashedsendconfig.cpp \
     src/masternode.cpp \
-    src/darksend.cpp \
-    src/darksend-relay.cpp \
-    src/rpcdarksend.cpp \
+    src/stashedsend.cpp \
+    src/stashedsend-relay.cpp \
+    src/rpcstashedsend.cpp \
     src/instantx.cpp \
     src/activemasternode.cpp \
     src/masternodeman.cpp \
@@ -424,7 +424,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp src/proofs.cpp src/uint256.c
     src/qt/multisigdialog.cpp
 
 RESOURCES += \
-    src/qt/bitcoin.qrc
+    src/qt/ion.qrc
 
 FORMS += \
     src/qt/forms/coincontroldialog.ui \
@@ -439,7 +439,7 @@ FORMS += \
     src/qt/forms/askpassphrasedialog.ui \
     src/qt/forms/rpcconsole.ui \
     src/qt/forms/optionsdialog.ui \
-    src/qt/forms/darksendconfig.ui \
+    src/qt/forms/stashedsendconfig.ui \
     src/qt/forms/masternodemanager.ui \
     src/qt/forms/addeditatomnode.ui \
     src/qt/forms/atomnodeconfigdialog.ui \
@@ -456,7 +456,7 @@ FORMS += src/qt/forms/qrcodedialog.ui
 CODECFORTR = UTF-8
 
 # for lrelease/lupdate
-# also add new translations to src/qt/bitcoin.qrc under translations/
+# also add new translations to src/qt/ion.qrc under translations/
 TRANSLATIONS = $$files(src/qt/locale/ion_*.ts)
 
 isEmpty(QMAKE_LRELEASE) {
@@ -474,7 +474,7 @@ QMAKE_EXTRA_COMPILERS += TSQM
 
 # "Other files" to show in Qt Creator
 OTHER_FILES += \
-    doc/*.rst doc/*.txt doc/README README.md res/bitcoin-qt.rc
+    doc/*.rst doc/*.txt doc/README README.md res/ion-qt.rc
 
 # platform specific defaults, if not overridden on command line
 isEmpty(BOOST_LIB_SUFFIX) {
@@ -562,7 +562,7 @@ contains(USE_UPNP, -) {
 }
 
 windows:DEFINES += WIN32
-windows:RC_FILE = src/qt/res/bitcoin-qt.rc
+windows:RC_FILE = src/qt/res/ion-qt.rc
 
 windows:!contains(MINGW_THREAD_BUGFIX, 0) {
     # At least qmake's win32-g++-cross profile is missing the -lmingwthrd
@@ -578,9 +578,9 @@ windows:!contains(MINGW_THREAD_BUGFIX, 0) {
 macx:HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
 macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices
-macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
-macx:ICON = src/qt/res/icons/bitcoin.icns
-macx:TARGET = "ionx-Qt"
+macx:DEFINES += MAC_OSX Q_OS_MAC MSG_NOSIGNAL=0
+macx:ICON = src/qt/res/icons/ion.icns
+macx:TARGET = "ion-Qt"
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread

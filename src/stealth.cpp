@@ -62,7 +62,7 @@ bool CStealthAddress::SetEncoded(const std::string& encodedAddress)
 
 std::string CStealthAddress::Encoded() const
 {
-    // https://wiki.unsystem.net/index.php/DarkWallet/Stealth#Address_format
+    // https://wiki.unsystem.net/index.php/StashedWallet/Stealth#Address_format
     // [version] [options] [scan_key] [N] ... [Nsigs] [prefix_length] ...
     
     data_chunk raw;
@@ -82,7 +82,7 @@ std::string CStealthAddress::Encoded() const
 };
 
 
-uint32_t DarkSilkChecksum(uint8_t* p, uint32_t nBytes)
+uint32_t StashedSilkChecksum(uint8_t* p, uint32_t nBytes)
 {
     if (!p || nBytes == 0)
         return 0;
@@ -100,7 +100,7 @@ uint32_t DarkSilkChecksum(uint8_t* p, uint32_t nBytes)
 
 void AppendChecksum(data_chunk& data)
 {
-    uint32_t checksum = DarkSilkChecksum(&data[0], data.size());
+    uint32_t checksum = StashedSilkChecksum(&data[0], data.size());
     
     // -- to_little_endian
     std::vector<uint8_t> tmp(4);
@@ -122,7 +122,7 @@ bool VerifyChecksum(const data_chunk& data)
     
     uint32_t checksum = from_little_endian<uint32_t>(data.end() - 4);
     
-    return DarkSilkChecksum((uint8_t*)&data[0], data.size()-4) == checksum;
+    return StashedSilkChecksum((uint8_t*)&data[0], data.size()-4) == checksum;
 };
 
 

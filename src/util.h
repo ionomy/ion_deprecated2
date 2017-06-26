@@ -3,8 +3,12 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_UTIL_H
-#define BITCOIN_UTIL_H
+#ifndef ION_UTIL_H
+#define ION_UTIL_H
+
+#if defined(HAVE_CONFIG_H)
+#include "config/ion-config.h"
+#endif
 
 #ifndef WIN32
 #include <sys/types.h>
@@ -104,22 +108,22 @@ inline void MilliSleep(int64_t n)
 #endif
 }
 
-//Dark features
+//Stashed features
 
 extern bool fMasterNode;
 extern bool fLiteMode;
 extern bool fEnableInstantX;
 extern int nInstantXDepth;
-extern int nDarksendRounds;
+extern int nStashedsendRounds;
 extern int nAnonymizeIonAmount;
 extern int nLiquidityProvider;
-extern bool fEnableDarksend;
+extern bool fEnableStashedsend;
 extern int64_t enforceMasternodePaymentsTime;
 extern std::string strMasterNodeAddr;
 extern int nMasternodeMinProtocol;
 extern int keysLoaded;
 extern bool fSucessfullyLoaded;
-extern std::vector<int64_t> darkSendDenominations;
+extern std::vector<int64_t> stashedSendDenominations;
 extern std::map<std::string, std::string> mapArgs;
 extern std::map<std::string, std::vector<std::string> > mapMultiArgs;
 extern bool fDebug;

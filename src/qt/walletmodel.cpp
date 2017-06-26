@@ -138,13 +138,13 @@ void WalletModel::pollBalanceChanged()
     if(!lockWallet)
         return;
 
-    if(fForceCheckBalanceChanged || nBestHeight != cachedNumBlocks || nDarksendRounds != cachedDarksendRounds || cachedTxLocks != nCompleteTXLocks)
+    if(fForceCheckBalanceChanged || nBestHeight != cachedNumBlocks || nStashedsendRounds != cachedStashedsendRounds || cachedTxLocks != nCompleteTXLocks)
     {
         fForceCheckBalanceChanged = false;
 
         // Balance and number of transactions might have changed
         cachedNumBlocks = nBestHeight;
-        cachedDarksendRounds = nDarksendRounds;
+        cachedStashedsendRounds = nStashedsendRounds;
 
         checkBalanceChanged();
         if(transactionTableModel)

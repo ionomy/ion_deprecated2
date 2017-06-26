@@ -3,10 +3,10 @@
 
 #include "util.h"
 #include "clientmodel.h"
-#include "darksend.h"
-#include "darksendconfig.h"
+#include "stashedsend.h"
+#include "stashedsendconfig.h"
 #include "walletmodel.h"
-#include "bitcoinunits.h"
+#include "ionunits.h"
 #include "optionsmodel.h"
 #include "transactiontablemodel.h"
 #include "transactionfilterproxy.h"
@@ -28,7 +28,7 @@ class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 public:
-    TxViewDelegate(): QAbstractItemDelegate(), unit(BitcoinUnits::BTC)
+    TxViewDelegate(): QAbstractItemDelegate(), unit(IonUnits::ION)
     {
 
     }
@@ -84,7 +84,7 @@ public:
             foreground = option.palette.color(QPalette::Text);
         }
         painter->setPen(foreground);
-        QString amountText = BitcoinUnits::formatWithUnit(unit, amount, true);
+        QString amountText = IonUnits::formatWithUnit(unit, amount, true);
         if(!confirmed)
         {
             amountText = QString("[") + amountText + QString("]");
@@ -136,28 +136,28 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     // init "out of sync" warning labels
     ui->labelWalletStatus->setText("(" + tr("out of sync") + ")");
-    ui->labelDarksendSyncStatus->setText("(" + tr("out of sync") + ")");
+    ui->labelStashedsendSyncStatus->setText("(" + tr("out of sync") + ")");
     ui->labelTransactionsStatus->setText("(" + tr("out of sync") + ")");
 
     fLiteMode = GetBoolArg("-litemode", false);
     fProduction = true;
 
     if(fLiteMode || fProduction) {
-        ui->frameDarksend->setVisible(false);
+        ui->frameStashedsend->setVisible(false);
     } else {
         if(fMasterNode) {
-            ui->toggleDarksend->setText("(" + tr("Disabled") + ")");
-            ui->darksendAuto->setText("(" + tr("Disabled") + ")");
-            ui->darksendReset->setText("(" + tr("Disabled") + ")");
-            ui->frameDarksend->setEnabled(false);
+            ui->toggleStashedsend->setText("(" + tr("Disabled") + ")");
+            ui->stashedsendAuto->setText("(" + tr("Disabled") + ")");
+            ui->stashedsendReset->setText("(" + tr("Disabled") + ")");
+            ui->frameStashedsend->setEnabled(false);
         } else {
-            if(!fEnableDarksend) {
-                ui->toggleDarksend->setText(tr("Start Darksend Mixing"));
+            if(!fEnableStashedsend) {
+                ui->toggleStashedsend->setText(tr("Start Stashedsend Mixing"));
             } else {
-                ui->toggleDarksend->setText(tr("Stop Darksend Mixing"));
+                ui->toggleStashedsend->setText(tr("Stop Stashedsend Mixing"));
             }
             timer = new QTimer(this);
-            connect(timer, SIGNAL(timeout()), this, SLOT(darkSendStatus()));
+            connect(timer, SIGNAL(timeout()), this, SLOT(stashedSendStatus()));
             if(!GetBoolArg("-reindexaddr", false))
                 timer->start(60000);
         }
@@ -175,7 +175,7 @@ void OverviewPage::handleTransactionClicked(const QModelIndex &index)
 
 OverviewPage::~OverviewPage()
 {
-    if(!fLiteMode && !fMasterNode && !fProduction) disconnect(timer, SIGNAL(timeout()), this, SLOT(darkSendStatus()));
+    if(!fLiteMode && !fMasterNode && !fProduction) disconnect(timer, SIGNAL(timeout()), this, SLOT(stashedSendStatus()));
     delete ui;
 }
 
@@ -190,17 +190,17 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& stake, cons
     currentWatchOnlyStake = watchOnlyStake;
     currentWatchUnconfBalance = watchUnconfBalance;
     currentWatchImmatureBalance = watchImmatureBalance;
-    ui->labelBalance->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, balance));
-    ui->labelStake->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, stake));
-    ui->labelUnconfirmed->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, unconfirmedBalance));
-    ui->labelImmature->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, immatureBalance));
-    ui->labelAnonymized->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, anonymizedBalance));
-    ui->labelTotal->setText(BitcoinUnits::formatWithUnit(nDisplayUnit, balance + stake + unconfirmedBalance + immatureBalance));
-    ui->labelWatchAvailable->setText(BitcoinUnits::floorWithUnit(nDisplayUnit, watchOnlyBalance));
-    ui->labelWatchStake->setText(BitcoinUnits::floorWithUnit(nDisplayUnit, watchOnlyStake));
-    ui->labelWatchPending->setText(BitcoinUnits::floorWithUnit(nDisplayUnit, watchUnconfBalance));
-    ui->labelWatchImmature->setText(BitcoinUnits::floorWithUnit(nDisplayUnit, watchImmatureBalance));
-    ui->labelWatchTotal->setText(BitcoinUnits::floorWithUnit(nDisplayUnit, watchOnlyBalance + watchOnlyStake + watchUnconfBalance + watchImmatureBalance));
+    ui->labelBalance->setText(IonUnits::formatWithUnit(nDisplayUnit, balance));
+    ui->labelStake->setText(IonUnits::formatWithUnit(nDisplayUnit, stake));
+    ui->labelUnconfirmed->setText(IonUnits::formatWithUnit(nDisplayUnit, unconfirmedBalance));
+    ui->labelImmature->setText(IonUnits::formatWithUnit(nDisplayUnit, immatureBalance));
+    ui->labelAnonymized->setText(IonUnits::formatWithUnit(nDisplayUnit, anonymizedBalance));
+    ui->labelTotal->setText(IonUnits::formatWithUnit(nDisplayUnit, balance + stake + unconfirmedBalance + immatureBalance));
+    ui->labelWatchAvailable->setText(IonUnits::floorWithUnit(nDisplayUnit, watchOnlyBalance));
+    ui->labelWatchStake->setText(IonUnits::floorWithUnit(nDisplayUnit, watchOnlyStake));
+    ui->labelWatchPending->setText(IonUnits::floorWithUnit(nDisplayUnit, watchUnconfBalance));
+    ui->labelWatchImmature->setText(IonUnits::floorWithUnit(nDisplayUnit, watchImmatureBalance));
+    ui->labelWatchTotal->setText(IonUnits::floorWithUnit(nDisplayUnit, watchOnlyBalance + watchOnlyStake + watchUnconfBalance + watchImmatureBalance));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
@@ -212,7 +212,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& stake, cons
     ui->labelImmatureText->setVisible(showImmature || showWatchOnlyImmature);
     ui->labelWatchImmature->setVisible(showWatchOnlyImmature); // show watch-only immature balance
 
-    updateDarksendProgress();
+    updateStashedsendProgress();
 
     static int cachedTxLocks = 0;
 
@@ -280,14 +280,14 @@ void OverviewPage::setWalletModel(WalletModel *model)
 
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
 
-        connect(ui->darksendAuto, SIGNAL(clicked()), this, SLOT(darksendAuto()));
-        connect(ui->darksendReset, SIGNAL(clicked()), this, SLOT(darksendReset()));
-        connect(ui->toggleDarksend, SIGNAL(clicked()), this, SLOT(toggleDarksend()));
+        connect(ui->stashedsendAuto, SIGNAL(clicked()), this, SLOT(stashedsendAuto()));
+        connect(ui->stashedsendReset, SIGNAL(clicked()), this, SLOT(stashedsendReset()));
+        connect(ui->toggleStashedsend, SIGNAL(clicked()), this, SLOT(toggleStashedsend()));
         updateWatchOnlyLabels(model->haveWatchOnly());
         connect(model, SIGNAL(notifyWatchonlyChanged(bool)), this, SLOT(updateWatchOnlyLabels(bool)));
     }
 
-    // update the display unit, to not use the default ("BTC")
+    // update the display unit, to not use the default ("ION")
     updateDisplayUnit();
 }
 
@@ -317,28 +317,28 @@ void OverviewPage::updateAlerts(const QString &warnings)
 void OverviewPage::showOutOfSyncWarning(bool fShow)
 {
     ui->labelWalletStatus->setVisible(fShow);
-    ui->labelDarksendSyncStatus->setVisible(fShow);
+    ui->labelStashedsendSyncStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
 }
 
 
 
-void OverviewPage::updateDarksendProgress()
+void OverviewPage::updateStashedsendProgress()
 {
-    if(!darkSendPool.IsBlockchainSynced() || ShutdownRequested()) return;
+    if(!stashedSendPool.IsBlockchainSynced() || ShutdownRequested()) return;
 
     if(!pwalletMain) return;
 
     QString strAmountAndRounds;
-    QString strAnonymizeIonAmount = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nAnonymizeIonAmount * COIN, false, BitcoinUnits::separatorAlways);
+    QString strAnonymizeIonAmount = IonUnits::formatHtmlWithUnit(nDisplayUnit, nAnonymizeIonAmount * COIN, false, IonUnits::separatorAlways);
 
     if(currentBalance == 0)
     {
-        ui->darksendProgress->setValue(0);
-        ui->darksendProgress->setToolTip(tr("No inputs detected"));
+        ui->stashedsendProgress->setValue(0);
+        ui->stashedsendProgress->setToolTip(tr("No inputs detected"));
         // when balance is zero just show info from settings
-        strAnonymizeIonAmount = strAnonymizeIonAmount.remove(strAnonymizeIonAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strAnonymizeIonAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
+        strAnonymizeIonAmount = strAnonymizeIonAmount.remove(strAnonymizeIonAmount.indexOf("."), IonUnits::decimals(nDisplayUnit) + 1);
+        strAmountAndRounds = strAnonymizeIonAmount + " / " + tr("%n Rounds", "", nStashedsendRounds);
 
         ui->labelAmountRounds->setToolTip(tr("No inputs detected"));
         ui->labelAmountRounds->setText(strAmountAndRounds);
@@ -373,18 +373,18 @@ void OverviewPage::updateDarksendProgress()
     if(nMaxToAnonymize >= nAnonymizeIonAmount * COIN) {
         ui->labelAmountRounds->setToolTip(tr("Found enough compatible inputs to anonymize %1")
                                           .arg(strAnonymizeIonAmount));
-        strAnonymizeIonAmount = strAnonymizeIonAmount.remove(strAnonymizeIonAmount.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
-        strAmountAndRounds = strAnonymizeIonAmount + " / " + tr("%n Rounds", "", nDarksendRounds);
+        strAnonymizeIonAmount = strAnonymizeIonAmount.remove(strAnonymizeIonAmount.indexOf("."), IonUnits::decimals(nDisplayUnit) + 1);
+        strAmountAndRounds = strAnonymizeIonAmount + " / " + tr("%n Rounds", "", nStashedsendRounds);
     } else {
-        QString strMaxToAnonymize = BitcoinUnits::formatHtmlWithUnit(nDisplayUnit, nMaxToAnonymize, false, BitcoinUnits::separatorAlways);
+        QString strMaxToAnonymize = IonUnits::formatHtmlWithUnit(nDisplayUnit, nMaxToAnonymize, false, IonUnits::separatorAlways);
         ui->labelAmountRounds->setToolTip(tr("Not enough compatible inputs to anonymize <span style='color:red;'>%1</span>,<br>"
                                              "will anonymize <span style='color:red;'>%2</span> instead")
                                           .arg(strAnonymizeIonAmount)
                                           .arg(strMaxToAnonymize));
-        strMaxToAnonymize = strMaxToAnonymize.remove(strMaxToAnonymize.indexOf("."), BitcoinUnits::decimals(nDisplayUnit) + 1);
+        strMaxToAnonymize = strMaxToAnonymize.remove(strMaxToAnonymize.indexOf("."), IonUnits::decimals(nDisplayUnit) + 1);
         strAmountAndRounds = "<span style='color:red;'>" +
-                             QString(BitcoinUnits::factor(nDisplayUnit) == 1 ? "" : "~") + strMaxToAnonymize +
-                             " / " + tr("%n Rounds", "", nDarksendRounds) + "</span>";
+                             QString(IonUnits::factor(nDisplayUnit) == 1 ? "" : "~") + strMaxToAnonymize +
+                             " / " + tr("%n Rounds", "", nStashedsendRounds) + "</span>";
     }
     ui->labelAmountRounds->setText(strAmountAndRounds);
 
@@ -411,7 +411,7 @@ void OverviewPage::updateDarksendProgress()
 
     // apply some weights to them ...
     float denomWeight = 1;
-    float anonNormWeight = nDarksendRounds;
+    float anonNormWeight = nStashedsendRounds;
     float anonFullWeight = 2;
     float fullWeight = denomWeight + anonNormWeight + anonFullWeight;
     // ... and calculate the whole progress
@@ -421,92 +421,92 @@ void OverviewPage::updateDarksendProgress()
     float progress = denomPartCalc + anonNormPartCalc + anonFullPartCalc;
     if(progress >= 100) progress = 100;
 
-    ui->darksendProgress->setValue(progress);
+    ui->stashedsendProgress->setValue(progress);
 
     QString strToolPip = ("<b>" + tr("Overall progress") + ": %1%</b><br/>" +
                           tr("Denominated") + ": %2%<br/>" +
                           tr("Mixed") + ": %3%<br/>" +
                           tr("Anonymized") + ": %4%<br/>" +
-                          tr("Denominated inputs have %5 of %n rounds on average", "", nDarksendRounds))
+                          tr("Denominated inputs have %5 of %n rounds on average", "", nStashedsendRounds))
                          .arg(progress).arg(denomPart).arg(anonNormPart).arg(anonFullPart)
                          .arg(nAverageAnonymizedRounds);
-    ui->darksendProgress->setToolTip(strToolPip);
+    ui->stashedsendProgress->setToolTip(strToolPip);
 }
 
 
-void OverviewPage::darkSendStatus()
+void OverviewPage::stashedSendStatus()
 {
     static int64_t nLastDSProgressBlockTime = 0;
 
     int nBestHeight = pindexBest->nHeight;
 
     // we we're processing more then 1 block per second, we'll just leave
-    if(((nBestHeight - darkSendPool.cachedNumBlocks) / (GetTimeMillis() - nLastDSProgressBlockTime + 1) > 1)) return;
+    if(((nBestHeight - stashedSendPool.cachedNumBlocks) / (GetTimeMillis() - nLastDSProgressBlockTime + 1) > 1)) return;
     nLastDSProgressBlockTime = GetTimeMillis();
 
-    if(!fEnableDarksend) {
-        if(nBestHeight != darkSendPool.cachedNumBlocks)
+    if(!fEnableStashedsend) {
+        if(nBestHeight != stashedSendPool.cachedNumBlocks)
         {
-            darkSendPool.cachedNumBlocks = nBestHeight;
-            updateDarksendProgress();
+            stashedSendPool.cachedNumBlocks = nBestHeight;
+            updateStashedsendProgress();
 
-            ui->darksendEnabled->setText(tr("Disabled"));
-            ui->darksendStatus->setText("");
-            ui->toggleDarksend->setText(tr("Start Darksend Mixing"));
+            ui->stashedsendEnabled->setText(tr("Disabled"));
+            ui->stashedsendStatus->setText("");
+            ui->toggleStashedsend->setText(tr("Start Stashedsend Mixing"));
         }
 
         return;
     }
 
-    // check darksend status and unlock if needed
-    if(nBestHeight != darkSendPool.cachedNumBlocks)
+    // check stashedsend status and unlock if needed
+    if(nBestHeight != stashedSendPool.cachedNumBlocks)
     {
         // Balance and number of transactions might have changed
-        darkSendPool.cachedNumBlocks = nBestHeight;
+        stashedSendPool.cachedNumBlocks = nBestHeight;
 
-        updateDarksendProgress();
+        updateStashedsendProgress();
 
-        ui->darksendEnabled->setText(tr("Enabled"));
+        ui->stashedsendEnabled->setText(tr("Enabled"));
     }
 
-    QString strStatus = QString(darkSendPool.GetStatus().c_str());
+    QString strStatus = QString(stashedSendPool.GetStatus().c_str());
 
-    QString s = tr("Last Darksend message:\n") + strStatus;
+    QString s = tr("Last Stashedsend message:\n") + strStatus;
 
-    if(s != ui->darksendStatus->text())
-        LogPrintf("Last Darksend message: %s\n", strStatus.toStdString());
+    if(s != ui->stashedsendStatus->text())
+        LogPrintf("Last Stashedsend message: %s\n", strStatus.toStdString());
 
-    ui->darksendStatus->setText(s);
+    ui->stashedsendStatus->setText(s);
 
-    if(darkSendPool.sessionDenom == 0) {
+    if(stashedSendPool.sessionDenom == 0) {
         ui->labelSubmittedDenom->setText(tr("N/A"));
     } else {
         std::string out;
-        darkSendPool.GetDenominationsToString(darkSendPool.sessionDenom, out);
+        stashedSendPool.GetDenominationsToString(stashedSendPool.sessionDenom, out);
         QString s2(out.c_str());
         ui->labelSubmittedDenom->setText(s2);
     }
 
-    // Get DarkSend Denomination Status
+    // Get StashedSend Denomination Status
 }
 
-void OverviewPage::darksendAuto() {
-    darkSendPool.DoAutomaticDenominating();
+void OverviewPage::stashedsendAuto() {
+    stashedSendPool.DoAutomaticDenominating();
 }
 
-void OverviewPage::darksendReset() {
-    darkSendPool.Reset();
-    darkSendStatus();
+void OverviewPage::stashedsendReset() {
+    stashedSendPool.Reset();
+    stashedSendStatus();
 
-    QMessageBox::warning(this, tr("Darksend"),
-                         tr("Darksend was successfully reset."),
+    QMessageBox::warning(this, tr("Stashedsend"),
+                         tr("Stashedsend was successfully reset."),
                          QMessageBox::Ok, QMessageBox::Ok);
 }
 
-void OverviewPage::toggleDarksend() {
+void OverviewPage::toggleStashedsend() {
     QMessageBox::StandardButton askIfAGoodIdea;
-    askIfAGoodIdea = QMessageBox::question(this, tr("DarkSend Mixing"), 
-												 tr("DarkSend is not for production networks yet! Please continue at your own risk! Any loss of coins will be the sole liability of the user, would you like to continue?"),
+    askIfAGoodIdea = QMessageBox::question(this, tr("StashedSend Mixing"), 
+												 tr("StashedSend is not for production networks yet! Please continue at your own risk! Any loss of coins will be the sole liability of the user, would you like to continue?"),
                                            QMessageBox::Yes|QMessageBox::No);
 
     if (askIfAGoodIdea == QMessageBox::Yes) {
@@ -514,19 +514,19 @@ void OverviewPage::toggleDarksend() {
         // Popup some information on first mixing
         QString hasMixed = settings.value("hasMixed").toString();
         if(hasMixed.isEmpty()) {
-            QMessageBox::information(this, tr("Darksend"),
-                                     tr("If you don't want to see internal Darksend fees/transactions select \"Received By\" as Type on the \"Transactions\" tab."),
+            QMessageBox::information(this, tr("Stashedsend"),
+                                     tr("If you don't want to see internal Stashedsend fees/transactions select \"Received By\" as Type on the \"Transactions\" tab."),
                                      QMessageBox::Ok, QMessageBox::Ok);
             settings.setValue("hasMixed", "hasMixed");
         }
 
-        if(!fEnableDarksend) {
+        if(!fEnableStashedsend) {
             int64_t balance = currentBalance;
             float minAmount = 1.49 * COIN;
             if(balance < minAmount) {
-                QString strMinAmount(BitcoinUnits::formatWithUnit(nDisplayUnit, minAmount));
-                QMessageBox::warning(this, tr("Darksend"),
-                                     tr("Darksend requires at least %1 to use.").arg(strMinAmount),
+                QString strMinAmount(IonUnits::formatWithUnit(nDisplayUnit, minAmount));
+                QMessageBox::warning(this, tr("Stashedsend"),
+                                     tr("Stashedsend requires at least %1 to use.").arg(strMinAmount),
                                      QMessageBox::Ok, QMessageBox::Ok);
                 return;
             }
@@ -538,30 +538,30 @@ void OverviewPage::toggleDarksend() {
                 if(!ctx.isValid())
                 {
                     //unlock was cancelled
-                    darkSendPool.cachedNumBlocks = std::numeric_limits<int>::max();
-                    QMessageBox::warning(this, tr("Darksend"),
-                                         tr("Wallet is locked and user declined to unlock. Disabling Darksend."),
+                    stashedSendPool.cachedNumBlocks = std::numeric_limits<int>::max();
+                    QMessageBox::warning(this, tr("Stashedsend"),
+                                         tr("Wallet is locked and user declined to unlock. Disabling Stashedsend."),
                                          QMessageBox::Ok, QMessageBox::Ok);
-                    if (fDebug) LogPrintf("Wallet is locked and user declined to unlock. Disabling Darksend.\n");
+                    if (fDebug) LogPrintf("Wallet is locked and user declined to unlock. Disabling Stashedsend.\n");
                     return;
                 }
             }
 
         }
 
-        fEnableDarksend = !fEnableDarksend;
-        darkSendPool.cachedNumBlocks = std::numeric_limits<int>::max();
+        fEnableStashedsend = !fEnableStashedsend;
+        stashedSendPool.cachedNumBlocks = std::numeric_limits<int>::max();
 
-        if(!fEnableDarksend) {
-            ui->toggleDarksend->setText(tr("Start Darksend Mixing"));
-            darkSendPool.UnlockCoins();
+        if(!fEnableStashedsend) {
+            ui->toggleStashedsend->setText(tr("Start Stashedsend Mixing"));
+            stashedSendPool.UnlockCoins();
         } else {
-            ui->toggleDarksend->setText(tr("Stop Darksend Mixing"));
+            ui->toggleStashedsend->setText(tr("Stop Stashedsend Mixing"));
 
-            /* show darksend configuration if client has defaults set */
+            /* show stashedsend configuration if client has defaults set */
 
             if(nAnonymizeIonAmount == 0) {
-                DarksendConfig dlg(this);
+                StashedsendConfig dlg(this);
                 dlg.setModel(walletModel);
                 dlg.exec();
             }

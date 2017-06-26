@@ -125,7 +125,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Show general overview of wallet</source>
         <translation>Ikusi zorroaren begirada orokorra</translation>
@@ -152,7 +152,7 @@
     </message>
     <message>
         <source>Show information about Qt</source>
-        <translation>Erakutsi Bitcoin-i buruzko informazioa</translation>
+        <translation>Erakutsi Ion-i buruzko informazioa</translation>
     </message>
     <message>
         <source>&amp;Options...</source>
@@ -242,7 +242,7 @@
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -619,7 +619,7 @@
     <name>WalletModel</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>List commands</source>
         <translation>Komandoen lista</translation>

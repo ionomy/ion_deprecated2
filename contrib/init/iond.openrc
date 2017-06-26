@@ -1,0 +1,92 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/ion/.ion" ]; then
+	IOND_DEFAULT_DATADIR="/var/lib/ion/.ion"
+else
+	IOND_DEFAULT_DATADIR="/var/lib/iond"
+fi
+
+IOND_CONFIGFILE=${IOND_CONFIGFILE:-/etc/ion/ioncoin.conf}
+IOND_PIDDIR=${IOND_PIDDIR:-/var/run/iond}
+IOND_PIDFILE=${IOND_PIDFILE:-${IOND_PIDDIR}/iond.pid}
+IOND_DATADIR=${IOND_DATADIR:-${IOND_DEFAULT_DATADIR}}
+IOND_USER=${IOND_USER:-${ION_USER:-ion}}
+IOND_GROUP=${IOND_GROUP:-ion}
+IOND_BIN=${IOND_BIN:-/usr/bin/iond}
+IOND_NICE=${IOND_NICE:-${NICELEVEL:-0}}
+IOND_OPTS="${IOND_OPTS:-${ION_OPTS}}"
+
+name="Ion Core Daemon"
+description="Ion cryptocurrency P2P network daemon"
+
+command="/usr/bin/iond"
+command_args="-pid=\"${IOND_PIDFILE}\" \
+		-conf=\"${IOND_CONFIGFILE}\" \
+		-datadir=\"${IOND_DATADIR}\" \
+		-daemon \
+		${IOND_OPTS}"
+
+required_files="${IOND_CONFIGFILE}"
+start_stop_daemon_args="-u ${IOND_USER} \
+			-N ${IOND_NICE} -w 2000"
+pidfile="${IOND_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${IOND_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${IOND_USER}:${IOND_GROUP}" \
+	"${IOND_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${IOND_USER}:${IOND_GROUP}" \
+	"${IOND_PIDDIR}"
+
+	checkpath -f \
+	-o ${IOND_USER}:${IOND_GROUP} \
+	-m 0660 \
+	${IOND_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${IOND_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run iond."
+		eerror "The setting must appear in ${IOND_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following"
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Ion Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

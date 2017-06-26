@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_CHAIN_PARAMS_H
-#define BITCOIN_CHAIN_PARAMS_H
+#ifndef ION_CHAIN_PARAMS_H
+#define ION_CHAIN_PARAMS_H
 
 #include "uint256.h"
 #include "util.h"
@@ -27,7 +27,7 @@ struct CDNSSeedData {
 
 /**
  * CChainParams defines various tweakable parameters of a given instance of the
- * Bitcoin system. There are three: the main network on which people trade goods
+ * Ion system. There are three: the main network on which people trade goods
  * and services, the public test network which gets reset from time to time and
  * a regression test mode which is intended for private networks only. It has
  * minimal difficulty to ensure that blocks can be found instantly.
@@ -60,7 +60,8 @@ public:
     int GetDefaultPort() const { return nDefaultPort; }
     const uint256& ProofOfWorkLimit() const { return nProofOfWorkLimit; }
     const uint256& ProofOfStakeLimit() const { return nProofOfStakeLimit; }
-    int SubsidyHalvingInterval() const { return nSubsidyHalvingInterval; }
+    int TargetSpacing() const { return nTargetSpacing; }
+    int TargetTimespan() const { return nTargetTimespan; }
     virtual const CBlock& GenesisBlock() const = 0;
     virtual bool RequireRPCPassword() const { return true; }
     const string& DataDir() const { return strDataDir; }
@@ -71,7 +72,10 @@ public:
     int RPCPort() const { return nRPCPort; }
     int LastPOWBlock() const { return nLastPOWBlock; }
     int PoolMaxTransactions() const { return nPoolMaxTransactions; }
-    std::string DarksendPoolDummyAddress() const { return strDarksendPoolDummyAddress; }
+    std::string StashedsendPoolDummyAddress() const { return strStashedsendPoolDummyAddress; }
+    
+    int Fork1Height() const { return nFork1Height; }
+    int Fork1Time() const { return nFork1Time; }
 
 protected:
     CChainParams() {};
@@ -84,14 +88,19 @@ protected:
     int nRPCPort;
     uint256 nProofOfWorkLimit;
     uint256 nProofOfStakeLimit;
-    int nSubsidyHalvingInterval;
+    int nTargetSpacing;
+    int nAdjustmentInterval;
+    int nTargetTimespan;
     string strDataDir;
     vector<CDNSSeedData> vSeeds;
     std::vector<unsigned char> base58Prefixes[MAX_BASE58_TYPES];
     int nLastPOWBlock;
     int nPOSStartBlock;
     int nPoolMaxTransactions;
-    std::string strDarksendPoolDummyAddress;
+    std::string strStashedsendPoolDummyAddress;
+    
+    int nFork1Height;
+    int64_t nFork1Time;
 };
 
 /**

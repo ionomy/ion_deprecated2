@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_PUBKEY_H
-#define BITCOIN_PUBKEY_H
+#ifndef ION_PUBKEY_H
+#define ION_PUBKEY_H
 
 #include "hash.h"
 #include "serialize.h"
@@ -212,4 +212,4 @@ struct ECCryptoClosure
     ECCVerifyHandle handle;
 };
 
-#endif // BITCOIN_PUBKEY_H
+#endif // ION_PUBKEY_H

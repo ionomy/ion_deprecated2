@@ -229,7 +229,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Signera &amp;meddelande...</translation>
@@ -714,7 +714,7 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -1855,7 +1855,7 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Ion version</source>
         <translation>Ion version</translation>
@@ -1865,8 +1865,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <translation>Användning:</translation>
     </message>
     <message>
-        <source>Send command to -server or xiond</source>
-        <translation>Skicka kommando till -server eller xiond</translation>
+        <source>Send command to -server or iond</source>
+        <translation>Skicka kommando till -server eller iond</translation>
     </message>
     <message>
         <source>List commands</source>
@@ -1881,12 +1881,12 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <translation>Inställningar:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: ion.conf)</source>
-        <translation>Ange konfigurationsfilen (standard: ion.conf)</translation>
+        <source>Specify configuration file (default: ioncoin.conf)</source>
+        <translation>Ange konfigurationsfilen (standard: ioncoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: xiond.pid)</source>
-        <translation>Ange pid filen (standard xiond.pid)</translation>
+        <source>Specify pid file (default: iond.pid)</source>
+        <translation>Ange pid filen (standard iond.pid)</translation>
     </message>
     <message>
         <source>Specify wallet file (within data directory)</source>
@@ -2009,8 +2009,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <translation>Tidstämpla debug utskriften</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>SSL-inställningar: (se Bitcoin-wikin för SSL-setup instruktioner)</translation>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
+        <translation>SSL-inställningar: (se Ion-wikin för SSL-setup instruktioner)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
@@ -2194,7 +2194,7 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
-        <translation>Otillräckligt med bitcoins</translation>
+        <translation>Otillräckligt med ions</translation>
     </message>
     <message>
         <source>Loading block index...</source>

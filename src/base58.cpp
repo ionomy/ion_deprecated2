@@ -204,11 +204,11 @@ namespace {
         bool operator()(const CNoDestination &no) const { return false; }
         bool operator()(const CStealthAddress &stxAddr) const { return false; }
     };
-    class CBitcoinAddressVisitor : public boost::static_visitor<bool> {
+    class CCryptoAddressVisitor : public boost::static_visitor<bool> {
     private:
-        CBitcoinAddress *addr;
+        CCryptoAddress *addr;
     public:
-        CBitcoinAddressVisitor(CBitcoinAddress *addrIn) : addr(addrIn) { }
+        CCryptoAddressVisitor(CCryptoAddress *addrIn) : addr(addrIn) { }
 
         bool operator()(const CKeyID &id) const { return addr->Set(id); }
         bool operator()(const CScriptID &id) const { return addr->Set(id); }
@@ -291,7 +291,7 @@ bool CIonSecret::SetString(const std::string& strSecret) {
     return SetString(strSecret.c_str());
 }
 
-/** base58-encoded Bitcoin addresses.
+/** base58-encoded Ion addresses.
  * Public-key-hash-addresses have version 0 (or 111 testnet).
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
  * Script-hash-addresses have version 5 (or 196 testnet).
@@ -299,28 +299,28 @@ bool CIonSecret::SetString(const std::string& strSecret) {
  */
 CChainParams::Base58Type pubkey_address = (CChainParams::Base58Type)0;
 CChainParams::Base58Type script_address = (CChainParams::Base58Type)5;
-bool CBitcoinAddress::Set(const CKeyID &id) {
+bool CCryptoAddress::Set(const CKeyID &id) {
     SetData(Params().Base58Prefix(pubkey_address), &id, 20);
     return true;
 }
 
-bool CBitcoinAddress::Set(const CScriptID &id) {
+bool CCryptoAddress::Set(const CScriptID &id) {
     SetData(Params().Base58Prefix(script_address), &id, 20);
     return true;
 }
 
-bool CBitcoinAddress::Set(const CTxDestination &dest) {
-    return boost::apply_visitor(CBitcoinAddressVisitor(this), dest);
+bool CCryptoAddress::Set(const CTxDestination &dest) {
+    return boost::apply_visitor(CCryptoAddressVisitor(this), dest);
 }
 
-bool CBitcoinAddress::IsValid() const {
+bool CCryptoAddress::IsValid() const {
     bool fCorrectSize = vchData.size() == 20;
     bool fKnownVersion = vchVersion == Params().Base58Prefix(pubkey_address) ||
                          vchVersion == Params().Base58Prefix(script_address);
     return fCorrectSize && fKnownVersion;
 }
 
-CTxDestination CBitcoinAddress::Get() const {
+CTxDestination CCryptoAddress::Get() const {
     if (!IsValid())
         return CNoDestination();
     uint160 id;
@@ -333,7 +333,7 @@ CTxDestination CBitcoinAddress::Get() const {
         return CNoDestination();
 }
 
-bool CBitcoinAddress::GetKeyID(CKeyID &keyID) const {
+bool CCryptoAddress::GetKeyID(CKeyID &keyID) const {
     if (!IsValid() || vchVersion != Params().Base58Prefix(pubkey_address))
         return false;
     uint160 id;
@@ -342,6 +342,6 @@ bool CBitcoinAddress::GetKeyID(CKeyID &keyID) const {
     return true;
 }
 
-bool CBitcoinAddress::IsScript() const {
+bool CCryptoAddress::IsScript() const {
     return IsValid() && vchVersion == Params().Base58Prefix(script_address);
 }

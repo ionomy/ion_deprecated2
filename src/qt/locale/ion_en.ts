@@ -376,7 +376,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+6"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This pane shows an example ion.conf template with the necessary masternode settings.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This pane shows an example ioncoin.conf template with the necessary masternode settings.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -394,9 +394,9 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
 </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+339"/>
+        <location filename="../iongui.cpp" line="+339"/>
         <source>Sign &amp;message...</source>
         <translation>Sign &amp;message...</translation>
     </message>
@@ -863,7 +863,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../bitcoin.cpp" line="+105"/>
+        <location filename="../ion.cpp" line="+105"/>
         <source>A fatal error occurred. Ion can no longer continue safely and will quit.</source>
         <translation>A fatal error occurred. Ion can no longer continue safely and will quit.</translation>
     </message>
@@ -960,7 +960,7 @@ Address: %4
     </message>
     <message>
         <location line="+5"/>
-        <source>Darksend Rounds</source>
+        <source>Stashedsend Rounds</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1041,7 +1041,7 @@ Address: %4
     </message>
     <message>
         <location line="+386"/>
-        <source>Non-anonymized input selected. &lt;b&gt;Darksend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use Darksend, please deselect all non-nonymized inputs first and then check Darksend checkbox again.</source>
+        <source>Non-anonymized input selected. &lt;b&gt;Stashedsend will be disabled.&lt;/b&gt;&lt;br&gt;&lt;br&gt;If you still want to use Stashedsend, please deselect all non-nonymized inputs first and then check Stashedsend checkbox again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1146,10 +1146,10 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     <message>
-        <location filename="../forms/darksendconfig.ui" line="+14"/>
-        <source>Configure Darksend</source>
+        <location filename="../forms/stashedsendconfig.ui" line="+14"/>
+        <source>Configure Stashedsend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1208,25 +1208,25 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../darksendconfig.cpp" line="+43"/>
+        <location filename="../stashedsendconfig.cpp" line="+43"/>
         <location line="+15"/>
         <location line="+15"/>
-        <source>Darksend Configuration</source>
+        <source>Stashedsend Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-29"/>
-        <source>Darksend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Ion&apos;s configuration screen.</source>
+        <source>Stashedsend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Ion&apos;s configuration screen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+15"/>
-        <source>Darksend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Ion&apos;s configuration screen.</source>
+        <source>Stashedsend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Ion&apos;s configuration screen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+15"/>
-        <source>Darksend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Bitcoin&apos;s configuration screen.</source>
+        <source>Stashedsend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Ion&apos;s configuration screen.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1832,12 +1832,12 @@ Please unlock your wallet before continuing</source>
     </message>
     <message>
         <location line="+3"/>
-        <source>Darksend rounds to use</source>
+        <source>Stashedsend rounds to use</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+20"/>
-        <source>This amount acts as a threshold to turn off Darksend once it&apos;s reached.</source>
+        <source>This amount acts as a threshold to turn off Stashedsend once it&apos;s reached.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2063,7 +2063,7 @@ Please unlock your wallet before continuing</source>
         <location line="+16"/>
         <location line="+11"/>
         <location line="+14"/>
-        <source>Darksend</source>
+        <source>Stashedsend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2078,7 +2078,7 @@ Please unlock your wallet before continuing</source>
     </message>
     <message>
         <location line="+20"/>
-        <source>Darksend Balance:</source>
+        <source>Stashedsend Balance:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2118,7 +2118,7 @@ Please unlock your wallet before continuing</source>
     </message>
     <message>
         <location line="+19"/>
-        <source>Try to manually submit a Darksend request.</source>
+        <source>Try to manually submit a Stashedsend request.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2133,7 +2133,7 @@ Please unlock your wallet before continuing</source>
     </message>
     <message>
         <location line="+13"/>
-        <source>Reset the current status of Darksend (can interrupt Darksend if it&apos;s in the process of Mixing, which can cost you money!)</source>
+        <source>Reset the current status of Stashedsend (can interrupt Stashedsend if it&apos;s in the process of Mixing, which can cost you money!)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2200,13 +2200,13 @@ Please unlock your wallet before continuing</source>
         <location line="-298"/>
         <location line="+300"/>
         <location line="+101"/>
-        <source>Start Darksend Mixing</source>
+        <source>Start Stashedsend Mixing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-399"/>
         <location line="+402"/>
-        <source>Stop Darksend Mixing</source>
+        <source>Stop Stashedsend Mixing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2270,7 +2270,7 @@ Please unlock your wallet before continuing</source>
     </message>
     <message>
         <location line="+5"/>
-        <source>Last Darksend message:
+        <source>Last Stashedsend message:
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -2281,32 +2281,32 @@ Please unlock your wallet before continuing</source>
     </message>
     <message>
         <location line="+20"/>
-        <source>Darksend was successfully reset.</source>
+        <source>Stashedsend was successfully reset.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>DarkSend Mixing</source>
+        <source>StashedSend Mixing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>DarkSend is not for production networks yet! Please continue at your own risk! Any loss of coins will be the sole liability of the user, would you like to continue?</source>
+        <source>StashedSend is not for production networks yet! Please continue at your own risk! Any loss of coins will be the sole liability of the user, would you like to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>If you don&apos;t want to see internal Darksend fees/transactions select &quot;Received By&quot; as Type on the &quot;Transactions&quot; tab.</source>
+        <source>If you don&apos;t want to see internal Stashedsend fees/transactions select &quot;Received By&quot; as Type on the &quot;Transactions&quot; tab.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+11"/>
-        <source>Darksend requires at least %1 to use.</source>
+        <source>Stashedsend requires at least %1 to use.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+14"/>
-        <source>Wallet is locked and user declined to unlock. Disabling Darksend.</source>
+        <source>Wallet is locked and user declined to unlock. Disabling Stashedsend.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2339,7 +2339,7 @@ Please unlock your wallet before continuing</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../bitcoinunits.cpp" line="+209"/>
+        <location filename="../ionunits.cpp" line="+209"/>
         <source>Amount</source>
         <translation type="unfinished">Amount</translation>
     </message>
@@ -2927,7 +2927,7 @@ Please unlock your wallet before continuing</source>
     </message>
     <message>
         <location line="+24"/>
-        <source>Darksend</source>
+        <source>Stashedsend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3015,7 +3015,7 @@ Please unlock your wallet before continuing</source>
     </message>
     <message>
         <location line="+4"/>
-        <source>(darksend requires this amount to be rounded up to the nearest %1).</source>
+        <source>(stashedsend requires this amount to be rounded up to the nearest %1).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3090,8 +3090,8 @@ Please unlock your wallet before continuing</source>
     </message>
     <message>
         <location line="-78"/>
-        <source>Wallet is currently unlocked for Staking or unlocked for DarkSend Anonymization only! 
-Please unlock your wallet manually or wait for DarkSend mixing to complete before continuing</source>
+        <source>Wallet is currently unlocked for Staking or unlocked for StashedSend Anonymization only! 
+Please unlock your wallet manually or wait for StashedSend mixing to complete before continuing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3736,7 +3736,7 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+2"/>
-        <source>Received via Darksend</source>
+        <source>Received via Stashedsend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3756,27 +3756,27 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+3"/>
-        <source>Darksend Denominate</source>
+        <source>Stashedsend Denominate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Darksend Collateral Payment</source>
+        <source>Stashedsend Collateral Payment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Darksend Make Collateral Inputs</source>
+        <source>Stashedsend Make Collateral Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Darksend Create Denominations</source>
+        <source>Stashedsend Create Denominations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Darksent</source>
+        <source>Stashedsent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3875,27 +3875,27 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+2"/>
-        <source>Darksent</source>
+        <source>Stashedsent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Darksend Make Collateral Inputs</source>
+        <source>Stashedsend Make Collateral Inputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Darksend Create Denominations</source>
+        <source>Stashedsend Create Denominations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Darksend Denominate</source>
+        <source>Stashedsend Denominate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Darksend Collateral Payment</source>
+        <source>Stashedsend Collateral Payment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4043,9 +4043,9 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
-        <location filename="../bitcoinstrings.cpp" line="+216"/>
+        <location filename="../ionstrings.cpp" line="+216"/>
         <source>Ion version</source>
         <translation>Ion version</translation>
     </message>
@@ -4056,8 +4056,8 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="-47"/>
-        <source>Send command to -server or xiond</source>
-        <translation>Send command to -server or xiond</translation>
+        <source>Send command to -server or iond</source>
+        <translation>Send command to -server or iond</translation>
     </message>
     <message>
         <location line="-36"/>
@@ -4086,7 +4086,7 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+1"/>
-        <source> Darksend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
+        <source> Stashedsend uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4096,17 +4096,17 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+3"/>
-        <source> Unable to locate enough Darksend denominated funds for this transaction.</source>
+        <source> Unable to locate enough Stashedsend denominated funds for this transaction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source> Unable to locate enough Darksend non-denominated funds for this transaction that are not equal 1000 ION.</source>
+        <source> Unable to locate enough Stashedsend non-denominated funds for this transaction that are not equal 1000 ION.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source> Unable to locate enough Darksend non-denominated funds for this transaction.</source>
+        <source> Unable to locate enough Stashedsend non-denominated funds for this transaction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4116,7 +4116,7 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+10"/>
-        <source>Disable all Darksend and Stealth Messaging related functionality (0-1, default: 0)</source>
+        <source>Disable all Stashedsend and Stealth Messaging related functionality (0-1, default: 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4126,7 +4126,7 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+3"/>
-        <source>Enable use of automated darksend for funds stored in this wallet (0-1, default: 0)</source>
+        <source>Enable use of automated stashedsend for funds stored in this wallet (0-1, default: 0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4151,7 +4151,7 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+8"/>
-        <source>Provide liquidity to Darksend by infrequently mixing coins on a continual basis (0-100, default: 0, 1=very frequent, high fees, 100=very infrequent, low fees)</source>
+        <source>Provide liquidity to Stashedsend by infrequently mixing coins on a continual basis (0-100, default: 0, 1=very frequent, high fees, 100=very infrequent, low fees)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4166,7 +4166,7 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+12"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Transfercoin will not work properly.</source>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Ion will not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4216,22 +4216,22 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+2"/>
-        <source>Darksend is idle.</source>
+        <source>Stashedsend is idle.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Darksend options:</source>
+        <source>Stashedsend options:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Darksend request complete:</source>
+        <source>Stashedsend request complete:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Darksend request incomplete:</source>
+        <source>Stashedsend request incomplete:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4276,7 +4276,7 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+3"/>
-        <source>Error: You already have pending entries in the Darksend pool</source>
+        <source>Error: You already have pending entries in the Stashedsend pool</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4356,12 +4356,12 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+2"/>
-        <source>Last Darksend was too recent.</source>
+        <source>Last Stashedsend was too recent.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Last successful Darksend action was too recent.</source>
+        <source>Last successful Stashedsend action was too recent.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4506,8 +4506,8 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify configuration file (default: ion.conf)</source>
-        <translation>Specify configuration file (default: ion.conf)</translation>
+        <source>Specify configuration file (default: ioncoin.conf)</source>
+        <translation>Specify configuration file (default: ioncoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -4516,8 +4516,8 @@ Please unlock your wallet manually or wait for DarkSend mixing to complete befor
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify pid file (default: xiond.pid)</source>
-        <translation>Specify pid file (default: xiond.pid)</translation>
+        <source>Specify pid file (default: iond.pid)</source>
+        <translation>Specify pid file (default: iond.pid)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -4696,8 +4696,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Ion Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+6"/>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</translation>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
+        <translation>SSL options: (see the Ion Wiki for SSL setup instructions)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -4931,7 +4931,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Ion Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+7"/>
-        <source>Value more than Darksend pool maximum allows.</source>
+        <source>Value more than Stashedsend pool maximum allows.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

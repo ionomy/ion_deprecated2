@@ -87,7 +87,7 @@ public:
     }
 };
 
-/** Interface to Bitcoin wallet from Qt view code. */
+/** Interface to Ion wallet from Qt view code. */
 class WalletModel : public QObject
 {
     Q_OBJECT
@@ -225,7 +225,7 @@ private:
     EncryptionStatus cachedEncryptionStatus;
     int cachedNumBlocks;
     int cachedTxLocks;
-    int cachedDarksendRounds;
+    int cachedStashedsendRounds;
 
     QTimer *pollTimer;
 

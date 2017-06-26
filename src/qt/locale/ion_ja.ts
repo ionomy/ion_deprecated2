@@ -229,7 +229,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>メッセージの署名... (&amp;m)</translation>
@@ -713,7 +713,7 @@ This label turns red, if the priority is smaller than "medium".
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -1854,7 +1854,7 @@ This label turns red, if the priority is smaller than "medium".
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Ion version</source>
         <translation>ブラックコインバージョン</translation>
@@ -1864,8 +1864,8 @@ This label turns red, if the priority is smaller than "medium".
         <translation>使用法:</translation>
     </message>
     <message>
-        <source>Send command to -server or xiond</source>
-        <translation>-server か xiondへコマンドを送る。</translation>
+        <source>Send command to -server or iond</source>
+        <translation>-server か iondへコマンドを送る。</translation>
     </message>
     <message>
         <source>List commands</source>
@@ -1880,12 +1880,12 @@ This label turns red, if the priority is smaller than "medium".
         <translation>オプション:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: ion.conf)</source>
-        <translation>設定ファイルを特定する (デファルト: ion.conf)</translation>
+        <source>Specify configuration file (default: ioncoin.conf)</source>
+        <translation>設定ファイルを特定する (デファルト: ioncoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: xiond.pid)</source>
-        <translation>pid ファイルを特定する (デフォルト: xiond.pid)</translation>
+        <source>Specify pid file (default: iond.pid)</source>
+        <translation>pid ファイルを特定する (デフォルト: iond.pid)</translation>
     </message>
     <message>
         <source>Specify wallet file (within data directory)</source>
@@ -2008,8 +2008,8 @@ This label turns red, if the priority is smaller than "medium".
         <translation>デバッグのアウトプットはタイムスタンプで先頭に追加する</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>SSL オプション: (SSLのセットアップ手順は Bitcoin Wiki をご覧下さい)</translation>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
+        <translation>SSL オプション: (SSLのセットアップ手順は Ion Wiki をご覧下さい)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>

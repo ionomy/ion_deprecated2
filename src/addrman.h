@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef _BITCOIN_ADDRMAN
-#define _BITCOIN_ADDRMAN 1
+#ifndef _ION_ADDRMAN
+#define _ION_ADDRMAN 1
 
 #include "netbase.h"
 #include "protocol.h"

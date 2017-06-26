@@ -2,6 +2,10 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#if defined(HAVE_CONFIG_H)
+#include "config/ion-config.h"
+#endif
+
 #include "db.h"
 #include "net.h"
 #include "main.h"
@@ -9,7 +13,7 @@
 #include "chainparams.h"
 #include "core.h"
 #include "ui_interface.h"
-#include "darksend.h"
+#include "stashedsend.h"
 #include "wallet.h"
 
 #ifdef WIN32
@@ -384,7 +388,7 @@ CNode* FindNode(const CService& addr)
     return NULL;
 }
 
-CNode* ConnectNode(CAddress addrConnect, const char *pszDest, bool darkSendMaster)
+CNode* ConnectNode(CAddress addrConnect, const char *pszDest, bool stashedSendMaster)
 {
     if (pszDest == NULL) {
         if (IsLocal(addrConnect))
@@ -394,8 +398,8 @@ CNode* ConnectNode(CAddress addrConnect, const char *pszDest, bool darkSendMaste
         CNode* pnode = FindNode((CService)addrConnect);
         if (pnode)
         {
-            if(darkSendMaster)
-                pnode->fDarkSendMaster = true;
+            if(stashedSendMaster)
+                pnode->fStashedSendMaster = true;
 
             pnode->AddRef();
             return pnode;
@@ -639,7 +643,7 @@ void CNode::copyStats(CNodeStats &stats)
         nPingUsecWait = GetTimeMicros() - nPingUsecStart;
     }
 
-    // Raw ping time is in microseconds, but show it to user as whole seconds (Bitcoin users should be well used to small numbers with many decimal places by now :)
+    // Raw ping time is in microseconds, but show it to user as whole seconds (Ion users should be well used to small numbers with many decimal places by now :)
     stats.dPingTime = (((double)nPingUsecTime) / 1e6);
     stats.dPingWait = (((double)nPingUsecWait) / 1e6);
 

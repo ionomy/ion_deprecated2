@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The DarkCoin developers
-// Copyright (c) 2017 Empinel / The Ion Developers
+// Copyright (c) 2017 Empinel / The Bitcoin Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,7 +15,7 @@
 #include "main.h"
 #include "init.h"
 #include "wallet.h"
-#include "darksend.h"
+#include "stashedsend.h"
 
 // Responsible for activating the masternode and pinging the network
 class CActiveMasternode

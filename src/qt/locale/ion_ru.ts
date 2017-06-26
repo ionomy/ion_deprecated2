@@ -229,7 +229,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>BitcoinGUI</name>
+    <name>IonGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Подписать сообщение</translation>
@@ -694,7 +694,7 @@ Address: %4
     </message>
     </context>
 <context>
-    <name>DarksendConfig</name>
+    <name>StashedsendConfig</name>
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -1811,7 +1811,7 @@ Address: %4
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>ion-core</name>
     <message>
         <source>Ion version</source>
         <translation>Версия</translation>
@@ -1821,8 +1821,8 @@ Address: %4
         <translation>Использование:</translation>
     </message>
     <message>
-        <source>Send command to -server or xiond</source>
-        <translation>Отправить команду на -server или xiond</translation>
+        <source>Send command to -server or iond</source>
+        <translation>Отправить команду на -server или iond</translation>
     </message>
     <message>
         <source>List commands</source>
@@ -1838,12 +1838,12 @@ Address: %4
         <translation>Опции:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: ion.conf)</source>
-        <translation>Указать конфигурационный файл (по умолчанию: ion.conf)</translation>
+        <source>Specify configuration file (default: ioncoin.conf)</source>
+        <translation>Указать конфигурационный файл (по умолчанию: ioncoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: xiond.pid)</source>
-        <translation>Указать pid-файл (по умолчанию: xiond.pid)</translation>
+        <source>Specify pid file (default: iond.pid)</source>
+        <translation>Указать pid-файл (по умолчанию: iond.pid)</translation>
     </message>
     <message>
         <source>Specify wallet file (within data directory)</source>
@@ -1966,9 +1966,9 @@ Address: %4
         <translation>Дописывать отметки времени к отладочному выводу</translation>
     </message>
     <message>
-        <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
+        <source>SSL options: (see the Ion Wiki for SSL setup instructions)</source>
         <translation>
-Параметры SSL: (см. Bitcoin Wiki для инструкций по настройке SSL)</translation>
+Параметры SSL: (см. Ion Wiki для инструкций по настройке SSL)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>

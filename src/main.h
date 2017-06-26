@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2017 The Bitcoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef BITCOIN_MAIN_H
-#define BITCOIN_MAIN_H
+#ifndef ION_MAIN_H
+#define ION_MAIN_H
 
 #include "proofs.h"
 #include "core.h"
@@ -16,8 +16,8 @@
 
 class CValidationState;
 
-static const int64_t DARKSEND_COLLATERAL = (0.01*COIN);
-static const int64_t DARKSEND_POOL_MAX = (9999.99*COIN);
+static const int64_t STASHEDSEND_COLLATERAL = (0.01*COIN);
+static const int64_t STASHEDSEND_POOL_MAX = (9999.99*COIN);
 
 #define INSTANTX_SIGNATURES_REQUIRED           20
 #define INSTANTX_SIGNATURES_TOTAL              30
@@ -60,7 +60,15 @@ static const int MAX_BLOCKS_IN_TRANSIT_PER_PEER = 128;
 /** Timeout in seconds before considering a block download peer unresponsive. */
 static const unsigned int BLOCK_DOWNLOAD_TIMEOUT = 60;
 
-inline int64_t FutureDrift(int64_t nTime) { return nTime + 16200; }
+inline bool IsProtocolV1(int nHeight){ return nHeight <= Params().Fork1Height(); }
+inline bool IsProtocolV2(int nHeight){ return nHeight > Params().Fork1Height(); }  
+
+inline bool IsDriftReduced(int64_t nTime) { return nTime > Params().Fork1Time(); } // Drifting Bug Fix, hardfork on Thursday, June 15, 2017 3:41:20 PM GMT
+
+inline int64_t FutureDriftV2(int64_t nTime) { return nTime + 15; }
+inline int64_t FutureDriftV1(int64_t nTime) { return IsDriftReduced(nTime) ? nTime + 16200 : FutureDriftV2(nTime); }
+
+inline int64_t FutureDrift(int64_t nTime, int nHeight) { return IsProtocolV1(nHeight) ? FutureDriftV1(nTime) : FutureDriftV2(nTime); }
 
 /** "reject" message codes **/
 static const unsigned char REJECT_INVALID = 0x10;
@@ -300,14 +308,14 @@ public:
 
     bool IsCoinStake() const
     {
-        // ppcoin: the coin stake transaction is marked with the first output empty
+        // ion: the coin stake transaction is marked with the first output empty
         return (vin.size() > 0 && (!vin[0].prevout.IsNull()) && vout.size() >= 2 && vout[0].IsEmpty());
     }
 
     // Compute priority, given priority of inputs and (optionally) tx size
     double ComputePriority(double dPriorityInputs, unsigned int nTxSize=0) const;
 
-    /** Amount of bitcoins spent by this transaction.
+    /** Amount of ions spent by this transaction.
         @return sum of all outputs (note: does not include fees)
      */
     int64_t GetValueOut() const
@@ -322,7 +330,7 @@ public:
 		return nValueOut;
     }
 
-    /** Amount of bitcoins coming in to this transaction
+    /** Amount of ions coming in to this transaction
         Note that lightweight clients may not know anything besides the hash of previous transactions,
         so may not be able to calculate this.
 
@@ -628,7 +636,7 @@ public:
     // network and disk
     std::vector<CTransaction> vtx;
 
-    // ppcoin: block signature - signed by one of the coin base txout[N]'s owner
+    // ion: block signature - signed by one of the coin base txout[N]'s owner
     std::vector<unsigned char> vchBlockSig;
 
     // memory only
@@ -705,7 +713,7 @@ public:
         return nEntropyBit;
     }
 
-    // ppcoin: two types of block: proof-of-work or proof-of-stake
+    // ion: two types of block: proof-of-work or proof-of-stake
     bool IsProofOfStake() const
     {
         return (vtx.size() > 1 && vtx[1].IsCoinStake());
@@ -721,7 +729,7 @@ public:
         return IsProofOfStake()? std::make_pair(vtx[1].vin[0].prevout, vtx[1].nTime) : std::make_pair(COutPoint(), (unsigned int)0);
     }
 
-    // ppcoin: get max transaction timestamp
+    // ion: get max transaction timestamp
     int64_t GetMaxTransactionTime() const
     {
         int64_t maxTransactionTime = 0;
@@ -893,13 +901,13 @@ public:
     CBlockIndex* pnext;
     unsigned int nFile;
     unsigned int nBlockPos;
-    uint256 nChainTrust; // ppcoin: trust score of block chain
+    uint256 nChainTrust; // ion: trust score of block chain
     int nHeight;
 
     int64_t nMint;
     int64_t nMoneySupply;
 
-    unsigned int nFlags;  // ppcoin: block index flags
+    unsigned int nFlags;  // ion: block index flags
     enum
     {
         BLOCK_PROOF_OF_STAKE = (1 << 0), // is proof-of-stake block

@@ -5,6 +5,10 @@
 #ifndef TX_CRYPTO_COMMON_H
 #define TX_CRYPTO_COMMON_H
 
+#if defined(HAVE_CONFIG_H)
+#include "config/ion-config.h"
+#endif
+
 #include <stdint.h>
 
 #if defined(HAVE_ENDIAN_H)
