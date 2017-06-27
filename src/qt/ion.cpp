@@ -299,7 +299,7 @@ int main(int argc, char *argv[])
                 window.setWalletModel(0);
                 guiref = 0;
             }
-            // Shutdown the core and its threads, but don't exit Ion-Qt here
+            // Shutdown the core and its threads, but don't exit ion-Qt here
             threadGroup.interrupt_all();
             threadGroup.join_all();
             Shutdown();

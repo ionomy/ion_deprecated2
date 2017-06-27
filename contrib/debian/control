@@ -53,7 +53,7 @@ Description: peer-to-peer network based digital currency - Qt GUI
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides Ion-Qt, a GUI for Ion based on Qt.
+ This package provides ion-Qt, a GUI for Ion based on Qt.
 
 Package: ion-tx
 Architecture: any

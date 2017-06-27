@@ -24,7 +24,7 @@ Unpack the files into a directory, and then run ion-qt.exe.
 
 ### OS X
 
-Drag Ion-Core to your applications folder, and then run Ion-Core.
+Drag ion-Core to your applications folder, and then run ion-Core.
 
 ### Need Help?
 

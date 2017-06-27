@@ -90,7 +90,7 @@ namespace GUIUtil
 
     // Open debug.log
     void openDebugLogfile();
-    
+
     // Browse backup folder
     void showBackups();
 
@@ -176,7 +176,7 @@ namespace GUIUtil
     QString formatTimeOffset(int64_t nTimeOffset);
 
 
-    /** Help message for Ion-Qt, shown with --help. */
+    /** Help message for ion-Qt, shown with --help. */
     class HelpMessageBox : public QMessageBox
     {
         Q_OBJECT
