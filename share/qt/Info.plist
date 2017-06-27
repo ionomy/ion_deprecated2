@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Ion-Qt</string>
-  
+  <string>ion-Qt</string>
+
   <key>CFBundleName</key>
-  <string>Ion-Qt</string>
+  <string>ion-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.ionfoundation.Ion-Qt</string>
+  <string>org.ionfoundation.ion-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -99,7 +99,7 @@
 
   <key>LSAppNapIsDisabled</key>
     <string>True</string>
-  
+
   <key>LSApplicationCategoryType</key>
     <string>public.app-category.finance</string>
 </dict>
