@@ -1,6 +1,7 @@
 <p align="center">
   <img src="https://github.com/Ion-Network/Ion-Core/blob/master/src/qt/res/images/splash.png" alt="Ion_Icon"/>
 </p>
+
 # **Ion-Core (ION) v2.1.6**
 
 [![Build Status](https://travis-ci.org/ionomy/ion.svg?branch=master)](https://travis-ci.org/ionomy/ion)
@@ -57,15 +58,11 @@ Copyright (c) 2017 🐼CEVAP🐼
 * Total Coins: 55,000,000 ION
 * Block Size: 2 Mega-bytes (MB)
 
-
 Ion is a digital currency that enables instant payments to anyone, anywhere in the world. Ion uses peer-to-peer technology over ClearNet to operate with no central authority (centralisation): managing transactions and issuing currency (ION) are carried out collectively by the Ion network. Ion is the name of open source software which enables the use of the currency ION.
-
-
 
 **MainNet Parameters**
 P2P Port = 12700
 RPC Port = 12705
-
 
 **TestNet Parameters**
 P2P Port = 27170
@@ -85,23 +82,11 @@ for example, when specifying the the path of the dependency:
 Here BDB_PREFIX must absolute path - it is defined using $(pwd) which ensures
 the usage of the absolute path.
 
-<<<<<<< HEAD
-BUILD QT AND IOND FOR LINUX (Method 1)
-=======
 Build ION-QT and IOND for LINUX (Method 1)
->>>>>>> master
 --------------------
     ./autogen.sh;./configure;make
 
 
-<<<<<<< HEAD
-BUILD QT AND IOND FOR WINDOWS 64 Bit (Method 1)
---------------------
-To build executables for Windows 64-bit, install the following dependencies:
-    sudo apt-get install g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
-
-Then build using:
-=======
 Build ION-QT and IOND for WINDOWS 64 Bit (Method 1)
 --------------------
 To build executables for Windows 64-bit, install the following dependencies:
@@ -110,21 +95,12 @@ To build executables for Windows 64-bit, install the following dependencies:
 
 Then build using:
 
->>>>>>> master
     cd depends
     make HOST=x86_64-w64-mingw32
     cd ..
     CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/
     make
 
-<<<<<<< HEAD
-BUILD QT AND IOND FOR WINDOWS 32 Bit (Method 1)
---------------------
-To build executables for Windows 64-bit, install the following dependencies:
-    sudo apt-get install g++-mingw-w64-i686 mingw-w64-i686-dev
-
-Then build using:
-=======
 Build ION-QT and IOND for WINDOWS 32 Bit (Method 1)
 --------------------
 To build executables for Windows 64-bit, install the following dependencies:
@@ -133,7 +109,6 @@ To build executables for Windows 64-bit, install the following dependencies:
 
 Then build using:
 
->>>>>>> master
     cd depends
     make HOST=i686-w64-mingw32
     cd ..
@@ -164,6 +139,7 @@ To Build (without QT Version) (Method 3)
 ```bash
 autoreconf --install ; ./configure ; make
 ```
+
 This will build ion without QT (no GUI) if all dependencies are met.
 
 Dependencies
@@ -208,8 +184,8 @@ for Ubuntu 12.04 and later or Debian 7 and later libboost-all-dev has to be inst
  db4.8 packages are available [here](https://launchpad.net/~silknetwork/+archive/ubuntu/silknetwork).
  You can add the repository using the following command:
 
-        sudo add-apt-repository ppa:silknetwork/silknetwork
-        sudo apt-get update
+    sudo add-apt-repository ppa:silknetwork/silknetwork
+    sudo apt-get update
 
  Ubuntu 12.04 and later have packages for libdb5.1-dev and libdb5.1++-dev,
  but using these will break binary wallet compatibility, and is not recommended.
@@ -261,8 +237,7 @@ symbols, which reduces the executable size by about 90%.
 miniupnpc
 ---------
 
-[miniupnpc](http://miniupnp.free.fr/) may be used for UPnP port mapping.  It can be downloaded from [here](
-http://miniupnp.tuxfamily.org/files/).  UPnP support is compiled in and
+[miniupnpc](http://miniupnp.free.fr/) may be used for UPnP port mapping.  It can be downloaded from [here](http://miniupnp.tuxfamily.org/files/).  UPnP support is compiled in and
 turned off by default.  See the configure options for upnp behavior desired:
 
     --without-miniupnpc      No UPnP support miniupnp not required
@@ -282,27 +257,30 @@ Berkeley DB
 -----------
 It is recommended to use Berkeley DB 4.8. If you have to build it yourself:
 
-```bash
-SILK_ROOT=$(pwd)
+    bash
+    SILK_ROOT=$(pwd)
 
-# Pick some path to install BDB to, here we create a directory within the silk directory
-BDB_PREFIX="${SILK_ROOT}/db4"
-mkdir -p $BDB_PREFIX
+### Pick some path to install BDB to, here we create a directory within the silk directory
 
-# Fetch the source and verify that it is not tampered with
-wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
-echo '12edc0df75bf9abd7f82f821795bcee50f42cb2e5f76a6a281b85732798364ef  db-4.8.30.NC.tar.gz' | sha256sum -c
-# -> db-4.8.30.NC.tar.gz: OK
-tar -xzvf db-4.8.30.NC.tar.gz
+    BDB_PREFIX="${SILK_ROOT}/db4"
+    mkdir -p $BDB_PREFIX
 
-# Build the library and install to our prefix
-cd db-4.8.30.NC/build_unix/
-#  Note: Do a static build so that it can be embedded into the exectuable, instead of having to find a .so at runtime
-../dist/configure --prefix=/usr/local --enable-cxx
-make
-sudo make install
+### Fetch the source and verify that it is not tampered with
 
-```
+    wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
+    echo '12edc0df75bf9abd7f82f821795bcee50f42cb2e5f76a6a281b85732798364ef  db-4.8.30.NC.tar.gz' | sha256sum -c
+    # -> db-4.8.30.NC.tar.gz: OK
+    tar -xzvf db-4.8.30.NC.tar.gz
+
+### Build the library and install to our prefix
+
+    cd db-4.8.30.NC/build_unix/
+
+###  Note: Do a static build so that it can be embedded into the exectuable, instead of having to find a .so at runtime
+
+    ../dist/configure --prefix=/usr/local --enable-cxx
+    make
+    sudo make install
 
 **Note**: You only need Berkeley DB if the wallet is enabled (see the section *Disable-Wallet mode* below).
 
@@ -356,7 +334,3 @@ Hardening enables the following features:
     RW- R-- RW-
 
     The STK RW- means that the stack is readable and writeable but not executable.
-<<<<<<< HEAD
-
-=======
->>>>>>> master
